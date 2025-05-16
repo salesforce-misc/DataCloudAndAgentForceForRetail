@@ -1,0 +1,70 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "AgentAuthenticator",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"12112cb4-6859-4870-ac14-2c44d2bf1522\",\"columns\":[{\"UUID\":\"c3c768d8-bb03-420a-8c38-6b7ddcb668e4\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "flowArguments" : "[{\"label\":\"sessionKey\",\"dataType\":\"String\",\"supportsRecordId\":false,\"inputType\":\"text\",\"name\":\"sessionKey\",\"type\":\"String\",\"value\":\"{!sessionKey}\"}]",
+                "flowName" : "{\"flowName\":\"Authenticate_Agentforce_Service_Agent\",\"flowLabel\":\"Authenticate Agentforce Service Agent\"}"
+              },
+              "definition" : "dxp_flow:flow",
+              "id" : "17fa01ae-1fc3-4ba3-80d4-a6d2b1efd1fd",
+              "type" : "component"
+            } ],
+            "id" : "c3c768d8-bb03-420a-8c38-6b7ddcb668e4",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "12112cb4-6859-4870-ac14-2c44d2bf1522",
+          "type" : "component"
+        } ],
+        "id" : "7bc07fd7-cdf5-46a2-8ba7-a7c0d4b40c8a",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "pageTitle" : "AgentAuthenticator",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "92b37af7-7bdd-46d8-8be9-622936d24a32",
+          "type" : "component"
+        } ],
+        "id" : "35b07785-cc9b-4557-a6c9-29d535042718",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "5625ecb3-c593-41ff-b437-3b310df08894",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-agentauthenticator"
+  },
+  "urlName" : "agentauthenticator"
+}

@@ -1,0 +1,5 @@
+{
+  "apiName" : "My_Profile",
+  "type" : "sfdc_cms__route",
+  "path" : "routes"
+}

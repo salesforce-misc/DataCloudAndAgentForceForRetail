@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Interacts with the Customer to process a Product return.</description>
+    <developerName>Return_Request_Assistance</developerName>
+    <genAiFunctions>
+        <functionName>Fetch_Order_Details_for_Returning</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If customer says I would like to process a return first run &apos;Fetch Order Details for Returning&apos; action by passing Contact context variable as contactId to input .
+Display the list of product from the retrieved order details.
+Once the product details are displayed, 
+send a seperate message asking customer,&quot;Can you provide the order number and product name for the return?&quot;</description>
+        <developerName>instruction_ifcustomer0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Return Request Assistance</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only handle tasks related to returning a Product when the Customer requests for a return. This includes fetching the Products Ordered by the Customer and processing return of the Product identified by the Customer.</scope>
+</GenAiPlugin>

@@ -1,0 +1,74 @@
+<template>
+    <!-- <div class="box-container"> -->
+    <lightning-card>
+        <!-- Title Section -->
+        <div class="title-section">
+            <!-- <lightning-icon icon-name={expandIcon} size="small"></lightning-icon> -->
+            <lightning-icon icon-name={expandIcon} size="xx-small" class="icon-right"></lightning-icon>
+             <div class="title-text">
+            <h2>Retail Setup</h2>
+            <p>Lay the groundwork to get started.</p>
+             </div>
+             
+        </div> 
+        <!-- Accordion -->
+        <!-- <lightning-accordion active-section-name={activeSection} onsectiontoggle={handleToggleSection}> -->
+            <!-- <lightning-accordion-section name="setupAccordion" label="Set up Data Cloud"> -->
+                <template for:each={steps} for:item="step">
+                    <div key={step.id} class="step-container">
+                        <div class="step-header">
+                            <!-- <lightning-input type="radio" name="setup-step" checked={step.active} data-id={step.id} onchange={handleStepClick}>
+                            </lightning-input>  -->
+                            <div class="step-info">
+                                <strong>{step.title}</strong>
+                                <span class="description">{step.description}</span>
+                                <template if:true={step.helpText}>
+                                    <a href={step.helpText} target="_blank" class="help-link">Learn More in Help</a>
+                                </template>
+                            </div>
+                             <div class="step-actions">
+                                <lightning-button disabled={step.disable} variant="brand-outline" label={step.buttonLabel}  onclick={handleClick} data-id={step.id} class="circle slds-m-left_x-small"></lightning-button>
+                                </div>
+                           
+                                </div>
+                            </div>
+                        </template>
+                    <!-- </lightning-accordion-section>  -->
+                <!-- </lightning-accordion>  -->
+            </lightning-card>
+        <!-- </div> -->
+</template>
+ 
+<!-- <template>
+    <lightning-card title = "Installation Settings" icon-name = "utility:settings">
+   
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-height: 50vh;">
+            <div style="display: flex; align-items: center; gap: 10px; width: 200px;">
+                <span class="slds-form-element__label"  style="flex-shrink: 0; width: 100px; text-align: left;">Installation Settings</span>
+ <lightning-input type= "toggle" onchange={handleInstallSettingToggle} disabled={isToggled} > </lightning-input>
+ </div>
+<div style="display: flex; align-items: center; gap: 10px; width: 200px;">
+<span class="slds-form-element__label" style="flex-shrink: 0; width: 100px; text-align: left;">Enable Sunshine Settings</span>
+ <lightning-input type= "toggle"  onchange={handleSunshineSettingToggle} disabled={isSunSHineToggled} > </lightning-input>
+  </div>
+   </div>
+     
+   
+</lightning-card>
+<lightning-card>
+    <div class="setup-section-horizontal">
+        <lightning-input class={checkboxClass} type="checkbox" label="Connect Another" onchange={handleToggleOrg} checked={isCheckboxChecked}></lightning-input>
+        <p class="inline-text">Connect additional Salesforce orgs</p>
+        <lightning-button label="Connect To Org" onclick={handleConnectOrg} disabled={disableConnectOrg}></lightning-button>
+    </div>
+ 
+    <div class="setup-section-horizontal">
+        <lightning-input class={checkboxClass} type="checkbox" label="Connect Another" onchange={handleToggleOrg} checked={isCheckboxChecked}></lightning-input>
+        <p class="inline-text">Connect additional Salesforce orgs</p>
+        <lightning-button label="Connect To Org" onclick={handleConnectOrg} disabled={disableConnectOrg}></lightning-button>
+    </div>
+ 
+</lightning-card>
+ 
+ 
+</template> -->

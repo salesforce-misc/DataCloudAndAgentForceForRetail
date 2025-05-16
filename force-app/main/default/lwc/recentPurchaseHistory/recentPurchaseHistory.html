@@ -1,0 +1,42 @@
+<template>
+    <lightning-card icon-name="standard:store" title="Recent Purchases">
+        <!-- Display products if data is available -->
+        <template if:true={products}>
+            <lightning-layout multiple-rows>
+                <template for:each={products} for:item="item">
+                    <lightning-layout-item key={item.productName} size="12" padding="around-small">
+                        <lightning-card>
+                            <lightning-layout vertical-align="start">
+                                <lightning-layout-item size="3" padding="around-small">
+                                    <!-- Use standard <img> tag to display the image -->
+                                    <img 
+                                        src={item.imageUrl} 
+                                        alt="Product Image" 
+                                        style="width: 100%; max-width: 180px; height: auto; object-fit: contain;"> 
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="9" padding="around-small">
+                                    <p class="slds-p-horizontal_small">
+                                        <strong class="product-name">{item.productName}</strong><br />
+                                        <strong>Description:</strong> {item.description}<br />
+                                        <strong>Quantity:</strong> {item.quantity}<br />
+                                        <strong>Price:</strong> ${item.unitPrice}<br />
+                                        <strong>Order Date:</strong> {item.orderDate}
+                                    </p>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-card>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </template>
+
+        <template if:true={error}>
+            <p class="slds-text-color_error slds-p-around_medium">Error: {error}</p>
+        </template>
+        
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading purchases..." size="medium"></lightning-spinner>
+        </template>
+    </lightning-card>
+</template>

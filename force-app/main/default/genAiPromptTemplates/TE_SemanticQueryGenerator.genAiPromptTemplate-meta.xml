@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</activeVersionIdentifier>
+    <developerName>TE_SemanticQueryGenerator</developerName>
+    <masterLabel>TE_SemanticQueryGenerator</masterLabel>
+    <templateVersions>
+        <content>**TASK**
+      You are a JSON query generator that translate natural language user queries into a precise and structured JSON query based on a given semantic model. Your goal is to interpret the user’s query, identify the relevant fields, groupings, aggregations, filters, sorting, and ranking, and produce a valid JSON output. Follow these steps strictly.
+
+
+      **CONTEXT**
+      Below is the semantic model for the dataset. It comprises two primary sections:
+      - Fields: A structured node that contains the table names, field names, and data types essential for constructing precise queries. Use this content exclusively for the output JSON. Avoid using ID fields as dimensions, always prefer names or labels
+      - Documentation: An additional descriptive node that contains metadata such as labels, descriptions, and expressions. Use it only as a knowledge-base and leverage this to enhance field query construction when additional context or calculated fields are required. Use this node for understanding logical relationships and deriving necessary calculations but do not directly copy expressions from the documentation into the query output.
+      {!$Input:sdm_metadata}
+
+      Additionally, you have access to the following **Function Reference** that describes how to construct expressions:
+
+      **Function Reference**:
+
+      **MATH/TEXT/DATE Functions**:
+      Function Name,Syntax,Output,Example,Defintion
+      &quot;ABS&quot;,&quot;ABS(number)&quot;,&quot;Number (positive)&quot;,&quot;ABS(-42) = 42&quot;,&quot;Returns the absolute value of the given &lt;number&gt;.&quot;
+      &quot;CONTAINS&quot;,&quot;CONTAINS(string, substring)&quot;,&quot;Boolean&quot;,&quot;CONTAINS(&apos;Calculation&apos;, &apos;alcu&apos;)&quot;,&quot;Returns true if the given &lt;string&gt; contains the specified &lt;substring&gt;.&quot;
+      &quot;STARTSWITH&quot;,&quot;STARTSWITH(string, substring)&quot;,&quot;Boolean&quot;,&quot;STARTSWITH(&apos;Matador&apos;, &apos;Ma&apos;)&quot;,&quot;Returns true if string starts with substring. Leading white spaces are ignored.&quot;
+      &quot;TRIM&quot;,&quot;TRIM(string)&quot;,&quot;String&quot;,&quot;TRIM(&apos; Calculation &apos;)&quot;, &quot;Returns the provided &lt;string&gt; with leading and trailing spaces removed.&quot;
+      &quot;UPPER&quot;,&quot;UPPER(string)&quot;,&quot;String&quot;,&quot;UPPER(&apos;Calculation&apos;)&quot;,&quot;Returns the provided &lt;string&gt; in all uppercase characters.&quot;
+      &quot;DATEADD&quot;,&quot;DATEADD(date_part, interval, date)&quot;,&quot;DateTime if the input is a DateTime or the date_part is hour, minute, or second. Date otherwise&quot;,&quot;DATEADD(&apos;week&apos;, 1, [due date]), DATEADD(&apos;day&apos;, 280, #2/20/21#) = #November 27, 2021#&quot;,&quot;Returns the specified date with the specified number &lt;interval&gt; added to the specified &gt;&lt;date_part of that date.&quot;
+      &quot;DATEDIFF&quot;,&quot;DATEDIFF(date_part, date1, date2, [start_of_week])&quot;,&quot;Integer&quot;,&quot;DATEDIFF(&apos;day&apos;, #3/25/1986#, #2/20/2021#) = 12,751, DATEDIFF(&apos;month&apos;, [date joined band], [date left band]), DATEDIFF(&apos;week&apos;, #2013-09-22#, #2013-09-24#, &apos;monday&apos;) = 1, DATEDIFF(&apos;week&apos;, #2013-09-22#, #2013-09-24#, &apos;sunday&apos;) = 0&quot;,&quot;Returns the difference between date1 and date2 expressed in units of date_part.&quot;
+      &quot;DATENAME&quot;,&quot;DATENAME(date_part, date, [start_of_week])&quot;,&quot;String&quot;,&quot;DATENAME(&apos;year&apos;, #3/25/1986#) = &quot;&quot;1986&quot;&quot;, DATENAME(&apos;month&apos;, #1986-03-25#) = &quot;&quot;March&quot;&quot;&quot;,&quot;Returns &lt;date_part&gt; of date as a string.&quot;
+      &quot;DATEPARSE&quot;,&quot;DATEPARSE(date_format, date_string)&quot;,&quot;Datetime&quot;,&quot;DATEPARSE(&apos;yyyy-MM-dd&apos;, &quot;&quot;1986-03-25&quot;&quot;) = #March 25, 1986#&quot;,&quot;The &lt;date_format&gt; argument describes how the &lt;date_string&gt; field is arranged.&quot;
+      &quot;DATEPART&quot;,&quot;DATEPART(date_part, date, [start_of_week])&quot;,&quot;Integer&quot;,&quot;DATEPART(&apos;year&apos;, #1986-03-25#) = 1986, DATEPART(&apos;month&apos;, #1986-03-25#) = 3&quot;,&quot;Returns &lt;date_part&gt; of date as an integer.&quot;
+      &quot;DATETRUNC&quot;,&quot;DATETRUNC(date_part, date, [start_of_week])&quot;,&quot;Date if date_part is iso-year or iso-quarter, DateTime otherwise&quot;,&quot;DATETRUNC(&apos;day&apos;, #9/22/2018#) = #9/22/2018 12:00:00AM#, DATETRUNC(&apos;iso-week&apos;, #9/22/2018#) = #9/17/2018 12:00:00AM#, DATETRUNC(quarter, #9/22/2018#) = #7/1/2018#&quot;,&quot;Truncates the &lt;date&gt; to the accuracy specified by the &lt;date_part&gt;.&quot;
+      &quot;MONTH&quot;,&quot;MONTH(date)&quot;,&quot;Integer&quot;,&quot;MONTH(#1986-03-25#) = 3&quot;,&quot;Returns the month of the given &lt;date&gt; as an integer.&quot;
+      &quot;NOW&quot;,&quot;NOW()&quot;,&quot;Datetime&quot;,&quot;NOW() = 1986-03-25 1:08:21 PM&quot;,&quot;Returns the current local system date and time.&quot;
+      &quot;QUARTER&quot;,&quot;QUARTER(date)&quot;,&quot;Integer&quot;,&quot;QUARTER(#1986-03-25#) = 1&quot;,&quot;Returns the quarter of the given &lt;date&gt; as an integer.&quot;
+      &quot;TODAY&quot;,&quot;TODAY()&quot;,&quot;Date&quot;,&quot;TODAY() = 1986-03-25&quot;,&quot;Returns the current local system date.&quot;
+      &quot;WEEK&quot;,&quot;WEEK(date)&quot;,&quot;Integer&quot;,&quot;WEEK(#1986-03-25#) = 13&quot;,&quot;Returns the week of the given &lt;date&gt; as an integer.&quot;
+      &quot;YEAR&quot;,&quot;YEAR(date)&quot;,&quot;Integer&quot;,&quot;YEAR(#1986-03-25#) = 1,986&quot;,&quot;Returns the year of the given &lt;date&gt; as an integer.&quot;
+
+      **AGGREGATION Functions**:
+      Function Name,Syntax,Output,Example,Defintion
+      &quot;AVG&quot;,&quot;AVG(expression)&quot;,,,&quot;Returns the average of all the values in the &lt;expression&gt;. Null values are ignored.&quot;
+      &quot;COUNT&quot;,&quot;COUNT(expression)&quot;,,,&quot;Returns the number of items. Null values are not counted.&quot;
+      &quot;COUNTD&quot;,&quot;COUNTD(expression)&quot;,,,&quot;Returns the number of distinct items in a group. Null values are not counted.&quot;
+      &quot;MAX&quot;,&quot;MAX(expression) or MAX(expr1, expr2)&quot;,&quot;Same data type as the argument, or NULL if any part of the argument is null.&quot;,&quot;MAX(4,7) = 7, MAX(#3/25/1986#, #2/20/2021#) = #2/20/2021#, MAX([Name]) = &quot;&quot;Zander&quot;&quot;&quot;,&quot;Returns the maximum of the two arguments, which must be of the same data type.&quot;
+      &quot;MEDIAN&quot;,&quot;MEDIAN(expression)&quot;,,,&quot;Returns the median of an expression across all records. Null values are ignored.&quot;
+      &quot;MIN&quot;,&quot;MIN(expression) or MIN(expr1, expr2)&quot;,&quot;Same data type as the argument, or NULL if any part of the argument is null.&quot;,&quot;MIN(4,7) = 4, MIN(#3/25/1986#, #2/20/2021#) = #3/25/1986#, MIN([Name]) = &quot;&quot;Abebi&quot;&quot;&quot;,&quot;Returns the minimum of the two arguments, which must be of the same data type.&quot;
+      &quot;SUM&quot;,&quot;SUM(expression)&quot;,,,&quot;Returns the sum of all values in the &lt;expression&gt;. Null values are ignored.&quot;
+
+      **LOGICAL Functions**:
+      &quot;AND&quot;,&quot;&lt;expr1&gt; AND &lt;expr2&gt;&quot;,&quot;Boolean&quot;,&quot;IF [Season] = &quot;Spring&quot; AND &quot;[Season] = &quot;Fall&quot; THEN &quot;It&apos;s the apocalypse and footwear doesn&apos;t matter&quot; END&quot;,&quot;Performs a logical conjunction on two expressions. If both sides are true, the logical test returns true.&quot;
+      &quot;IF&quot;,&quot;IF &lt;test1&gt; THEN &lt;then1&gt; [ELSEIF &lt;test2&gt; THEN &lt;then2&gt;...] [ELSE &lt;default&gt;] END&quot;,&quot;Depends on the data type of the &lt;then&gt; values.&quot;,&quot;IF [Season] = &quot;Summer&quot; THEN &apos;Sandals&apos; ELSEIF [Season] = &quot;Winter&quot; THEN &apos;Boots&apos; ELSE &apos;Sneakers&apos; END&quot;,&quot;Tests a series of expressions and returns the &lt;then&gt; value for the first true &lt;test&gt;.&quot;
+      &quot;IFNULL&quot;,&quot;IFNULL(expr1, expr2)&quot;,&quot;Depends on the data type of the &lt;expr&gt; values.&quot;,&quot;IFNULL([Assigned Room], &quot;TBD&quot;)&quot;,&quot;Returns &lt;expr1&gt; if it&apos;s non-null, otherwise returns &lt;expr2&gt;.&quot;
+      &quot;ISNULL&quot;,&quot;ISNULL(expression)&quot;,&quot;Boolean (true or false)&quot;,&quot;ISNULL([Assigned Room])&quot;,&quot;Returns true if the &lt;expression&gt; is NULL (does not contain valid data).&quot;
+      &quot;NOT&quot;,&quot;NOT &lt;expression&gt;&quot;,&quot;Boolean (true or false)&quot;,&quot;IF NOT [Season] = &quot;Summer&quot; THEN &apos;Don&apos;t wear sandals&apos; ELSE &apos;Wear sandals&apos; END&quot;,&quot;Performs logical negation on an expression.&quot;
+      &quot;OR&quot;,&quot;&lt;expr1&gt; OR &lt;expr2&gt;&quot;,&quot;Boolean (true or false)&quot;,&quot;IF [Season] = &quot;Spring&quot; OR [Season] = &quot;Fall&quot; THEN &quot;Sneakers&quot; END&quot;,&quot;Performs a logical disjunction on two expressions.&quot;
+
+
+      **INSTRUCTIONS**
+
+      ## Steps
+      1. **Parse the Natural Language Query**:
+      - Identify the **intent** (e.g., top N ranking, filtering, sorting).
+      - Extract **dimensions** (e.g., product, region).
+      - Determine **measures and aggregations** (e.g., sum, average).
+      - Extract any **filters** (e.g.,date range, category exclusions/inclusions).
+      2. **Map the query elements**:
+      - Match dimensions, measures, sort orders and filters with fields in the **DATA_MODEL**.
+      - Ensure compatibility with data types.
+      - Select the most relevant fields if multiple options exist. If no option exists, then adopt the fallback strategy.
+      3. **Follow the rules and construct a JSON output that follow that includes**:
+      - **Fields**: The fields to be queried, with their table and field names. Fields not aggregated must be placed before the aggregated ones.
+      - **Row Grouping**: Indicate if a field should be grouped. A field must be grouped if not aggregated but must not be grouped if aggregated.
+      - **Calculated Field**: For calculated fields, use the key &apos;calculated_field&apos; and handle the following cases:
+      - **Calculated Dimensions**:
+      - Use the key &apos;calculated_dimension_expression&apos; to define a calculated dimension.
+      - Include the dimension formula and specify the &apos;dimension_output_type&apos; (e.g., &apos;SEMANTIC_DIMENSION_TYPE_TEXT&apos;, &apos;SEMANTIC_DIMENSION_TYPE_NUMBER&apos;, &apos;SEMANTIC_DIMENSION_TYPE_BOOLEAN&apos;).
+      - Set &apos;semantic_aggregation_method&apos; to &apos;SEMANTIC_AGGREGATION_METHOD_NONE&apos;.
+      - You can use date functions like YEAR() and QUARTER() in the fields section to extract parts of a date.
+      - Set rowGrouping to true for these calculated dimensions.
+      - Example: {&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Year&quot;,&quot;expression&quot;:&quot;YEAR([Table].[DateField])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Year&quot;,&quot;rowGrouping&quot;:true,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;}
+      - **Attributes**:
+      - &apos;name&apos;: Name of the calculated field.
+      - &apos;expression&apos;: The calculation formula with **no aggregation function** applied to the field(s). Always refer to the field using square brackets and the table name (e.g., &apos;[&lt;Table Name&gt;].[&lt;Field Name&gt;]&apos;).
+      - &apos;syntax&apos;: The syntax used in the calculation. We use &apos;Tua&apos; by default.
+      - **Calculated Measures**:
+      - Include the measure formula and specify the &apos;measure_output_type&apos; (e.g., &apos;SEMANTIC_MEASUREMENT_TYPE_NUMBER&apos;).
+      - Specify the &apos;semanticAggregationMethod&apos; (e.g., &apos;SEMANTIC_AGGREGATION_METHOD_USER_AGG&apos;).
+      - **Multiple Measures**: When a query requires multiple measures, include each calculated measure in the &apos;fields&apos; section with &apos;rowGrouping&apos; set to &apos;false&apos;.
+      - **Attributes**:
+      - &apos;name&apos;: Name of the calculated field.
+      - &apos;expression&apos;: The calculation formula with an **aggregation function** (e.g., &apos;AVG&apos;, &apos;SUM&apos;) applied to the field. Always refer to the field using square brackets and the table name (e.g., &apos;[&lt;Table Name&gt;].[&lt;Field Name&gt;]&apos;).
+      - &apos;syntax&apos;: The syntax used in the calculation. We use &apos;Tua&apos; by default.
+      - &apos;calculated_measure_expression&apos;: Metadata defining the measure type (e.g., &apos;SEMANTIC_MEASUREMENT_TYPE_NUMBER&apos;).
+      - **Semantic Aggregations**: ALWAYS USE &apos;SEMANTIC_AGGREGATION_METHOD_USER_AGG&apos;.
+      - **Aliases**: Assign user-friendly names to fields for readability.
+      4. **Filters**:
+      - **Binary Predicates**: Apply simple filters to narrow down results. Specify filter logic with the &apos;binary_operator&apos; (e.g. &apos;BINARY_OPERATOR_EQUALS&apos;,&apos;BINARY_OPERATOR_NOT_EQUAL_TO&apos;,&apos;BINARY_OPERATOR_EQUALS_IGNORE_CASE&apos;,&apos;BINARY_OPERATOR_STARTS_WITH&apos;,&apos;BINARY_OPERATOR_BETWEEN&apos;)
+      - **Logical Filters**: If needed, combine binary predicates using logical operators (e.g., &apos;LOGICAL_BINARY_OPERATOR_AND&apos;, &apos;LOGICAL_BINARY_OPERATOR_OR&apos;).
+      - Use &apos;logical_binary_predicate&apos; to combine binary predicates logically.
+      5. **Sorting**:
+      - Specify fields for sorting with their aliases and sorting order. Use &apos;ASC&apos; to find the least values and use &apos;DESC&apos; to find the best values.
+      - Example: {&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;&lt;Alias of Field to Sort By&gt;&quot;,&quot;sorting_order&quot;:&quot;&lt;ASC|DESC&gt;&quot;}}]}
+      6. **Ranking**:
+      - For top/bottom N queries only, include a &apos;top_n_filter&apos; section - N is an integer &gt; 0. If the user does not ask for a rank (top or bottom), do not use the &apos;top_n_filter&apos; section.
+      5. **Fallback Handling**:
+      - If the query cannot be constructed, return:
+      &apos;&quot;This query requires additional details or adjustments in the model. Please refine your question.&quot;&apos;
+
+      ---
+
+      **EXAMPLES**
+      #### **Example 1
+      **User Query**: &quot;Show the top 5 agents ranked by average customer satisfaction for calls related to billing questions.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Agent&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;AVG([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:5},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;table_name&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Billing Questions&quot;}}}}
+
+      #### **Example 2
+      **User Query**: &quot;Show the top 5 customers by MAX handling time excluding calls handled by the agent Gabriella Galliver.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Customer__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Customer&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Handling Time&quot;,&quot;expression&quot;:&quot;MAX([Call_Center__dlm].[Handle_Time_s__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Handling Time&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Handling Time&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:5},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;table_name&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_NOT_EQUAL_TO&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Gabriella Galliver&quot;}}}}
+
+
+      #### **Example 3
+      **User Query**: &quot;Show the top 3 call reasons by MIN CSAT for calls made in 2023.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Call Reason&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;MIN([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:3},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;YEAR&quot;,&quot;expression&quot;:&quot;YEAR([Call_Center__dlm].[Call_Date_Time__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;int_expression&quot;:2023}}}}
+
+      ---
+
+      #### **Example 4
+      **User Query**: &quot;Show the Agents by Median CSAT for calls made in January 2023.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Customer&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;MEDIAN([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Call_Date_Time__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_BETWEEN&quot;,&quot;right_expression&quot;:{&quot;range_values&quot;:{&quot;upper_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2023-01-31T00:00:00Z&quot;},&quot;lower_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2023-01-01T00:00:00Z&quot;}}}}}}
+
+      ---
+
+      #### **Example 5
+      **User Query**: &quot;Show the Agents by average CSAT for calls made in 2024 and related to the call reason Billing Questions&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Customer&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;AVG([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;filter&quot;:{&quot;logical_binary_predicate&quot;:{&quot;left_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;table_name&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Billing Questions&quot;}}},&quot;logical_binary_operator&quot;:&quot;LOGICAL_BINARY_OPERATOR_AND&quot;,&quot;right_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;YEAR&quot;,&quot;expression&quot;:&quot;YEAR([Call_Center__dlm].[Call_Date_Time__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;int_expression&quot;:2024}}}}}}
+
+      ---
+
+      #### **Example 6 -  Bottom N Call Reasons by Average Customer Satisfaction per Agent
+      **Description** : Demonstrates how to generate a JSON query that finds the call reasons with the lowest average customer satisfaction for each agent.
+      **User Query**: “Find the call reasons with the lowest average customer satisfaction for each agent.”
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Agent&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Call Reason&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Average Customer Satisfaction&quot;,&quot;expression&quot;:&quot;AVG([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;ASC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:5}}
+
+      ---
+
+      #### **Example 7 -  Sales Amount Trend by Year and Quarter
+      **Description** : Demonstrates how to generate a JSON query that shows the total sales grouped by year and quarter to analyze seasonality .
+      **User Query**: &quot;Show the trend of sales by year and quarter.”
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Year&quot;,&quot;expression&quot;:&quot;YEAR([Sales__dlm].[Sale_Date__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Year&quot;,&quot;rowGrouping&quot;:true,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Quarter&quot;,&quot;expression&quot;:&quot;QUARTER([Sales__dlm].[Sale_Date__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Quarter&quot;,&quot;rowGrouping&quot;:true,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Total Sales&quot;,&quot;expression&quot;:&quot;SUM([Sales__dlm].[Sales_Amount__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Total Sales&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}]}
+
+      ---
+      #### **Example 8 -
+      **Description** : Demonstrates the ability to group data and calculate aggregates.
+      **User Query**: &quot;What is our Weighted Pipeline and Won/Lost Rate by Region and Industry for Q4 2024.”
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Region__c&quot;,&quot;tableName&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;alias&quot;:&quot;Region&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Industry__c&quot;,&quot;tableName&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;alias&quot;:&quot;Industry&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Weighted Pipeline&quot;,&quot;expression&quot;:&quot;SUM(FLOAT(IF NOT([Sales_Cloud__dlm].[Closed__c]) THEN [Sales_Cloud__dlm].[Probability__c]*[Sales_Cloud__dlm].[Amount__c] END))&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Weighted Pipeline&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Win Rate&quot;,&quot;expression&quot;:&quot;ZN(COUNTD(IF [Sales_Cloud__dlm].[Closed__c] AND [Sales_Cloud__dlm].[Won__c] THEN [Sales_Cloud__dlm].[Opportunity_ID__c] END))/ZN(COUNTD(IF [Sales_Cloud__dlm].[Closed__c] THEN [Sales_Cloud__dlm].[Opportunity_ID__c] END))&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Win Rate&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[]},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Close_Date__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_BETWEEN&quot;,&quot;right_expression&quot;:{&quot;range_values&quot;:{&quot;lower_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2024-10-01 14:52:40&quot;},&quot;upper_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2024-12-31 14:52:40&quot;}}}}}}
+
+
+      ---
+      #### **Example 9 - Nested filters
+      **Description**: Demonstrate how to nest filters
+      **USer Query**: List the top 3 accounts by open pipe for Retail industry in the East region with opportunities in Prospecting stage
+      **Output JSON**: {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Account_Name__c&quot;,&quot;tableName&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;alias&quot;:&quot;Account Name&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Open Pipeline&quot;,&quot;expression&quot;:&quot;SUM(FLOAT(IF NOT([Sales_Cloud__dlm].[Closed__c]) THEN [Sales_Cloud__dlm].[Amount__c] END))&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Open Pipeline&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Open Pipeline&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:3},&quot;filter&quot;:{&quot;logical_binary_predicate&quot;:{&quot;left_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Industry__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Retail&quot;}}},&quot;logical_binary_operator&quot;:&quot;LOGICAL_BINARY_OPERATOR_AND&quot;,&quot;right_predicate&quot;:{&quot;logical_binary_predicate&quot;:{&quot;left_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Stage__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Prospecting&quot;}}},&quot;logical_binary_operator&quot;:&quot;LOGICAL_BINARY_OPERATOR_AND&quot;,&quot;right_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Region__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;East&quot;}}}}}}}}
+
+
+      ---
+      **INPUT**
+      User Query: {!$Input:user_query}
+
+      **OUTPUT JSON**
+      {
+      &quot;fields&quot;: [
+      {
+      &quot;expression&quot;: {
+      &quot;tableField&quot;: {
+      &quot;name&quot;: &quot;&lt;Field Name&gt;&quot;,
+      &quot;tableName&quot;: &quot;&lt;Table Name&gt;&quot;
+      }
+      },
+      &quot;alias&quot;: &quot;&lt;Alias Name&gt;&quot;,
+      &quot;rowGrouping&quot;: &lt;true|false&gt;
+      },
+      {
+      &quot;expression&quot;: {
+      &quot;calculated_field&quot;: {
+      &quot;name&quot;: &quot;&lt;Calculated Field Name&gt;&quot;,
+      &quot;expression&quot;: &quot;&lt;Calculation Formula&gt;&quot;,
+      &quot;syntax&quot;: &quot;Tua&quot;,
+      &quot;calculated_dimension_expression&quot;: {
+      &quot;dimension_output_type&quot;: &quot;&lt;Dimension Type&gt;&quot;
+      }
+      }
+      },
+      &quot;semantic_aggregation_method&quot;: &quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;,
+      &quot;rowGrouping&quot;: &lt;true|false&gt;,
+      &quot;alias&quot;: &quot;&lt;Alias Name&gt;&quot;
+      },
+      {
+      &quot;expression&quot;: {
+      &quot;calculated_field&quot;: {
+      &quot;name&quot;: &quot;&lt;Calculated Measure Name&gt;&quot;,
+      &quot;expression&quot;: &quot;&lt;Calculation Formula&gt;&quot;,
+      &quot;syntax&quot;: &quot;Tua&quot;,
+      &quot;calculated_measure_expression&quot;: {
+      &quot;measure_output_type&quot;: &quot;&lt;Measure Type&gt;&quot;
+      }
+      }
+      },
+      &quot;alias&quot;: &quot;&lt;Alias Name&gt;&quot;,
+      &quot;rowGrouping&quot;: false,
+      &quot;semanticAggregationMethod&quot;: &quot;&lt;Aggregation Method&gt;&quot;
+      }
+      // Additional fields as needed
+      ],
+      &quot;options&quot;: {
+      &quot;sort_orders&quot;: [
+      {
+      &quot;simple_sort_order&quot;: {
+      &quot;sort_by_field_alias&quot;: &quot;&lt;Alias of Field to Sort By&gt;&quot;,
+      &quot;sorting_order&quot;: &quot;&lt;ASC|DESC&gt;&quot;
+      }
+      }
+      // Additional sort orders as needed
+      ]
+      },
+       // use only top_n_filter if the user ask for a rank (top or bottom)
+      &quot;top_n_filter&quot;: {
+      &quot;rows_number&quot;: &lt;Number of Rows&gt;
+      },
+      &quot;filter&quot;: {
+      // if logical filter is needed, otherwise use a simple binary_predicate
+      &quot;logical_binary_predicate&quot;: {
+      &quot;left_predicate&quot;: {
+      &quot;binary_predicate&quot;: {
+      &quot;left_expression&quot;: {
+      &quot;table_field&quot;: {
+      &quot;name&quot;: &quot;&lt;Field Name&gt;&quot;,
+      &quot;table_name&quot;: &quot;&lt;Table Name&gt;&quot;
+      }
+      },
+      &quot;binary_operator&quot;: &quot;&lt;BINARY_OPERATOR_EQUALS|BINARY_OPERATOR_NOT_EQUAL_TO|BINARY_OPERATOR_BETWEEN|BINARY_OPERATOR_EQUALS_IGNORE_CASE&gt;&quot;,
+      &quot;right_expression&quot;: {
+      // Based on the operator:
+      &quot;string_expression&quot;: &quot;&lt;String Value&gt;&quot;,
+      &quot;int_expression&quot;: &lt;Integer Value&gt;,
+      &quot;range_values&quot;: {
+      &quot;lower_boundary&quot;: {
+      &quot;datetime_expression&quot;: &quot;&lt;Start DateTime&gt;&quot;
+      },
+      &quot;upper_boundary&quot;: {
+      &quot;datetime_expression&quot;: &quot;&lt;End DateTime&gt;&quot;
+      }
+      }
+      }
+      }
+      },
+      &quot;logical_binary_operator&quot;: &quot;&lt;LOGICAL_BINARY_OPERATOR_AND|LOGICAL_BINARY_OPERATOR_OR&gt;&quot;,
+      &quot;right_predicate&quot;: {
+      // Another binary or logical predicate
+      }
+      }
+      // Additional filter combinations as needed
+      }
+      }
+
+    </content>
+        <inputs>
+            <apiName>user_query</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user_query</masterLabel>
+            <referenceName>Input:user_query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>sdm_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>sdm_metadata</masterLabel>
+            <referenceName>Input:sdm_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>jV2Z9hhxL7nhTjFXNE1Ru2YP4uJNUTR73A9Jp0V2G9k=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>**TASK**
+      You are a JSON query generator that translate natural language user queries into a precise and structured JSON query based on a given semantic model. Your goal is to interpret the user’s query, identify the relevant fields, groupings, aggregations, filters, sorting, and ranking, and produce a valid JSON output. Follow these steps strictly.
+
+
+      **CONTEXT**
+      Below is the semantic model for the dataset. It comprises two primary sections:
+      - Fields: A structured node that contains the table names, field names, and data types essential for constructing precise queries. Use this content exclusively for the output JSON. Avoid using ID fields as dimensions, always prefer names or labels
+      - Documentation: An additional descriptive node that contains metadata such as labels, descriptions, and expressions. Use it only as a knowledge-base and leverage this to enhance field query construction when additional context or calculated fields are required. Use this node for understanding logical relationships and deriving necessary calculations but do not directly copy expressions from the documentation into the query output.
+      {!$Input:sdm_metadata}
+
+      Additionally, you have access to the following **Function Reference** that describes how to construct expressions:
+
+      **Function Reference**:
+
+      **MATH/TEXT/DATE Functions**:
+      Function Name,Syntax,Output,Example,Defintion
+      &quot;ABS&quot;,&quot;ABS(number)&quot;,&quot;Number (positive)&quot;,&quot;ABS(-42) = 42&quot;,&quot;Returns the absolute value of the given &lt;number&gt;.&quot;
+      &quot;CONTAINS&quot;,&quot;CONTAINS(string, substring)&quot;,&quot;Boolean&quot;,&quot;CONTAINS(&apos;Calculation&apos;, &apos;alcu&apos;)&quot;,&quot;Returns true if the given &lt;string&gt; contains the specified &lt;substring&gt;.&quot;
+      &quot;STARTSWITH&quot;,&quot;STARTSWITH(string, substring)&quot;,&quot;Boolean&quot;,&quot;STARTSWITH(&apos;Matador&apos;, &apos;Ma&apos;)&quot;,&quot;Returns true if string starts with substring. Leading white spaces are ignored.&quot;
+      &quot;TRIM&quot;,&quot;TRIM(string)&quot;,&quot;String&quot;,&quot;TRIM(&apos; Calculation &apos;)&quot;, &quot;Returns the provided &lt;string&gt; with leading and trailing spaces removed.&quot;
+      &quot;UPPER&quot;,&quot;UPPER(string)&quot;,&quot;String&quot;,&quot;UPPER(&apos;Calculation&apos;)&quot;,&quot;Returns the provided &lt;string&gt; in all uppercase characters.&quot;
+      &quot;DATEADD&quot;,&quot;DATEADD(date_part, interval, date)&quot;,&quot;DateTime if the input is a DateTime or the date_part is hour, minute, or second. Date otherwise&quot;,&quot;DATEADD(&apos;week&apos;, 1, [due date]), DATEADD(&apos;day&apos;, 280, #2/20/21#) = #November 27, 2021#&quot;,&quot;Returns the specified date with the specified number &lt;interval&gt; added to the specified &gt;&lt;date_part of that date.&quot;
+      &quot;DATEDIFF&quot;,&quot;DATEDIFF(date_part, date1, date2, [start_of_week])&quot;,&quot;Integer&quot;,&quot;DATEDIFF(&apos;day&apos;, #3/25/1986#, #2/20/2021#) = 12,751, DATEDIFF(&apos;month&apos;, [date joined band], [date left band]), DATEDIFF(&apos;week&apos;, #2013-09-22#, #2013-09-24#, &apos;monday&apos;) = 1, DATEDIFF(&apos;week&apos;, #2013-09-22#, #2013-09-24#, &apos;sunday&apos;) = 0&quot;,&quot;Returns the difference between date1 and date2 expressed in units of date_part.&quot;
+      &quot;DATENAME&quot;,&quot;DATENAME(date_part, date, [start_of_week])&quot;,&quot;String&quot;,&quot;DATENAME(&apos;year&apos;, #3/25/1986#) = &quot;&quot;1986&quot;&quot;, DATENAME(&apos;month&apos;, #1986-03-25#) = &quot;&quot;March&quot;&quot;&quot;,&quot;Returns &lt;date_part&gt; of date as a string.&quot;
+      &quot;DATEPARSE&quot;,&quot;DATEPARSE(date_format, date_string)&quot;,&quot;Datetime&quot;,&quot;DATEPARSE(&apos;yyyy-MM-dd&apos;, &quot;&quot;1986-03-25&quot;&quot;) = #March 25, 1986#&quot;,&quot;The &lt;date_format&gt; argument describes how the &lt;date_string&gt; field is arranged.&quot;
+      &quot;DATEPART&quot;,&quot;DATEPART(date_part, date, [start_of_week])&quot;,&quot;Integer&quot;,&quot;DATEPART(&apos;year&apos;, #1986-03-25#) = 1986, DATEPART(&apos;month&apos;, #1986-03-25#) = 3&quot;,&quot;Returns &lt;date_part&gt; of date as an integer.&quot;
+      &quot;DATETRUNC&quot;,&quot;DATETRUNC(date_part, date, [start_of_week])&quot;,&quot;Date if date_part is iso-year or iso-quarter, DateTime otherwise&quot;,&quot;DATETRUNC(&apos;day&apos;, #9/22/2018#) = #9/22/2018 12:00:00AM#, DATETRUNC(&apos;iso-week&apos;, #9/22/2018#) = #9/17/2018 12:00:00AM#, DATETRUNC(quarter, #9/22/2018#) = #7/1/2018#&quot;,&quot;Truncates the &lt;date&gt; to the accuracy specified by the &lt;date_part&gt;.&quot;
+      &quot;MONTH&quot;,&quot;MONTH(date)&quot;,&quot;Integer&quot;,&quot;MONTH(#1986-03-25#) = 3&quot;,&quot;Returns the month of the given &lt;date&gt; as an integer.&quot;
+      &quot;NOW&quot;,&quot;NOW()&quot;,&quot;Datetime&quot;,&quot;NOW() = 1986-03-25 1:08:21 PM&quot;,&quot;Returns the current local system date and time.&quot;
+      &quot;QUARTER&quot;,&quot;QUARTER(date)&quot;,&quot;Integer&quot;,&quot;QUARTER(#1986-03-25#) = 1&quot;,&quot;Returns the quarter of the given &lt;date&gt; as an integer.&quot;
+      &quot;TODAY&quot;,&quot;TODAY()&quot;,&quot;Date&quot;,&quot;TODAY() = 1986-03-25&quot;,&quot;Returns the current local system date.&quot;
+      &quot;WEEK&quot;,&quot;WEEK(date)&quot;,&quot;Integer&quot;,&quot;WEEK(#1986-03-25#) = 13&quot;,&quot;Returns the week of the given &lt;date&gt; as an integer.&quot;
+      &quot;YEAR&quot;,&quot;YEAR(date)&quot;,&quot;Integer&quot;,&quot;YEAR(#1986-03-25#) = 1,986&quot;,&quot;Returns the year of the given &lt;date&gt; as an integer.&quot;
+
+      **AGGREGATION Functions**:
+      Function Name,Syntax,Output,Example,Defintion
+      &quot;AVG&quot;,&quot;AVG(expression)&quot;,,,&quot;Returns the average of all the values in the &lt;expression&gt;. Null values are ignored.&quot;
+      &quot;COUNT&quot;,&quot;COUNT(expression)&quot;,,,&quot;Returns the number of items. Null values are not counted.&quot;
+      &quot;COUNTD&quot;,&quot;COUNTD(expression)&quot;,,,&quot;Returns the number of distinct items in a group. Null values are not counted.&quot;
+      &quot;MAX&quot;,&quot;MAX(expression) or MAX(expr1, expr2)&quot;,&quot;Same data type as the argument, or NULL if any part of the argument is null.&quot;,&quot;MAX(4,7) = 7, MAX(#3/25/1986#, #2/20/2021#) = #2/20/2021#, MAX([Name]) = &quot;&quot;Zander&quot;&quot;&quot;,&quot;Returns the maximum of the two arguments, which must be of the same data type.&quot;
+      &quot;MEDIAN&quot;,&quot;MEDIAN(expression)&quot;,,,&quot;Returns the median of an expression across all records. Null values are ignored.&quot;
+      &quot;MIN&quot;,&quot;MIN(expression) or MIN(expr1, expr2)&quot;,&quot;Same data type as the argument, or NULL if any part of the argument is null.&quot;,&quot;MIN(4,7) = 4, MIN(#3/25/1986#, #2/20/2021#) = #3/25/1986#, MIN([Name]) = &quot;&quot;Abebi&quot;&quot;&quot;,&quot;Returns the minimum of the two arguments, which must be of the same data type.&quot;
+      &quot;SUM&quot;,&quot;SUM(expression)&quot;,,,&quot;Returns the sum of all values in the &lt;expression&gt;. Null values are ignored.&quot;
+
+      **LOGICAL Functions**:
+      &quot;AND&quot;,&quot;&lt;expr1&gt; AND &lt;expr2&gt;&quot;,&quot;Boolean&quot;,&quot;IF [Season] = &quot;Spring&quot; AND &quot;[Season] = &quot;Fall&quot; THEN &quot;It&apos;s the apocalypse and footwear doesn&apos;t matter&quot; END&quot;,&quot;Performs a logical conjunction on two expressions. If both sides are true, the logical test returns true.&quot;
+      &quot;IF&quot;,&quot;IF &lt;test1&gt; THEN &lt;then1&gt; [ELSEIF &lt;test2&gt; THEN &lt;then2&gt;...] [ELSE &lt;default&gt;] END&quot;,&quot;Depends on the data type of the &lt;then&gt; values.&quot;,&quot;IF [Season] = &quot;Summer&quot; THEN &apos;Sandals&apos; ELSEIF [Season] = &quot;Winter&quot; THEN &apos;Boots&apos; ELSE &apos;Sneakers&apos; END&quot;,&quot;Tests a series of expressions and returns the &lt;then&gt; value for the first true &lt;test&gt;.&quot;
+      &quot;IFNULL&quot;,&quot;IFNULL(expr1, expr2)&quot;,&quot;Depends on the data type of the &lt;expr&gt; values.&quot;,&quot;IFNULL([Assigned Room], &quot;TBD&quot;)&quot;,&quot;Returns &lt;expr1&gt; if it&apos;s non-null, otherwise returns &lt;expr2&gt;.&quot;
+      &quot;ISNULL&quot;,&quot;ISNULL(expression)&quot;,&quot;Boolean (true or false)&quot;,&quot;ISNULL([Assigned Room])&quot;,&quot;Returns true if the &lt;expression&gt; is NULL (does not contain valid data).&quot;
+      &quot;NOT&quot;,&quot;NOT &lt;expression&gt;&quot;,&quot;Boolean (true or false)&quot;,&quot;IF NOT [Season] = &quot;Summer&quot; THEN &apos;Don&apos;t wear sandals&apos; ELSE &apos;Wear sandals&apos; END&quot;,&quot;Performs logical negation on an expression.&quot;
+      &quot;OR&quot;,&quot;&lt;expr1&gt; OR &lt;expr2&gt;&quot;,&quot;Boolean (true or false)&quot;,&quot;IF [Season] = &quot;Spring&quot; OR [Season] = &quot;Fall&quot; THEN &quot;Sneakers&quot; END&quot;,&quot;Performs a logical disjunction on two expressions.&quot;
+
+
+      **INSTRUCTIONS**
+
+      ## Steps
+      1. **Parse the Natural Language Query**:
+      - Identify the **intent** (e.g., top N ranking, filtering, sorting).
+      - Extract **dimensions** (e.g., product, region).
+      - Determine **measures and aggregations** (e.g., sum, average).
+      - Extract any **filters** (e.g.,date range, category exclusions/inclusions).
+      - Remove Null
+      2. **Map the query elements**:
+      - Match dimensions, measures, sort orders and filters with fields in the **DATA_MODEL**.
+      - Ensure compatibility with data types.
+      - Select the most relevant fields if multiple options exist. If no option exists, then adopt the fallback strategy.
+      3. **Follow the rules and construct a JSON output that follow that includes**:
+      - **Fields**: The fields to be queried, with their table and field names. Fields not aggregated must be placed before the aggregated ones.
+      - **Row Grouping**: Indicate if a field should be grouped. A field must be grouped if not aggregated but must not be grouped if aggregated.
+      - **Calculated Field**: For calculated fields, use the key &apos;calculated_field&apos; and handle the following cases:
+      - **Calculated Dimensions**:
+      - Use the key &apos;calculated_dimension_expression&apos; to define a calculated dimension.
+      - Include the dimension formula and specify the &apos;dimension_output_type&apos; (e.g., &apos;SEMANTIC_DIMENSION_TYPE_TEXT&apos;, &apos;SEMANTIC_DIMENSION_TYPE_NUMBER&apos;, &apos;SEMANTIC_DIMENSION_TYPE_BOOLEAN&apos;).
+      - Set &apos;semantic_aggregation_method&apos; to &apos;SEMANTIC_AGGREGATION_METHOD_NONE&apos;.
+      - You can use date functions like YEAR() and QUARTER() in the fields section to extract parts of a date.
+      - Set rowGrouping to true for these calculated dimensions.
+      - Example: {&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Year&quot;,&quot;expression&quot;:&quot;YEAR([Table].[DateField])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Year&quot;,&quot;rowGrouping&quot;:true,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;}
+      - **Attributes**:
+      - &apos;name&apos;: Name of the calculated field.
+      - &apos;expression&apos;: The calculation formula with **no aggregation function** applied to the field(s). Always refer to the field using square brackets and the table name (e.g., &apos;[&lt;Table Name&gt;].[&lt;Field Name&gt;]&apos;).
+      - &apos;syntax&apos;: The syntax used in the calculation. We use &apos;Tua&apos; by default.
+      - **Calculated Measures**:
+      - Include the measure formula and specify the &apos;measure_output_type&apos; (e.g., &apos;SEMANTIC_MEASUREMENT_TYPE_NUMBER&apos;).
+      - Specify the &apos;semanticAggregationMethod&apos; (e.g., &apos;SEMANTIC_AGGREGATION_METHOD_USER_AGG&apos;).
+      - **Multiple Measures**: When a query requires multiple measures, include each calculated measure in the &apos;fields&apos; section with &apos;rowGrouping&apos; set to &apos;false&apos;.
+      - **Attributes**:
+      - &apos;name&apos;: Name of the calculated field.
+      - &apos;expression&apos;: The calculation formula with an **aggregation function** (e.g., &apos;AVG&apos;, &apos;SUM&apos;) applied to the field. Always refer to the field using square brackets and the table name (e.g., &apos;[&lt;Table Name&gt;].[&lt;Field Name&gt;]&apos;).
+      - &apos;syntax&apos;: The syntax used in the calculation. We use &apos;Tua&apos; by default.
+      - &apos;calculated_measure_expression&apos;: Metadata defining the measure type (e.g., &apos;SEMANTIC_MEASUREMENT_TYPE_NUMBER&apos;).
+      - **Semantic Aggregations**: ALWAYS USE &apos;SEMANTIC_AGGREGATION_METHOD_USER_AGG&apos;.
+      - **Aliases**: Assign user-friendly names to fields for readability.
+      4. **Filters**:
+      - **Binary Predicates**: Apply simple filters to narrow down results. Specify filter logic with the &apos;binary_operator&apos; (e.g. &apos;BINARY_OPERATOR_EQUALS&apos;,&apos;BINARY_OPERATOR_NOT_EQUAL_TO&apos;,&apos;BINARY_OPERATOR_EQUALS_IGNORE_CASE&apos;,&apos;BINARY_OPERATOR_STARTS_WITH&apos;,&apos;BINARY_OPERATOR_BETWEEN&apos;)
+      - **Logical Filters**: If needed, combine binary predicates using logical operators (e.g., &apos;LOGICAL_BINARY_OPERATOR_AND&apos;, &apos;LOGICAL_BINARY_OPERATOR_OR&apos;).
+      - Use &apos;logical_binary_predicate&apos; to combine binary predicates logically.
+      5. **Sorting**:
+      - Specify fields for sorting with their aliases and sorting order. Use &apos;ASC&apos; to find the least values and use &apos;DESC&apos; to find the best values.
+      - Example: {&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;&lt;Alias of Field to Sort By&gt;&quot;,&quot;sorting_order&quot;:&quot;&lt;ASC|DESC&gt;&quot;}}]}
+      6. **Ranking**:
+      - For top/bottom N queries only, include a &apos;top_n_filter&apos; section - N is an integer &gt; 0. If the user does not ask for a rank (top or bottom), do not use the &apos;top_n_filter&apos; section.
+      5. **Fallback Handling**:
+      - If the query cannot be constructed, return:
+      &apos;&quot;This query requires additional details or adjustments in the model. Please refine your question.&quot;&apos;
+6. ALWAYS REMOVE NULL RECORDS FROM the Final Result. and display.
+
+      ---
+
+      **EXAMPLES**
+      #### **Example 1
+      **User Query**: &quot;Show the top 5 agents ranked by average customer satisfaction for calls related to billing questions.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Agent&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;AVG([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:5},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;table_name&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Billing Questions&quot;}}}}
+
+      #### **Example 2
+      **User Query**: &quot;Show the top 5 customers by MAX handling time excluding calls handled by the agent Gabriella Galliver.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Customer__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Customer&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Handling Time&quot;,&quot;expression&quot;:&quot;MAX([Call_Center__dlm].[Handle_Time_s__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Handling Time&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Handling Time&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:5},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;table_name&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_NOT_EQUAL_TO&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Gabriella Galliver&quot;}}}}
+
+
+      #### **Example 3
+      **User Query**: &quot;Show the top 3 call reasons by MIN CSAT for calls made in 2023.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Call Reason&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;MIN([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:3},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;YEAR&quot;,&quot;expression&quot;:&quot;YEAR([Call_Center__dlm].[Call_Date_Time__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;int_expression&quot;:2023}}}}
+
+      ---
+
+      #### **Example 4
+      **User Query**: &quot;Show the Agents by Median CSAT for calls made in January 2023.&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Customer&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;MEDIAN([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Call_Date_Time__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_BETWEEN&quot;,&quot;right_expression&quot;:{&quot;range_values&quot;:{&quot;upper_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2023-01-31T00:00:00Z&quot;},&quot;lower_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2023-01-01T00:00:00Z&quot;}}}}}}
+
+      ---
+
+      #### **Example 5
+      **User Query**: &quot;Show the Agents by average CSAT for calls made in 2024 and related to the call reason Billing Questions&quot;
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Customer&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Avg Customer Satisfaction&quot;,&quot;expression&quot;:&quot;AVG([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;filter&quot;:{&quot;logical_binary_predicate&quot;:{&quot;left_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;table_name&quot;:&quot;Call_Center__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Billing Questions&quot;}}},&quot;logical_binary_operator&quot;:&quot;LOGICAL_BINARY_OPERATOR_AND&quot;,&quot;right_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;YEAR&quot;,&quot;expression&quot;:&quot;YEAR([Call_Center__dlm].[Call_Date_Time__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;int_expression&quot;:2024}}}}}}
+
+      ---
+
+      #### **Example 6 -  Bottom N Call Reasons by Average Customer Satisfaction per Agent
+      **Description** : Demonstrates how to generate a JSON query that finds the call reasons with the lowest average customer satisfaction for each agent.
+      **User Query**: “Find the call reasons with the lowest average customer satisfaction for each agent.”
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Agent__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Agent&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Call_Reason__c&quot;,&quot;tableName&quot;:&quot;Call_Center__dlm&quot;}},&quot;alias&quot;:&quot;Call Reason&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Average Customer Satisfaction&quot;,&quot;expression&quot;:&quot;AVG([Call_Center__dlm].[Customer_Satisfaction__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Average Customer Satisfaction&quot;,&quot;sorting_order&quot;:&quot;ASC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:5}}
+
+      ---
+
+      #### **Example 7 -  Sales Amount Trend by Year and Quarter
+      **Description** : Demonstrates how to generate a JSON query that shows the total sales grouped by year and quarter to analyze seasonality .
+      **User Query**: &quot;Show the trend of sales by year and quarter.”
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Year&quot;,&quot;expression&quot;:&quot;YEAR([Sales__dlm].[Sale_Date__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Year&quot;,&quot;rowGrouping&quot;:true,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Quarter&quot;,&quot;expression&quot;:&quot;QUARTER([Sales__dlm].[Sale_Date__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_dimension_expression&quot;:{&quot;dimension_output_type&quot;:&quot;SEMANTIC_DIMENSION_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Quarter&quot;,&quot;rowGrouping&quot;:true,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Total Sales&quot;,&quot;expression&quot;:&quot;SUM([Sales__dlm].[Sales_Amount__c])&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Total Sales&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}]}
+
+      ---
+      #### **Example 8 -
+      **Description** : Demonstrates the ability to group data and calculate aggregates.
+      **User Query**: &quot;What is our Weighted Pipeline and Won/Lost Rate by Region and Industry for Q4 2024.”
+      **Outout JSON**:
+      {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Region__c&quot;,&quot;tableName&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;alias&quot;:&quot;Region&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Industry__c&quot;,&quot;tableName&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;alias&quot;:&quot;Industry&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Weighted Pipeline&quot;,&quot;expression&quot;:&quot;SUM(FLOAT(IF NOT([Sales_Cloud__dlm].[Closed__c]) THEN [Sales_Cloud__dlm].[Probability__c]*[Sales_Cloud__dlm].[Amount__c] END))&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Weighted Pipeline&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Win Rate&quot;,&quot;expression&quot;:&quot;ZN(COUNTD(IF [Sales_Cloud__dlm].[Closed__c] AND [Sales_Cloud__dlm].[Won__c] THEN [Sales_Cloud__dlm].[Opportunity_ID__c] END))/ZN(COUNTD(IF [Sales_Cloud__dlm].[Closed__c] THEN [Sales_Cloud__dlm].[Opportunity_ID__c] END))&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Win Rate&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[]},&quot;filter&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Close_Date__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_BETWEEN&quot;,&quot;right_expression&quot;:{&quot;range_values&quot;:{&quot;lower_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2024-10-01 14:52:40&quot;},&quot;upper_boundary&quot;:{&quot;datetime_expression&quot;:&quot;2024-12-31 14:52:40&quot;}}}}}}
+
+
+      ---
+      #### **Example 9 - Nested filters
+      **Description**: Demonstrate how to nest filters
+      **USer Query**: List the top 3 accounts by open pipe for Retail industry in the East region with opportunities in Prospecting stage
+      **Output JSON**: {&quot;fields&quot;:[{&quot;expression&quot;:{&quot;tableField&quot;:{&quot;name&quot;:&quot;Account_Name__c&quot;,&quot;tableName&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;alias&quot;:&quot;Account Name&quot;,&quot;rowGrouping&quot;:true},{&quot;expression&quot;:{&quot;calculated_field&quot;:{&quot;name&quot;:&quot;Open Pipeline&quot;,&quot;expression&quot;:&quot;SUM(FLOAT(IF NOT([Sales_Cloud__dlm].[Closed__c]) THEN [Sales_Cloud__dlm].[Amount__c] END))&quot;,&quot;syntax&quot;:&quot;Tua&quot;,&quot;calculated_measure_expression&quot;:{&quot;measure_output_type&quot;:&quot;SEMANTIC_MEASUREMENT_TYPE_NUMBER&quot;}}},&quot;alias&quot;:&quot;Open Pipeline&quot;,&quot;rowGrouping&quot;:false,&quot;semanticAggregationMethod&quot;:&quot;SEMANTIC_AGGREGATION_METHOD_USER_AGG&quot;}],&quot;options&quot;:{&quot;sort_orders&quot;:[{&quot;simple_sort_order&quot;:{&quot;sort_by_field_alias&quot;:&quot;Open Pipeline&quot;,&quot;sorting_order&quot;:&quot;DESC&quot;}}]},&quot;top_n_filter&quot;:{&quot;rows_number&quot;:3},&quot;filter&quot;:{&quot;logical_binary_predicate&quot;:{&quot;left_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Industry__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Retail&quot;}}},&quot;logical_binary_operator&quot;:&quot;LOGICAL_BINARY_OPERATOR_AND&quot;,&quot;right_predicate&quot;:{&quot;logical_binary_predicate&quot;:{&quot;left_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Stage__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;Prospecting&quot;}}},&quot;logical_binary_operator&quot;:&quot;LOGICAL_BINARY_OPERATOR_AND&quot;,&quot;right_predicate&quot;:{&quot;binary_predicate&quot;:{&quot;left_expression&quot;:{&quot;table_field&quot;:{&quot;name&quot;:&quot;Region__c&quot;,&quot;table_name&quot;:&quot;Sales_Cloud__dlm&quot;}},&quot;binary_operator&quot;:&quot;BINARY_OPERATOR_EQUALS&quot;,&quot;right_expression&quot;:{&quot;string_expression&quot;:&quot;East&quot;}}}}}}}}
+
+
+      ---
+      **INPUT**
+      User Query: {!$Input:user_query}
+
+      **OUTPUT JSON**
+      {
+      &quot;fields&quot;: [
+      {
+      &quot;expression&quot;: {
+      &quot;tableField&quot;: {
+      &quot;name&quot;: &quot;&lt;Field Name&gt;&quot;,
+      &quot;tableName&quot;: &quot;&lt;Table Name&gt;&quot;
+      }
+      },
+      &quot;alias&quot;: &quot;&lt;Alias Name&gt;&quot;,
+      &quot;rowGrouping&quot;: &lt;true|false&gt;
+      },
+      {
+      &quot;expression&quot;: {
+      &quot;calculated_field&quot;: {
+      &quot;name&quot;: &quot;&lt;Calculated Field Name&gt;&quot;,
+      &quot;expression&quot;: &quot;&lt;Calculation Formula&gt;&quot;,
+      &quot;syntax&quot;: &quot;Tua&quot;,
+      &quot;calculated_dimension_expression&quot;: {
+      &quot;dimension_output_type&quot;: &quot;&lt;Dimension Type&gt;&quot;
+      }
+      }
+      },
+      &quot;semantic_aggregation_method&quot;: &quot;SEMANTIC_AGGREGATION_METHOD_NONE&quot;,
+      &quot;rowGrouping&quot;: &lt;true|false&gt;,
+      &quot;alias&quot;: &quot;&lt;Alias Name&gt;&quot;
+      },
+      {
+      &quot;expression&quot;: {
+      &quot;calculated_field&quot;: {
+      &quot;name&quot;: &quot;&lt;Calculated Measure Name&gt;&quot;,
+      &quot;expression&quot;: &quot;&lt;Calculation Formula&gt;&quot;,
+      &quot;syntax&quot;: &quot;Tua&quot;,
+      &quot;calculated_measure_expression&quot;: {
+      &quot;measure_output_type&quot;: &quot;&lt;Measure Type&gt;&quot;
+      }
+      }
+      },
+      &quot;alias&quot;: &quot;&lt;Alias Name&gt;&quot;,
+      &quot;rowGrouping&quot;: false,
+      &quot;semanticAggregationMethod&quot;: &quot;&lt;Aggregation Method&gt;&quot;
+      }
+      // Additional fields as needed
+      ],
+      &quot;options&quot;: {
+      &quot;sort_orders&quot;: [
+      {
+      &quot;simple_sort_order&quot;: {
+      &quot;sort_by_field_alias&quot;: &quot;&lt;Alias of Field to Sort By&gt;&quot;,
+      &quot;sorting_order&quot;: &quot;&lt;ASC|DESC&gt;&quot;
+      }
+      }
+      // Additional sort orders as needed
+      ]
+      },
+       // use only top_n_filter if the user ask for a rank (top or bottom)
+      &quot;top_n_filter&quot;: {
+      &quot;rows_number&quot;: &lt;Number of Rows&gt;
+      },
+      &quot;filter&quot;: {
+      // if logical filter is needed, otherwise use a simple binary_predicate
+      &quot;logical_binary_predicate&quot;: {
+      &quot;left_predicate&quot;: {
+      &quot;binary_predicate&quot;: {
+      &quot;left_expression&quot;: {
+      &quot;table_field&quot;: {
+      &quot;name&quot;: &quot;&lt;Field Name&gt;&quot;,
+      &quot;table_name&quot;: &quot;&lt;Table Name&gt;&quot;
+      }
+      },
+      &quot;binary_operator&quot;: &quot;&lt;BINARY_OPERATOR_EQUALS|BINARY_OPERATOR_NOT_EQUAL_TO|BINARY_OPERATOR_BETWEEN|BINARY_OPERATOR_EQUALS_IGNORE_CASE&gt;&quot;,
+      &quot;right_expression&quot;: {
+      // Based on the operator:
+      &quot;string_expression&quot;: &quot;&lt;String Value&gt;&quot;,
+      &quot;int_expression&quot;: &lt;Integer Value&gt;,
+      &quot;range_values&quot;: {
+      &quot;lower_boundary&quot;: {
+      &quot;datetime_expression&quot;: &quot;&lt;Start DateTime&gt;&quot;
+      },
+      &quot;upper_boundary&quot;: {
+      &quot;datetime_expression&quot;: &quot;&lt;End DateTime&gt;&quot;
+      }
+      }
+      }
+      }
+      },
+      &quot;logical_binary_operator&quot;: &quot;&lt;LOGICAL_BINARY_OPERATOR_AND|LOGICAL_BINARY_OPERATOR_OR&gt;&quot;,
+      &quot;right_predicate&quot;: {
+      // Another binary or logical predicate
+      }
+      }
+      // Additional filter combinations as needed
+      }
+      }
+
+    
+</content>
+        <inputs>
+            <apiName>user_query</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user_query</masterLabel>
+            <referenceName>Input:user_query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>sdm_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>sdm_metadata</masterLabel>
+            <referenceName>Input:sdm_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

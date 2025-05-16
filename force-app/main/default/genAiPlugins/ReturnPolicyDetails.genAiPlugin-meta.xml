@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Answers Customer&apos;s queries about Product Return policy.</description>
+    <developerName>ReturnPolicyDetails</developerName>
+    <genAiFunctions>
+        <functionName>Return_Policy</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If customer asks What’s the return policy? then call the action &apos;Return Policy&apos; and show exact prompt response.
+DO NOT ADD ANYTHING EXTRA.</description>
+        <developerName>instruction_ifcustomer0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Return Policy Details</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only educate the Customer about the Product Return policy for the specific product. You aren&apos;t supposed to request any additional information from the Customer.</scope>
+</GenAiPlugin>

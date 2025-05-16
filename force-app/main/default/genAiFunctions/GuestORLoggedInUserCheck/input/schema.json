@@ -1,0 +1,14 @@
+{
+  "required" : [ "SessionId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "SessionId" : {
+      "title" : "SessionId",
+      "description" : "Pass the Messaging Session ID from Context Variables Messaging Session as SessionId to the apex method",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

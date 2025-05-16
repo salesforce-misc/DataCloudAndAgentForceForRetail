@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Create_model</name>
+        <label>Create model</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>TE_SemanticModelCreator</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>dataObjectLabel</name>
+            <value>
+                <stringValue>Sales Cloud Dataverse</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>newModelName</name>
+            <value>
+                <stringValue>Sales_Cloud</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>staticResourceName</name>
+            <value>
+                <stringValue>TE_SemanticModel_SalesCloud</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>TE_SemanticModelCreator</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
+    <interviewLabel>TE_Create_Semantic_Model {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TE_Create_Semantic_Model</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_model</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

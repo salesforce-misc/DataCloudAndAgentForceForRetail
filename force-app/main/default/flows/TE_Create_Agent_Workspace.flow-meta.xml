@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Create_Agent_workspace</name>
+        <label>Create Agent workspace</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>TE_CreateWorkspace</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>workspaceDescription</name>
+            <value>
+                <stringValue>This is the workspace of the Agent, needed to create Tableau Viz.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>workspaceName</name>
+            <value>
+                <stringValue>Agent</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>TE_CreateWorkspace</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Automates the creation of the Agent workspace in Tableau</description>
+    <environments>Default</environments>
+    <interviewLabel>TE_Create_Agent_Workspace {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TE_Create_Agent_Workspace</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Agent_workspace</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

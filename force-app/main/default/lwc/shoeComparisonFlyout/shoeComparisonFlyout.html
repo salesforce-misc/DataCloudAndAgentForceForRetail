@@ -1,0 +1,56 @@
+<template>
+    <!-- <lightning-button label="Compare Products" onclick={openModal}></lightning-button> -->
+
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium" style="color:black;">Shoe Comparison</h2>
+                </header>
+                <!-- Table headers -->
+                <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered">
+                    <thead>
+                      <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="Attribute"><strong>Attribute</strong></div>
+                        </th>
+                        
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="Selected Product"><strong>{ChosenShoe}</strong></div>
+                        </th>
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="Most Recent Purchased Product"><strong>{RecentOrder}(Prior Purchase)</strong></div>
+                        </th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body -->
+                    <tbody style="color:black;">
+                        <template for:each={datas} for:item="data">
+                            <tr key={data.id} class="slds-hint-parent">
+                                <th data-label="Attribute" scope="row">
+                                    <div class="slds-truncate" title="Category">
+                                      <a tabindex="-1">{data.attribute}</a>
+                                    </div>
+                                </th>  
+                                <td data-label="Most Recent Purchased Product">
+                                    <div class="slds-truncate" title="Category">{data.product1}</div>
+                                  </td>
+                                  <td data-label="Selected Product">
+                                    <div class="slds-truncate" title="Category">{data.product2}</div>
+                                  </td>
+                            </tr>
+                        </template>                   
+                        </tbody>
+                </table>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Close" onclick={handleCloseModal} class="slds-align_absolute-center"></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Question1</label>
+    <protected>false</protected>
+    <values>
+        <field>Option1__c</field>
+        <value xsi:type="xsd:string">Neutral (balanced stride)</value>
+    </values>
+    <values>
+        <field>Option2__c</field>
+        <value xsi:type="xsd:string">Overpronation (feet roll inward)</value>
+    </values>
+    <values>
+        <field>Option3__c</field>
+        <value xsi:type="xsd:string">Underpronation (feet roll outward)</value>
+    </values>
+    <values>
+        <field>Option4__c</field>
+        <value xsi:type="xsd:string">Unsure</value>
+    </values>
+    <values>
+        <field>Questions__c</field>
+        <value xsi:type="xsd:string">What’s your running style?</value>
+    </values>
+</CustomMetadata>

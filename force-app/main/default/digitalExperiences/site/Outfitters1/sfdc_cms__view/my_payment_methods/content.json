@@ -1,0 +1,97 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Saved Payment Methods",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : {
+              "padding" : {
+                "bottom" : "0rem",
+                "left" : "0rem",
+                "right" : "0rem",
+                "top" : "0rem"
+              }
+            },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"18e78abf-b91b-4cf9-a1fb-13399179bd29\",\"columns\":[{\"UUID\":\"c5eb8475-8ef3-4f54-ada8-d02c419b1096\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "addButtonLabel" : "Add Payment Method",
+                "cardDefaultBadgeColor" : "rgb(223,223,223)",
+                "cardDefaultBorderRadius" : "50",
+                "cardDefaultLabel" : "Default",
+                "cardExpiredBadgeColor" : "rgb(254, 147, 57)",
+                "cardExpiredBorderRadius" : "50",
+                "cardExpiredLabel" : "Expired",
+                "displayAddButton" : true,
+                "dxpStyle" : { },
+                "emptyMessageTitle" : "No payments saved yet. To save time during checkout, add a payment.",
+                "expiresOnLabel" : "Expiration Date",
+                "footerDefaultLabel" : "Make Default",
+                "footerDeleteLabel" : "Delete",
+                "headerLabel" : "Saved Payment Methods",
+                "itemSpacing" : "small",
+                "itemsPerPage" : "10",
+                "paymentMethodSetId" : "",
+                "previewState" : "withSavedPaymentMethods",
+                "showMoreButtonAlign" : "center",
+                "showMoreButtonLabel" : "Show More",
+                "showMoreButtonSize" : "standard",
+                "showMoreButtonStyle" : "secondary",
+                "showMoreButtonWidth" : "standard"
+              },
+              "definition" : "commerce_builder:paymentSavedPaymentMethodsGrid",
+              "id" : "03a5e1bc-6f30-4934-84ab-9fc92bde52b0",
+              "type" : "component"
+            } ],
+            "id" : "c5eb8475-8ef3-4f54-ada8-d02c419b1096",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "18e78abf-b91b-4cf9-a1fb-13399179bd29",
+          "type" : "component"
+        } ],
+        "id" : "a1f146c1-6338-47d6-8032-781aa1c24c7e",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "dxpStyle" : { },
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "a243e3c5-1fdd-426e-85a5-747ec3ab9253",
+          "type" : "component"
+        } ],
+        "id" : "6b61cc9e-eb2d-43fe-9cae-de961a7aa330",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "3d49f31c-b1b0-4338-b99d-7781af5823f3",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "MyAccount",
+    "viewType" : "my-payment-methods"
+  },
+  "urlName" : "saved-payment-methods"
+}

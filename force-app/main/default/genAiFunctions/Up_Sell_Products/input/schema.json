@@ -1,0 +1,21 @@
+{
+  "required" : [ "Input:Product_Name" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Product_Name" : {
+      "title" : "Product Name",
+      "description" : "Pass the Product name to the template",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

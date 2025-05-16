@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Fetch_Product_Data</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Fetch Product Data</label>
+        <locationX>440</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>Name: {!Loop_on_Current_Products.ssot__Name__c}
+Description:{!Loop_on_Current_Products.ssot__Description__c}
+Price:{!Loop_on_Prices.ssot__UnitListPriceAmount__c}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_on_Prices</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>Get All Tent Products {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get All Tent Products</label>
+    <loops>
+        <name>Loop_on_Current_Products</name>
+        <label>Loop on Current Products</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <collectionReference>Get_Products</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Get_Prices_for_Products</targetReference>
+        </nextValueConnector>
+    </loops>
+    <loops>
+        <name>Loop_on_Prices</name>
+        <label>Loop on Prices</label>
+        <locationX>352</locationX>
+        <locationY>458</locationY>
+        <collectionReference>Get_Prices_for_Products</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Fetch_Product_Data</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Loop_on_Current_Products</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordLookups>
+        <name>Get_Prices_for_Products</name>
+        <label>Get Prices for Products</label>
+        <locationX>352</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_Prices</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ssot__ProductId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Loop_on_Current_Products.ssot__Id__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ssot__PricebookId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>01s7y00000I6eQEAAZ</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ssot__PriceBookEntry__dlm</object>
+        <queriedFields>ssot__Id__c</queriedFields>
+        <queriedFields>ssot__ProductId__c</queriedFields>
+        <queriedFields>ssot__UnitListPriceAmount__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Products</name>
+        <label>Get Products</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_Current_Products</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ssot__Description__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>tent</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ssot__Product__dlm</object>
+        <queriedFields>ssot__Id__c</queriedFields>
+        <queriedFields>ssot__Name__c</queriedFields>
+        <queriedFields>ssot__Description__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Products</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

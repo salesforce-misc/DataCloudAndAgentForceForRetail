@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>CheckMexicoWeather</members>
+		<members>Check_For_Discount</members>
+		<members>Check_Product_Availability</members>
+		<members>DisplayProductList</members>
+		<members>Fetch_Order_Details_for_Returning</members>
+		<members>Fetch_Recent_Order</members>
+		<members>GetRecallContactFromSegment</members>
+		<members>Get_Customer_Details_by_Messaging_Session</members>
+		<members>GuestORLoggedInUserCheck</members>
+		<members>Place_Order</members>
+		<members>ReturnLabelEvent</members>
+		<members>Return_Policy</members>
+		<members>ShoeComparisonPromptTemplate</members>
+		<members>Size_Recommended_From_Return</members>
+		<members>Up_Sell_Products</members>
+		<name>GenAiFunction</name>
+	</types>
+	<version>64.0</version>
+</Package>

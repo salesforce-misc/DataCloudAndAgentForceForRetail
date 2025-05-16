@@ -1,0 +1,87 @@
+<template>
+   
+    <template if:true={isModalOpen}>
+        <template if:true={displaySurvey}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <!--<section role="dialog"  tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">-->
+                <div class="slds-modal__container"
+                style="height:610px; width:390px; margin-top:4.7rem">  
+                        <!-- Modal Header -->
+                        <header class="slds-modal__header slds-grid slds-grid_align-spread slds-grid_vertical-align-center" style="color: black;">
+ 
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <lightning-icon icon-name="standard:buyer_account" alternative-text="Retail" size="medium"></lightning-icon>
+                                <h2 class="slds-text-heading_medium slds-m-left_small" style="color:black">My Retail</h2>
+                            </div>
+                        </header>
+                       
+                        <!-- Modal Body -->
+                        <div class="slds-modal__content slds-p-around_xx-small slds-text-color_default" style="color: black;">  
+                                <div class="slds-m-around_x-small">
+                                   <template for:each={formattedData} for:item="questions" for:index="index">
+                                        <div key={questions.question} class="slds-m-top_xxx-small">
+                                            <!--<p>{questions.question}</p>-->
+                                            <lightning-radio-group class="radiooptiontextcolor"
+                                                name={questions.question}
+                                                label={questions.question}
+                                                options = {questions.optionsFormatted}
+                                                value={selectedOption}
+                                                onchange={handleOptionChange}
+                                                type="radio"
+                                                >
+                                            </lightning-radio-group>
+                                            </div>
+                                            </template>
+                                </div>
+                        </div>
+                        <!-- Modal Footer -->
+                        <footer class="slds-modal__footer slds-grid slds-grid_align-center">    
+                            <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+                            <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+                        </footer>                  
+                </div>
+            </section>  
+        </template>
+    </template>
+   
+    <template if:true={isModalOpenForRecommendations}>
+        <template if:true={DisplayRecommendation}>
+            <section role="dialog"  tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container custom-modal"
+                style="height:635px; width:400px; margin-top:4.7rem">  
+                        <!-- Modal Header -->
+                        <header class="slds-modal__header slds-grid slds-grid_align-spread slds-grid_vertical-align-center" style="color: black;">
+                           
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <lightning-icon icon-name="standard:buyer_account" alternative-text="Retail" size="medium"></lightning-icon>
+                                <h2 class="slds-text-heading_medium slds-m-left_small" style="color:black">Shoe Recommendations</h2>
+                            </div>
+                        </header>
+                       
+                        <!-- Modal Body -->
+                        <div class="slds-modal__content slds-p-around_medium slds-text-color_default" style="color: black;">  
+                                <div class="slds-m-around_x-small">
+                                   <template if:true={recommendedResponse}>
+                                        <ul>
+                                            <template for:each={recommendedResponse} for:item="prd">
+                                                <li key={prd.shoeId}  onclick ={handleClickRow}>
+                                                    <a href={prd.shoeURL} target="_self"><strong>{prd.shoeName}</strong></a>
+                                                </li>    
+                                                <li key={prd.shoeId}> <b>Description: </b>&nbsp;  
+                                                    <lightning-formatted-text value={prd.shoeDescription}></lightning-formatted-text>
+                                                </li>            
+                                            </template>
+                                        </ul>                
+                                    </template>
+                                </div>
+                        </div>
+                        <!-- Modal Footer -->
+                        <footer class="slds-modal__footer slds-grid slds-grid_align-center">    
+                            <lightning-button label="Close" onclick={CloseRecommendation}></lightning-button>
+                        </footer>          
+                </div>
+            </section>  
+        </template>
+    </template>
+ 
+</template>

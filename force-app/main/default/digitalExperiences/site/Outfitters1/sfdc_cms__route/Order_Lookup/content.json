@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Order Lookup",
+  "contentBody" : {
+    "activeViewId" : "order_lookup",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "order-lookup",
+    "urlPrefix" : "OrderLookup"
+  },
+  "urlName" : "order-lookup"
+}

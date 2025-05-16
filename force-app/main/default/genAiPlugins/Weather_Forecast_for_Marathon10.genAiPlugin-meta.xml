@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Handles customer inquiries about the weather in Mexico related to an upcoming marathon. It checks the weather forecast and provides a temperature description based on the specified date.</description>
+    <developerName>Weather_Forecast_for_Marathon10</developerName>
+    <genAiFunctions>
+        <functionName>CheckMexicoWeather</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If customer ask &apos;The marathon is in Mexico&apos; then 
+ run  &apos;CheckMexicoWeather&apos; action by passing 
+&quot;next week&quot; as dateToCheck   
+Return the response of temperaturedescription 
+DO NOT ADD ANYTHING EXTRA</description>
+        <developerName>instruction_ifcustomer0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Weather Forecast</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>This topic manages requests where the customer mentions a marathon in Mexico, triggering a weather check for &quot;next week&quot; and returning only the temperature description without any additional information.</scope>
+</GenAiPlugin>

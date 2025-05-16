@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Add Payment Methods",
+  "contentBody" : {
+    "activeViewId" : "add_payment_methods",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "add-payment-methods",
+    "urlPrefix" : "add-payment-methods"
+  },
+  "urlName" : "add-payment-methods"
+}

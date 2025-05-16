@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "AgentAuthenticator",
+  "contentBody" : {
+    "activeViewId" : "AgentAuthenticator",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-agentauthenticator",
+    "urlPrefix" : "agentauthenticator"
+  },
+  "urlName" : "agentauthenticator"
+}

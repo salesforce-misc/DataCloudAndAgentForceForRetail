@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Address Form",
+  "contentBody" : {
+    "activeViewId" : "Address_Form",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "address-form",
+    "urlPrefix" : "addressForm"
+  },
+  "urlName" : "address-form"
+}

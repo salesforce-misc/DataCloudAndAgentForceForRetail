@@ -1,0 +1,5 @@
+{
+  "apiName" : "Current_Cart",
+  "type" : "sfdc_cms__route",
+  "path" : "routes"
+}

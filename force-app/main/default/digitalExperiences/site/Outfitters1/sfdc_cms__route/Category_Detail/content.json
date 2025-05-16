@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Category",
+  "contentBody" : {
+    "activeViewId" : "detail_0ZG",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "detail-0ZG",
+    "urlPrefix" : "category"
+  },
+  "urlName" : "category"
+}

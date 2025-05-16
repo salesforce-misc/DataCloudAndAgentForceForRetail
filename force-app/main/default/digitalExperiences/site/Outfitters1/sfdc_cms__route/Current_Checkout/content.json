@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Checkout",
+  "contentBody" : {
+    "activeViewId" : "current_checkout",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "current-checkout",
+    "urlPrefix" : "checkout"
+  },
+  "urlName" : "checkout"
+}

@@ -1,0 +1,29 @@
+<template>
+ <template if:true={isShowModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+             <!-- modal header start -->
+               <header class="slds-modal__header">
+                  <h2 id="modal-heading-02" class="headingcontent slds-text-heading_medium slds-hyphenate">Return Label For Products</h2>
+               </header>
+            
+               <!-- modal body start -->
+               <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                <div class="slds-m-top_medium">
+                    <div class="slds-m-bottom_small">
+                    <lightning-button label="Download/Print Return Label " icon-name="utility:save" alternative-text="Save" onclick={handleOnClickDownload} class="button-container"></lightning-button>
+                  </div>
+                  <!-- <div class="slds-m-bottom_small"> -->
+                    <!-- <lightning-button-icon label="Print Return Label" icon-name="utility:print" alternative-text="Print" onclick={handleOnClickDownload} class="button-container"></lightning-button-icon> -->
+                    <!-- <lightning-button label="Email this Search"  icon-name="utility:email" onclick={handleSendEmail} class="button-container"> </lightning-button> -->
+                  <!-- </div> -->
+                </div>
+            </div>
+         
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+             <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+            </footer>
+         </div>
+      </section>
+    </template>

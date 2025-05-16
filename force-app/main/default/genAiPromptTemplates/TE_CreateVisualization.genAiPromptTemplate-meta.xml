@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_4</activeVersionIdentifier>
+    <description>Prompt to identify which fields from the semantic model to use to create a Tableau Einstein visualisation</description>
+    <developerName>TE_CreateVisualization</developerName>
+    <masterLabel>TE_CreateVisualization</masterLabel>
+    <templateVersions>
+        <content>**TASK**
+            Your task is to identify the fields of the semantic model to build a bar chart with:
+            - One (1) Dimension
+            - One (1) Measure
+            Interpret the user’s query, identify the relevant fields, and produce a valid JSON output containing the two (2) fields from the semantic model.
+
+            **CONTEXT**
+            You are provided with the semantic model metadata of the dataset. The model includes the following fields - use only the content of Fields node to create the output, ignore the documentation node content
+
+            **INSTRUCTIONS**
+
+            ## Steps
+            1 . Parse the User Query:
+            - Identify the intent (e.g., profitability by Category).
+                - Extract the dimension field (e.g., Category).
+               - Determine the measure field (e.g., profitability or Total_Profit).
+            2 . Match Query Elements with the Semantic Model:
+                  - Match the user&apos;s query elements (dimension and measure) to the available fields in the semantic model metadata.
+                - Ensure compatibility with the expected roles and data types (Dimension/Measure).
+                - Select the most relevant fields. If multiple valid options exist, choose the one most aligned with the query.
+                - If no valid match exists, implement the fallback strategy.
+                - Construct the JSON Output:
+            3 - Generate the JSON output, replacing placeholders with the corresponding values from the semantic model metadata:
+               - PLACEHOLDER_DIMENSION_1_clc: Replace with the apiName of the selected dimension.
+               - PLACEHOLDER_MEASURE_1_clc: Replace with the apiName of the selected measure.
+               - PLACEHOLD_MEASURE_1_FUNCTION: Replace with the aggregationType of the selected measure.
+            4 -Fallback Handling:
+               - If no valid fields can be mapped to the query, return the following response:
+
+            ---
+
+            **INPUT**
+            USER Query: {!$Input:user_query}
+            Semantic metadata: {!$Input:sdm_metadata}
+
+
+            ---
+
+            **OUTPUT**
+
+            {
+            &quot;F1&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Discrete&quot;,
+            &quot;role&quot;: &quot;Dimension&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_DIMENSION_1_clc&quot;
+            },
+            &quot;F2&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F3&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F4&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F5&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            }
+            }
+
+            ----
+            EXAMPLE OUTPUT
+            for query: Sales by region
+            {
+                &quot;F1&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Discrete&quot;,
+                  &quot;role&quot;: &quot;Dimension&quot;,
+                  &quot;fieldName&quot;: &quot;Region_clc&quot;
+                },
+                &quot;F2&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F3&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F4&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F5&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+            &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                }
+              }
+            ---
+            NOTES
+            Ensure all fields in the output JSON strictly conform to the semantic model metadata.
+            For any ambiguity in the query, adopt a fallback strategy as described above.
+</content>
+        <inputs>
+            <apiName>user_query</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user_query</masterLabel>
+            <referenceName>Input:user_query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>sdm_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>sdm_metadata</masterLabel>
+            <referenceName>Input:sdm_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>jV2Z9hhxL7nhTjFXNE1Ru2YP4uJNUTR73A9Jp0V2G9k=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>**TASK**
+            Your task is to identify the fields of the semantic model to build a bar chart and Donut Chart with:
+            - One (1) Dimension
+            - One (1) Measure
+            Interpret the user’s query, identify the relevant fields, and produce a valid JSON output containing the two (2) fields from the semantic model.
+
+            **CONTEXT**
+            You are provided with the semantic model metadata of the dataset. The model includes the following fields - use only the content of Fields node to create the output, ignore the documentation node content
+
+            **INSTRUCTIONS**
+
+            ## Steps
+            1 . Parse the User Query:
+            - Identify the intent (e.g., profitability by Category).
+                - Extract the dimension field (e.g., Category).
+               - Determine the measure field (e.g., profitability or Total_Profit).
+            2 . Match Query Elements with the Semantic Model:
+                  - Match the user&apos;s query elements (dimension and measure) to the available fields in the semantic model metadata.
+                - Ensure compatibility with the expected roles and data types (Dimension/Measure).
+                - Select the most relevant fields. If multiple valid options exist, choose the one most aligned with the query.
+                - If no valid match exists, implement the fallback strategy.
+                - Construct the JSON Output:
+            3 - Generate the JSON output, replacing placeholders with the corresponding values from the semantic model metadata:
+               - PLACEHOLDER_DIMENSION_1_clc: Replace with the apiName of the selected dimension.
+               - PLACEHOLDER_MEASURE_1_clc: Replace with the apiName of the selected measure.
+               - PLACEHOLD_MEASURE_1_FUNCTION: Replace with the aggregationType of the selected measure.
+            4 -Fallback Handling:
+               - If no valid fields can be mapped to the query, return the following response:
+
+            ---
+
+            **INPUT**
+            USER Query: {!$Input:user_query}
+            Semantic metadata: {!$Input:sdm_metadata}
+
+
+            ---
+
+            **OUTPUT**
+
+            {
+            &quot;F1&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Discrete&quot;,
+            &quot;role&quot;: &quot;Dimension&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_DIMENSION_1_clc&quot;
+            },
+            &quot;F2&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F3&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F4&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F5&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            }
+            }
+
+            ----
+            EXAMPLE OUTPUT
+            for query: Sales by region
+            {
+                &quot;F1&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Discrete&quot;,
+                  &quot;role&quot;: &quot;Dimension&quot;,
+                  &quot;fieldName&quot;: &quot;Region_clc&quot;
+                },
+                &quot;F2&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F3&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F4&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F5&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+            &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                }
+              }
+            ---
+            NOTES
+            Ensure all fields in the output JSON strictly conform to the semantic model metadata.
+            For any ambiguity in the query, adopt a fallback strategy as described above.
+</content>
+        <inputs>
+            <apiName>user_query</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user_query</masterLabel>
+            <referenceName>Input:user_query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>sdm_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>sdm_metadata</masterLabel>
+            <referenceName>Input:sdm_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>**TASK**
+            Your task is to identify the fields of the semantic model to build a Donut Chart with:
+            - One (1) Dimension
+            - One (1) Measure
+            Interpret the user’s query, identify the relevant fields, and produce a valid JSON output containing the two (2) fields from the semantic model.
+
+            **CONTEXT**
+            You are provided with the semantic model metadata of the dataset. The model includes the following fields - use only the content of Fields node to create the output, ignore the documentation node content
+
+            **INSTRUCTIONS**
+
+            ## Steps
+            1 . Parse the User Query:
+            - Identify the intent (e.g., profitability by Category).
+                - Extract the dimension field (e.g., Category).
+               - Determine the measure field (e.g., profitability or Total_Profit).
+            2 . Match Query Elements with the Semantic Model:
+                  - Match the user&apos;s query elements (dimension and measure) to the available fields in the semantic model metadata.
+                - Ensure compatibility with the expected roles and data types (Dimension/Measure).
+                - Select the most relevant fields. If multiple valid options exist, choose the one most aligned with the query.
+                - If no valid match exists, implement the fallback strategy.
+                - Construct the JSON Output:
+            3 - Generate the JSON output, replacing placeholders with the corresponding values from the semantic model metadata:
+               - PLACEHOLDER_DIMENSION_1_clc: Replace with the apiName of the selected dimension.
+               - PLACEHOLDER_MEASURE_1_clc: Replace with the apiName of the selected measure.
+               - PLACEHOLD_MEASURE_1_FUNCTION: Replace with the aggregationType of the selected measure.
+            4 -Fallback Handling:
+               - If no valid fields can be mapped to the query, return the following response:
+
+            ---
+
+            **INPUT**
+            USER Query: {!$Input:user_query}
+            Semantic metadata: {!$Input:sdm_metadata}
+
+
+            ---
+
+            **OUTPUT**
+
+            {
+            &quot;F1&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Discrete&quot;,
+            &quot;role&quot;: &quot;Dimension&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_DIMENSION_1_clc&quot;
+            },
+            &quot;F2&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F3&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F4&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F5&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            }
+            }
+
+            ----
+            EXAMPLE OUTPUT
+            for query: Sales by region
+            {
+                &quot;F1&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Discrete&quot;,
+                  &quot;role&quot;: &quot;Dimension&quot;,
+                  &quot;fieldName&quot;: &quot;Region_clc&quot;
+                },
+                &quot;F2&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F3&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F4&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F5&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+            &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                }
+              }
+            ---
+            NOTES
+            Ensure all fields in the output JSON strictly conform to the semantic model metadata.
+            For any ambiguity in the query, adopt a fallback strategy as described above.
+</content>
+        <inputs>
+            <apiName>user_query</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user_query</masterLabel>
+            <referenceName>Input:user_query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>sdm_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>sdm_metadata</masterLabel>
+            <referenceName>Input:sdm_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>**TASK**
+            Your task is to identify the fields of the semantic model to build a Bar Chart with:
+            - One (1) Dimension
+            - One (1) Measure
+            Interpret the user’s query, identify the relevant fields, and produce a valid JSON output containing the two (2) fields from the semantic model.
+
+            **CONTEXT**
+            You are provided with the semantic model metadata of the dataset. The model includes the following fields - use only the content of Fields node to create the output, ignore the documentation node content
+
+            **INSTRUCTIONS**
+
+            ## Steps
+            1 . Parse the User Query:
+            - Identify the intent (e.g., profitability by Category).
+                - Extract the dimension field (e.g., Category).
+               - Determine the measure field (e.g., profitability or Total_Profit).
+            2 . Match Query Elements with the Semantic Model:
+                  - Match the user&apos;s query elements (dimension and measure) to the available fields in the semantic model metadata.
+                - Ensure compatibility with the expected roles and data types (Dimension/Measure).
+                - Select the most relevant fields. If multiple valid options exist, choose the one most aligned with the query.
+                - If no valid match exists, implement the fallback strategy.
+                - Construct the JSON Output:
+            3 - Generate the JSON output, replacing placeholders with the corresponding values from the semantic model metadata:
+               - PLACEHOLDER_DIMENSION_1_clc: Replace with the apiName of the selected dimension.
+               - PLACEHOLDER_MEASURE_1_clc: Replace with the apiName of the selected measure.
+               - PLACEHOLD_MEASURE_1_FUNCTION: Replace with the aggregationType of the selected measure.
+            4 -Fallback Handling:
+               - If no valid fields can be mapped to the query, return the following response:
+
+            ---
+
+            **INPUT**
+            USER Query: {!$Input:user_query}
+            Semantic metadata: {!$Input:sdm_metadata}
+
+
+            ---
+
+            **OUTPUT**
+
+            {
+            &quot;F1&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Discrete&quot;,
+            &quot;role&quot;: &quot;Dimension&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_DIMENSION_1_clc&quot;
+            },
+            &quot;F2&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F3&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F4&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F5&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            }
+            }
+
+            ----
+            EXAMPLE OUTPUT
+            for query: Sales by region
+            {
+                &quot;F1&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Discrete&quot;,
+                  &quot;role&quot;: &quot;Dimension&quot;,
+                  &quot;fieldName&quot;: &quot;Region_clc&quot;
+                },
+                &quot;F2&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F3&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F4&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F5&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+            &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                }
+              }
+            ---
+            NOTES
+            Ensure all fields in the output JSON strictly conform to the semantic model metadata.
+            For any ambiguity in the query, adopt a fallback strategy as described above.
+</content>
+        <inputs>
+            <apiName>user_query</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user_query</masterLabel>
+            <referenceName>Input:user_query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>sdm_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>sdm_metadata</masterLabel>
+            <referenceName>Input:sdm_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>**TASK**
+            Your task is to identify the fields of the semantic model to build a Bar Chart with:
+            - One (1) Dimension
+            - One (1) Measure
+            Interpret the user’s query, identify the relevant fields, and produce a valid JSON output containing the two (2) fields from the semantic model.
+
+            **CONTEXT**
+            You are provided with the semantic model metadata of the dataset. The model includes the following fields - use only the content of Fields node to create the output, ignore the documentation node content
+
+            **INSTRUCTIONS**
+
+            ## Steps
+            1 . Parse the User Query:
+            - Identify the intent (e.g., profitability by Category).
+                - Extract the dimension field (e.g., Category).
+               - Determine the measure field (e.g., profitability or Total_Profit).
+            2 . Match Query Elements with the Semantic Model:
+                  - Match the user&apos;s query elements (dimension and measure) to the available fields in the semantic model metadata.
+                - Ensure compatibility with the expected roles and data types (Dimension/Measure).
+                - Select the most relevant fields. If multiple valid options exist, choose the one most aligned with the query.
+                - If no valid match exists, implement the fallback strategy.
+                - Construct the JSON Output:
+            3 - Generate the JSON output, replacing placeholders with the corresponding values from the semantic model metadata:
+               - PLACEHOLDER_DIMENSION_1_clc: Replace with the apiName of the selected dimension.
+               - PLACEHOLDER_MEASURE_1_clc: Replace with the apiName of the selected measure.
+               - PLACEHOLD_MEASURE_1_FUNCTION: Replace with the aggregationType of the selected measure.
+            4 -Fallback Handling:
+               - If no valid fields can be mapped to the query, return the following response:
+
+            ---
+
+            **INPUT**
+            USER Query: {!$Input:user_query}
+            Semantic metadata: {!$Input:sdm_metadata}
+
+
+            ---
+
+            **OUTPUT**
+
+            {
+            &quot;F1&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Discrete&quot;,
+            &quot;role&quot;: &quot;Dimension&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_DIMENSION_1_clc&quot;
+            },
+            &quot;F2&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F3&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F4&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                    &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            },
+            &quot;F5&quot;: {
+            &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+            &quot;role&quot;: &quot;Measure&quot;,
+            &quot;fieldName&quot;: &quot;PLACEHOLDER_MEASURE_1_clc&quot;,
+            &quot;function&quot;: &quot;PLACEHOLD_MEASURE_1_FUNCTION&quot;
+            }
+            }
+
+            ----
+            EXAMPLE OUTPUT
+            for query: Sales by region
+            {
+                &quot;F1&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Discrete&quot;,
+                  &quot;role&quot;: &quot;Dimension&quot;,
+                  &quot;fieldName&quot;: &quot;Region_clc&quot;
+                },
+                &quot;F2&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F3&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F4&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+                 &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                },
+                &quot;F5&quot;: {
+                  &quot;type&quot;: &quot;Field&quot;,
+            &quot;displayCategory&quot;: &quot;Continuous&quot;,
+                  &quot;role&quot;: &quot;Measure&quot;,
+                  &quot;fieldName&quot;: &quot;Total_Sales_clc&quot;,
+                  &quot;function&quot;: &quot;UserAgg&quot;
+                }
+              }
+            ---
+            NOTES
+            Ensure all fields in the output JSON strictly conform to the semantic model metadata.
+            For any ambiguity in the query, adopt a fallback strategy as described above.
+</content>
+        <inputs>
+            <apiName>user_query</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user_query</masterLabel>
+            <referenceName>Input:user_query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>sdm_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>sdm_metadata</masterLabel>
+            <referenceName>Input:sdm_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_5</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

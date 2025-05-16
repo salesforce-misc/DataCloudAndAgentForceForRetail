@@ -1,0 +1,18 @@
+.slds-box{
+    padding-top: 0;
+}
+.slds-truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.slds-m-right_xx-small, .slds-m-right--xx-small {
+    margin-right: var(--lwc-spacingXxSmall, 0.25rem);
+}
+.slds-page-header__name{
+    line-height: 1;
+    font-weight: 700px;
+    font-weight: bold;
+    font-size: 1.2em;
+}

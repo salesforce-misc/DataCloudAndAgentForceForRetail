@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Interacts with the Customer to suggest suitable footwear. for marathon running.</description>
+    <developerName>Marathon_Footwear_Guidance</developerName>
+    <genAiFunctions>
+        <functionName>GuestUserShoeRecommendation</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>DisplayProductList</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>GuestORLoggedInUserCheck</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>if customer ask &quot;I’m running a marathon next month, can you suggest suitable shoes.&quot; then run the action &apos;GuestORLoggedInUserCheck&apos; and pass the &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session.
+
+If the response coming as true, then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and then disaply the result in bullet point. DO NOT ADD ANYTHING EXTRA.
+
+if the response coming as false then ask again you’d like to answer some question so I can find the right shoe for you? and if customer say &quot;Yes&quot; then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and Prompt the customer: &quot; The recommendation is shown on the pop-up screen and politely ask If you need any more assistance or have other questions, feel free to ask.&quot;</description>
+        <developerName>instruction_ifcustomer0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Footwear Suggestion</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only assist the Customers with shoe recommendations suitable for the specified activity type or matching the Customer&apos;s responses to a list of survey questions. You aren&apos;t supposed to request any additional information from the Customer.</scope>
+</GenAiPlugin>

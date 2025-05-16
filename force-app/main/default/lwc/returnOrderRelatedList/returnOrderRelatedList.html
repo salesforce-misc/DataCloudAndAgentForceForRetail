@@ -1,0 +1,80 @@
+<template>
+    <article class="slds-card slds-card_boundary slds-card_related-list-fix slds-box">
+        <div class="slds-page-header slds-page-header_related-list">
+            <div class="slds-media slds-no-space slds-grow">
+                <div class="slds-media__figure">                        
+                    <p  >
+                        <lightning-icon icon-name="custom:custom19" title="custom19" size="small"></lightning-icon>
+                    </p>                      
+                </div>
+                <div class="slds-media__body slds-align-middle">
+                        <h2 class="slds-card__header-title">
+                            <span class="slds-truncate slds-m-right--xx-small" title="POS Transaction">Return Order({itemNumber})</span>
+                        </h2>                    
+                </div>            
+            </div>
+            <p class="slds-page-header__name-meta">{itemNumber} items  <template if:true={sortedByLabel}>. Sorted By {sortedByLabel}</template> </p>
+        </div>  
+             
+        <template if:true={transactions}>
+           <div class="">
+
+           
+            <lightning-datatable 
+                data={transactions}
+                columns={columns}
+                key-field="id"
+                hide-checkbox-column="true"
+                default-sort-direction={defaultSortDirection}
+                sorted-direction={sortDirection}
+                sorted-by={sortedBy}
+                onsort={onHandleSort}
+                show-row-number-column = "true"
+                >
+            </lightning-datatable>
+            </div>
+        </template>
+        
+  
+</article>  
+<template if:true={products}>
+    <article class="slds-card slds-card_boundary slds-card_related-list-fix slds-box">
+        <div class="slds-page-header slds-page-header_related-list">
+            <div class="slds-media slds-no-space slds-grow">
+                <div class="slds-media__figure">                        
+                    <p  >
+                        <lightning-icon icon-name="custom:custom19" title="custom19" size="small"></lightning-icon>
+                    </p>                      
+                </div>
+                <div class="slds-media__body slds-align-middle">
+                        <h2 class="slds-card__header-title">
+                            <span class="slds-truncate slds-m-right--xx-small" title="Return Order Product">Return Order Product({itemNumberProduct})</span>
+                        </h2>                    
+                </div>            
+            </div>
+            <p class="slds-page-header__name-meta">{itemNumberProduct} items  <template if:true={sortedByLabelProd}>. Sorted By {sortedByLabelProd}</template> </p>
+        </div>  
+             
+        <template if:true={products}>
+           <div class="">
+
+           
+            <lightning-datatable 
+                data={products}
+                columns={columnProducts}
+                key-field="id"
+                hide-checkbox-column="true"
+                default-sort-direction={defaultSortDirectionProd}
+                sorted-direction={sortDirectionProd}
+                sorted-by={sortedByProd}
+                onsort={onHandleSortProduct}
+                show-row-number-column = "true"
+                >
+            </lightning-datatable>
+            </div>
+        </template>
+        
+  
+</article>  
+</template>
+</template>

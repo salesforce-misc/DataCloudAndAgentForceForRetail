@@ -1,0 +1,9 @@
+.product-name {
+    color: skyblue;
+    font-weight: bold;
+    font-family: inherit;
+}
+
+lightning-card .slds-card__header-title {
+    font-weight: bold;
+}

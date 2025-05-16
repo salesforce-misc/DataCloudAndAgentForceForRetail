@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "My Profile",
+  "contentBody" : {
+    "activeViewId" : "my_profile",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "my-profile",
+    "urlPrefix" : "myprofile"
+  },
+  "urlName" : "my-profile"
+}

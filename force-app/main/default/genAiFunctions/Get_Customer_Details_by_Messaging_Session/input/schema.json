@@ -1,0 +1,14 @@
+{
+  "required" : [ "messagingSessionId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "messagingSessionId" : {
+      "title" : "messagingSessionId",
+      "description" : "Salesforce record identifier for the standard object MessagingSession. This identifier is used to identify the current messaging session from the agent.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

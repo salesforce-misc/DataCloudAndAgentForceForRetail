@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Interacts with the Customer to notify about the Customer still holding a recalled Product when the Customer greets the Agent with a &quot;Hi&quot; or &quot;Hello&quot;.</description>
+    <developerName>RecallOnGreeting</developerName>
+    <genAiFunctions>
+        <functionName>GetRecallContactFromSegment</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If customer says &apos;Hi&apos; or &apos;Hello&apos; then show recall product by running &apos;GetRecallContactFromSegment&apos; action by passing Contact context variable as contactId to input 
+and return the response message
+If there are no recall product then say &apos;Hi, how can I assist you today?&apos;
+DO NOT ADD ANYTHING EXTRA</description>
+        <developerName>instruction_ifcustomer0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>First Interaction on Greeting</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is the inform the logged-in Customer about the recalled Product that the Customer is yet to return, when the Customer greets with a &quot;Hi&quot; or &quot;Hello&quot;.</scope>
+</GenAiPlugin>

@@ -1,0 +1,5 @@
+{
+  "apiName" : "terms_and_conditions",
+  "type" : "sfdc_cms__view",
+  "path" : "views"
+}

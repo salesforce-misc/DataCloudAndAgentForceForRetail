@@ -1,0 +1,87 @@
+/* Main container for the products */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Each product box */
+.product-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0; /* important to prevent spacing */
+
+}
+
+/* Hover effect on product box */
+.product-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 150px; /* or desired height */
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background-color: #f9f9f9; /* optional, for visual consistency if images are smaller */
+}
+
+
+/* Product name styling */
+.product-name {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    margin: 0;
+}
+
+/* Name and button layout */
+.name-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+/* Recommend button styling */
+.recommend-button {
+    background-color: #0070d2; /* Salesforce blue */
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    font-size: 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommend-button:hover {
+    background-color: #005fb2;
+}
+
+/* Message for no products */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.main-heading {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}

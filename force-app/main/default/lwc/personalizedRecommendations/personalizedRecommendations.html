@@ -1,0 +1,29 @@
+<template>
+    <h2 class="main-heading">
+        <lightning-icon icon-name="standard:omni_supervisor" size="xx-small"></lightning-icon>
+        Recommendations
+    </h2>
+
+    <!-- Check if productList is not empty -->
+    <template if:true={productList}>
+        <div class="product-container">
+            <template for:each={productList} for:item="product">
+                <div key={product.id} class="product-box">
+                    <img src={product.imageUrl} alt={product.name} class="product-image" data-id={product.id} data-name={product.name} />
+                    
+                    <!-- Name and Button side-by-side -->
+                    <div class="name-button-container">
+                        <p class="product-name">{product.name}</p>
+                        <!-- Button calls handleRecommendClick method on click -->
+                        <button class="recommend-button" data-id={product.id} data-name={product.name} data-description={product.description} onclick={handleRecommendClick}>Recommend to Customer</button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+
+    <!-- Display message if there are no products -->
+    <template if:false={productList.length}>
+        <p>No products found.</p>
+    </template>
+</template>

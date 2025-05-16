@@ -1,0 +1,5 @@
+{
+  "apiName" : "externalLayout",
+  "type" : "sfdc_cms__themeLayout",
+  "path" : "themeLayouts"
+}

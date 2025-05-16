@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Takes the sessionId as the Messaging Session ID from Context Variables Messaging Session and returns Boolean response</description>
+    <invocationTarget>GuestORLoggedInUserCheck</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>GuestORLoggedInUserCheck</masterLabel>
+</GenAiFunction>

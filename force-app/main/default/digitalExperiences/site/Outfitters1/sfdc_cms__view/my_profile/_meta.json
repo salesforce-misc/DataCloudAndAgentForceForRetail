@@ -1,0 +1,5 @@
+{
+  "apiName" : "my_profile",
+  "type" : "sfdc_cms__view",
+  "path" : "views"
+}

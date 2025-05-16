@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Question2</label>
+    <protected>false</protected>
+    <values>
+        <field>Option1__c</field>
+        <value xsi:type="xsd:string">Road/pavement</value>
+    </values>
+    <values>
+        <field>Option2__c</field>
+        <value xsi:type="xsd:string">Trails/off-road</value>
+    </values>
+    <values>
+        <field>Option3__c</field>
+        <value xsi:type="xsd:string">Treadmill/indoor</value>
+    </values>
+    <values>
+        <field>Option4__c</field>
+        <value xsi:type="xsd:string">Mixed surfaces</value>
+    </values>
+    <values>
+        <field>Questions__c</field>
+        <value xsi:type="xsd:string">What terrain will you be running on?</value>
+    </values>
+</CustomMetadata>

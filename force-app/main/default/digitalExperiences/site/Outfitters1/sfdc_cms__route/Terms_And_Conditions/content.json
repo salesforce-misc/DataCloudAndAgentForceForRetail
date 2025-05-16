@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Terms And Conditions",
+  "contentBody" : {
+    "activeViewId" : "terms_and_conditions",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "terms-and-conditions",
+    "urlPrefix" : "terms-and-conditions"
+  },
+  "urlName" : "terms-and-conditions"
+}

@@ -1,0 +1,101 @@
+<template>
+<article class="slds-card profile-card" style="background-color:#bddad7">
+    <div class="slds-card__body slds-card__body_inner" style="background-color:#bddad7">
+        <template lwc:if={hasData}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-align-middle">
+                    <img
+                        class="profile-photo" 
+                        src={photoURL}
+                        alt="Profile picture" 
+                    />
+                </div>
+                <div class="slds-align-middle slds-p-left_medium">
+                    <h1 class="slds-text-heading_medium">
+                        <strong>{name}</strong> 
+                    </h1>
+                    <h3>{shippingCity}, {shippingState}</h3>
+                </div>
+            </div>
+    <lightning-record-view-form
+       record-id={recordId}
+       object-api-name="Account">
+    
+    <!-- Display Account Information -->
+    <div class="slds-grid slds-wrap slds-border_bottom slds-p-vertical_small">
+        <div class="slds-col slds-size_1-of-1 custom-class">                                                  
+            <span class="slds-text-title" style="display: inline-flex; margin-bottom: 1em;">
+                <lightning-icon icon-name="utility:identity" size="xx-small"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1" style="margin-left: 0.5em;">
+                    <span>Customer ID</span>
+                    <span style="font-weight: normal; margin-left: 0.5em;">{customerId}</span>
+                </div>
+            </span> 
+            <br>
+            <span class="slds-text-title" style="display: inline-flex; ">
+                <lightning-icon icon-name="utility:email" size="xx-small" style="align-items: top; padding-top: 4px;"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1" style="margin-left: 0.5em;"> 
+                    <lightning-output-field field-name="PersonEmail"></lightning-output-field>
+                </div> 
+            </span> 
+            <br>
+            <span class="slds-text-title" style="display: inline-flex; ">
+                <lightning-icon icon-name="utility:phone_portrait" size="xx-small" style="align-items: top; padding-top: 4px;"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1" style="margin-left: 0.5em;"> 
+                    <lightning-output-field field-name="Phone"></lightning-output-field>
+                </div> 
+            </span>                                  
+            <br>
+            <span class="slds-text-title" style="display: inline-flex; "> 
+                <lightning-icon icon-name="utility:checkin" size="xx-small" style="align-items: top; padding-top: 4px;"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1"  style="margin-left: 0.5em;"> 
+                    <b><h2>Address</h2></b> 
+                    <h2 style="color: rgb(45, 44, 44);">
+                        {shippingStreet}, {shippingCity}, {shippingState}, {shippingPostalCode}
+                    </h2> 
+                </div> 
+            </span>
+            <hr class="slds-m-bottom_small">
+            <span class="slds-text-title" style="display: inline-flex; margin-bottom: 1em; ">
+                <lightning-icon icon-name="utility:cart" size="xx-small"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1" style="margin-left: 0.5em;">
+                    <span>Lifetime Value:</span> 
+                    <span style="font-weight: normal; margin-left: 0.5em; color: rgb(37, 36, 36);">${lifetimeValue}</span>
+                </div>
+            </span>
+            <br>
+           <span class="slds-text-title" style="display: inline-flex; ">
+                <lightning-icon icon-name="utility:moneybag" size="xx-small"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1" style="margin-left: 0.5em;">
+                    <span>Propensity to Purchase:</span> 
+                    <span style="font-weight: normal; margin-left: 0.5em; color: rgb(44, 42, 42);">{propensityToPurchase}</span>
+                </div>
+            </span>
+            <hr class="slds-m-bottom_small">
+            <span class="slds-text-title" style="display: inline-flex; margin-bottom: 1em;">
+                <lightning-icon icon-name="utility:chart" size="xx-small"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1" style="margin-left: 0.5em;">
+                    <span>Segment:</span> 
+                    <span style="margin-left: 0.5em; color: rgb(76, 76, 77); font-weight: bold;">
+                        {message}
+                    </span>
+                </div>
+            </span>                     
+            <br>
+           <span class="slds-text-title" style="display: inline-flex; ">
+                <lightning-icon icon-name="utility:moneybag" size="xx-small"></lightning-icon>
+                <div class="slds-col slds-size_1-of-1" style="margin-left: 0.5em;">
+                    <span>Engagement Score:</span> 
+                    <span style="font-weight: normal; margin-left: 0.5em; color: rgb(44, 42, 42);">{engagementScore}</span>
+                </div>
+            </span>
+        </div>                       
+    </div>
+        </lightning-record-view-form>
+        </template>
+        <template lwc:else> 
+            <p>No data found</p> 
+        </template>
+    </div>
+</article>
+</template>

@@ -1,0 +1,54 @@
+:host {
+    /* Custom CSS variables for reusing style in this component and child components */
+    --primary-color: #00373e;
+
+    /* Text styling hooks */
+    --slds-g-color-neutral-base-10: var(--primary-color);
+    --slds-g-color-neutral-base-30: var(--primary-color);
+
+    /* Border styling hooks */
+    --slds-g-color-border-base-1: var(--primary-color);
+
+    /* Icon styling hooks */
+    --sds-c-icon-color-foreground: var(--primary-color);
+}
+
+.profile-card {
+    background-color: #bddad7;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 70px;
+}
+
+.custom-class .slds-form-element__label {
+    font-weight: bold;
+}
+
+.mtoval {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 40px;
+    margin :3px;
+    background-color: #6666f7;
+    text-align: center;
+    font-size: 12px;
+    color: #fff4f4;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+
+.custom-icon {
+    --slds-c-icon-color-background:#white;  /* Background color */
+}
+
+:host {
+    display: block;
+    overflow: hidden; /* Prevents the scrollbar */
+}

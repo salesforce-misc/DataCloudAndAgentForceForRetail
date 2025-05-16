@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Payment Processing",
+  "contentBody" : {
+    "activeViewId" : "payment_processing",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "payment-processing",
+    "urlPrefix" : "payment-processing"
+  },
+  "urlName" : "payment-processing"
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>jV2Z9hhxL7nhTjFXNE1Ru2YP4uJNUTR73A9Jp0V2G9k=_1</activeVersionIdentifier>
+    <description>Generate Insights and Next Steps from processed Semanctic Query Result - Format the Semantic Query Result to pass it to the agent as a JSON</description>
+    <developerName>TE_FormatSemanticQueryResult_light</developerName>
+    <masterLabel>TE_FormatSemanticQueryResult_light</masterLabel>
+    <templateVersions>
+        <content>You are given the following JSON object (referred to as processed_result) as your input. It contains all the information you need, including the user’s query, the selected visualization format, and additional data:
+			• userQuery: The user’s original query.
+			• format: Either &quot;bar_chart&quot; or &quot;markdown_table&quot;.
+			• chartSvg: Present only if format = &quot;bar_chart&quot;, containing the SVG snippet.
+			• markdownTable: Present only if format = &quot;markdown_table&quot;, containing the Markdown table.
+			• keyPointsJson: A JSON string with key insights extracted from the data (e.g., top performing dimension and value).
+			• sdmMetadata: Additional semantic model metadata that may help guide recommendations.
+			**INPUT**
+			{!$Input:processed_result}
+
+			**YOUR TASK**
+			1 - Use userQuery to understand the user’s intent.
+			• If format = &quot;bar_chart&quot;, you will include &quot;bar_chart&quot;: &quot;&lt;svg&gt;...&lt;/svg&gt;&quot; under &quot;results&quot;. Format the values based on the metadata (e.g., &quot;$&quot; for monetary fields or &quot;%&quot; for percentages).
+			• If format = &quot;markdown_table&quot;, you will include &quot;markdown_table&quot;: &quot;| Label | Value |...&quot; under &quot;results&quot;. Add units (e.g., &quot;$&quot;, &quot;%&quot;) only when specified in the metadata or inferred with high confidence from sdmMetadata. 
+			• Parse keyPointsJson to identify important data points (like top categories, products, etc.).
+			• Analyze sdmMetadata to refine your insights and recommendations (for example, if there are fields related to profit or discount, you might mention strategies related to those fields).
+			2 - Produce the Output in Strict JSON:
+			Return a single JSON object with the following structure:
+			{
+			 &quot;results&quot;: {
+			  &quot;bar_chart&quot;: &quot;&lt;svg&gt;...&lt;/svg&gt;&quot;
+			  // OR
+			  &quot;markdown_table&quot;: &quot;| Label | Value | ...&quot;
+			 },
+			 &quot;highlights_insights&quot;: {
+			  &quot;summary&quot;: &quot;A concise summary of the analysis&quot;,
+			  &quot;insights&quot;: [
+			   &quot;Key insight 1&quot;,
+			   &quot;Key insight 2&quot;
+			  ]
+			 },
+			 &quot;next_steps&quot;: {
+			  &quot;recommendations&quot;: [
+			   &quot;Recommendation 1&quot;,
+			   &quot;Recommendation 2&quot;
+			  ]
+			 }
+			}
+
+			• Do not include any text outside the JSON.
+			• Never add &quot;```json&quot; before the actual JSON output, we need the content, not an indication of the format.
+			• Adhere strictly to this structure and field names.
+			• Ensure valid JSON format (proper commas, quotes, and brackets).
+
+			3 - Leverage All Inputs for Quality Output:
+			• The userQuery gives you context on what the user is looking for.
+			• The chosen format tells you which results representation to include.
+			• keyPointsJson and sdmMetadata together help you form meaningful insights and actionable next steps.
+			• Make sure the &quot;summary&quot; and &quot;insights&quot; in &quot;highlights_insights&quot; reflect the data in keyPointsJson.
+			• Recommendations in &quot;next_steps&quot; should tie back to the insights and, where possible, leverage sdmMetadata context.
+			• Use bold text and emojis to emphasize key insights and next steps
+
+			Example (for Reference Only):
+			Note: The below is just an example. Your actual output should be based on the allDataJson you receive. Be sure not to include extra commentary or text outside the final JSON object.
+			{
+			 &quot;results&quot;: {
+			  &quot;bar_chart&quot;: &quot;&lt;svg width=&apos;400&apos; height=&apos;150&apos; xmlns=&apos;http://www.w3.org/2000/svg&apos;&gt;...optimized svg...&lt;/svg&gt;&quot;
+			 },
+			 &quot;highlights_insights&quot;: {
+			  &quot;summary&quot;: &quot;Top categories by total sales, clearly led by Furniture.&quot;,
+			  &quot;insights&quot;: [
+			   &quot;🥇 **Top Performer:** Furniture leads with $624.4K in sales.&quot;,
+			   &quot;Office Supplies and Technology follow at $343.3K and $247.5K respectively, indicating a stable performance across product lines.&quot;
+			  ]
+			 },
+			 &quot;next_steps&quot;: {
+			  &quot;recommendations&quot;: [
+			   &quot;🔄 Maintain strong performance in the Furniture category to preserve its leading position.&quot;,
+			   &quot;🔄 Consider targeted promotions for Office Supplies and Technology to drive further growth.&quot;
+			  ]
+			 }
+			}
+
+		</content>
+        <inputs>
+            <apiName>processed_result</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>processed_result</masterLabel>
+            <referenceName>Input:processed_result</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>jV2Z9hhxL7nhTjFXNE1Ru2YP4uJNUTR73A9Jp0V2G9k=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

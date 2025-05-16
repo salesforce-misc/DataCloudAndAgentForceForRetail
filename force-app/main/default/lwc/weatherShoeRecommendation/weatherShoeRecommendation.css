@@ -1,0 +1,86 @@
+/*.slds-box {
+    margin-bottom: 1rem;
+}*/
+.datatable-header {
+    background-color: #f4f6f9;
+    color: #1d1919;
+}
+
+/*.datatable-cell {
+    background-color: #d3d3d3; /* Light grey background */
+   /* color: #0a0909;
+}
+/* Override the default SLDS modal container to position it at the bottom-left */
+.slds-modal__container {
+    position: fixed !important; /* Fix modal container to the viewport */
+    top:15%;
+    bottom: 10%; /* Place it at the bottom */
+    left: 0; /* Place it at the left */
+    z-index: 1001; /* Ensure the modal appears on top of other elements */
+    width: 200px ; /* Allow the modal to take only the necessary width */
+    height:auto;
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+    backdrop-filter: none;
+    filter: none;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Override the content of the modal */
+.slds-modal__content {
+    width: 300px; /* Decrease the width of the modal */
+    display:flex;
+    background-color: white; /* Ensure the background is white */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for a clean effect */
+    border-radius: 4px; /* Add rounded corners to the modal */
+    overflow: auto; /* Allow scrolling inside the modal if content overflows */
+    flex-direction: column;
+    pointer-events: auto;
+}
+.slds-modal__header{
+    background-color: #1d1919;
+    width: 300px;
+    color: #ffffff;
+   
+}
+.headingcontent{
+    color: #ffffff;
+    font-size: .85rem;
+}
+.button-container{
+    /*display: flex;
+    justify-content: flex-end;*/
+    margin-top: 5px;
+    border-radius: 0;
+    padding: 1rem 2rem;
+    
+}
+.send-email-button{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 1rem;
+    /*padding-top: 2r//em;*/
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 0;
+
+}
+.slds-modal__footer{
+    width: 300px;
+}
+.down-arrow {
+    margin-right: auto;
+}
+.slds-fade-in-open{
+    pointer-events: none;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .1s linear;
+}

@@ -1,0 +1,94 @@
+.containr{
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 0;
+	background-color: #fff;
+}
+.icon-right{
+	margin-right: 10px;
+    margin-bottom: 22px;
+}
+/* Title Section */
+.title-text{
+	margin-right: 10px;
+} 
+.title-section { 
+	background-color: #f4f6f9; 
+	padding: 15px; 
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+	/* border-radius: 5px;  */
+
+} 
+.title-section h2 { 
+	font-size: 18px; 
+	margin: 0; 
+	color: black;
+} 
+.title-section p {
+	 font-size: 14px;
+	 color: black; 
+	 margin-top: 5px;
+} 
+	 
+ /* Step Container */ 
+.step-container {
+	 padding: 10px 15px;
+	 border-bottom: 1px solid #ddd;
+	 display: flex; 
+	 align-items: center;
+	 padding-top: 3rem;
+	 padding-bottom: 3rem;
+	 margin-left: 2rem;
+ }
+ /* Step Header */
+.step-header { 
+	display: flex; 
+	align-items: center; 
+	width: 100%; 
+}
+ /* Step Info */
+.step-info {
+	 flex-grow: 1;
+	 margin-left: 10px;
+}
+.step-info strong {
+	 display: block;
+	 font-size: 1rem;
+	 color: black;
+}
+.description {
+	font-size: 0.8125rem;
+	color: black; 
+}
+.help-link {
+	font-size: 12px;
+	color: blue;
+	text-decoration: none;
+}
+ /* Step Actions */
+.step-actions {
+	margin-left: auto;
+}
+.slds-button_outline-brand{
+	border-radius: 4px !important;
+}
+
+
+.container{
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 10px;
+}
+.subtitle{
+	font-size: 15px;
+	color: gray;
+	margin-bottom: 10px;
+}
+.dummy{
+	display: none;
+}
+:host .circle {
+    --slds-c-button-radius-border: 4px;
+}

@@ -1,0 +1,28 @@
+{
+  "type" : "sfdc_cms__themeLayout",
+  "title" : "Commerce Layout",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "attributes" : {
+          "alignment" : "left",
+          "logoWidth" : "100"
+        },
+        "id" : "227d2cb9-718f-41d8-a415-49ffcfc4cf30"
+      }, {
+        "attributes" : {
+          "dxpStyle" : {
+            "padding" : {
+              "bottom" : "8%",
+              "left" : "8%",
+              "right" : "8%",
+              "top" : "3%"
+            }
+          }
+        },
+        "id" : "c2dba5df-e42f-47a1-a338-1b6bd137b551"
+      } ]
+    }
+  },
+  "urlName" : "commerce-layout"
+}

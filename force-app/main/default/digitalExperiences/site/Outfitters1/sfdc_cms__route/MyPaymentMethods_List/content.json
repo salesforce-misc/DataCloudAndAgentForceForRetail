@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Saved Payment Methods",
+  "contentBody" : {
+    "activeViewId" : "my_payment_methods",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "my-payment-methods",
+    "urlPrefix" : "my-payment-methods"
+  },
+  "urlName" : "saved-payment-methods"
+}

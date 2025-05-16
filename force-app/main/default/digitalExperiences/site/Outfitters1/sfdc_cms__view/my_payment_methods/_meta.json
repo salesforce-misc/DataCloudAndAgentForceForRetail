@@ -1,0 +1,5 @@
+{
+  "apiName" : "my_payment_methods",
+  "type" : "sfdc_cms__view",
+  "path" : "views"
+}
