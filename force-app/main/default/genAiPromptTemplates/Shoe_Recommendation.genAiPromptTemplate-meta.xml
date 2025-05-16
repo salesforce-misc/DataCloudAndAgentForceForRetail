@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_7</activeVersionIdentifier>
+    <developerName>Shoe_Recommendation</developerName>
+    <masterLabel>Shoe Recommendation</masterLabel>
+    <relatedEntity>MessagingSession</relatedEntity>
+    <templateVersions>
+        <content>Objective:
+The objective is to fetch the {!$Input:MessagingSession.Id} and based on the {!$Input:MessagingSession.Id} get the survey responses submitted by Guest User to formulate the user&apos;s preference, match it with product description and provide recommended shoes that matches the preference.
+
+Prompt Body:
+You are an intelligent assistant specializing in product recommendations.
+ 
+1. Fetch Survey Response: Run the flow {!$Flow:Agentforce_GetSurveyResponseRecord.Prompt} to retrieve survey response records.
+
+2. Filter by Session ID: Match the {!$Input:MessagingSession.Id} with the `SessionId` field of the fetched survey response records.
+  Consider only the survey response records where the `SessionId` matches {!$Input:MessagingSession.Id} to determine the guest user&apos;s preferences. 
+  If no survey responses are found for the provided `{!$Input:MessagingSession.Id}`, inform the user that no preferences could be determined and end the process.
+
+3. Fetch Product Details: Run the flow {!$Flow:Get_Product_Recommendation.Prompt} to retrieve details (including `product name` and `description`) for all available products.
+If no product details are retrieved, inform the user that no recommendations can be made at this time and end the process. 
+
+4. Formulate Customer Preference: Analyze the filtered survey response records. For each record:
+ * The `Question__c` field contains the survey question.
+ * The `Response__c` field contains the guest user&apos;s preference for that question. 
+ Compile a list of the guest user&apos;s preferences based on these `Response__c` values.
+
+5. Match Preferences with Product Descriptions: For each product retrieved in step 3, extract relevant keywords from its `Description` field. 
+* Compare these keywords with the guest user&apos;s preferences identified in step 4(for example durability, foot concerns etc.). 
+
+Return Response as:
+Here are some shoes we recommend (atleast 2): 
+Name:
+Description: (in 2 lines expressing how this shoe is good for each response from survey response)
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://MessagingSession</definition>
+            <referenceName>Input:MessagingSession</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Agentforce_GetSurveyResponseRecord</definition>
+            <referenceName>Flow:Agentforce_GetSurveyResponseRecord</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_Product_Recommendation</definition>
+            <referenceName>Flow:Get_Product_Recommendation</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+The objective is to fetch the {!$Input:MessagingSession.Id} and based on the {!$Input:MessagingSession.Id} get the survey responses submitted by Guest User to formulate the user&apos;s preference, match it with product description and provide recommended shoes that matches the preference.
+
+Prompt Body:
+You are an intelligent assistant specializing in product recommendations.
+ 
+1. Fetch Survey Response: Run the flow {!$Flow:Agentforce_GetSurveyResponseRecord.Prompt} to retrieve survey response records.
+
+2. Filter by Session ID: Match the {!$Input:MessagingSession.Id} with the `SessionId` field of the fetched survey response records.
+  Consider only the survey response records where the `SessionId` matches {!$Input:MessagingSession.Id} to determine the guest user&apos;s preferences. 
+  If no survey responses are found for the provided `{!$Input:MessagingSession.Id}`, inform the user that no preferences could be determined and end the process.
+
+3. Fetch Product Details: Run the flow {!$Flow:Get_Product_Recommendation.Prompt} to retrieve details (including `product name` and `description`) for all available products.
+If no product details are retrieved, inform the user that no recommendations can be made at this time and end the process. 
+
+4. Formulate Customer Preference: Analyze the filtered survey response records. For each record:
+ * The `Question__c` field contains the survey question.
+ * The `Response__c` field contains the guest user&apos;s preference for that question. 
+ Compile a list of the guest user&apos;s preferences based on these `Response__c` values.
+
+5. Match Preferences with Product Descriptions: For each product retrieved in step 3, extract relevant keywords from its `Description` field. 
+* Compare these keywords with the guest user&apos;s preferences identified in step 4(for example durability, foot concerns etc.). 
+
+Return Response as:
+Here are some shoes we recommend (atleast 2): 
+Product Name:
+Product Description:
+Description: (in 2 lines expressing how this shoe is good for each response from survey response)
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://MessagingSession</definition>
+            <referenceName>Input:MessagingSession</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Agentforce_GetSurveyResponseRecord</definition>
+            <referenceName>Flow:Agentforce_GetSurveyResponseRecord</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_Product_Recommendation</definition>
+            <referenceName>Flow:Get_Product_Recommendation</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+The objective is to fetch the {!$Input:MessagingSession.Id} and based on the {!$Input:MessagingSession.Id} get the survey responses submitted by Guest User to formulate the user&apos;s preference, match it with product description and provide recommended shoes that matches the preference.
+
+Prompt Body:
+You are an intelligent assistant specializing in product recommendations.
+ 
+1. Fetch Survey Response: Run the flow {!$Flow:Agentforce_GetSurveyResponseRecord.Prompt} to retrieve survey response records.
+
+2. Filter by Session ID: Match the {!$Input:MessagingSession.Id} with the `SessionId` field of the fetched survey response records.
+  Consider only the survey response records where the `SessionId` matches {!$Input:MessagingSession.Id} to determine the guest user&apos;s preferences. 
+  If no survey responses are found for the provided `{!$Input:MessagingSession.Id}`, inform the user that no preferences could be determined and end the process.
+
+3. Fetch Product Details: Run the flow {!$Flow:Get_Product_Recommendation.Prompt} to retrieve details (including `product name` and `description`) for all available products.
+If no product details are retrieved, inform the user that no recommendations can be made at this time and end the process. 
+
+4. Formulate Customer Preference: Analyze the filtered survey response records. For each record:
+ * The `Question__c` field contains the survey question.
+ * The `Response__c` field contains the guest user&apos;s preference for that question. 
+ Compile a list of the guest user&apos;s preferences based on these `Response__c` values.
+
+5. Match Preferences with Product Descriptions: For each product retrieved in step 3, extract relevant keywords from its `Description` field. 
+* Compare these keywords with the guest user&apos;s preferences identified in step 4(for example durability, foot concerns etc.). 
+
+Return Response as:
+Here are some shoes we recommend (atleast 2): 
+Product Name:
+Product Description:
+Description: (in 2 lines expressing how this shoe is good for each response from survey response)
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://MessagingSession</definition>
+            <referenceName>Input:MessagingSession</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Agentforce_GetSurveyResponseRecord</definition>
+            <parameters>
+                <definition>SOBJECT://MessagingSession</definition>
+                <isRequired>true</isRequired>
+                <parameterName>MessagingSessionRecord</parameterName>
+                <valueExpression>{!$Input:MessagingSession}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Agentforce_GetSurveyResponseRecord</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_Product_Recommendation</definition>
+            <referenceName>Flow:Get_Product_Recommendation</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+The objective is to fetch the {!$Input:MessagingSession.Id} and based on the {!$Input:MessagingSession.Id} get the survey responses submitted by Guest User to formulate the user&apos;s preference, match it with product description and provide recommended shoes that matches the preference.
+
+Prompt Body:
+You are an intelligent assistant specializing in product recommendations.
+ 
+1. Fetch Survey Response: Run the flow {!$Flow:Agentforce_GetSurveyResponseRecord.Prompt} to retrieve survey response records to determine the guest user&apos;s preferences. If no survey responses are found for the provided `{!$Input:MessagingSession.Id}`, inform the user that no preferences could be determined and end the process.
+
+2. Fetch Product Details: Run the flow {!$Flow:Get_Product_Recommendation.Prompt} to retrieve details (including `product name` and `description`) for all available products.
+If no product details are retrieved, inform the user that no recommendations can be made at this time and end the process. 
+
+3. Formulate Customer Preference: Analyze the filtered survey response records. For each record:
+ * The `Question__c` field contains the survey question.
+ * The `Response__c` field contains the guest user&apos;s preference for that question. 
+ Compile a list of the guest user&apos;s preferences based on these `Response__c` values.
+
+4. Match Preferences with Product Descriptions: For each product retrieved in step 3, extract relevant keywords from its `Description` field. 
+* Compare these keywords with the guest user&apos;s preferences identified in step 4(for example durability, foot concerns etc.). 
+
+Return Response as : (suggest 2 or more products, only product&apos;s API name is needed): 
+Product Name:
+Note: make sure to provide the product name as is. 
+
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://MessagingSession</definition>
+            <referenceName>Input:MessagingSession</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://Agentforce_GetSurveyResponseRecord</definition>
+            <parameters>
+                <definition>SOBJECT://MessagingSession</definition>
+                <isRequired>true</isRequired>
+                <parameterName>MessagingSessionRecord</parameterName>
+                <valueExpression>{!$Input:MessagingSession}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Agentforce_GetSurveyResponseRecord</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_Product_Recommendation</definition>
+            <referenceName>Flow:Get_Product_Recommendation</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+The objective is to fetch the {!$Input:MessagingSession.Id} and based on the {!$Input:MessagingSession.Id} get the survey responses submitted by Guest User to formulate the user&apos;s preference, match it with product description and provide recommended shoes that matches the preference.
+
+Prompt Body:
+You are an intelligent assistant specializing in product recommendations.
+ 
+1. Fetch Survey Response: Run the flow {!$Flow:Agentforce_GetSurveyResponseRecord.Prompt} to retrieve survey response records.
+
+2. Filter by Session ID: Match the {!$Input:MessagingSession.Id} with the `SessionId` field of the fetched survey response records.
+  Consider only the survey response records where the `SessionId` matches {!$Input:MessagingSession.Id} to determine the guest user&apos;s preferences. 
+  If no survey responses are found for the provided `{!$Input:MessagingSession.Id}`, inform the user that no preferences could be determined and end the process.
+
+3. Fetch Product Details: Run the flow {!$Flow:Get_Product_Recommendation.Prompt} to retrieve details (including `product name` and `description`) for all available products.
+If no product details are retrieved, inform the user that no recommendations can be made at this time and end the process. 
+
+4. Formulate Customer Preference: Analyze the filtered survey response records. For each record:
+ * The `Question__c` field contains the survey question.
+ * The `Response__c` field contains the guest user&apos;s preference for that question. 
+ Compile a list of the guest user&apos;s preferences based on these `Response__c` values.
+
+5. Match Preferences with Product Descriptions: For each product retrieved in step 3, extract relevant keywords from its `Description` field. 
+* Compare these keywords with the guest user&apos;s preferences identified in step 4(for example durability, foot concerns etc.). 
+
+Return Response as:
+Here are some shoes we recommend (atleast 2 only product name is needed): 
+Product Name:
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://MessagingSession</definition>
+            <referenceName>Input:MessagingSession</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Agentforce_GetSurveyResponseRecord</definition>
+            <parameters>
+                <definition>SOBJECT://MessagingSession</definition>
+                <isRequired>true</isRequired>
+                <parameterName>MessagingSessionRecord</parameterName>
+                <valueExpression>{!$Input:MessagingSession}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Agentforce_GetSurveyResponseRecord</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_Product_Recommendation</definition>
+            <referenceName>Flow:Get_Product_Recommendation</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+The objective is to fetch the {!$Input:MessagingSession.Id} and based on the {!$Input:MessagingSession.Id} get the survey responses submitted by Guest User to formulate the user&apos;s preference, match it with product description and provide recommended shoes that matches the preference.
+
+Prompt Body:
+You are an intelligent assistant specializing in product recommendations.
+ 
+1. Fetch Survey Response: Run the flow {!$Flow:Agentforce_GetSurveyResponseRecord.Prompt} to retrieve survey response records.
+  If no survey responses are found for the provided `{!$Input:MessagingSession.Id}`, inform the user that no preferences could be determined and end the process.
+
+2. Fetch Product Details: Run the flow {!$Flow:Get_Product_Recommendation.Prompt} to retrieve details (including `product name` and `description`) for all available products.
+If no product details are retrieved, inform the user that no recommendations can be made at this time and end the process. 
+
+3. Formulate Customer Preference: Analyze the filtered survey response records. For each record:
+ * The `Question__c` field contains the survey question.
+ * The `Response__c` field contains the guest user&apos;s preference for that question. 
+ Compile a list of the guest user&apos;s preferences based on these `Response__c` values.
+
+4. Match Preferences with Product Descriptions: For each product retrieved in step 3, extract relevant keywords from its `Description` field. 
+* Compare these keywords with the guest user&apos;s preferences identified in step 4(for example durability, foot concerns etc.). 
+
+Return Response as:
+Here are some shoes we recommend (atleast 2 only product name is needed): 
+Product Name:
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://MessagingSession</definition>
+            <referenceName>Input:MessagingSession</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Agentforce_GetSurveyResponseRecord</definition>
+            <parameters>
+                <definition>SOBJECT://MessagingSession</definition>
+                <isRequired>true</isRequired>
+                <parameterName>MessagingSessionRecord</parameterName>
+                <valueExpression>{!$Input:MessagingSession}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Agentforce_GetSurveyResponseRecord</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_Product_Recommendation</definition>
+            <referenceName>Flow:Get_Product_Recommendation</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+The objective is to fetch the {!$Input:MessagingSession.Id} and based on the {!$Input:MessagingSession.Id} get the survey responses submitted by Guest User to formulate the user&apos;s preference, match it with product description and provide recommended shoes that matches the preference.
+
+Prompt Body:
+You are an intelligent assistant specializing in product recommendations.
+ 
+1. Fetch Survey Response: Run the flow {!$Flow:Agentforce_GetSurveyResponseRecord.Prompt} to retrieve survey response records.
+  If no survey responses are found for the provided `{!$Input:MessagingSession.Id}`, inform the user that no preferences could be determined and end the process.
+
+2. Fetch Product Details: Run the flow {!$Flow:Get_Product_Recommendation.Prompt} to retrieve details (including `product name` and `description`) for all available products.
+If no product details are retrieved, inform the user that no recommendations can be made at this time and end the process. 
+
+3. Formulate Customer Preference: Analyze the filtered survey response records. For each record:
+ * The `Question__c` field contains the survey question.
+ * The `Response__c` field contains the guest user&apos;s preference for that question. 
+ Compile a list of the guest user&apos;s preferences based on these `Response__c` values.
+
+4. Match Preferences with Product Descriptions: For each product retrieved in step 3, extract relevant keywords from its `Description` field. 
+* Compare these keywords with the guest user&apos;s preferences identified in step 4(for example durability, foot concerns etc.). 
+
+Return Response as:
+Here are some shoes we recommend (recommend only 2 products, only product name is needed): 
+Product Name:
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://MessagingSession</definition>
+            <referenceName>Input:MessagingSession</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Agentforce_GetSurveyResponseRecord</definition>
+            <parameters>
+                <definition>SOBJECT://MessagingSession</definition>
+                <isRequired>true</isRequired>
+                <parameterName>MessagingSessionRecord</parameterName>
+                <valueExpression>{!$Input:MessagingSession}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Agentforce_GetSurveyResponseRecord</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_Product_Recommendation</definition>
+            <referenceName>Flow:Get_Product_Recommendation</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_7</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__recordSummary</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
