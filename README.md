@@ -4,7 +4,7 @@ Welcome to Outfitters, a sample retail application. Outfitters is a fictional re
 
 Did you watch the demo? The following are a set of instructions to setup the end to end demo in your own environment. While the end to end demo supports multiple clouds, you have full flexibility to use only the portions relevant to what you want to try out in your own org, additionally once the packages are installed you have the ability to fully customize it based on your needs. 
 
-The Outfitters app showcases how with **Data Cloud** we have a true Customer 360 that then drives the right and best experience with Agentforce **Agents**.
+The Sunshine Trail app showcases how with **Data Cloud** we have a true Customer 360 that then drives the right and best experience with Agentforce **Agents**.
 
 <details><summary>
 
@@ -112,8 +112,8 @@ The Data Kit is installed as a part of the Package installation. Follow the step
 ### 1a. Create Data Steam for Amazon S3 (10 minutes) $${\color{blue} S3 \space Optional: \space Please \space note \space that \space some \space functionality \space in \space Experience \space Cloud \space and \space in \space the \space C360 \space will \space no\space longer \space function\space as \space expected \space if \space not \space installed. }$$
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
-  | Upload Unstructured data to the S3 Bucket | Before you continue, upload the below test files to your AWS instance, create a bucket called "hospplaygroundbucket" or the bucket you wish to use for this demo </br></br> [AWS UnStructured Data](https://github.com/vsreeram-salesforce/DataCloudRetailDemo/blob/main/AWS%20UnStructured%20Data/Return_Policy_FAQs.pdf) | |
-  | Create a Connection to Amazon S3 in Salesforce|Navigate to Data Cloud Setup</br>In the menu, under EXTERNAL INTEGRATIONS, click on Other Connections</br> - Click New, choose Data Kits as the source and click Next. Select RetailDataKitPackage</br>-Select hospplaygroundbucket</br>-Change the name & API name of the connection "hospitalityplayground". </br>-Put the bucket name “hospplaygroundbucket” please feel free to change the bucket name based on your existing AWS bucket</br> -Fill the credentials and save.|
+  | Upload Unstructured data to the S3 Bucket | Before you continue, upload the below test files to your AWS instance, create a bucket called "hosporgfarm" or the bucket you wish to use for this demo </br></br> [AWS UnStructured Data](https://github.com/vsreeram-salesforce/DataCloudRetailDemo/blob/main/AWS%20UnStructured%20Data/Return_Policy_FAQs.pdf) | |
+  | Create a Connection to Amazon S3 in Salesforce|Navigate to Data Cloud Setup</br>In the menu, under EXTERNAL INTEGRATIONS, click on Other Connections</br> - Click New, choose Data Kits as the source and click Next. Select RetailDataKitPackage</br>-Select hosporgfarm</br>-Change the name & API name of the connection "hosporgfarm". </br>-Put the bucket name “hosporgfarm” please feel free to change the bucket name based on your existing AWS bucket</br> -Fill the credentials and save.|
   
   ### 1b. Create Data Stream for Snowflake (5 minutes) $${\color{blue} Snowflake \space Optional: \space Please \space note \space that \space some \space functionality \space in \space the \space C360 \space will \space no\space longer \space function\space as \space expected \space if \space not \space installed. }$$
   | Step | Action and Details | Images |
@@ -124,7 +124,7 @@ The Data Kit is installed as a part of the Package installation. Follow the step
   Complete this step only if you have setup a connection and the file notification process in AWS
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
-  | Create Return_Policy_FAQs DLO Creation | - Click on Data Lake Object Click on New </br>- Click on Create from Data Kits, Click on Next </br>- Select Return_Policy_FAQs, select “hospitalityPlayground’ connection. Click on Next </br>- Click on Deploy.|
+  | Create Return_Policy_FAQs DLO Creation | - Click on Data Lake Object Click on New </br>- Click on Create from Data Kits, Click on Next </br>- Select Return_Policy_FAQs, select “hosporgfarm’ connection. Click on Next </br>- Click on Deploy.|
 
    ### 1e. Create Party Identification Collection Data Lake (5 minutes)(CHECK)
   | Step | Action and Details | Images |
@@ -143,9 +143,11 @@ The Data Kit is installed as a part of the Package installation. Follow the step
   | ----- | ----- | ----- |
   | **NOTE**|- Before proceeding further, please ensure that the CRM data is available in the DMO. You can verify this by following these steps:</br>- Navigate to Data Explore </br>- Set Data Space to Default.</br>- Select the Data Model Object (DMO).</br>- From the dropdown, choose Account Contact.</br>- You should see Salesforce_Home listed under the Data Source column.</br> If you don't see the data then wait until the data is refreshed before proceeding to the next step.</br>|![image](https://github.com/user-attachments/assets/396732a3-89cb-455d-9a0c-b6c015b272cb)|
  
- ### 4. Create Identity Resolution Ruleset from Data Kit (5 minutes)
+### 4. Create Identity Resolution Ruleset from Data Kit (5 minutes)
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
+  | Create Identity Resolutions| -Go to Data Cloud app</br> - Click on the Identity Resolutions tab </br> - Click New</br> - Select Installed from Data Kit</b>- Choose RetailDatalkitpackage </br>- Click on Next</br>- Choose ‘Customer Profile’. Click on Next </br>- Click on Save.</br>  Repeat the steps for the following metrics: ‘Party Identification Match’|![image](https://github.com/vsreeram-salesforce/DataCloudRetailDemo/blob/main/DataCloudConfigurationImages/IdentityResolution1.png)![image](https://github.com/vsreeram-salesforce/DataCloudRetailDemo/blob/main/DataCloudConfigurationImages/IdentityResolution2.png)![image](https://github.com/vsreeram-salesforce/DataCloudRetailDemo/blob/main/DataCloudConfigurationImages/IdentityResolution3.png)|
+
 
  ### 5. Create Calculated Insights (5 minutes)
   | Step | Action and Details | Images |
@@ -419,3 +421,15 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | ----- | ----- | ----- |
 |  Access email Deliverability to all email | Click on Setup </br>- Search for ‘Deliverability’</br>- Change Access Email from ‘System email Only’ to ‘All email’.</br>- Click Save |![image](https://github.com/user-attachments/assets/77507363-6915-40ff-8443-ed89186f811c)
 
+
+#### 4e. Prepare User (10 minutes) $${\color{blue} Optional: \space These \space steps \space are optional \space if \space you \space choose \space to \space use \space your \space own \space data. }$$
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Prepare Test User |**Note: These steps apply to both existing and new contacts. Below is an example using Duncan** </br></br>To test Community functionality , please use : **Duncan Macintosh** contact to login as experience user </br> - Navigate to Setup </br>- In the Quick Find box, search for Digital Experiences</br>-Click on Settings under DigitalExperience </br>- Click the ‘Allow users standard external profiles for self-registration, user creation and login checkbox </br>- Click Okay and click Save </br> </br> **Enable Community User** </br> </br>- Click the App Launcher</br>- Select the Sunshine Trails Hospitality app</br>- Navigate to the Contact of **Marje Croley**</br>- Click the 'Enable as Customer' button (Goto classic page, if the button is not visible)</br>- Update the User License to Customer Community Profile</br>- Update the Profile to Sunshine Resort Profile</br>- Update the Email field to your personal email  </br>- Click Save </br></br> **Optional: Update Marje’s email address in her contact record if you want to receive notifications. Otherwise, this step is not necessary.** </br></br>- Click the App Launcher </br>- Select the Sunshine Trails Hospitality app </br>- Navigate to the Contact of **Marje Croley** </br>- Click the Edit button </br>- Update the Email field to your personal email </br>- Click Save  | ![image](https://github.com/user-attachments/assets/d82a699e-631d-4136-9d7f-ede27652e2d2)![image](https://github.com/user-attachments/assets/c009a09e-ed99-4ded-aa53-469c94a05a98)![image](https://github.com/user-attachments/assets/4767196d-0181-42e0-a074-5eebe8403dc8)![image](https://github.com/user-attachments/assets/be237889-9073-4a27-ab35-0e2d8da396a6)![image](https://github.com/user-attachments/assets/bde45527-5ac1-4506-a645-07f5be2c0eae)|
+
+### 5. General Notes (30 minutes)
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| General Notes for new community User | To test Community functionality , please use : **Duncan Macintosh contact** to login as experience user </br> **Note:** If user self register from experience site sign up page, admin needs to add below permission set to that new community user </br>- **Buyer** </br>- **Customer Community Plus Permissions**|![image (44)](https://github.com/user-attachments/assets/81cdd8a1-ce5a-469d-9004-48722f4caa02)|
+|**Enable EPSessionIdHelper Visualforce Page**|</br>&emsp;- Log into Salesforce, click the gear icon in the top-right corner, and select Setup</br>&emsp;- In the Quick Find box, search for Visualforce Pages and select it.</br>&emsp;- Locate EPSessionIdHelper in the list.</br>&emsp;- Click the Security link next to the Visualforce page label</br>&emsp;- In the Available Profiles list, select the following profiles:</br>&emsp;&emsp;Einstein Agent User</br>&emsp;&emsp;Sunshine Resort Profile</br>&emsp;&emsp;System Administrator</br>&emsp;- Move them to the Enabled Profiles list using the arrow button</br>&emsp;- Click Save to apply the changes </br></br> 
+</details>
