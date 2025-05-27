@@ -1,0 +1,34 @@
+{
+  "required" : [ "Input:SurveyResponse", "Input:Product" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:SurveyResponse" : {
+      "title" : "SurveyResponse",
+      "description" : "Run the prompt template, it will fetch the respective questions and responses",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "SurveyResponse__c"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:Product" : {
+      "title" : "Product",
+      "description" : "Run the prompt template, it will fetch the all product name and description",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "ssot__Product__dlm"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

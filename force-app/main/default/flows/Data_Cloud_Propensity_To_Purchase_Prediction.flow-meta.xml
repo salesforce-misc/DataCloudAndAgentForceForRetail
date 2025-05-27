@@ -1,86 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>Predict_Propensity_Purchase</name>
-        <label>Predict Propensity Purchase</label>
-        <locationX>182</locationX>
-        <locationY>134</locationY>
-        <actionName>Propensity_To_Purchase_Prediction_CM_12l_tC931a7ea77</actionName>
-        <actionType>cdpMlPrediction</actionType>
-        <connector>
-            <targetReference>Contact_Not_Null</targetReference>
-        </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>param_Number_of_Unique_Products_Purchased__c</name>
-            <value>
-                <elementReference>$Record.Number_of_Unique_Products_Purchased__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Last_Purchased_Product_Categories__c</name>
-            <value>
-                <elementReference>$Record.Last_Purchased_Product_Categories__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Average_time_between_orders__c</name>
-            <value>
-                <elementReference>$Record.Average_time_between_orders__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Days_since_the_last_order__c</name>
-            <value>
-                <elementReference>$Record.Days_since_the_last_order__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Average_Quantity_per_Order__c</name>
-            <value>
-                <elementReference>$Record.Average_Quantity_per_Order__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Average_order_value__c</name>
-            <value>
-                <elementReference>$Record.Average_order_value__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Maximum_order_value__c</name>
-            <value>
-                <elementReference>$Record.Maximum_order_value__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Number_of_orders_period__c</name>
-            <value>
-                <elementReference>$Record.Number_of_orders_period__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Total_Amount_Spent_LTV__c</name>
-            <value>
-                <elementReference>$Record.Total_Amount_Spent_LTV__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Total_amount_spent_period__c</name>
-            <value>
-                <elementReference>$Record.Total_amount_spent_period__c</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>param_Most_Frequently_Purchased_Product__c</name>
-            <value>
-                <elementReference>$Record.Most_Frequently_Purchased_Product__c</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>Propensity_To_Purchase_Prediction_CM_12l_tC931a7ea77</nameSegment>
-        <offset>0</offset>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </actionCalls>
+    
     <apiVersion>63.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
@@ -142,9 +62,7 @@
         </filters>
         <inputAssignments>
             <field>Propensity_to_purchase__c</field>
-            <value>
-                <elementReference>Predict_Propensity_Purchase.prediction</elementReference>
-            </value>
+           
         </inputAssignments>
         <object>Contact</object>
     </recordUpdates>

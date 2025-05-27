@@ -56,14 +56,10 @@
     </networkAuthApiSettings>
     <networkMemberGroups>
         <profile>admin</profile>
-        <profile>outfitters shopper profile</profile>
-        <profile>einstein agent user</profile>
-        <profile>outfitters customer profile</profile>
-        <profile>sdo-customer community plus</profile>
-        <profile>customer community user</profile>
-        <profile>customer community plus login user</profile>
-        <profile>customer community login user</profile>
-        <profile>customer community plus user</profile>
+        <profile>Outfitters Shopper Profile</profile>
+        
+        <profile>Outfitters Customer Profile</profile>
+        
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
@@ -73,7 +69,7 @@
         <selfRegProfilePageOverrideSetting>Designer</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
     <picassoSite>Outfitters1</picassoSite>
-    <selfRegProfile>outfitters customer profile</selfRegProfile>
+   
     <selfRegistration>true</selfRegistration>
     <sendWelcomeEmail>true</sendWelcomeEmail>
     <site>Outfitters</site>

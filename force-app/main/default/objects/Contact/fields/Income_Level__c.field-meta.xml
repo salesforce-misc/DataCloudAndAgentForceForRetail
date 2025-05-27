@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Income_Level__c</fullName>
+    <label>Income Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0-5,00,000</fullName>
+                <default>false</default>
+                <label>0-5,00,000</label>
+            </value>
+            <value>
+                <fullName>5,00,001-20,00,000</fullName>
+                <default>false</default>
+                <label>5,00,001-20,00,000</label>
+            </value>
+            <value>
+                <fullName>20,00,001-50,00,000</fullName>
+                <default>false</default>
+                <label>20,00,001-50,00,000</label>
+            </value>
+            <value>
+                <fullName>50,00,001 and above</fullName>
+                <default>false</default>
+                <label>50,00,001 and above</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_amount_spent_period__c</fullName>
+    <description>Total amount spent within a specific period (i.e. Last 3 months, last year)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total amount spent within a specific period (i.e. Last 3 months, last year)</inlineHelpText>
+    <label>Total amount spent period</label>
+    <length>60</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

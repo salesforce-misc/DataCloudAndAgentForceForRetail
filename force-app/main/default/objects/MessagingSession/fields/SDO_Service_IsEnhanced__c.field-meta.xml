@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDO_Service_IsEnhanced__c</fullName>
+    <description>Whether the associated Messaging Channel is an Enhanced Channel (or standard)</description>
+    <formula>ISPICKVAL(MessagingChannel.PlatformType, &apos;Enhanced&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicates this session is associated to an Enhanced Messaging Channel</inlineHelpText>
+    <label>Is Enhanced</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

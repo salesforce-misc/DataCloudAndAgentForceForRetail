@@ -38,6 +38,11 @@ export default class CustomerMetrics extends LightningElement {
                 const value = this.account?.data?.Contacts?.[0]?.AveragePurchaseValue__c;
                 return (value || value === 0) ? (Math.round(value * 100) / 100) : '';
             }
+
+            get propensityToChurn() {
+                const value = this.account?.data?.Contacts?.[0]?.Propensity_To_Churn__c;
+                return (value || value === 0) ? (Math.round(value * 100) / 100) : '';
+            }
     
      
        /* @wire(getRecord, { recordId: '$recordId', fields })

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDO_Service_MessageSessionCompact</fullName>
+    <fields>SDO_LiveMessaging_Subject__c</fields>
+    <fields>EndUserContactId</fields>
+    <fields>MessagingChannelId</fields>
+    <label>Messaging Session Default Compact</label>
+</CompactLayout>

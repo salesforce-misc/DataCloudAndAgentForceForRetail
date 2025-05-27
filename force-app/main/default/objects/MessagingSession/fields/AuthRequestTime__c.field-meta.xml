@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AuthRequestTime__c</fullName>
+    <description>Stores when authentication was requested, limiting the MessagingSession from being assigned identities outside of the directed window and allowing control of the timeframe during which external authentication is allowed.</description>
+    <label>AuthRequestTime</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

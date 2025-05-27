@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AuthSessionId__c</fullName>
+    <description>Identifies if there’s an AuthSession currently linked to this MessagingSession. This indicates whether the messaging session is authenticated.</description>
+    <externalId>false</externalId>
+    <label>AuthSessionId</label>
+    <length>18</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

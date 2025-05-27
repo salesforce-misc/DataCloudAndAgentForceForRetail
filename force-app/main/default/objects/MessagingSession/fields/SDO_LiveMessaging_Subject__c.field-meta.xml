@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDO_LiveMessaging_Subject__c</fullName>
+    <description>JD - 10/4/22 - Subject connects to Case to bring in related Case information to quickly enhance and support reports</description>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL( SDO_MessagingSession_BotName__c, &quot;Buyer Assistant&quot;),
+ MessagingEndUser.Name &amp; &quot; | Buyer Assistant Bot Sales Inquiry&quot;,
+    BLANKVALUE(Case.Subject, &apos;Support &apos; + TEXT(MessagingChannel.MessageType) + &apos; Conversation&apos;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Subject</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

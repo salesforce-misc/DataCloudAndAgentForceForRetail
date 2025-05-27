@@ -4,7 +4,7 @@
     <label>GuestUserCometD</label>
     <oauthConfig>
         <callbackUrl>https://epicorgfarm-a4--retailorg2.sandbox.my.salesforce.com/services/authcallback/GuestUserAuth</callbackUrl>
-        <consumerKey>3MVG9ZqlCComSMtR8KZ68lSURsHL9UthrdtBW4Ssj4ABBtyD_YWI.SBhkcHwK1URoAF5MEXTdzIsLsKef6.hE</consumerKey>
+        <consumerKey>RetailConsumerKey1</consumerKey>
         <isAdminApproved>true</isAdminApproved>
         <isClientCredentialEnabled>true</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>

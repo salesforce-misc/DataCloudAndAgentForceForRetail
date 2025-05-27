@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Quantity_per_Order__c</fullName>
+    <description>Average Quantity per Order: Indicates purchasing habits (bulk vs. single items).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Average Quantity per Order: Indicates purchasing habits (bulk vs. single items).</inlineHelpText>
+    <label>Average Quantity per Order</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

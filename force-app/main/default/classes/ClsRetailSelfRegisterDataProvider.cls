@@ -26,7 +26,7 @@ public class ClsRetailSelfRegisterDataProvider {
                               Membership_Number__pc =calulatedMembershipNumber, BillingStreet ='585 Franklin St',
                               BillingCity ='Mountain View',BillingState ='CA',BillingPostalCode = '94041',BillingCountry ='USA',
                               ShippingStreet ='585 Franklin St',ShippingCity ='Mountain View',ShippingState ='CA',
-                              ShippingPostalCode = '94041',ShippingCountry ='USA',Gender__pc = 'Male',Age__pc = 32,Income_Level__pc = '50,00,001 and above',
+                              ShippingPostalCode = '94041',ShippingCountry ='USA',Gender__pc = 'Male',Age__pc = 32,Income_Level__pc = '20,00,001-50,00,000',
                                Customer_Satisfaction_CSAT__pc = 10,Net_Promoter_Score_NPS__pc = 9,Customer_Lifetime_Value_CLV__pc = 46000,Engagement_Frequency__pc = '10 days',
                                  Recency_Of_Purchase__pc = '9 Days',Payment_Method__pc = 'Credit Card',Average_Order__pc = 25,Number_of_Complaint__pc = 5,Number_of_Product_Return__pc = 5,
                                  Churn_Score__pc = 25,Location__pc = 'USA',Days_since_the_last_order__pc = 10,Number_of_orders_period__pc = '23 days',Average_time_between_orders__pc = '10 days',

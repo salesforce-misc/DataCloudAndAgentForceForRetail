@@ -54,7 +54,7 @@ public class ClsMLBuilderDataCreationTest {
          RecordType recType = [Select id,name,developername from RecordType where developername = 'PersonAccount' limit 1];
         
         List<Account> accountInsertionList = new List<Account>();
-        accountInsertionList.add(new Account(FirstName = 'Duncan', LastName = 'Macintosh',Phone = '29394949494',PersonEmail = 'testDuncan@salesforce.com',
+        accountInsertionList.add(new Account(FirstName = 'Duncan', LastName = 'Macintosh',Phone = '29394949494',PersonEmail = 'dmacintosh@yopmail.com',
                             Gender__pc = 'Male',Age__pc = 25,Income_Level__pc = '20,00,001-50,00,000',Customer_Satisfaction_CSAT__pc = 6,
                            Net_Promoter_Score_NPS__pc = 6,Customer_Lifetime_Value_CLV__pc = 25000,Engagement_Frequency__pc = '1 month',
                           Recency_Of_Purchase__pc = '1 month',Payment_Method__pc = 'Credit Card',Average_Order__pc = 35,Number_of_Complaint__pc = 20,
@@ -65,7 +65,7 @@ public class ClsMLBuilderDataCreationTest {
                         Last_Purchased_Product_Categories__pc = 'Tent',Average_Quantity_per_Order__pc = 20,Ordered_In_Last_30_Days__pc = True,
                         RecordTypeId = recType.Id));
         
-        accountInsertionList.add(new Account(FirstName = 'Karen', LastName = 'Wells',Phone = '29394949484',PersonEmail = 'testKaren@salesforce.com',
+        accountInsertionList.add(new Account(FirstName = 'Karen', LastName = 'Wells',Phone = '29394949484',PersonEmail = 'msmith@yopmail.com',
                             Gender__pc = 'Female',Age__pc = 24,Income_Level__pc = '20,00,001-50,00,000',Customer_Satisfaction_CSAT__pc = 8,
                            Net_Promoter_Score_NPS__pc = 8,Customer_Lifetime_Value_CLV__pc = 39000,Engagement_Frequency__pc = '28 days',
                           Recency_Of_Purchase__pc = '20 Days',Payment_Method__pc = 'Debit Card',Average_Order__pc = 32,Number_of_Complaint__pc = 10,
@@ -76,7 +76,7 @@ public class ClsMLBuilderDataCreationTest {
                         Last_Purchased_Product_Categories__pc = 'Tent',Average_Quantity_per_Order__pc = 20,Ordered_In_Last_30_Days__pc = True,
                         RecordTypeId = recType.Id));
         
-                accountInsertionList.add(new Account(FirstName = 'Nicole', LastName = 'Grace',Phone = '29394947884',PersonEmail = 'testnicole@salesforce.com',
+                accountInsertionList.add(new Account(FirstName = 'Nicole', LastName = 'Grace',Phone = '29394947884',PersonEmail = 'ngrace@yopmail.com',
                                                     Gender__pc = 'Female',Age__pc = 30,Income_Level__pc = '50,00,001 and above',
                                                     Customer_Satisfaction_CSAT__pc = 9,Net_Promoter_Score_NPS__pc = 7,Customer_Lifetime_Value_CLV__pc = 40000,
                                                      Engagement_Frequency__pc = '14 days',Recency_Of_Purchase__pc = '7 Days',Payment_Method__pc = 'Credit Card',
@@ -88,7 +88,7 @@ public class ClsMLBuilderDataCreationTest {
                                                      Last_Purchased_Product_Categories__pc = 'Sports Shoes',Average_Quantity_per_Order__pc = 20,
                                                      Ordered_In_Last_30_Days__pc = True,RecordTypeId = recType.Id));
         
-           accountInsertionList.add(new Account(FirstName = 'Mark', LastName = 'Smith',Phone = '23594947884',PersonEmail = 'testmark@salesforce.com',
+           accountInsertionList.add(new Account(FirstName = 'Mark', LastName = 'Smith',Phone = '23594947884',PersonEmail = 'kwells@yopmail.com',
                                                Gender__pc = 'Male',Age__pc = 32,Income_Level__pc = '50,00,001 and above',Customer_Satisfaction_CSAT__pc = 10,
                                                Net_Promoter_Score_NPS__pc = 9,Customer_Lifetime_Value_CLV__pc = 46000,Engagement_Frequency__pc = '10 days',
                                                Recency_Of_Purchase__pc = '9 Days',Payment_Method__pc = 'Credit Card',Average_Order__pc = 25,
