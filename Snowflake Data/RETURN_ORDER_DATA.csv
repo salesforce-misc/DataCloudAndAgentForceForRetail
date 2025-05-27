@@ -1,0 +1,11 @@
+Order Number,Customer Number,Store,Order Date,Type,Delivery Method,Status,Total Amount
+RETORD-0010251,RC-805755159,Outfitters,2025-02-14 00:00:00.000,Recall,Shipping,Draft,230
+RETORD-0010092,RC-616325956,Outfitters,2025-02-08 00:00:00.000,Recall,Shipping,Open,230
+RETORD-0010078,RC-367454631,Outfitters,2025-02-24 00:00:00.000,Recall,Pickup,Cancelled,230
+RETORD-0010080,RC-805755159,Outfitters,2024-07-12 00:00:00.000,Return,Pickup,Completed,234
+RETORD-0010012,RC-805755159,Outfitters,2025-02-25 00:00:00.000,Return,Shipping,Completed,130
+RETORD-0010128,RC-805755159,Outfitters,2024-05-19 00:00:00.000,Return,Shipping,Completed,325
+RETORD-0010172,RC-616325956,Outfitters,2024-10-21 00:00:00.000,Return,Shipping,Completed,130
+RETORD-0010231,RC-616325956,Outfitters,2023-06-06 00:00:00.000,Return,Pickup,Completed,234
+RETORD-0010113,RC-925126791,Outfitters,2025-01-14 00:00:00.000,Return,Shipping,Completed,325
+RETORD-0010195,RC-925126791,Outfitters,2024-10-13 00:00:00.000,Return,Pickup,Completed,234
