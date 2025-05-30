@@ -450,7 +450,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 
 <details><summary>
 
-## 7. After Creating Self Registration User
+### 7. After Creating Self Registration User
 </summary>
 ### $${\color{blue} \space Below \space Steps \space from \space 1a \space to \space 1c \space only \space need \space to \space perform \space after \space Creating \space self- \space registration \space user }$$
 
