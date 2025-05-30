@@ -42,21 +42,23 @@ The Outfitters app showcases how with **Data Cloud** we have a true Customer 360
 | **Amazon S3** $${\color{blue} Optional}$$ <br> Used to bring in structured and unstructured data. Unstructured data powers Agent conversations in this setup. | **NOTE:** If you do not have an existing Amazon S3 instance, [register for the free tier](https://aws.amazon.com/free/) and follow [this guide](https://developer.salesforce.com/blogs/2023/10/how-to-use-the-amazon-s3-storage-connector-in-data-cloud) to create a dedicated user with required permissions. <br><br>Already have an S3 instance? No need to sign up again. <br><br>Before proceeding, note your [programmatic credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html#access-keys-and-secret-access-keys) (Access Key ID and Secret Access Key). |
 | **Snowflake** $${\color{blue}Optional}$$ <br> Used to showcase Data Cloud’s Zero Copy capabilities. | **NOTE:** If you do not have access to a Snowflake instance, follow [this article](https://developer.salesforce.com/blogs/2024/08/zero-copy-data-federation-with-snowflake-and-salesforce-data-cloud) to create a Warehouse, Integration User, and configure and note public/private keys that you will use with Salesforce Data Cloud.<br><br> |
 
-### 2. Install Pre-Deployment Package (10 minutes)
+
+### 2. Enable Features on the Org (20 minutes)
+
+  | Step | Action and Details | Images |
+  | ----- | ----- | ----- |
+  | Enable Commerce Cloud | - From Setup, enter ‘Commerce’ in the Quick Find box.</br>- Select ‘Settings’ under ‘Commerce’.</br>- Turn on ‘Enable Commerce’. |![image](https://github.com/user-attachments/assets/2175d205-8c62-423f-9fc1-678d77e974d2)|
+  | Enable Promotion Attribute |-Go to Setup</br>-Search Global Promotion Management Setting</br>-Enable the "Global Promotions Management"</br>-Enable the "Product Catalog Management"|  |
+  | Create a Basic Experience Builder Site | - From Setup, enter ‘Digital Experiences’ in the Quick Find box.</br>- Select ‘All Sites’ under ‘Digital Experiences’.</br>- Click New to open the Creation wizard with template options.</br>- Select the ‘D2C Commerce (LWR)’ template.</br>- Click Get Started. |![image](https://github.com/user-attachments/assets/6c89e37f-d61c-4333-8587-58a53504fbb7)|
+  | Site Name and URL | - After selecting the template, enter a site name and URL.</br>- Name the site ‘Outfitters’ and ensure the URL ends with /Outfitters</br>- Click Create. Your site will be created in Preview status. |![image](https://github.com/user-attachments/assets/8f2226c0-8c2d-4e59-8734-983cd7f8c856)|
+  | Activate Site | - From Setup, enter ‘Digital Experiences’ and select ‘All Sites’ under ‘Digital Experiences’.</br>- Click Workspaces next to Sunshine Resorts.</br>- Select Administration, then Emails. </br>- Under ‘Email Tabs,’ uncheck ‘Send welcome email’ and click Save.</br>- In Settings, click Activate and confirm by clicking OK.</br>- Your site will now be live and fully set up.|![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Pre-Deployment%20Instructions%20Images/SiteName.png)![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Pre-Deployment%20Instructions%20Images/SiteEmail.png)|
+
+### 3. Install Pre-Deployment Package (10 minutes)
 
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
   | Install package | - Click on this Package Installation [Link ](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t4W000002V5WS)</br>- Sign-in to the Org with your credentials.</br>- Choose Install for Admins Only option</br>- Choose “Rename conflicting components in package” and click the Install button.</br>- Wait until installation is completed, you will receive a confirmation on logged in user’s email |![image](https://github.com/user-attachments/assets/316f4e48-b9b2-4169-b362-fc3ecd9cd1b3) ![image](https://github.com/user-attachments/assets/0da1a771-abcc-4caa-b248-1b768905de60)|
   | Verify Package installation | - Click Setup</br>- Search for package</br>- Click on 'Installed PAckage' </br>- Search for 'RetailConfigPackage' is installed  |![image](https://github.com/user-attachments/assets/8b76cd89-abec-4586-91cc-6b4b430dc68c)|
-
-### 3. Enable Features on the Org (20 minutes)
-
-  | Step | Action and Details | Images |
-  | ----- | ----- | ----- |
-  | Enable Commerce Cloud | - From Setup, enter ‘Commerce’ in the Quick Find box.</br>- Select ‘Settings’ under ‘Commerce’.</br>- Turn on ‘Enable Commerce’. |![image](https://github.com/user-attachments/assets/2175d205-8c62-423f-9fc1-678d77e974d2)|
-  | Create a Basic Experience Builder Site | - From Setup, enter ‘Digital Experiences’ in the Quick Find box.</br>- Select ‘All Sites’ under ‘Digital Experiences’.</br>- Click New to open the Creation wizard with template options.</br>- Select the ‘D2C Commerce (LWR)’ template.</br>- Click Get Started. |![image](https://github.com/user-attachments/assets/6c89e37f-d61c-4333-8587-58a53504fbb7)|
-  | Site Name and URL | - After selecting the template, enter a site name and URL.</br>- Name the site ‘Outfitters’ and ensure the URL ends with /Outfitters</br>- Click Create. Your site will be created in Preview status. |![image](https://github.com/user-attachments/assets/8f2226c0-8c2d-4e59-8734-983cd7f8c856)|
-  | Activate Site | - From Setup, enter ‘Digital Experiences’ and select ‘All Sites’ under ‘Digital Experiences’.</br>- Click Workspaces next to Sunshine Resorts.</br>- Select Administration, then Emails. </br>- Under ‘Email Tabs,’ uncheck ‘Send welcome email’ and click Save.</br>- In Settings, click Activate and confirm by clicking OK.</br>- Your site will now be live and fully set up.|![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Pre-Deployment%20Instructions%20Images/SiteName.png)![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Pre-Deployment%20Instructions%20Images/SiteEmail.png)|
 
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
