@@ -28,6 +28,6 @@
         <refreshTokenPolicy>infinite</refreshTokenPolicy>
     </oauthPolicy>
     <profileName>System Administrator</profileName>
-    <profileName>Outfitters Profile</profileName>
+    <profileName>Outfitters Customer Profile</profileName>
     <profileName>Einstein Agent User</profileName>
 </ConnectedApp>
