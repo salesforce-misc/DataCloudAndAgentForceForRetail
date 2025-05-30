@@ -171,6 +171,26 @@ The Data Kit is installed as a part of the Package installation. Follow the step
 | Create Data Cloud Field Enrichment of ‘Engagement Score’ |-> Go to Object Manager.</br>- Search for Contact.</br>- Click on Contact</br>- Click on Data cloud Copy Field.</br>-  Click on New.</br>- Select data space as ‘default’</br>- Select Data Cloud Object as ‘Engagement_Score__cio’</br>- Click on Next</br>- Select Field As ‘Engagement_Score’</br> - Click on Next </br>- Give Label as ‘Engagement Score default’</br>- Click on Finish </br>- On Contact Select EngagementScore__c </br>- Save and Start Sync.|![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Data%20Cloud%20Configuration%20Images/Engagement%20Score1.png)![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Data%20Cloud%20Configuration%20Images/Engagement%20Score2.png)|
 |Create Variation Attribute Set |Go to App launcher>> Search for Commerce>> Open it </br>Select the "Outfitters" store </br>From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set". </br>From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set". </br>Repeat this process to create another Variation set attribute named "Tents and Sleeping bags" attribute set,but only add the "Size" attribute. | |
 
+### 8. Create Activation Targets
+| Step | Action and Details | Images |
+| ----- | ----- | ----- |
+| Create Data Cloud Activation Target | Go to Data Cloud app </br> - Click on Activation Target </br> - Click on New </br> - Select ‘Data Cloud’ under targets. </br> - Click on Next. </br> -In Activation Target name provide ‘Data Cloud Target’ </br> - Under dataspace, select as ‘default’ </br> - Click on Save| |
+
+### 9. Create Segment from Data Kit
+| Step | Action and Details | Images |
+| ----- | ----- | ----- |
+| Create Segment | Go to Data Cloud app </br> - Click on the Segment tab  </br> - Click New </br> - Select "Installed from Data Kit” </br> - Choose "RetailDataKitPackage" </br> - Click on Next </br> -  Select Segment as Individual and provide Segment name as Get Customers. </br> - Select Standard Publish </br> - Select Publish Schedule to 4 hrs and select the start and end date. </br> - Click on Save. </br> - Click on Publish now button. | |
+
+### 10. Create Activations 
+| Step | Action and Details | Images |
+| ----- | ----- | ----- |
+| Create Activations | By default, space is default </br> - Need to select the Get Customer segment and activation target as data cloud  </br> - Click on continue </br> - Select Email.</br> -Click on Continue </br> - Click on add attributes  </br> - And from individual select the following attributes </br> - Sold to Customer,Order Number, Product Id, Recall and Product Name </br> - Click on Save with name as Get Recalled Customers.| |
+
+### 11. Create Variation Attribute Set
+| Step | Action and Details | Images |
+| ----- | ----- | ----- |
+| Create Variation Attribute Set | Go to App launcher>> Search for Commerce>> Open it </br> - Select the "Outfitters" store  </br> - From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set".  </br> - Click on “New” and set the name “Shoe Variations” and add the attributes "star", "Durability", "Ventilation", and "Category" to the "Selected field" section.  </br> - Repeat this process to create another Variation set attribute named "Tents and Sleeping bags" attribute set,but only add the "Size" attribute. | |
+
 </details>
 
 <details><summary>
