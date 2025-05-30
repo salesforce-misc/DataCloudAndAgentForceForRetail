@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang={language}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1" />
+        <meta
+            name="lwr-revised"
+            content="236.0" />
+
+        <style>
+            /* required to give the component width/height and make it visible to test framework */
+            :root {
+                --lwc-borderWidthThin: 1px;
+            }
+            webruntime-app {
+                display: block;
+            }
+        </style>
+        {webruntimeInit} {headmarkup}
+    </head>
+    <body id="main">
+        <webruntime-app></webruntime-app>
+    </body>
+</html>
