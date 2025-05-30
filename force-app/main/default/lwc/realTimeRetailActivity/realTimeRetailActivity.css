@@ -1,0 +1,46 @@
+.scrollable-container {
+    height: 500px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+  }
+   
+  .node-list {
+    list-style-type: none; /* Remove default list bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+   
+  .node-list li {
+    padding: 10px; /* Add padding inside each node */
+    border-bottom: 1px solid #ddd; /* Optional: add a bottom border for separation */
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically align items */
+  }
+   
+  .node-item {
+    display: flex; /* Align items horizontally */
+    width: 100%; /* Ensure full width */
+    justify-content: space-between; /* Distribute space between node content and timestamp */
+    align-items: center; /* Vertically align items */
+  }
+   
+  .node-icon {
+    font-size: 20px; /* Adjust icon size */
+    margin-right: 10px; /* Space between icon and text */
+  }
+   
+  .node-content {
+    flex: 1; /* Allow content to take up available space */
+  }
+   
+  .timestamp {
+    font-size: 12px; /* Adjust timestamp font size */
+    color: #666; /* Light color for timestamp */
+  }
+   
+  .field-content {
+    font-weight: bold;
+  }

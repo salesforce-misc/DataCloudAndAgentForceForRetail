@@ -126,7 +126,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -176,7 +176,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -228,7 +228,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -278,7 +278,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -330,7 +330,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -382,7 +382,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -435,7 +435,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -488,7 +488,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+Please use the below information to help you answer the question EINSTEINSEARCH
 
 Instruction:
 Return the response based on {!$Input:Question} 

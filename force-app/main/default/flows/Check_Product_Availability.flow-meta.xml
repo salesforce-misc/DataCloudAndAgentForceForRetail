@@ -6,7 +6,7 @@
         <name>Response_Message</name>
         <label>Response Message</label>
         <locationX>50</locationX>
-        <locationY>566</locationY>
+        <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>ResponseMessage</assignToReference>
             <operator>Assign</operator>
@@ -26,36 +26,14 @@
         <name>OutOfStockMessage</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>Yes, this is the product is currently out of stock, would you like to be notified when this is available?</stringValue>
+            <stringValue>Yes, this is the product is currently out of stock, would you like to be notified when this is available ?</stringValue>
         </value>
     </constants>
-    <decisions>
-        <name>Check_Product_in_Query</name>
-        <label>Check Product in Query</label>
-        <locationX>380</locationX>
-        <locationY>134</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Tent</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>ProductName</leftValueReference>
-                <operator>Contains</operator>
-                <rightValue>
-                    <elementReference>HomesteadDomey3Tent</elementReference>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>GetProductId</targetReference>
-            </connector>
-            <label>Tent</label>
-        </rules>
-    </decisions>
     <decisions>
         <name>Check_Stock_Availability</name>
         <label>Check Stock Availability</label>
         <locationX>182</locationX>
-        <locationY>458</locationY>
+        <locationY>350</locationY>
         <defaultConnectorLabel>Default</defaultConnectorLabel>
         <rules>
             <name>OutOfStock</name>
@@ -99,7 +77,7 @@
         <name>GetProductId</name>
         <label>GetProductId</label>
         <locationX>182</locationX>
-        <locationY>242</locationY>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GetProductItem</targetReference>
@@ -127,7 +105,7 @@
         <name>GetProductItem</name>
         <label>GetProductItem</label>
         <locationX>182</locationX>
-        <locationY>350</locationY>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Check_Stock_Availability</targetReference>
@@ -144,11 +122,12 @@
         <object>ProductItem__dlm</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
-        <locationX>254</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Check_Product_in_Query</targetReference>
+            <targetReference>GetProductId</targetReference>
         </connector>
     </start>
     <status>Active</status>

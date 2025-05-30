@@ -70,7 +70,7 @@
         <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Predict_Propensity_Purchase</targetReference>
+            <targetReference>Contact_Not_Null</targetReference>
         </connector>
         <object>ssot__AccountContact__dlm</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>

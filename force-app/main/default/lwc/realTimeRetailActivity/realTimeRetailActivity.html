@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-card-wrapper slds-box">
+        <lightning-card title={widgetTitle} icon-name="standard:outcome_activity">
+            <lightning-button label="Refresh" slot="actions" onclick={handleRefreshClick}></lightning-button>
+            <template if:true={transformedData}>
+                <div class="scrollable-container">
+                    <ul class="node-list">
+                        <template for:each={transformedData} for:item="item">
+                            <li key={item.key}>
+                                <div class="node-item">
+                                    <lightning-icon icon-name={item.icon} alternative-text="Node Icon" size="small" class="node-icon"></lightning-icon>
+                                    <div class="node-content">
+                                        <div class="field-content">{item.field1}</div>
+                                        <div>{item.field2}</div>
+                                        <div>{item.field3}</div>
+                                        <div>{item.field4}</div>
+                                        <div>{item.field5}</div>
+                                    </div>
+                                    <span class="timestamp">{item.timestamp}</span>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+            <template if:true={error}>
+                <template if:true={error.body}>
+                    <p class="slds-text-color_error">{error.body.message}</p>
+                </template>
+            </template>
+        </lightning-card>
+    </div>
+</template>

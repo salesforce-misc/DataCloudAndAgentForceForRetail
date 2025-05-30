@@ -1,0 +1,21 @@
+{
+  "required" : [ "Goto" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Goto" : {
+      "title" : "Goto",
+      "description" : "when user asks List the Products that need to be reordred than execute this action",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "lightning__recordInfoType",
+        "lightning:sObjectInfo" : {
+          "apiName" : "ProductItem"
+        }
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

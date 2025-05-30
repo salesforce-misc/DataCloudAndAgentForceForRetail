@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CategoryPreference__c</fullName>
+    <label>Category Preference</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Jackets &amp; Vests</fullName>
+                <default>false</default>
+                <label>Jackets &amp; Vests</label>
+            </value>
+            <value>
+                <fullName>Tops</fullName>
+                <default>false</default>
+                <label>Tops</label>
+            </value>
+            <value>
+                <fullName>Bottoms</fullName>
+                <default>false</default>
+                <label>Bottoms</label>
+            </value>
+            <value>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+                <label>Footwear</label>
+            </value>
+            <value>
+                <fullName>Accessories</fullName>
+                <default>false</default>
+                <label>Accessories</label>
+            </value>
+            <value>
+                <fullName>Gear</fullName>
+                <default>false</default>
+                <label>Gear</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

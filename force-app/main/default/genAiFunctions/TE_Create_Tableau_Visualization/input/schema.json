@@ -1,0 +1,14 @@
+{
+  "required" : [ "user_query" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "user_query" : {
+      "title" : "user_query",
+      "description" : "User's query to build the viz",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

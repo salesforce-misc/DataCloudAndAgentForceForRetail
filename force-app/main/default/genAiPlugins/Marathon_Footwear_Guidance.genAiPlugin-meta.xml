@@ -4,9 +4,6 @@
     <description>Interacts with the Customer to suggest suitable footwear. for marathon running.</description>
     <developerName>Marathon_Footwear_Guidance</developerName>
     <genAiFunctions>
-        <functionName>GuestUserShoeRecommendation</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
         <functionName>DisplayProductList</functionName>
     </genAiFunctions>
     <genAiFunctions>

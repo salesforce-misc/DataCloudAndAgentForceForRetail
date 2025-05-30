@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SalesPerformance URL</description>
+    <invocationTarget>SalesPerformance_URL</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>SalesPerformance URL</masterLabel>
+    <progressIndicatorMessage>Generating Dashboard URL</progressIndicatorMessage>
+</GenAiFunction>

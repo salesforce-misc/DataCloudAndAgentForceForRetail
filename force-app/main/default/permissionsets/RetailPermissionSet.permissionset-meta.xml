@@ -24,10 +24,7 @@
         <apexClass>GuestORLoggedInUserCheck</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>MessagingSessionController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>Product_OrderController</apexClass>
         <enabled>true</enabled>

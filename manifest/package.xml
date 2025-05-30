@@ -2,11 +2,13 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	
 	<types>
-		<members>Return_Policy</members>
-		<members>ShoeComparisonTemplate</members>
-		<members>Shoe_Recommendation</members>
-		<members>Up_Sell_Products</members>
-		<name>GenAiPromptTemplate</name>
-	</types>
+        <members>Get_Comparison_Product_Details_For_Template_Version2</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>ShoeComparisonTemplate</members>
+        <name>GenAiPromptTemplate</name>
+    </types>
+	 
 	<version>64.0</version>
 </Package>

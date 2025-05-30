@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <consumerKey>3MVG9ZqlCComSMtSvUtYam9GY09FwMfg8HSMl7l28fTKWQ324yVVV8yQPVODDB8fg6iCBiV3ns1m9GaK0ARPb</consumerKey>
+    <consumerSecret>Placeholder_Value</consumerSecret>
+    <friendlyName>TableauEinsteinProvider</friendlyName>
+    <includeOrgIdInIdentifier>true</includeOrgIdInIdentifier>
+    <isPkceEnabled>true</isPkceEnabled>
+    <providerType>Salesforce</providerType>
+    <requireMfa>false</requireMfa>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+</AuthProvider>

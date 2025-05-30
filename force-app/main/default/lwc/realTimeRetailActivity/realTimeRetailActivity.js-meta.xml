@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+    <target>lightning__RecordPage</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightning__RecordPage">
+      <property
+        label="Description"
+        name="personalizationPoint"
+        type="String"
+        placeholder="Unused"
+      />
+ 
+      <property
+        label="Title"
+        name="widgetTitle"
+        type="String"
+        default="Real Time Activity"
+        placeholder="Real Time Activity"
+      />
+ 
+      <property
+        label="Dataspace"
+        name="space"
+        type="String"
+        default="default"
+        placeholder="default"
+      />
+ 
+      <property
+        label="Data Graph"
+        name="graph"
+        type="String"
+      />
+ 
+       <property
+        label="Lookup Key"
+        name="lookup"
+        type="String"
+        default="UnifiedLinkssotIndividualReal__dlm"
+        placeholder="IndividualIdentityLink__dlm"
+      />
+ 
+      <property
+        label="Lookup Value Field"
+        name="lookupValueField"
+        type="String"
+        default=""
+        placeholder="Optional field name"
+      />
+ 
+      <property
+        label="Lookup Field"
+        name="lookupEntry"
+        type="String"
+        placeholder="TargetObject,TargetField,SourceRowField"
+      />
+ 
+      <property
+        label="Data Model Config"
+        name="dmoConfigString"
+        type="String"
+        default=""
+        placeholder="dmo=name_of_dmo, timestamp=timestamp_field, field=field_name, icon=slds_icon_identifier"
+      />
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>
