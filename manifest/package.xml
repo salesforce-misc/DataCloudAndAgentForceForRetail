@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	
 	<types>
-        <members>Get_Comparison_Product_Details_For_Template_Version2</members>
-        <name>Flow</name>
-    </types>
-    <types>
-        <members>ShoeComparisonTemplate</members>
-        <name>GenAiPromptTemplate</name>
-    </types>
-	 
-	<version>64.0</version>
+		<members>Agentforce_Service_Agent</members>
+		<name>GenAiPlanner</name>
+	</types>
+	<version>63.0</version> 
 </Package>
