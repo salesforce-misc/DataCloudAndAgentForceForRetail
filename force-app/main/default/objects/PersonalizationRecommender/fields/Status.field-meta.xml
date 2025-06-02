@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status</fullName>
+    <inlineHelpText>If Active, the recommender has been saved. If Error, something went wrong. Please try to resave. If error persists, please create a new recommender.</inlineHelpText>
+</CustomField>
