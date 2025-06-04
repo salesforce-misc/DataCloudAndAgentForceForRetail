@@ -2,16 +2,18 @@ import { LightningElement,api,wire,track } from 'lwc';
 import { loadScript } from "lightning/platformResourceLoader";
 import CometD from "@salesforce/resourceUrl/CometD";
 import fetchSessionId from '@salesforce/apex/CometDSessionController.fetchSessionId';
+import getSurveyFlyoutCongifMDT from '@salesforce/apex/CometDSessionController.getSurveyFlyoutCongifMDT';
 export default class ReturnLabel extends LightningElement {
     @track isShowModal ;
     contactId  ;
    // productId;
    sessionId;
    cometDLib;
-    
+    returnLabelUrl;
     
     connectedCallback() {
         console.log('## Page URL List returnlabel = '+window.location.href);
+        this.fetchConfig();
       }
     
     @wire( fetchSessionId )
@@ -78,6 +80,20 @@ export default class ReturnLabel extends LightningElement {
         }
     }
 
+
+    fetchConfig() {
+        getSurveyFlyoutCongifMDT()
+            .then((result) => {
+                if (result) {
+                    this.returnLabelUrl = result.returnLabelVFPageUrl__c;
+                    console.log('Return Label VF URL: ', this.returnLabelUrl);
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching config:', error);
+            });
+    }
+
     handleOnClickDownload(){
         const contact = this.contactId;
         //String sitePrefix = URL.getSalesforceBaseUrl().toExternalForm();
@@ -86,8 +102,9 @@ export default class ReturnLabel extends LightningElement {
         //const vfpageURL = `${window.location.origin}/apex/ReturnLabelPage?contactId=${this.contactId}`;
         const vfpageURL = `https://epicorgfarm-a4--retailorg2--c.sandbox.vf.force.com/apex/ReturnLabelPage?contactId=${this.contactId}`;
         
+        
         const baseURL = ulrvf.replace('.my.site.com', '.vf.force.com'); 
-        const VFMainPage = baseURL + `/apex/ReturnLabelPage?contactId=${this.contactId}`;
+        const VFMainPage = this.returnLabelUrl + `/apex/ReturnLabelPage?contactId=${this.contactId}`;
         console.log('CONTACT ID',contact);
         //console.log('VF PAGE URL',vfpageURL);
         console.log('VF MAIN PAGE URL',VFMainPage);

@@ -4,7 +4,7 @@
     <label>AWSHospitalityOrgFarm</label>
     <oauthConfig>
         <callbackUrl>https://www.salesforce.com/services/oauth2/callback</callbackUrl>
-        <consumerKey>3MVG9ZqlCComSMtSvUtYam9GY0.xHbevuNUW2q1DUMHcZMbTAyGt.oVF6arlWxYDDqekoAqUKjuv9LdNLVe.v</consumerKey>
+        <consumerKey></consumerKey>
         <isAdminApproved>false</isAdminApproved>
         <isClientCredentialEnabled>false</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>

@@ -66,7 +66,7 @@ public with sharing class CometDSessionController {
     
     @AuraEnabled
     public static SurveyFlyoutConfig__mdt getSurveyFlyoutCongifMDT(){
-        SurveyFlyoutConfig__mdt lFConfig = [SELECT Bootstrap_Link__c, ESA_Deployment_Link__c, Org_Id__c ,Srct_Url__c FROM SurveyFlyoutConfig__mdt LIMIT 1];
+        SurveyFlyoutConfig__mdt lFConfig = [SELECT Bootstrap_Link__c, ESA_Deployment_Link__c, Org_Id__c ,Srct_Url__c,returnLabelVFPageUrl__c FROM SurveyFlyoutConfig__mdt LIMIT 1];
         if(lFConfig != null){
             return lFConfig;
         }
