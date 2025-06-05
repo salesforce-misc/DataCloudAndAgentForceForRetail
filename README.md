@@ -101,7 +101,7 @@ The Outfitters app showcases how with **Data Cloud** we have a true Customer 360
   
   ## 3. Data Cloud Configuration
 </summary>
-7 step process
+8 step process
 
 ### 1. Setup Data Streams 
 The Data Kit is installed as a part of the Package installation. Follow the steps below to create data streams.
@@ -171,22 +171,22 @@ The Data Kit is installed as a part of the Package installation. Follow the step
 | Create Data Cloud Field Enrichment of ‘Engagement Score’ |-> Go to Object Manager.</br>- Search for Contact.</br>- Click on Contact</br>- Click on Data cloud Copy Field.</br>-  Click on New.</br>- Select data space as ‘default’</br>- Select Data Cloud Object as ‘Engagement_Score__cio’</br>- Click on Next</br>- Select Field As ‘Engagement_Score’</br> - Click on Next </br>- Give Label as ‘Engagement Score default’</br>- Click on Finish </br>- On Contact Select EngagementScore__c </br>- Save and Start Sync.|![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Data%20Cloud%20Configuration%20Images/Engagement%20Score1.png)![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Data%20Cloud%20Configuration%20Images/Engagement%20Score2.png)|
 |Create Variation Attribute Set |Go to App launcher>> Search for Commerce>> Open it </br>Select the "Outfitters" store </br>From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set". </br>From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set". </br>Repeat this process to create another Variation set attribute named "Tents and Sleeping bags" attribute set,but only add the "Size" attribute. | |
 
-### 8. Create Activation Targets
+### 8a. Create Activation Targets
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Data Cloud Activation Target | Go to Data Cloud app </br> - Click on Activation Target </br> - Click on New </br> - Select ‘Data Cloud’ under targets. </br> - Click on Next. </br> -In Activation Target name provide ‘Data Cloud Target’ </br> - Under dataspace, select as ‘default’ </br> - Click on Save| |
 
-### 9. Create Segment from Data Kit
+### 8b. Create Segment from Data Kit
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Segment | Go to Data Cloud app </br> - Click on the Segment tab  </br> - Click New </br> - Select "Installed from Data Kit” </br> - Choose "RetailDataKitPackage" </br> - Click on Next </br> -  Select Segment as Individual and provide Segment name as Get Customers. </br> - Select Standard Publish </br> - Select Publish Schedule to 4 hrs and select the start and end date. </br> - Click on Save. </br> - Click on Publish now button. | |
 
-### 10. Create Activations 
+### 8c. Create Activations 
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Activations | By default, space is default </br> - Need to select the Get Customer segment and activation target as data cloud  </br> - Click on continue </br> - Select Email.</br> -Click on Continue </br> - Click on add attributes  </br> - And from individual select the following attributes </br> - Sold to Customer,Order Number, Product Id, Recall and Product Name </br> - Click on Save with name as Get Recalled Customers.| |
 
-### 11. Create Variation Attribute Set
+### 8d. Create Variation Attribute Set
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Variation Attribute Set | Go to App launcher>> Search for Commerce>> Open it </br> - Select the "Outfitters" store  </br> - From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set".  </br> - Click on “New” and set the name “Shoe Variations” and add the attributes "star", "Durability", "Ventilation", and "Category" to the "Selected field" section.  </br> - Repeat this process to create another Variation set attribute named "Tents and Sleeping bags" attribute set,but only add the "Size" attribute. | |
@@ -210,7 +210,7 @@ The Data Kit is installed as a part of the Package installation. Follow the step
 ### 2. Install Agent and Experience Site Package (1 hour 30 minutes)
   | Step  | Action and Details  |  Images |
   | ----- | ----- | ----- |
-  | Install Agent & Exp Site Package |- Install VSCode [Download](https://code.visualstudio.com/download) </br>- Setup CLI a. Install the Salesforce CLI  https://developer.salesforce.com/tools/salesforcecli or check that your installed CLI version is greater than 2.56.7 by running sf \-v in a terminal.</br>- If you need to update the Salesforce CLI, either run sf update or npm install \--global @salesforce/cli depending on how you installed the CLI.</br>- Install Extension</br>- Open VSCode \> Go To\> Extensions-\>Salesforce Extension Pack\>Install</br>- Open Terminal Clone git Repository by using below command </br> ```git clone https://github.com/salesforce-misc/DataCloudAndAgentForceForHospitality.git``` </br>- Open the Project </br>- Authorize an Org</br>- Type Ctrl+Shift+P Select SFDX:Authorize an Org</br>- Select Project Default</br>- Enter the Org alias</br>- Authorize the Org</br>- Open terminal type **sf project deploy start --source-dir force-app** </br>- If you have AWS S3 Connection Created and Installed AWS Related Data Stream from Step 3 under Data Cloud Configuration, then execute below SFDX command to deploy **else do not execute**. </br>- Open terminal type **sf project deploy start --source-dir st-aws-app** </br> |![image](https://github.com/user-attachments/assets/293fd406-72fc-4be3-9008-0a9926461586)![image](https://github.com/user-attachments/assets/6d3a14ee-3c65-4f47-99a6-39066b68a9aa)![image](https://github.com/user-attachments/assets/71751813-f4b9-437f-b355-9feb770c0c2d)![image](https://github.com/user-attachments/assets/b50fb406-2ae7-475a-a8c6-939d486dd9fd)![image](https://github.com/user-attachments/assets/5b4efb69-3f1a-4a1a-8ecb-be4e17344098)![image](https://github.com/user-attachments/assets/403c5a8f-ef31-4220-8062-60ae71453008)![image](https://github.com/user-attachments/assets/9a2ff9e1-75f2-4c13-a7d1-1a1ef5c2bc51)|
+ | Install Agent & Exp Site Package |</br>- Install VSCode [Download](https://code.visualstudio.com/download) </br>- Setup CLI a. Install the Salesforce CLI  https://developer.salesforce.com/tools/salesforcecli or check that your installed CLI version is greater than 2.56.7 by running sf \-v in a terminal.</br>- If you need to update the Salesforce CLI, either run sf update or npm install \--global @salesforce/cli depending on how you installed the CLI.</br>- Install Extension</br>- Open VSCode \> Go To\> Extensions-\>Salesforce Extension Pack\>Install</br>- Open Terminal Clone git Repository by using below command </br> ```git clone https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo.git``` </br>- Open the Project </br>- Authorize an Org</br>- Type Ctrl+Shift+P Select SFDX:Authorize an Org</br>- Select Project Default</br>- Enter the Org alias</br>- Authorize the Org </br>- Open terminal and run the command **sf project deploy start --source-dir force-app** </br></br> **NOTE:** $${\color{red}Skip \space below\space steps \space 4, \space 5, \space 6, \space and \space 7 \space if \space you \space wish \space to \space bring \space in \space your \space own \space Product \space data}$$ |![image](https://github.com/user-attachments/assets/293fd406-72fc-4be3-9008-0a9926461586)![image](https://github.com/user-attachments/assets/6d3a14ee-3c65-4f47-99a6-39066b68a9aa)![image](https://github.com/user-attachments/assets/71751813-f4b9-437f-b355-9feb770c0c2d)![image](https://github.com/user-attachments/assets/b50fb406-2ae7-475a-a8c6-939d486dd9fd)![image](https://github.com/user-attachments/assets/5b4efb69-3f1a-4a1a-8ecb-be4e17344098)![image](https://github.com/user-attachments/assets/403c5a8f-ef31-4220-8062-60ae71453008)![image](https://github.com/user-attachments/assets/9a2ff9e1-75f2-4c13-a7d1-1a1ef5c2bc51)|
 
 **NOTE:** $${\color{red} Skip \space the \space below \space steps \space if \space you \space wish \space to \space bring \space in \space your \space own \space Product \space data}$$
 $${\color{red} 3.\space Create Commerce Data}$$
@@ -252,7 +252,6 @@ $${\color{red} 6.\space Add CMS Product Images}$$
 
 
 </details>
-
 
 <details><summary>
 
