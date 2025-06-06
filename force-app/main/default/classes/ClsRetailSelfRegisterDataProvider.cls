@@ -31,7 +31,7 @@ public class ClsRetailSelfRegisterDataProvider {
                                  Recency_Of_Purchase__pc = '9 Days',Payment_Method__pc = 'Credit Card',Average_Order__pc = 25,Number_of_Complaint__pc = 5,Number_of_Product_Return__pc = 5,
                                  Churn_Score__pc = 25,Location__pc = 'USA',Days_since_the_last_order__pc = 10,Number_of_orders_period__pc = '23 days',Average_time_between_orders__pc = '10 days',
                                  Total_Amount_Spent_LTV__pc = 300000,Total_amount_spent_period__pc = '50000 in 20 days',Average_order_value__pc = 50000,Maximum_order_value__pc = 70000,
-                                 Number_of_Unique_Products_Purchased__pc = 30,Most_Frequently_Purchased__pc = 'UltraRunBreeze 3000',Last_Purchased_Product_Categories__pc = 'Walking Shoes',
+                                 Number_of_Unique_Products_Purchased__pc = 30,Most_Frequently_Purchased__pc = 'UltraRunBreeze',Last_Purchased_Product_Categories__pc = 'Walking Shoes',
                                  Average_Quantity_per_Order__pc = 20,Ordered_In_Last_30_Days__pc = True);
             
          update acc;
