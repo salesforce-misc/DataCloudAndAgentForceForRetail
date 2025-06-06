@@ -80,6 +80,7 @@ The Outfitters app showcases how with **Data Cloud** we have a true Customer 360
 | Turn On Einstein Setup | - Navigate to Setup</br>- Search and Select ‘Einstein Setup’</br>- Turn on Einstein Setup | ![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Pre-Deployment%20Instructions%20Images/EinsteinSetup.png) |
 | Turn On Agentforce | - Navigate to Setup</br>- Search and Select ‘Agent’</br>- Turn on Agentforce |  |
 |Commerce Categories Setup |-Go to app launcher and search Commerce. </br>-Toggle the Merchandising And click on Categories. </br></br>**Note: - If Categories Footwear and Gear are already present, then skip it below steps.**</br>-Note: - If Categories Footwear and Gear are already present, then skip it below steps.  </br>Give the Name “Footwear” And Select Checkbox for “Show In Menu”, For Sort Order enter 1, For Code CAT_FOOTWEAR.</br>Repeat the above steps for “Gear”. And In sort order enter 2. | |
+| If Propensity To Churn (Propensity_To_Churn__c)  field is not visible |-Go to Setup>> Object Manager>> Search for Contact and Click on it.</br>-Click on Field and Relationship>>Search for Propensity To Churn and click on it</br>-Click on Set Field-Level Security>> check the Visible checkbox and click on Save button.| |
 </details>
 
 <details><summary>
