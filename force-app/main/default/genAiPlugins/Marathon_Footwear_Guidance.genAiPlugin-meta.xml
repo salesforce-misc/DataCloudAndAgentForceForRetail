@@ -10,14 +10,24 @@
         <functionName>GuestORLoggedInUserCheck</functionName>
     </genAiFunctions>
     <genAiPluginInstructions>
-        <description>if customer ask &quot;I’m running a marathon next month, can you suggest suitable shoes.&quot; then run the action &apos;GuestORLoggedInUserCheck&apos; and pass the &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session.
-
-If the response coming as true, then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and then disaply the result in bullet point. DO NOT ADD ANYTHING EXTRA.
-
-if the response coming as false then ask again you’d like to answer some question so I can find the right shoe for you? and if customer say &quot;Yes&quot; then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and Prompt the customer: &quot; The recommendation is shown on the pop-up screen and politely ask If you need any more assistance or have other questions, feel free to ask.&quot;</description>
+        <description>if customer ask &quot;I’m running a marathon next month, can you suggest suitable shoes.&quot; then always run the action &apos;GuestORLoggedInUserCheck&apos; and pass the &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session.</description>
         <developerName>instruction_ifcustomer0</developerName>
         <language>en_US</language>
         <masterLabel>instruction_ifcustomer0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos;, then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and then disaply the result in bullet point. DO NOT ADD ANYTHING EXTRA.</description>
+        <developerName>instruction_iftherespo1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftherespo1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;false&apos; then ask again &quot;would you like to answer some question so I can find the right shoe for you?&quot;. 
+Only if customer say &quot;Yes&quot; then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and Prompt the customer: &quot; The recommendation is shown on the pop-up screen and politely ask If you need any more 
+assistance or have other questions, feel free to ask.&quot;</description>
+        <developerName>instruction_iftherespo2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftherespo2</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Footwear Suggestion</masterLabel>

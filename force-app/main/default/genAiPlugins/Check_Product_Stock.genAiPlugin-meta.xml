@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
     <canEscalate>false</canEscalate>
-    <description>Handles Customer interest in a specific Product by first checking Product availability. In case the Product is out-of-stock, recommends alternatives and offers to notify the Customer when the Product is back in stock - ensuring a consistent experience for both guest and logged-in users.</description>
+    <description>Handles Customer&apos;s queries if customer is also interested in a specific Product by first checking Product availability. In case the Product is out-of-stock, recommends alternatives and offers to notify the Customer when the Product is back in stock - ensuring a consistent experience for both guest and logged-in users.</description>
     <developerName>Check_Product_Stock</developerName>
     <genAiFunctions>
         <functionName>Check_Product_Availability</functionName>
@@ -12,18 +12,32 @@
     <genAiFunctions>
         <functionName>GuestORLoggedInUserCheck</functionName>
     </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Agentforce_Guest_User_Lead_Creation</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Call_Journey_API</functionName>
+    </genAiFunctions>
     <genAiPluginInstructions>
-        <description>If the customer express interest in a product (e.g.,says &quot;I’m also interested in [ProductName]&quot;) first call the action &apos;GuestORLoggedInUserCheck&apos; and pass the &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session.
- 
-If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos; then call the action &apos;Check_Product_Availability&apos; by extracting the product name from customer&apos;s query and pass it as input to ‘ProductName’ and Return the availability status from the ResponseMessage and again run the another action &apos;Up Sell Products&apos; to show some alternate products for upsell. Inform customer about availability status and ask, &quot;Would you like to be notified when the product is available?&quot; and if customer say &apos;Yes&apos; and response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos; then always say &quot;You will receive an email as soon as this product is stocked.&quot; (dont ask for email address and name).
-
-If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;false&apos; then call the action &apos;Check_Product_Availability&apos; by extracting the product name from customer&apos;s query and pass it as input to ‘ProductName’ and return the availability status from the ResponseMessage and again run another action &apos;Up Sell Products&apos; to show some alternate products for upsell. Inform customer about availability status and ask, &quot;Would you like to be notified when the product is available?&quot; and if customer say &apos;Yes&apos; prompt customer to provide the email address and name. if customer provide email address (Make sure the email address provided is of proper format) then call another action &apos;Agentforce-Guest User Lead Creation&apos; and pass the email address and Name and the ask again &quot;You will receive an email as soon as this product is stocked. &quot;. Then proceed to ask &quot;would you also like to subscribe to our mailing list?&quot;. If customer interested in &apos;subscribe to our mailing list&apos; then call the action &apos;Call Journey API&apos;. The action will return a response with success or error. If Success is received inform the user that they will be receiving an email to subscribe.</description>
+        <description>If the customer express interest in a product (e.g.,says &quot;I’m also interested in [ProductName]&quot;) first call the action &apos;GuestORLoggedInUserCheck&apos; and pass the &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session.</description>
         <developerName>instruction_ifthecusto0</developerName>
         <language>en_US</language>
         <masterLabel>instruction_ifthecusto0</masterLabel>
     </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos; then call the action &apos;Check_Product_Availability&apos; by extracting the product name from customer&apos;s query and pass it as input to ‘ProductName’ and Return the availability status from the ResponseMessage and again run the another action &apos;Up Sell Products&apos; to show some alternate products for upsell. Inform customer about availability status and ask, &quot;Would you like to be notified when the product is available?&quot; and if customer says &quot;Yes&quot; and the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos; must respond strictly with: &quot;You will receive an email as soon as this product is stocked.&quot; No additional messages, questions, or variations are allowed.</description>
+        <developerName>instruction_iftherespo1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftherespo1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;false&apos; then call the action &apos;Check_Product_Availability&apos; by extracting the product name from customer&apos;s query and pass it as input to ‘ProductName’ and return the availability status from the ResponseMessage and again run another action &apos;Up Sell Products&apos; to show some alternate products for upsell. Inform customer about availability status and ask, &quot;Would you like to be notified when the product is available?&quot; and if customer say &quot;Yes&quot;, prompt customer to provide the &quot;Email Address&quot; and &quot;Name&quot;. if customer provide email address then call another action &apos;Agentforce-Guest User Lead Creation&apos; and pass the Email Address and Name and the ask again &quot;You will receive an email as soon as this product is stocked. &quot;. Then proceed to ask &quot;would you also like to subscribe to our mailing list?&quot;. If customer says &quot;Yes&quot; then call the action &apos;Call Journey API&apos;. The action will return a response with success or error. If response received as &quot;Success&quot; then must respond strictly &quot;Great.!  You&apos;ll receive an email to subscribe to our mailing list&quot;. And if response received as &quot;error&quot; inform user &quot;there is some error&quot;</description>
+        <developerName>instruction_iftherespo2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftherespo2</masterLabel>
+    </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Check Product Stock</masterLabel>
     <pluginType>Topic</pluginType>
-    <scope>Your job is to only handle Customer interest in a specific Product. This includes checking Product availability and recommending alternate upsell Product options when the specific Product is out-of-stock and additionally offer to notify the Customer when the Product is back in stock. You aren&apos;t supposed to request any additional information from the Customer.</scope>
+    <scope>Your job is to only handle Customer&apos;s queries if customer is also interested in a specific Product. This includes checking Product availability and recommending alternate upsell Product options when the specific Product is out-of-stock and additionally offer to notify the Customer when the Product is back in stock. You aren&apos;t supposed to request any additional information from the Customer.</scope>
 </GenAiPlugin>

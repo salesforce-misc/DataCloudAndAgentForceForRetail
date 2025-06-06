@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://test.salesforce.com/services/oauth2/authorize</authorizeUrl>
+    <consumerKey>3MVG9ZqlCComSMtSvUtYam9GY010f3Rq7yPFNgShF.BzxT48ofxfDPXy.KLS1uiDrUByBVYIIPuoz1ntDuGLX</consumerKey>
+    <consumerSecret>Placeholder_Value</consumerSecret>
+    <defaultScopes>api cdp_query_api cdp_profile_api refresh_token</defaultScopes>
+    <friendlyName>Data_Cloud_Auth</friendlyName>
+    <includeOrgIdInIdentifier>true</includeOrgIdInIdentifier>
+    <isPkceEnabled>true</isPkceEnabled>
+    <providerType>Salesforce</providerType>
+    <requireMfa>false</requireMfa>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://test.salesforce.com/services/oauth2/token</tokenUrl>
+</AuthProvider>
