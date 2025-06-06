@@ -192,6 +192,11 @@ The Data Kit is installed as a part of the Package installation. Follow the step
 | ----- | ----- | ----- |
 | Create Variation Attribute Set | Go to App launcher>> Search for Commerce>> Open it </br> - Select the "Outfitters" store  </br> - From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set".  </br> - Click on “New” and set the name “Shoe Variations” and add the attributes "star", "Durability", "Ventilation", and "Category" to the "Selected field" section.  </br> - Repeat this process to create another Variation set attribute named "Tents and Sleeping bags" attribute set,but only add the "Size" attribute. | |
 
+### 9. Create Search Fields
+| Step | Action and Details | Images |
+| ----- | ----- | ----- |
+| Create Search Fields | Go to App launcher>> Search for Commerce>> Open it </br> - Select the "Outfitters" store  </br> - From the left navigation bar, choose "Settings",then "Search", and finally "Search Fields".  </br> - Click on Manage Searcheable Fields </br> - Add Variation Attribute Fields and Product - Standard Fields that are required. ||
+
 </details>
 
 <details><summary>
@@ -248,7 +253,7 @@ $${\color{red} 6.\space Add CMS Product Images}$$
 ### 8. Share CMS with Site workspace (5 minutes)   (Need to cross verify during the installation)
   | Step  | Action and Details  |  Images |
   | ----- | ----- | ----- |
-  | Share CMS with Site workspace   |- Click on App Launcher and search for CMS Workspaces</br>- Select CMS Workspaces</br>- Click on "Outfitters Managed Content Space" (the CMS created in previous step</br>-  Click the gear icon (at the top right) and select "Workspace Sharing" from the dropdown</br>- Move "Sunshine Resorts Managed Content Space" to the right (under Shared) and click Next </br>- Click Save |![image](https://github.com/user-attachments/assets/353002a4-ca61-4f5e-a71f-60597ab81e86)|
+  | Share CMS with Site workspace   |- Click on App Launcher and search for CMS Workspaces</br>- Select CMS Workspaces</br>- Click on "Outfitters Managed Content Space" (the CMS created in previous step</br>-  Click the gear icon (at the top right) and select "Workspace Sharing" from the dropdown</br>- Move "Content workspace for marketing cloud" And "Outfitter managed content space zSIkk6kP" to the right (under Shared) and click Next </br>- Click Save |![image](https://github.com/user-attachments/assets/353002a4-ca61-4f5e-a71f-60597ab81e86)|
 | Assign Prompt Flow to Prompt Template  | - Click Setup</br>- In the Quick find search box type Prompt. </br>- Click on Builder. </br>- In the Search box type ‘ShoeComparisonTemplate’. </br>- Select and go the details page. </br>- After Product Details. </br>- Select Insert Resource. </br>- Clik on Flows and Select ‘Get_Comparison_Product_Details’. </br>- Save the template as New  version. </br>- Click on Activate.   |![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Commerce%20Cloud%20Config%20Images/PromptFlow1.jpg) ![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Commerce%20Cloud%20Config%20Images/PromptFlow2.jpg.png) ![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Commerce%20Cloud%20Config%20Images/PromptFlow3.png)|
 
 </details>
