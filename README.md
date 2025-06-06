@@ -484,9 +484,9 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 6. Tableau Dashboard 
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Create Semantic Model |-Go to app launcher</br>-Click on Tableau Next </br>-Create a new folder and name it “Retail” </br>-Add following DMOS(Location Product Inventory, Product,Sales Order, Sales Order Product) </br>-Create Logical Views by joining all the above DMOS. |  |
-| Create Visualizations and Computed fields |-Create new Visualization on Return rate, sales performance and Inventory Dashboards. |  |
-| Create Reports and Dashboards |-Create Sales Performance dashboard, Retail dashboard and Inventory Dashboards.|  |
+| Create Semantic Model |-Go to app launcher</br>-Click on Tableau Next </br>-Create a new folder and name it “Retail” </br>-Add following DMOS(Location Product Inventory, Product,Sales Order, Sales Order Product) </br>-Create Logical Views by joining all the above DMOS. | ![](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Finish%20Configuration/Tableau1.png)  |
+| Create Visualizations and Computed fields |-Create new Visualization on Return rate, sales performance and Inventory Dashboards. | ![](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Finish%20Configuration/Tableau2.png) |
+| Create Reports and Dashboards |-Create Sales Performance dashboard, Retail dashboard and Inventory Dashboards.| ![](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Finish%20Configuration/Tableau3.png) |
 </details>
 
 <details><summary>
