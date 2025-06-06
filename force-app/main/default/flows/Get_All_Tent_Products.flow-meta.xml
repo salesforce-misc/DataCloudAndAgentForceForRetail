@@ -7,7 +7,7 @@
         <elementSubtype>AddPromptInstructions</elementSubtype>
         <label>Fetch Product Data</label>
         <locationX>440</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>$Output.Prompt</assignToReference>
             <operator>Add</operator>
@@ -29,7 +29,7 @@ Price:{!Loop_on_Prices.ssot__UnitListPriceAmount__c}
         <name>Loop_on_Current_Products</name>
         <label>Loop on Current Products</label>
         <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationY>350</locationY>
         <collectionReference>Get_Products</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -40,7 +40,7 @@ Price:{!Loop_on_Prices.ssot__UnitListPriceAmount__c}
         <name>Loop_on_Prices</name>
         <label>Loop on Prices</label>
         <locationX>352</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <collectionReference>Get_Prices_for_Products</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -70,10 +70,31 @@ Price:{!Loop_on_Prices.ssot__UnitListPriceAmount__c}
     </processMetadataValues>
     <processType>PromptFlow</processType>
     <recordLookups>
+        <name>Get_Outfitters_Pricebook</name>
+        <label>Get Outfitters Pricebook</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_on_Current_Products</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ssot__Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Outfitters Price Book</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ssot__PriceBook__dlm</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Prices_for_Products</name>
         <label>Get Prices for Products</label>
         <locationX>352</locationX>
-        <locationY>350</locationY>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_on_Prices</targetReference>
@@ -90,7 +111,7 @@ Price:{!Loop_on_Prices.ssot__UnitListPriceAmount__c}
             <field>ssot__PricebookId__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>01s7y00000I6eQEAAZ</stringValue>
+                <elementReference>Get_Outfitters_Pricebook.ssot__Id__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -107,7 +128,7 @@ Price:{!Loop_on_Prices.ssot__UnitListPriceAmount__c}
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Loop_on_Current_Products</targetReference>
+            <targetReference>Get_Outfitters_Pricebook</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
