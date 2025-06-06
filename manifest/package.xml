@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	
 	<types>
-		<members>Check_Product_Stock</members>
-		<name>GenAiPlugin</name>
+		<members>DataCloudSetupButtonController</members>
+		<name>ApexClass</name>
 	</types>
 	
 	<version>64.0</version>

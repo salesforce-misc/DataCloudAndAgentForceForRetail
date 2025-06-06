@@ -40,10 +40,10 @@ public class ClsRetailSelfRegisterDataProvider {
           // fetch product
           Product2 prod;
             if(Test.isRunningTest()){
-                 prod = [Select id,name from Product2 where Name = 'UltraRunBreeze 3000' limit 1];
+                 prod = [Select id,name from Product2 where Name = 'UltraRunBreeze' limit 1];
                  system.debug('prod:'+prod); 
             }else{
-                     prod = [Select id,name from Product2 where Name = 'UltraRunBreeze 3000' AND StockKeepingUnit='1050279A1T' limit 1];
+                     prod = [Select id,name from Product2 where Name = 'UltraRunBreeze' AND StockKeepingUnit='R1050279A1T' limit 1];
         			system.debug('prod:'+prod); 
             }
   

@@ -1,0 +1,21 @@
+{
+  "required" : [ "Email_Adress", "Name" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Email_Adress" : {
+      "title" : "Email_Adress",
+      "description" : "Stores the email address passed from agent",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Name" : {
+      "title" : "Name",
+      "description" : "Stores the name passed from Agent",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

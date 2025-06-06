@@ -85,10 +85,10 @@ Price: {!Get_Price.ssot__UnitListPriceAmount__c}
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>ssot__Id__c</field>
+            <field>ssot__Name__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>01t7y00000EkLW3AAN</stringValue>
+                <stringValue>Homestead Domey 3 Tent</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -108,5 +108,5 @@ Price: {!Get_Price.ssot__UnitListPriceAmount__c}
         </connector>
         <triggerType>Capability</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
 </Flow>
