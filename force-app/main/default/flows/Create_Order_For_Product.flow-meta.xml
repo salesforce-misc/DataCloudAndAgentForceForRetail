@@ -82,7 +82,7 @@
         <inputAssignments>
             <field>Status</field>
             <value>
-                <stringValue>Draft</stringValue>
+                <stringValue>Open</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
