@@ -480,6 +480,13 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | ----- | ----- | ----- |
 | General Notes for new community User | To test Community functionality , please use : **Duncan Macintosh contact** to login as experience user </br> **Note:** If user self register from experience site sign up page, admin needs to add below permission set to that new community user </br>- **Buyer** </br>- **Customer Community Plus Permissions**|![image (44)](https://github.com/user-attachments/assets/81cdd8a1-ce5a-469d-9004-48722f4caa02)|
 |**Enable EPSessionIdHelper Visualforce Page**|</br>&emsp;- Log into Salesforce, click the gear icon in the top-right corner, and select Setup</br>&emsp;- In the Quick Find box, search for Visualforce Pages and select it.</br>&emsp;- Locate EPSessionIdHelper in the list.</br>&emsp;- Click the Security link next to the Visualforce page label</br>&emsp;- In the Available Profiles list, select the following profiles:</br>&emsp;&emsp;Einstein Agent User</br>&emsp;&emsp;Sunshine Resort Profile</br>&emsp;&emsp;System Administrator</br>&emsp;- Move them to the Enabled Profiles list using the arrow button</br>&emsp;- Click Save to apply the changes </br></br> 
+
+### 6. Tableau Dashboard 
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Create Semantic Model |-Go to app launcher</br>-Click on Tableau Next </br>-Create a new folder and name it “Retail” </br>-Add following DMOS(Location Product Inventory, Product,Sales Order, Sales Order Product) </br>-Create Logical Views by joining all the above DMOS. |  |
+| Create Visualizations and Computed fields |-Create new Visualization on Return rate, sales performance and Inventory Dashboards. |  |
+| Create Reports and Dashboards |-Create Sales Performance dashboard, Retail dashboard and Inventory Dashboards.|  |
 </details>
 
 <details><summary>
