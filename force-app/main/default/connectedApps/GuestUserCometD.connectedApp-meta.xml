@@ -2,7 +2,7 @@
 <ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
     <contactEmail>gaurav.sharma159@infosys.com</contactEmail>
     <label>GuestUserCometD</label>
-    <oauthConfig>
+    <oauthConfig> 
         <callbackUrl>https://epicorgfarm-a4--retailorg2.sandbox.my.salesforce.com/services/authcallback/GuestUserAuth</callbackUrl>
         <isAdminApproved>true</isAdminApproved>
         <isClientCredentialEnabled>true</isClientCredentialEnabled>

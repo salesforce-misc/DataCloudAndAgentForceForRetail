@@ -84,7 +84,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PhotoURL__c</field>
+                <field>PhotoURL__c</field> 
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

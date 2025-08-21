@@ -7,7 +7,7 @@ export default class PersonAccountCard extends LightningElement {
     @api recordId;
     message = '';
     accountId = '';
-
+    
 
     @wire(getAccountDetails, { accountId: '$recordId' })
     account;

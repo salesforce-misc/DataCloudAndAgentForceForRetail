@@ -3,7 +3,7 @@
     <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
+        <detailHeading>false</detailHeading> 
         <editHeading>false</editHeading>
         <label>Description</label>
         <layoutColumns>
