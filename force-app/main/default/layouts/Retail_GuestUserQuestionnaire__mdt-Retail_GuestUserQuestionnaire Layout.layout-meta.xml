@@ -16,31 +16,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Bootstrap_Link__c</field>
+                <field>Questions__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ESA_Deployment_Link__c</field>
+                <field>Option1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Org_Id__c</field>
+                <field>Option2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Srct_Url__c</field>
+                <field>Option3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SiteURL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>returnLabelVFPageUrl__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Recall_Product_Table_Name__c</field>
+                <field>Option4__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
