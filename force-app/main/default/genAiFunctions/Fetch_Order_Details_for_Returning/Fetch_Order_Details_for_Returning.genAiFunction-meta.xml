@@ -6,4 +6,4 @@
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
     <masterLabel>Fetch Order Details for Returning</masterLabel>
-</GenAiFunction>
+</GenAiFunction> 
