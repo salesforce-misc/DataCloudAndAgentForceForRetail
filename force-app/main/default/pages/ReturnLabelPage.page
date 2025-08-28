@@ -1,0 +1,53 @@
+<apex:page controller="returnLabel" action="{!getContactDetails}" renderAs="pdf" showHeader="false">
+<body style="font-family: Arial, sans-serif; font-size: 12px;">
+
+<!-- Main Container -->
+<div style="width: 500px; padding: 10px; border: 1px solid black; margin: auto;">
+
+<!-- FROM and TO Section (Using Table for Vertical Separator) -->
+<table style="width: 100%; border-bottom: 1px solid black; padding-bottom: 10px;">
+<tr>
+<!-- FROM Section -->
+<td style="width: 47%; vertical-align: top; border-right: 1px solid black; padding-right: 10px;">
+<p style="font-weight: bold;">FROM:</p>
+<p>{!contact.Name}</p>
+<p>{!contact.MailingStreet}</p>
+<p>{!contact.MailingCity}, {!contact.MailingState}, {!contact.MailingPostalCode}</p>
+<p>Phone: {!contact.Phone}</p>
+
+</td>
+
+<!-- TO Section -->
+<td style="width: 47%; vertical-align: top; padding-left: 10px;">
+<p style="font-weight: bold;">TO:</p>
+<p>The Outfitters Warehouse</p>
+<p>Retail Company</p>
+<p>Suite 5A-120</p>
+<p><b>**TEST LABEL - DO NOT SHIP**</b></p>
+<p>Tucson, AZ 85705</p>
+<p>Phone: (123) 456-7890</p>
+</td>
+</tr>
+</table>
+
+<!-- Shipping Information -->
+<div style="margin-top: 10px;">
+
+<p><b>SHIP DATE:</b>{!shipDate}</p>
+<p><b>WEIGHT:</b> 3.00 LB</p>
+<p><b>BILL SENDER</b></p>
+</div>
+
+<!-- Barcode Section -->
+<div style="text-align: center; margin-top: 10px;">
+<apex:image value="{!$Resource.BarCode}" width="300" height="100"/>
+</div>
+
+<!-- Tracking Number -->
+<p style="font-size: 14px; text-align: center; font-weight: bold; margin-top: 10px;">
+TRK# 7946 8671 2166
+</p>
+
+</div>
+</body>
+</apex:page>
