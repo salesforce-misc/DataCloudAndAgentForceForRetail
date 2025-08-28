@@ -357,7 +357,7 @@ TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
             <targetReference>Get_Membership_Number</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>contactId</name>
         <dataType>String</dataType>

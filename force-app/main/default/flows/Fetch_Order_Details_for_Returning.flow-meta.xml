@@ -253,7 +253,7 @@ TEXT({!For_each_Order.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
             <targetReference>Get_Membership</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>contactId</name>
         <dataType>String</dataType>
