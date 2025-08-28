@@ -15,7 +15,7 @@
 <p>{!contact.MailingCity}, {!contact.MailingState}, {!contact.MailingPostalCode}</p>
 <p>Phone: {!contact.Phone}</p>
 
-</td>
+</td> 
 
 <!-- TO Section -->
 <td style="width: 47%; vertical-align: top; padding-left: 10px;">
