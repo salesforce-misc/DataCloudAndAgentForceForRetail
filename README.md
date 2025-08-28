@@ -446,6 +446,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Publish ESA | - Click on Setup </br>- In Quick Find, search Embedded Service Deployments and click on 'Embedded Service Deployments' (under Feature Settings --> Service --> Embedded Service) </br>- Click on ESA Web Deployment </br>- Click on 'Publish' button </br>- Wait for confirmation Message |![image](https://github.com/user-attachments/assets/95efd64a-9709-445a-a62e-414b6e482b84)
+| Edit Pre-Chat Values | - Click on Setup </br>- In Quick Find, search Embedded Service Deployments and click on 'Embedded Service Deployments' (under Feature Settings --> Service --> Embedded Service) </br>- Click on ESA Web Deployment </br>- Click on Edit Pre-Chat </br>- Scroll down to Hidden Pre Chat Fields </br>- Add ContactId,cookieId,userId and usersId from Available to Selected Section. </br>- Click on Save. </br>- Wait for 10 minutes to initiate Agentforce Conversation from Experience Site. |![image]()
 
 
 ### 3. Prepare Agentforce
@@ -487,7 +488,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | General Notes for new community User | To test Community functionality , please use : **Duncan Macintosh contact** to login as experience user </br> **Note:** If user self register from experience site sign up page, admin needs to add below permission set to that new community user </br>- **Buyer** </br>- **Customer Community Plus Permissions**|![image (44)](https://github.com/user-attachments/assets/81cdd8a1-ce5a-469d-9004-48722f4caa02)|
-|**Enable EPSessionIdHelper Visualforce Page**|</br>&emsp;- Log into Salesforce, click the gear icon in the top-right corner, and select Setup</br>&emsp;- In the Quick Find box, search for Visualforce Pages and select it.</br>&emsp;- Locate EPSessionIdHelper in the list.</br>&emsp;- Click the Security link next to the Visualforce page label</br>&emsp;- In the Available Profiles list, select the following profiles:</br>&emsp;&emsp;Einstein Agent User</br>&emsp;&emsp;Sunshine Resort Profile</br>&emsp;&emsp;System Administrator</br>&emsp;- Move them to the Enabled Profiles list using the arrow button</br>&emsp;- Click Save to apply the changes </br></br> 
+|**Enable EPSessionIdHelper Visualforce Page**|</br>&emsp;- Log into Salesforce, click the gear icon in the top-right corner, and select Setup</br>&emsp;- In the Quick Find box, search for Visualforce Pages and select it.</br>&emsp;- Locate EPSessionIdHelper in the list.</br>&emsp;- Click the Security link next to the Visualforce page label</br>&emsp;- In the Available Profiles list, select the following profiles:</br>&emsp;&emsp;Einstein Agent User</br>&emsp;&emsp;Outfitters Customer Profile</br>&emsp;&emsp;System Administrator</br>&emsp;- Move them to the Enabled Profiles list using the arrow button</br>&emsp;- Click Save to apply the changes </br></br> 
 
 ### 6. Connected App Configuration (20 min)
 | Step  | Action and Details  |  Images |
