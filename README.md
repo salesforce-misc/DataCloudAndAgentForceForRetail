@@ -17,8 +17,9 @@ The Outfitters app showcases how with **Data Cloud** we have a true Customer 360
 
   | Requirement | Details |
   | ----- | ----- |
-  | Licenses Required | - Data Cloud</br>- Sales Cloud</br>- Service Cloud</br>- Experience</br>- Commerce Cloud</br>- Personalization</br>- Marketing Cloud</br>- MuleSoft (Optional)
+  | Licenses Required | - Data Cloud</br>- Sales Cloud</br>- Service Cloud</br>- Experience</br>- Commerce Cloud</br>- Personalization</br>-Einstein Agent</br>- Marketing Cloud</br>- MuleSoft (Optional)
   | Features Required | - Service Agent</br>- Einstein Agent</br>- Copilot</br>- Prompt Builder</br>- Agent Force</br>- Real-time(Additional SKU)</br>- Code Builder (Optional) 
+  | Permission Set Licenses Required | - Agentforce Service Agent User</br>- Tableau Next Creator</br>- Personalization
   
   Our package is designed to support all these clouds, but you have full flexibility to use only the portions relevant to your business. If you are not using a particular cloud (e.g., Loyalty 
   Cloud), you can simply skip its configuration—the package will still install successfully, but that feature will not be available until you configure it yourself. Additionally, you can customize 
