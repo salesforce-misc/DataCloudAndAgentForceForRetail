@@ -128,11 +128,21 @@ global without sharing class InsertDataForRetail {
                 insert promoProducts;
                 system.debug('PromotionProduct records inserted: ' + promoProducts);
             }
-             Id Locationid= [Select id from Location LIMIT 1].id;
+            
+            //Create a Location    
+            
+          Schema.Location loc = new Schema.Location(Name ='Outfitters Warehouse',LocationType = 'Warehouse',ShouldSyncWithOci = true,
+                                       ExternalReference = 'Outfitters_Warehouse',IsInventoryLocation = true);
+            insert loc;
+            system.debug('Location:'+loc);
+            
+  			Id Locationid= [Select id from Location where Name =: 'Outfitters Warehouse' LIMIT 1].id;
+            system.debug('Fetched Location:'+Locationid);
+           //Id Locationid= [Select id from Location LIMIT 1].id;
 
 	List<ProductItem> ProductItems = new List<ProductItem>();
-
-	ProductItem prditm1 = new ProductItem(Product2Id = ProductMap.get('Men Chilkat Nylon Boots').Id, fulfilment_status_stock__c = '', LocationId =Locationid, QuantityOnHand = 1);
+            system.debug('PrdMap:'+ProductMap.get('Men Chilkat Nylon Boots').Id); 
+	ProductItem prditm1 = new ProductItem(Product2Id = ProductMap.get('Men Chilkat Nylon Boots').Id, fulfilment_status_stock__c = '', LocationId = Locationid, QuantityOnHand = 1);
 ProductItems.add(prditm1);
 	ProductItem prditm2 = new ProductItem(Product2Id = ProductMap.get('Men Safien Mid Gtx Hiking Shoes').Id, fulfilment_status_stock__c = 'Fulfilled', LocationId =Locationid, QuantityOnHand = 98);
 ProductItems.add(prditm2);

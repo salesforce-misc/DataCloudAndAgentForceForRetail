@@ -24,8 +24,8 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
     <serverIsDown>SNA_rlvj2_sf_default_cdn_ESW_ESA_Web_Deployment_17557791428011</serverIsDown>
-    <siteAdmin>epic.08801754070051504@orgfarm.salesforce.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>epic.08801754070051504@orgfarm.salesforce.com</siteGuestRecordDefaultOwner>
+    <!-- <siteAdmin>epic.08801754070051504@orgfarm.salesforce.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>epic.08801754070051504@orgfarm.salesforce.com</siteGuestRecordDefaultOwner> -->
     <siteIframeWhiteListUrls>
         <url>epicorgfarm64.my.site.com</url>
     </siteIframeWhiteListUrls>

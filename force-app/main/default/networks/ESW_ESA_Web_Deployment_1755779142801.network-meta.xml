@@ -4,18 +4,18 @@
     <allowMembersToFlag>false</allowMembersToFlag>
     <changePasswordTemplate>unfiled$public/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
     <communityRoles/>
-    <description>Outfitters</description>
+    <description>Site for Messaging for Web deployment: ESA_Web_Deployment.</description>
     <disableReputationRecordConversations>true</disableReputationRecordConversations>
-    <emailSenderAddress>gdevadoss@salesforce.com</emailSenderAddress>
-    <emailSenderName>Outfitters</emailSenderName>
+    <emailSenderAddress>epic.orgfarm@salesforce.com</emailSenderAddress>
+    <emailSenderName>ESW_ESA_Web_Deployment_1755779142801</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
     <enableDirectMessages>true</enableDirectMessages>
     <enableExpFriendlyUrlsAsDefault>false</enableExpFriendlyUrlsAsDefault>
     <enableExperienceBundleBasedSnaOverrideEnabled>true</enableExperienceBundleBasedSnaOverrideEnabled>
-    <enableGuestChatter>true</enableGuestChatter>
-    <enableGuestFileAccess>true</enableGuestFileAccess>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableGuestFileAccess>false</enableGuestFileAccess>
     <enableGuestMemberVisibility>false</enableGuestMemberVisibility>
     <enableImageOptimizationCDN>true</enableImageOptimizationCDN>
     <enableInvitation>false</enableInvitation>
@@ -35,30 +35,8 @@
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <headlessForgotPasswordTemplate>unfiled$public/CommunityHeadlessForgotPasswordTemplate</headlessForgotPasswordTemplate>
     <headlessRegistrationTemplate>unfiled$public/CommunityHeadlessRegistrationTemplate</headlessRegistrationTemplate>
-    <networkAuthApiSettings>
-        <doesForgotPasswordRequireAuth>false</doesForgotPasswordRequireAuth>
-        <doesPasswordLoginRequireAuth>false</doesPasswordLoginRequireAuth>
-        <doesPwdlessLoginRequireAuth>false</doesPwdlessLoginRequireAuth>
-        <doesRegistrationRequireAuth>false</doesRegistrationRequireAuth>
-        <isFirstPartyAppsAllowed>false</isFirstPartyAppsAllowed>
-        <isForgotPwdAllowed>false</isForgotPwdAllowed>
-        <isForgotPwdEmailTemplateAllowlistingEnabled>false</isForgotPwdEmailTemplateAllowlistingEnabled>
-        <isHeadlessUserRegistrationAllowed>false</isHeadlessUserRegistrationAllowed>
-        <isPwdlessLoginAllowed>false</isPwdlessLoginAllowed>
-        <isRecaptchaRequiredForgotPwd>false</isRecaptchaRequiredForgotPwd>
-        <isRecaptchaRequiredPwdlessLogin>false</isRecaptchaRequiredPwdlessLogin>
-        <isRecaptchaRequiredRgstr>false</isRecaptchaRequiredRgstr>
-        <isUniversalClientRgstrAllowed>true</isUniversalClientRgstrAllowed>
-        <isUserDisambiguationAllowedForgotPwd>false</isUserDisambiguationAllowedForgotPwd>
-        <isUserDisambiguationAllowedUsernamePwd>false</isUserDisambiguationAllowedUsernamePwd>
-        <maxPasswordResetAttempts>3</maxPasswordResetAttempts>
-        <recaptchaScoreThreshold>0.0</recaptchaScoreThreshold>
-    </networkAuthApiSettings>
     <networkMemberGroups>
         <profile>admin</profile>
-        <profile>Outfitters Shopper Profile</profile>       
-        <profile>Outfitters Customer Profile</profile>
-        
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
@@ -67,17 +45,16 @@
         <loginPageOverrideSetting>Designer</loginPageOverrideSetting>
         <selfRegProfilePageOverrideSetting>Designer</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
-    <picassoSite>Outfitters1</picassoSite>
-   
-    <selfRegistration>true</selfRegistration>
-    <sendWelcomeEmail>true</sendWelcomeEmail>
-    <site>Outfitters</site>
+    <picassoSite>ESW_ESA_Web_Deployment_17557791428011</picassoSite>
+    <selfRegistration>false</selfRegistration>
+    <sendWelcomeEmail>false</sendWelcomeEmail>
+    <site>ESW_ESA_Web_Deployment_1755779142801</site>
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
     <status>Live</status>
     <tabs>
         <defaultTab>home</defaultTab>
         <standardTab>Chatter</standardTab>
     </tabs>
-    <urlPathPrefix>outfittersvforcesite</urlPathPrefix>
+    <urlPathPrefix>ESWESAWebDeployment1755779142801vforcesi</urlPathPrefix>
     <welcomeTemplate>unfiled$public/CommunityWelcomeEmailTemplate</welcomeTemplate>
 </Network>
