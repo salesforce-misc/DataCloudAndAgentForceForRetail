@@ -564,6 +564,22 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 </details>
 
 <details><summary>
+
+### 8. Configure Tableau Next Dashboard
+</summary>
+
+### 1. Enable Tabaleau Next  (5 min)
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Enable Tableau Next Beta | - Goto Setup, in the Quick Find box, type Users and click Users, Search for Orgfarm Epic user </br>- Click the Full Name of the user</br>- On the user's detail page, scroll down to the Permission Set Assignments section </br>- Click the Edit Assignments button</br>- Choose Tablue Next Admin Permission set and Assign, Click Save </br>-From Setup, enter ‘Tableau Next’ in the Quick Find box. </br>-Enable Tableau Next Beta. | |
+
+### 2. Create Workspace  (5 min)
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Create Workspace|-Click on App Launcher And Search Tableau Next </br>-Click on New WorkSpace.</br>-Enter Name "AutoFolio" click on create. ||
+
+</details>
+<details><summary>
   
   ## Behind the Scenes - how is the agent powered?
 </summary>
