@@ -587,10 +587,11 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 |Create a Formula Field|-Go back to Semantic Model, Click on New button and click on Calculated Field, Name as Sold Quantities, Field Type as Measure and Data Type as Number then  Click on Advanced, select Aggregation as UserAgg, and formuala as: sum(select Sales Order Product.Ordered Quantity from Retail Logical View 1) and click on Validate, and click on save, for more clarity refer screenshot<br/>-Create Another Formulas Name as:
 1.Product Name 2. Average Order Value 3.Ordered Quantity 4. Return Rate 5.Total Returned Items 6. Total Sales 7. Total Sales Revenue<br/>-Refer screenshot for formula, field type, data type, Advanced setting||
 
-### 4. Create Visulization for Sales Performance Dashboard (2 hour)
+### 4. Create Visulization and Dashboard for Sales Performance (2 hour)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 |Create Visulization for Sales Performance|-Go to Retail Workspace<br/>-Click on Add and click on New Visualization and select New Semantic Model and click on Select button <br/>-Provide Name as Total Sales Revenue<br/>-For Columns, Drag Total Sales Revenue from Calculated Field and place under Columns, click on arrow of Total Sales Revenue, Select Format Number as Number(Short), Visualize as , Select Discrete<br/>- Select Mark as Donut and click on Save. Refer Screenshot.<br/> Create few more visulization: 1.Sold Quantities 2. Total Sales By Product 3. Average Order Value (AOV) 4. Total Ordered Items 5. Sold by Product Type 6.Sales Detail <br/>- Refer Screenshot for each visulization, columns and rows setting,marks, filters, colors setting||
+|Create Sales Performance Dashboard|-Create a Dashboard with name as Sales Performance Dashboard, Create two pages by click on Add page : 1. Instrctuions 2. overview<br/>-Refer Screenshot for Design, Text,Button and dashboard things<br/> - drag button from menu and place it on dashboard pane, Name it as Overview and Under Action select Navigate to, Select Dashboard page and select Overview<br/>-Refer screenshot||
 
 </details>
 <details><summary>
