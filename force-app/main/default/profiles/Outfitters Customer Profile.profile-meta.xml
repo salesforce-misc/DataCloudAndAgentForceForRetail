@@ -5,8 +5,18 @@
         <apexClass>GetAccounts</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-   
-    
+    <classAccesses>
+        <apexClass>CometDSessionController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunityUserController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ActivationAudienceResult</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <layoutAssignments>
         <layout>BuyerGroup-Buyer Group Layout</layout>
     </layoutAssignments>
