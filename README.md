@@ -565,7 +565,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 
 <details><summary>
 
-### 8. Configure Tableau Next Dashboard
+## 8. Configure Tableau Next Dashboard
 </summary>
 
 ### 1. Enable Tabaleau Next  (5 min)
@@ -576,7 +576,14 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 2. Create Workspace  (5 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Create Workspace|-Click on App Launcher And Search Tableau Next </br>-Click on New WorkSpace.</br>-Enter Name "AutoFolio" click on create. ||
+| Create Workspace|-Click on App Launcher And Search Tableau Next </br>-Click on New WorkSpace.</br>-Enter Name "Retail" click on create. ||
+
+### 3. Create Semantic Model (1 hr)
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Create Semantic Models |-Go to workspace Retail </br>-⦁	Click on Add, click on New Semantic Model and Name it New Semantic Model</br>-Select the workspace as Retail<br/>-Select the Data Model Object Location Product Inventory and click on Save <br/>-Click on + icon of Data object and Select Product, Sales Order, Sales Order Product Data Model Object and Click on Save  |   |
+|Create a logical view |-Click on New and select Logical view and provide name as Average Order Value (AOV)</br>-Select Data Model Object Sales Order and click on Save<br/>-Go back to Semantic Model and click on New and select Logical View and provide name as Inventory<br/>-Select Data Model Object Location Product Inventory<br/>-Click on + icon of Location Product Inventory and select Join Object<br/>-Select Data Model Object as Product and click on save<br/>-Once join window gets open, click on + icon,Select Product from Location Product Inventory and Select Product Id from Product , click on Add and click on Apply||
+|Create Logical View of Retail Logical View 1|-Go back to Semantic Model and click on New and select Logical View and provide name as Retail Logical View 1<br/>-Select Data Model Object Product<br/>-Click on + icon of Product and select Join Object<br/>-Select Data Model Object as Location Product Inventory and click on save<br/>-Once join window gets open, click on + icon,Select Productt Id from Product and Select Product Id from Product , click on Add and click on Apply<br/>||
 
 </details>
 <details><summary>
