@@ -565,12 +565,12 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 1. Enable Tabaleau Next  (5 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Enable Tableau Next Beta | - Goto Setup, in the Quick Find box, type Users and click Users, Search for Orgfarm Epic user </br>- Click the Full Name of the user</br>- On the user's detail page, scroll down to the Permission Set Assignments section </br>- Click the Edit Assignments button</br>- Choose Tablue Next Admin Permission set and Assign, Click Save </br>-From Setup, enter ‘Tableau Next’ in the Quick Find box. </br>-Enable Tableau Next Beta. |   <img width="400" alt="PermissionOFTablue1" src="https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/Permission%20of%20Tableau.png?raw=true"> |
+| Enable Tableau Next Beta | - Goto Setup, in the Quick Find box, type Users and click Users, Search for Orgfarm Epic user </br>- Click the Full Name of the user</br>- On the user's detail page, scroll down to the Permission Set Assignments section </br>- Click the Edit Assignments button</br>- Choose Tablue Next Admin Permission set and Assign, Click Save </br>-From Setup, enter ‘Tableau Next’ in the Quick Find box. </br>-Enable Tableau Next Beta. |   <img width="400" alt="PermissionOFTablue1" src="https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/Permission%20of%20Tableau.png?raw=true"> ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/TableauNextEnable.png?raw=true) |
 
 ### 2. Create Workspace  (5 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Create Workspace|-Click on App Launcher And Search Tableau Next </br>-Click on New WorkSpace.</br>-Enter Name "Retail" click on create.|   <img width="400" alt="RetailWorkspace1" src="https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/RetailWorkspace1.png?raw=true"> |
+| Create Workspace|-Click on App Launcher And Search Tableau Next </br>-Click on New WorkSpace.</br>-Enter Name "Retail" click on create.|   <img width="400" alt="RetailWorkspace1" src="https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/RetailWorkspace1.png?raw=true"> ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/RetailWorkspace2.png?raw=true)|
 
 ### 3. Create Semantic Model (1 hr)
 | Step  | Action and Details  |  Images |
