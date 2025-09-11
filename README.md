@@ -570,7 +570,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 2. Create Workspace  (5 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Create Workspace|-Click on App Launcher And Search Tableau Next </br>-Click on New WorkSpace.</br>-Enter Name "Retail" click on create.|   <img width="400" alt="RetailWorkspace1" src="https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/RetailWorkspace1.png?raw=true"> ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/RetailWorkspace2.png?raw=true)|
+| Create Workspace|-Click on App Launcher And Search Tableau Next </br>-Click on New WorkSpace.</br>-Enter Name "Retail" click on create.|   <img width="400" alt="RetailWorkspace1" src="https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/RetailWorkspace1.png?raw=true"><img width="400" alt="RetailWorkspace2" src="https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Tableau%20Images/RetailWorkspace2.png?raw=true">|
 
 ### 3. Create Semantic Model (1 hr)
 | Step  | Action and Details  |  Images |
