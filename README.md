@@ -283,7 +283,7 @@ $${\color{red} 6.\space Add CMS Product Images}$$
 ### 2. Create Order And OrderItem Data (5 minutes) $${\color{blue} Optional: \space These \space steps \space are \space optional \space if \space you \space choose \space to \space use \space your \space own \space data. }$$
 | Step | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Create Order and Orderitem | - Click on App Launcher, search for Retail Setup App and click on Retail Setup App</br>- Click on the **Create Order and OrderItem** button (highlighted in the screenshot) and wait for a confirmation message before proceeding further. |![image]()|
+| Create Order and Orderitem | - Click on App Launcher, search for Retail Setup App and click on Retail Setup App</br>- Click on the **Create Order and OrderItem** button (highlighted in the screenshot) and wait for a confirmation message before proceeding further. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Connect%20and%20Create%20Sample%20Data/Create%20Order%20and%20Order%20Line.png)|
 
 ### 3. Create Buyer Group  & Assign Buyer Group for Self-Registration  (10 minutes) $${\color{blue} Optional: \space These \space steps \space are \space optional \space if \space you \space choose \space to \space use \space your \space own \space data. }$$
 | Step | Action and Details  |  Images |
