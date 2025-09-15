@@ -23,6 +23,7 @@
             "children" : [ {
               "attributes" : {
                 "backgroundColor" : "",
+                "dxpStyle" : { },
                 "isLinkable" : false,
                 "linkAssistiveText" : "",
                 "paddingHorizontal" : "none",
@@ -32,7 +33,7 @@
                 "textDecoration" : "{\"bold\":true}",
                 "textDisplayInfo" : "{\"textStyle\":\"heading-xlarge\",\"headingTag\":\"h1\",\"enableOverride\":false}"
               },
-              "customCssClasses" : "",
+              "customCssClasses" : "heading-text-block",
               "definition" : "dxp_base:textBlock",
               "id" : "408e78c8-1552-4544-9655-60722105e308",
               "type" : "component"
@@ -48,6 +49,7 @@
                 "startUrl" : "",
                 "usernameLabel" : "Username"
               },
+              "customCssClasses" : "comm-login-form__login-button",
               "definition" : "community_login:loginForm",
               "id" : "73a71006-15b8-4466-93d3-d9cefb3529e7",
               "type" : "component"

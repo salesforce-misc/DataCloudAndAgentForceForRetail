@@ -23,6 +23,7 @@
             "children" : [ {
               "attributes" : {
                 "backgroundColor" : "",
+                "dxpStyle" : { },
                 "isLinkable" : false,
                 "linkAssistiveText" : "",
                 "paddingHorizontal" : "none",
@@ -32,6 +33,7 @@
                 "textDecoration" : "{\"bold\":true}",
                 "textDisplayInfo" : "{\"textStyle\":\"heading-xlarge\",\"headingTag\":\"h1\",\"enableOverride\":false}"
               },
+              "customCssClasses" : "heading-text-block",
               "definition" : "dxp_base:textBlock",
               "id" : "0e53ca24-de10-4ab6-a739-bfea01c24ffb",
               "type" : "component"
@@ -51,6 +53,7 @@
                 "showPhoneNumberField" : true,
                 "submitButtonLabel" : "Sign Up"
               },
+              "customCssClasses" : "comm-login-form__login-button",
               "definition" : "commerce_builder:selfRegister",
               "id" : "905d083b-8b84-4e05-9377-56620e9555dd",
               "type" : "component"

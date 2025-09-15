@@ -24,6 +24,8 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
     <serverIsDown>SNA_eo2le_sf_default_cdn_Outfitters1</serverIsDown>
+    <siteAdmin>epic.eb201756483923648@orgfarm.salesforce.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>epic.eb201756483923648@orgfarm.salesforce.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <urlPathPrefix>outfittersvforcesite</urlPathPrefix>
 </CustomSite>

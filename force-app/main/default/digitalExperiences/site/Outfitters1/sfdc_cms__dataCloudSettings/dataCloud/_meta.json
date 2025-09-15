@@ -1,0 +1,5 @@
+{
+  "apiName" : "dataCloud",
+  "type" : "sfdc_cms__dataCloudSettings",
+  "path" : "_settings"
+}

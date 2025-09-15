@@ -96,10 +96,13 @@ export default class WeatherProdRecommendation extends LightningElement {
                     console.log('empty product -->');
                 }
                 else{
-                this.productRecommendations = result.map(row => { 
+                const rows = JSON.parse(JSON.stringify(result));
+                this.productRecommendations = rows.map(row => { 
                     return {
-                        ...row,
-                        prodLink: "/outfitters/product/" + row.Id
+                        Id: row['ssot__Id__c'],
+                        Name: row['ssot__Name__c'],
+                        Description: row['ssot__Description__c'],
+                        prodLink: "/outfitters/product/" + row['ssot__Id__c']
                     };
                 })
                 console.log('Product Recommendations:', this.productRecommendations);

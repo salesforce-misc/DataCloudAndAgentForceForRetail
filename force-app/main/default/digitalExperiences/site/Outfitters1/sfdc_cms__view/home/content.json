@@ -105,19 +105,36 @@
               "id" : "c70d6e09-9c6d-40fd-85d4-0f6aeaa54c4c",
               "type" : "component"
             }, {
-              "attributes" : { },
+              "attributes" : {
+                "dxpStyle" : { }
+              },
               "definition" : "c:weatherShoeRecommendation",
               "id" : "bc622650-771d-4d5d-a2b8-3e93242439aa",
               "type" : "component"
             }, {
-              "attributes" : { },
+              "attributes" : {
+                "dxpStyle" : { }
+              },
               "definition" : "c:returnLabel",
               "id" : "411b6f8d-58f9-43ab-91f4-fb7a3c506a45",
               "type" : "component"
             }, {
-              "attributes" : { },
+              "attributes" : {
+                "dxpStyle" : { }
+              },
               "definition" : "c:shoeComparisonFlyout",
               "id" : "54adefcc-4e5a-4f81-b8a3-efad8ea3d02d",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "deploymentName" : "ESA_Web_Deployment",
+                "hideChatButtonOnLoad" : "Default",
+                "isExpSiteAuthMode" : false,
+                "scrtUrl" : "https://epicorgfarm-8b.my.salesforce-scrt.com",
+                "siteEndpoint" : "https://epicorgfarm-8b.my.site.com/ESWESAWebDeployment1755779142801"
+              },
+              "definition" : "experience_messaging:embeddedMessaging",
+              "id" : "66b1f7a3-b5d6-4bc6-8390-d50f477eee76",
               "type" : "component"
             }, {
               "attributes" : {

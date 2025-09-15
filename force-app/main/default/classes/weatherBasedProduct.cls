@@ -1,6 +1,6 @@
 public class weatherBasedProduct {
     @AuraEnabled
-    public static List<Product2> recommendProducts(String weatherCondition) {
+    public static List<ssot__Product__dlm> recommendProducts(String weatherCondition) {
     weatherCondition = weatherCondition.trim().toLowerCase();
         
     // Define mapping of weather conditions to keywords
@@ -20,12 +20,15 @@ public class weatherBasedProduct {
     List<String> keywords = conditionKeywords.get(weatherCondition);
     system.debug('Keywords:' + conditionKeywords);
     // Fetch products that match the condition
-    List<Product2> filteredProducts = new List<Product2>();
-    List<Product2> allProducts = [SELECT Id, Name, Description, Product_Link__c FROM Product2 WHERE Description != NULL AND Type='Base'];
+    List<ssot__Product__dlm> filteredProducts = new List<ssot__Product__dlm>();
+    system.debug('Before All Products Query');
+    //List<Product2> allProducts = Database.query('SELECT Id, Name, Description, Product_Link__c FROM Product2 WHERE Description != NULL AND Type=\''+'Base'+'\' and isActive = true');
+    List<ssot__Product__dlm> allProducts = [SELECT ssot__Id__c,ssot__Name__c,ssot__Description__c FROM ssot__Product__dlm Where ssot__Description__c != NULL and ssot__ProductType__c = 'Base' and IsActive__c = 'true'];
+    system.debug('After All Products Query');
     system.debug('All Products:' + allProducts);
-    for (Product2 product : allProducts) {
+    for (ssot__Product__dlm product : allProducts) {
         for (String keyword : keywords) {
-            if (product.Description.toLowerCase().contains(keyword)) {
+            if (product.ssot__Description__c.toLowerCase().contains(keyword)) {
                 filteredProducts.add(product);
                 break;
             }
@@ -38,7 +41,7 @@ public class weatherBasedProduct {
     
     Integer maxProducts = Math.min(3, filteredProducts.size()); // Limit to 3 products
     
-    List<Product2> selectedProducts = new List<Product2>();
+    List<ssot__Product__dlm> selectedProducts = new List<ssot__Product__dlm>();
     for (Integer i = 0; i < maxProducts; i++) {
         selectedProducts.add(filteredProducts[i]);
     }

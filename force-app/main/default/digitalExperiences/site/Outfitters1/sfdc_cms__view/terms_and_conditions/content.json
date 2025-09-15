@@ -9,6 +9,7 @@
             "backgroundImageConfig" : "",
             "backgroundImageOverlay" : "rgba(0,0,0,0)",
             "componentSpacerSize" : "",
+            "dxpStyle" : { },
             "layoutDirectionDesktop" : "row",
             "layoutDirectionMobile" : "column",
             "layoutDirectionTablet" : "column",
@@ -22,6 +23,7 @@
             "children" : [ {
               "attributes" : {
                 "backgroundColor" : "",
+                "dxpStyle" : { },
                 "isLinkable" : false,
                 "linkAssistiveText" : "",
                 "paddingHorizontal" : "none",
@@ -52,6 +54,7 @@
               "type" : "component"
             }, {
               "attributes" : {
+                "dxpStyle" : { },
                 "imageInfos" : "",
                 "richTextValue" : "<p>Disclaimer: This is an automatically generated space intended as a starting point to help you add terms and conditions for the use of your site and services. You are responsible for the accuracy and compliance of any such terms with all applicable laws and regulations.</p>"
               },
@@ -77,6 +80,7 @@
           "attributes" : {
             "customHeadTags" : "",
             "description" : "",
+            "dxpStyle" : { },
             "pageTitle" : "Terms And Conditions",
             "recordId" : "{!recordId}"
           },

@@ -16,7 +16,10 @@ public with sharing class ActivationAudienceResult {
         req.setEndpoint(endpoint);
         req.setMethod('POST');
         req.setHeader('Content-Type', 'application/JSON');
-       	req.setBody('{"sql":"SELECT Activation_Record__c,Activated_Entity_Id__c FROM AAL_DataCloud_85UO40000017gLJMAY__dlm WHERE Activated_Entity_Id__c=\''+'0037y00000wOOjKAAW'+'\' ORDER By Activation_Publish_Timestamp__c DESC"}');
+        SurveyFlyoutConfig__mdt lFConfig = [SELECT Recall_Product_Table_Name__c FROM SurveyFlyoutConfig__mdt LIMIT 1];
+       	System.debug('## lFConfig = '+lFConfig);
+        req.setBody('{"sql":"SELECT Activation_Record__c,Activated_Entity_Id__c FROM ' + lFConfig.Recall_Product_Table_Name__c + ' WHERE Activated_Entity_Id__c=\''+conid +'\' ORDER By Activation_Publish_Timestamp__c DESC"}');
+        //req.setBody('{"sql":"SELECT Activation_Record__c,Activated_Entity_Id__c FROM AAL_DataCloud_85UO40000017gLJMAY__dlm WHERE Activated_Entity_Id__c=\''+'003NS00001EMkhxYAD'+'\' ORDER By Activation_Publish_Timestamp__c DESC"}');
 		req.setHeader('Authorization', accessToken);
         Http http = new Http();
         HttpResponse res = http.send(req);
