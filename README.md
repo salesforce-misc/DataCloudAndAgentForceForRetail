@@ -493,6 +493,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Update Einstein Search Retriever |- Click on **Setup**, in the Quick Find Box, enter Prompt Builder, and then select **Prompt Builder**</br>- Search for the Prompt Template named **Return Policy** and click on the hyperlink</br>- Hover the cursor on text the next to 'Please use the below information to help you answer the question : ', click on Resource, click on Einstein Search, click on 'Return\_FAQ\' and click on 'Return\_FAQ' Retriever </br>- Click on Save As New Version click **Activate** | |
+| Update Prompt Template with Flow|  - Click on **Setup**, in the Quick Find Box, enter Prompt Builder, and then select **Prompt Builder**</br>- Search for the Prompt Template named **ShoeComparisonTemplate** and click on the hyperlink. </br>- Hover the cursor next to **Product Details:**. </br>- Click on Insert Resource. </br>- Select Flows >> Get_Comparison_Product_Details_For_Template_Version2. </br>- Save as New Version. </br>- Click on Activate.|
 
 #### 4b. Assign Contact Record Page as Org Default (5 minutes)
 | Step  | Action and Details  |  Images |
