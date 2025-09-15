@@ -11,8 +11,8 @@
 <td style="width: 47%; vertical-align: top; border-right: 1px solid black; padding-right: 10px;">
 <p style="font-weight: bold;">FROM:</p>
 <p>{!contact.Name}</p>
-<p>{!contact.MailingStreet}</p>
-<p>{!contact.MailingCity}, {!contact.MailingState}, {!contact.MailingPostalCode}</p>
+<p>{!account.ShippingStreet}</p>
+<p>{!account.ShippingCity}, {!account.ShippingState}, {!account.ShippingPostalCode}</p>
 <p>Phone: {!contact.Phone}</p>
 
 </td> 

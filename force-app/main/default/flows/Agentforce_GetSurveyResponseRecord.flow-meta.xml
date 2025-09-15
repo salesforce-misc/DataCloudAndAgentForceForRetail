@@ -100,7 +100,7 @@ SessionId :{!GetSurveyResponseDetails.MessagingSessionId__c}
         </connector>
         <triggerType>Capability</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>MessagingSessionRecord</name>
         <dataType>SObject</dataType>

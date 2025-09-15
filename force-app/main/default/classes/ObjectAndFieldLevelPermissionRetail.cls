@@ -86,8 +86,15 @@ public class ObjectAndFieldLevelPermissionRetail {
         }
         
         try {
+            List<String> fieldsToUpdateforContactForRetail = new List<String>{'Propensity_To_Churn__c'}; 
+                    ObjectAndFieldLevelPermissionRetail.insertFieldLevelPermsssion('RetailPermissionSet','Contact',fieldsToUpdateforContactForRetail); 
+        } catch (Exception ex) {
+            System.debug('Permissions already exist or failed: ' + ex.getMessage());
+        }
+        
+        try {
             List<String> fieldsToUpdateforProduct = new List<String>{'ManagedContentName__c','RT_Description__c','Total_Quantity__c','Recall_flag__c','Product_Catalog__c'};   
-                ObjectAndFieldLevelPermissionRetail.insertFieldLevelPermsssion('Data Cloud Salesforce Connector','Product',fieldsToUpdateforProduct);
+                ObjectAndFieldLevelPermissionRetail.insertFieldLevelPermsssion('Data Cloud Salesforce Connector','Product2',fieldsToUpdateforProduct);
         } catch (Exception ex) {
             System.debug('Permissions already exist or failed: ' + ex.getMessage());
         }
@@ -173,14 +180,24 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
         PermissionSet permissionSetId = [Select Id from PermissionSet Where Label =: permissionSetName Limit 1];
         System.debug('## permissionSetId = '+permissionSetId);
         List<FieldPermissions> listOfFieldPermissions = new List<FieldPermissions>();
+		List<FieldPermissions> fps= [SELECT Id,Field,ParentId,SobjectType,PermissionsEdit,PermissionsRead  FROM FieldPermissions Where ParentId =: permissionSetId.Id and SobjectType =:objectName and PermissionsRead = true];
+        Map<String,Boolean> mapss = new Map<String,Boolean>();
+		if(!fps.isEmpty()){            
+            for(FieldPermissions fp : fps){
+                mapss.put(fp.Field,fp.PermissionsRead);
+            }
+		}
         for (String field : fieldNames) {
-            FieldPermissions fieldPermission = new FieldPermissions();
-            fieldPermission.Field = objectName + '.' + field;
-            fieldPermission.SobjectType = objectName;
-            fieldPermission.ParentId = permissionSetId.Id;
-            fieldPermission.PermissionsEdit = false;
-            fieldPermission.PermissionsRead = true;
-            listOfFieldPermissions.add(fieldPermission);//
+			String obName = objectName + '.' + field;
+			if((mapss.get(obName) != true && !mapss.isEmpty()) || mapss.isEmpty()){
+				FieldPermissions fieldPermission = new FieldPermissions();
+				fieldPermission.Field = objectName + '.' + field;
+				fieldPermission.SobjectType = objectName;
+				fieldPermission.ParentId = permissionSetId.Id;
+				fieldPermission.PermissionsEdit = false;
+				fieldPermission.PermissionsRead = true;
+				listOfFieldPermissions.add(fieldPermission);//
+			}            
         }
         if(!listOfFieldPermissions.isEmpty() && !Test.isrunningTest()){
             upsert listOfFieldPermissions;
