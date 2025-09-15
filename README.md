@@ -436,6 +436,8 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Configure Digital Experience. |- Click on **Setup**, in the Quick Find Box, enter Digital Experiences, and then select **All Sites**</br> -  Click on builder against the Site ***‘Outfitters’*** </br>- Scroll Down and Click on ‘Embedded Messaging ‘and update as per screenshot on Home and Product Page</br>- Select **Site End Point** as - ESW_ESA_Web_Deployment_1755779142801 </br> - Select **enhanced Service URL** from dropdown - it should be same as Site URL , refer Screenshot.</br>-We are using default background for Retail. to Large.|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/DigitalExperience.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/EmbeddedMessagingWebDeployment.png).
+| Configure CSS on Experience Header. |- Click on **Setup**, in the Quick Find Box, enter Digital Experiences, and then select **All Sites**</br> -  Click on builder against the Site ***‘Outfitters’*** </br>- Click on ‘Settings ‘and update as per screenshot |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/DigitalExperience.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/EmbeddedMessagingWebDeployment.png).
+
 
 #### 2c. Enable Login Access (5 minutes)
 | Step  | Action and Details  |  Images |
