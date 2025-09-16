@@ -6,6 +6,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateSurveyResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Product_OrderController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -22,14 +26,33 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DisplayShowComparison</apexClass>
+        <apexClass>DisplayShoeComparison</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AgentAuthenticator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
+    <classAccesses>
+        <apexClass>GetShoeRecommendation</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetWeather</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GuestORLoggedInUserCheck</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReturnLabelEventPublisher</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SFMCCalloutService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>CustomMetadataController</apexClass>
         <enabled>false</enabled>

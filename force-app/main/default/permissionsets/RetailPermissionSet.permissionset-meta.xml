@@ -9,6 +9,26 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReturnLabelEventPublisher</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SFMCCalloutService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CometDSessionController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunityUserController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ActivationAudienceResult</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DisplayProductList</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -24,10 +44,25 @@
         <apexClass>GuestORLoggedInUserCheck</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    
+    <classAccesses>
+        <apexClass>WeatherBasedProduct</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>weatherService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetWeather</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>Product_OrderController</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AgentAuthenticator</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <customMetadataTypeAccesses>
         <enabled>true</enabled>
