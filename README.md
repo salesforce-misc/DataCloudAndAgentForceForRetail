@@ -95,8 +95,8 @@ The Outfitters app showcases how with **Data Cloud** we have a true Customer 360
 
  | Step | Action and Details | Images |
   | ----- | ----- | ----- |
-  | Install Outfitters Base Package | - Click on this Package Installation [Link ](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t4W000002V5Wc)</br>- Sign-in to the Org with your credentials.</br>- Choose Install for Admins Only option</br>- Choose “Rename conflicting components in package” and click the Install button.</br>- Click Done when installation is complete. |![image](https://github.com/user-attachments/assets/29af9d66-482c-42e1-9210-b0f803429b5d)|
-  | Verify Package installation | - Click Setup</br>- Search for ‘Installed Package’</br>- Search for ‘RetailDataKitPackage’ is installed  |![image](https://github.com/user-attachments/assets/8669e29c-a7e9-4fdd-8829-67899fccc608)|
+  | Install Outfitters Base Package | - Click on this Package Installation [Link ](https://test.salesforce.com/packaging/installPackage.apexp?p0=04tO4000001K98D)</br>- Sign-in to the Org with your credentials.</br>- Choose Install for Admins Only option</br>- Choose “Rename conflicting components in package” and click the Install button.</br>- Click Done when installation is complete. |![image](https://github.com/user-attachments/assets/29af9d66-482c-42e1-9210-b0f803429b5d)|
+  | Verify Package installation | - Click Setup</br>- Search for ‘Installed Package’</br>- Search for ‘RetailDataKitPkg’ is installed  |![image](https://github.com/user-attachments/assets/8669e29c-a7e9-4fdd-8829-67899fccc608)|
 
 </details>
 
