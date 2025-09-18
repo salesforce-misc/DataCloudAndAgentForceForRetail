@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aiPluginUtterances>
+        <developerName>utterance_exampleuse0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>utterance_exampleuse0</masterLabel>
+        <utterance>* Example User Input
+    * Create a viz showing my Open opportunities by account type
+    * Create a chart showing the Sales performance of my Regions
+* Action: TE_Create_Tableau_Visualization</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>This topic focuses creating Tableau Visualizations based on the input of the user, only when the user specifically ask for a visualization , a viz or a chart.</description>
+    <developerName>Tableau_Visualization_Creator0</developerName>
+    <genAiFunctions>
+        <functionName>TE_Create_Tableau_Visualization</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>* Always execute the action if the intent of the user is to create a visualization of one dimension and one measure.
+    * From the output of the action, construct the url following this structure: https://epicorgfarm-a4--retailorg2.sandbox.lightning.force.com/tableau/visualization/%%OUTPUTACTION%%/edit
+    * Always present the result as a hyperlink, randomly using one of the following options:
+        * Ta-da! 🎉 Here&apos;s your chart [masterpiece](url_to_the_viz). It&apos;s ready for the spotlight!
+        *  I crunched the numbers and brewed you a [chart](url_to_the_viz) ☕. Take a look!
+        * Hold tight—crunching numbers into insights... 🚀 [Here](url_to_the_viz) it is!
+        * Numbers in, insights out! 📊 Your [chart](url_to_the_viz) awaits.
+        * 📊 Your viz is ready to rock! 🎸 Dive in: [chart](url_to_the_viz). 
+    *  Example: if the output is &quot;From_Agent3&quot; then the url_to_the_viz is &quot;https://epicorgfarm-a4--retailorg2.sandbox.lightning.force.com/tableau/visualization/From_Agent3/edit&quot; and the output is: 📊 Here is your [viz](url_to_the_viz). 
+    * If the query has an error like &quot;Error: Raw Error Response: Failed with status code: 400&quot;, adopt the fallback strategy and say &quot;I&apos;m sorry, I can execute the query.&quot;
+    * Always render the output as rich text . If he user ask the same query multiple time, always render the stored output. Never output raw JSON or markdown to the user</description>
+        <developerName>instruction_alwaysexec0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_alwaysexec0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Tableau Visualization Creator</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to understand the intent of the user, to execute the action and present the link of the visualization to the user.</scope>
+</GenAiPlugin>

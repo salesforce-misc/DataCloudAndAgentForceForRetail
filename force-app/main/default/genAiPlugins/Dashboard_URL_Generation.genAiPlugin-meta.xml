@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aiPluginUtterances>
+        <developerName>utterance_showretail0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>utterance_showretail0</masterLabel>
+        <utterance>Show Retail Dashboard 
+Show Sales Performance Dashboard</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>This agent generate Dashboard URL for Return Rate Dashboard(Generate URL) and Sales Performance Dashboard(Generate URL)</description>
+    <developerName>Dashboard_URL_Generation</developerName>
+    <genAiFunctions>
+        <functionName>Generate_URL</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>SalesPerformance_URL</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>When user Ask Query to generate Retail Dashboard URL always execute the Prompt
+&apos;Generate URL&apos; and show only Retail Dashboard URL.</description>
+        <developerName>instruction_whenuseras0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenuseras0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When user Ask Query to generate Sales Performance Dashboard URL always execute the Prompt
+&apos;SalesPerformance URL&apos; and show only Sales Performance Dashboard URL.</description>
+        <developerName>instruction_whenuseras1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_whenuseras1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Dashboard URL Generation</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>This agent generate Dashboard URL for Return Rate Dashboard(Generate URL) and Sales Performance Dashboard(Generate URL)</scope>
+</GenAiPlugin>

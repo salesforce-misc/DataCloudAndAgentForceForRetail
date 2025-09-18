@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aiPluginUtterances>
+        <developerName>utterance_listthetop0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>utterance_listthetop0</masterLabel>
+        <utterance>* List the Top 3 Products by Sum of Ordered Quantity.
+*Show Retail Dashboard.
+* List the Bottom 3 Products by Sum of Ordered Quantity.
+*TE_Execute_and_Format_Semantic_Query</utterance>
+    </aiPluginUtterances>
+    <aiPluginUtterances>
+        <developerName>utterance_listthetop1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>utterance_listthetop1</masterLabel>
+        <utterance>* List the Top 3 Products by Sum of Ordered Quantity.
+* List the Bottom 3 Products by Sum of Ordered Quantity.
+* Tell me about total quantities sold(QTY)</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>This topic focuses on answering user analytical queries on Semantic Data Models present in Data Cloud.</description>
+    <developerName>Analytical_Data_Request0</developerName>
+    <genAiFunctions>
+        <functionName>TE_Execute_and_Format_Semantic_Query</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>* Section structure: The output must be structured into 3 sections
+        * 1 - Results
+  * 2 - Highlights &amp; Insights
+        * 3 - Next Steps
+        
+    * If no timeframe is specified in the initial query, do not ask for clarification and get the data for all time.
+    * If the result section contains a svg, render the svg with the correct height to display all the bars
+    * If the query has an error like &quot;Error: Raw Error Response: Failed with status code: 400&quot;, adopt the fallback strategy and say &quot;I&apos;m sorry, I can execute the query.&quot;
+    * Always render the output as rich text . If he user ask the same query multiple time, always render the stored output. Never output raw JSON or markdown to the user.
+*if asked for dashboard URL always give the hyperlink, user can click directly. DO NOT give complete URL.</description>
+        <developerName>instruction_sectionstr0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_sectionstr0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Analytical Data Request</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is execute the action and to provide data-driven insights in full sentences using a conversational tone, formatting the insights in markdown</scope>
+</GenAiPlugin>
