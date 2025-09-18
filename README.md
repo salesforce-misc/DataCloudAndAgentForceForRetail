@@ -1,4 +1,4 @@
-<img width="1098" height="604" alt="image" src="https://github.com/user-attachments/assets/133b9b9d-a729-44a4-b41e-8fb9243fd2a3" />**Outfitters**</br> 
+<img width="1098" height="604" alt="image" src="" />**Outfitters**</br> 
 =======================
 Welcome to Outfitters, a sample retail application. Outfitters is a fictional resort that uses Agentforce, the power of Data Cloud, and the Salesforce Platform to deliver highly personalized guest experiences. Explore ways to bring agents into business workflows, including new smart automation capabilities, Search Property, content generation.
 
