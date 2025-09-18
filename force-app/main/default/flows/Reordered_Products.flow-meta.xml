@@ -2,7 +2,7 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
-    <assignments>
+    <assignments> 
         <name>Assign_Products</name>
         <label>Assign Products</label>
         <locationX>176</locationX>
