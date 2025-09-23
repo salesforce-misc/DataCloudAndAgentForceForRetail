@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentAccesses>
+        <agentName>Analytics_and_Visualization</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
+    <description>Allows custom permissions for Agentforce Agent : Visualization_Agent&apos;s agent user : visualization_agent@00do400000bbtc9.ext.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Visualization_Agent Permissions</label>
+    <license>Einstein Agent</license>
+</PermissionSet>
