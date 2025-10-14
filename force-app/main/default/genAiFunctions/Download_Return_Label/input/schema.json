@@ -1,0 +1,14 @@
+{
+  "required" : [ "Input:ContactId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:ContactId" : {
+      "title" : "ContactId",
+      "description" : "Pass the Id of Contact",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

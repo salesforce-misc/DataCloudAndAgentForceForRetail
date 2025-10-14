@@ -1,0 +1,22 @@
+{
+  "required" : [ "EmailAddress", "Name" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "EmailAddress" : {
+      "title" : "EmailAddress",
+      "description" : "Store the Email address provided by user and pass it to apex method",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Name" : {
+      "title" : "Name",
+      "description" : "Store the Name provided by user and pass it to Apex method  ",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

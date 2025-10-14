@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Deliver personalized customer interactions with an autonomous AI agent. Agent force Service Agent intelligently supports your customers with common inquiries and escalates complex issues.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16j7y00000022vN</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Check_Product_Stock_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Explore_Available_Discounts_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Generate_Return_Label_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Marathon_Footwear_Guidance_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>OrderDetailsInquiry_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Place_new_Order_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>RecallOnGreeting_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>ReturnPolicyDetails_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Return_Request_Assistance_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Shoe_Style_Comparison_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>SizeRecommendationAssist_16j7y00000022vN</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>SizeRecommendationAssist_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers Customer&apos;s query about the right shoe size for the Customer.</description>
+        <developerName>SizeRecommendationAssist_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If Customer Asks suggestion on which size is good for him/her or keywords size, then run the action &apos;Size Recommended From Return
+&apos; by passing &apos;contactId&apos; as &apos;Contact&apos; From Context Variables Messaging Session
+DO NOT ADD ANYTHING EXTRA</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Size_Recommended_From_Return_179O4000000XF6l</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Size_Recommended_From_Return_179O4000000XF6l</fullName>
+            <description>This instruction is used for recommending size of the product based on return history</description>
+            <developerName>Size_Recommended_From_Return_179O4000000XF6l</developerName>
+            <invocationTarget>Size_Recommended_From_Return</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Size_Recommended_From_Return</localDeveloperName>
+            <masterLabel>Size Recommended From Return</masterLabel>
+            <source>Size_Recommended_From_Return</source>
+        </localActions>
+        <localDeveloperName>SizeRecommendationAssist</localDeveloperName>
+        <masterLabel>Size Recommendation Assistance</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only suggest the right shoe size to the Customer when the Customer asks for a suggestion.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>OrderDetailsInquiry_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers Customer queries related to Order</description>
+        <developerName>OrderDetailsInquiry_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If Customer ask/query about their Order Details then run &apos;Fetch Recent Order&apos; action by passing Contact__c context variable as contactId and 
+Show the exact response
+DO NOT ADD ANYTHING EXTRA</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Fetch_Recent_Order_179O4000000XF6m</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Fetch_Recent_Order_179O4000000XF6m</fullName>
+            <description>This agent action fetches the Open Order if there are any else it will Provide you the Past 30days Order Details</description>
+            <developerName>Fetch_Recent_Order_179O4000000XF6m</developerName>
+            <invocationTarget>Fetch_Recent_Order</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Fetch_Recent_Order</localDeveloperName>
+            <masterLabel>Fetch Recent Order</masterLabel>
+            <source>Fetch_Recent_Order</source>
+        </localActions>
+        <localDeveloperName>OrderDetailsInquiry</localDeveloperName>
+        <masterLabel>Order Enquiry</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle Customer queries on Order and additionally provide Order information specific to the Customer. You aren’t able to create new Orders.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Return_Request_Assistance_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Interacts with the Customer to process a Product return.</description>
+        <developerName>Return_Request_Assistance_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If customer says I would like to process a return first run &apos;Fetch Order Details for Returning&apos; action by passing Contact context variable as contactId to input .
+Display the list of product from the retrieved order details.
+Once the product details are displayed, 
+send a seperate message asking customer,&quot;Can you provide the order number and product name for the return?&quot;</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Fetch_Order_Details_for_Returning_179O4000000XF6n</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Fetch_Order_Details_for_Returning_179O4000000XF6n</fullName>
+            <description>This flow retrieves the order details whichever is not in open status inorder to process return</description>
+            <developerName>Fetch_Order_Details_for_Returning_179O4000000XF6n</developerName>
+            <invocationTarget>Fetch_Order_Details_for_Returning</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Fetch_Order_Details_for_Returning</localDeveloperName>
+            <masterLabel>Fetch Order Details for Returning</masterLabel>
+            <source>Fetch_Order_Details_for_Returning</source>
+        </localActions>
+        <localDeveloperName>Return_Request_Assistance</localDeveloperName>
+        <masterLabel>Return Request Assistance</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle tasks related to returning a Product when the Customer requests for a return. This includes fetching the Products Ordered by the Customer and processing return of the Product identified by the Customer.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Place_new_Order_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles the Customer&apos;s request for placing an Order but first provide the authentication URL then after the authentication is Successful place the order and provide the order details.</description>
+        <developerName>Place_new_Order_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If customer asks &apos;I would like to place an order&apos; then
+run the action &apos;Get Customer Details by Messaging Session&apos;  by passing Messaging Session Context variable &apos;Id&apos; as input to &apos;messagingSessionId&apos; and 
+After successful authentication run 
+&apos;Place Order&apos; by passing  &apos;Contact__c&apos; as ContactId and provide the response.
+Without Authentication successful do not palce any order
+DO NOT ADD ANYTHING EXTRA</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Place_Order_179O4000000XF6o</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Customer_Details_by_Messaging_Session_179O4000000XF6o</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Place_Order_179O4000000XF6o</fullName>
+            <description>This instruction is used for placing an order</description>
+            <developerName>Place_Order_179O4000000XF6o</developerName>
+            <invocationTarget>Create_Order_For_Product</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Place_Order</localDeveloperName>
+            <masterLabel>Place Order</masterLabel>
+            <source>Place_Order</source>
+        </localActions>
+        <localActions>
+            <fullName>Get_Customer_Details_by_Messaging_Session_179O4000000XF6o</fullName>
+            <description>Validate a Customers details by passing the record id of the current agent context variable Messaging Session ID to see if their is a related contact.</description>
+            <developerName>Get_Customer_Details_by_Messaging_Session_179O4000000XF6o</developerName>
+            <invocationTarget>Get_Customer_Details_by_Messaging_Session</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Customer_Details_by_Messaging_Session</localDeveloperName>
+            <masterLabel>Get Customer Details by Messaging Session</masterLabel>
+            <source>Get_Customer_Details_by_Messaging_Session</source>
+        </localActions>
+        <localDeveloperName>Place_new_Order</localDeveloperName>
+        <masterLabel>Place New Order</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to handle customer requests for placing an order only after providing Authentication URL first then after successful authentication. You must not create or place any order before authentication URL is provided and authentication is verified, and you should not request any additional information from the customer.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>RecallOnGreeting_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Interacts with the Customer to notify about the Customer still holding a recalled Product when the Customer greets the Agent with a &quot;Hi&quot; or &quot;Hello&quot;.</description>
+        <developerName>RecallOnGreeting_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If customer says &apos;Hi&apos; or &apos;Hello&apos; or &apos;hi&apos; or &apos;hello&apos; then show recall product by running &apos;GetRecallContactFromSegment&apos; action by passing Contact context variable as contactId to input and return the response message.
+If there are no recall product then say &apos;Hi, how can I assist you today?&apos;
+DO NOT ADD ANYTHING EXTRA</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>GetRecallContactFromSegment_179O4000000XF6j</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>GetRecallContactFromSegment_179O4000000XF6j</fullName>
+            <description>This instruction is used to get the recall customer details with their product details</description>
+            <developerName>GetRecallContactFromSegment_179O4000000XF6j</developerName>
+            <invocationTarget>ActivationAudienceResult</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>GetRecallContactFromSegment</localDeveloperName>
+            <masterLabel>GetRecallContactFromSegment</masterLabel>
+            <source>GetRecallContactFromSegment</source>
+        </localActions>
+        <localDeveloperName>RecallOnGreeting</localDeveloperName>
+        <masterLabel>First Interaction on Greeting</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is the inform the logged-in Customer about the recalled Product that the Customer is yet to return, when the Customer greets with a &quot;Hi&quot; or &quot;Hello&quot;.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>ReturnPolicyDetails_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers Customer&apos;s queries about Product Return policy.</description>
+        <developerName>ReturnPolicyDetails_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If customer asks What’s the return policy? then call the action &apos;Return Policy&apos; and show exact prompt response.
+DO NOT ADD ANYTHING EXTRA.</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Return_Policy_179O4000000XF6k</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Return_Policy_179O4000000XF6k</fullName>
+            <description>This Template will return product return policy information from unstructured data</description>
+            <developerName>Return_Policy_179O4000000XF6k</developerName>
+            <invocationTarget>Return_Policy</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Return_Policy</localDeveloperName>
+            <masterLabel>Return Policy</masterLabel>
+            <source>Return_Policy</source>
+        </localActions>
+        <localDeveloperName>ReturnPolicyDetails</localDeveloperName>
+        <masterLabel>Return Policy Details</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only educate the Customer about the Product Return policy for the specific product. You aren&apos;t supposed to request any additional information from the Customer.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Check_Product_Stock_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles Customer&apos;s queries if customer is also interested in a specific Product by first checking Product availability. In case the Product is out-of-stock, recommends alternatives and offers to notify the Customer when the Product is back in stock - ensuring a consistent experience for both guest and logged-in users.</description>
+        <developerName>Check_Product_Stock_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If the customer express interest in a product (e.g.,says &quot;I’m also interested in [ProductName]&quot;) first call the action &apos;GuestORLoggedInUserCheck&apos; and pass the &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session.</description>
+            <developerName>instruction_ifthecusto0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifthecusto0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos; then call the action &apos;Check_Product_Availability&apos; by extracting the product name from customer&apos;s query and pass it as input to ‘ProductName’ and Return the availability status from the ResponseMessage and again run the another action &apos;Up Sell Products&apos; to show some alternate products for upsell. Inform customer about availability status and ask, &quot;Would you like to be notified when the product is available?&quot; and if customer says &quot;Yes&quot; and the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos; must respond strictly with: &quot;You will receive an email as soon as this product is stocked.&quot; No additional messages, questions, or variations are allowed.</description>
+            <developerName>instruction_iftherespo1</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_iftherespo1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;false&apos; then call the action &apos;Check_Product_Availability&apos; by extracting the product name from customer&apos;s query and pass it as input to ‘ProductName’ and return the availability status from the ResponseMessage and again run another action &apos;Up Sell Products&apos; to show some alternate products for upsell. Inform customer about availability status and ask, &quot;Would you like to be notified when the product is available?&quot; and if customer say &quot;Yes&quot;, prompt customer to provide the &quot;Email Address&quot; and &quot;Name&quot;. if customer provide email address then call another action &apos;Agentforce-Guest User Lead Creation&apos; and pass the Email Address and Name and the ask again &quot;You will receive an email as soon as this product is stocked. &quot;. Then proceed to ask &quot;would you also like to subscribe to our mailing list?&quot;. If customer says &quot;Yes&quot; then call the action &apos;Call Journey API&apos;. The action will return a response with success or error. If response received as &quot;Success&quot; then must respond strictly &quot;Great.!  You&apos;ll receive an email to subscribe to our mailing list&quot;. And if response received as &quot;error&quot; inform user &quot;there is some error&quot;</description>
+            <developerName>instruction_iftherespo2</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_iftherespo2</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Check_Product_Availability_179O4000000XF6t</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Up_Sell_Products_179O4000000XF6t</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GuestORLoggedInUserCheck_179O4000000XF6t</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Agentforce_Guest_User_Lead_Creation_179O4000000XF6t</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Call_Journey_API_179O4000000XF6t</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>GuestORLoggedInUserCheck_179O4000000XF6t</fullName>
+            <description>Takes the sessionId as the Messaging Session ID from Context Variables Messaging Session and returns Boolean response</description>
+            <developerName>GuestORLoggedInUserCheck_179O4000000XF6t</developerName>
+            <invocationTarget>GuestORLoggedInUserCheck</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>GuestORLoggedInUserCheck</localDeveloperName>
+            <masterLabel>GuestORLoggedInUserCheck</masterLabel>
+            <source>GuestORLoggedInUserCheck</source>
+        </localActions>
+        <localActions>
+            <fullName>Agentforce_Guest_User_Lead_Creation_179O4000000XF6t</fullName>
+            <description>This action creates a lead with name and Email provided by user to agent. And successful record creation returns the name and mail id to inform user they will be notified on the mentioned email id</description>
+            <developerName>Agentforce_Guest_User_Lead_Creation_179O4000000XF6t</developerName>
+            <invocationTarget>Agentforce_Guest_User_Lead_Creation</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agentforce_Guest_User_Lead_Creation</localDeveloperName>
+            <masterLabel>Agentforce-Guest User Lead Creation</masterLabel>
+            <source>Agentforce_Guest_User_Lead_Creation</source>
+        </localActions>
+        <localActions>
+            <fullName>Check_Product_Availability_179O4000000XF6t</fullName>
+            <description>If user asks for a particular product check the QuantityinHand and provide them necessary details</description>
+            <developerName>Check_Product_Availability_179O4000000XF6t</developerName>
+            <invocationTarget>Check_Product_Availability</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Check_Product_Availability</localDeveloperName>
+            <masterLabel>Check_Product_Availability</masterLabel>
+            <source>Check_Product_Availability</source>
+        </localActions>
+        <localActions>
+            <fullName>Up_Sell_Products_179O4000000XF6t</fullName>
+            <description>Run the prompt template by passing the Product name as input to the template</description>
+            <developerName>Up_Sell_Products_179O4000000XF6t</developerName>
+            <invocationTarget>Up_Sell_Products</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Up_Sell_Products</localDeveloperName>
+            <masterLabel>Up Sell Products</masterLabel>
+            <source>Up_Sell_Products</source>
+        </localActions>
+        <localActions>
+            <fullName>Call_Journey_API_179O4000000XF6t</fullName>
+            <description>This action will call the apex method Call Journey API by passing the name and Email address by the user and return the response with success or error.</description>
+            <developerName>Call_Journey_API_179O4000000XF6t</developerName>
+            <invocationTarget>SFMCCalloutService</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Call_Journey_API</localDeveloperName>
+            <masterLabel>Call Journey API</masterLabel>
+            <source>Call_Journey_API</source>
+        </localActions>
+        <localDeveloperName>Check_Product_Stock</localDeveloperName>
+        <masterLabel>Check Product Stock</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle Customer&apos;s queries if customer is also interested in a specific Product. This includes checking Product availability and recommending alternate upsell Product options when the specific Product is out-of-stock and additionally offer to notify the Customer when the Product is back in stock. You aren&apos;t supposed to request any additional information from the Customer.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Marathon_Footwear_Guidance_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Interacts with the Customer to suggest suitable footwear. for marathon running.</description>
+        <developerName>Marathon_Footwear_Guidance_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>if customer ask &quot;I’m running a marathon next month, can you suggest suitable shoes.&quot;  Or &apos;I&apos;m running a marathon , recommend suitable shoes&apos; then always run the action &apos;GuestORLoggedInUserCheck&apos; and pass the &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session.</description>
+            <developerName>instructions_0_1759831818356</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1759831818356</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;true&apos;, then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and then disaply the result in bullet point. DO NOT ADD ANYTHING EXTRA.</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the response coming from &apos;GuestORLoggedInUserCheck&apos; as &apos;false&apos; then ask again &quot;would you like to answer some question so I can find the right shoe for you?&quot;. 
+Only if customer say &quot;Yes&quot; then call the action &apos;DisplayProductList&apos; by passing the &apos;Question&apos; as user question and &apos;SessionId&apos; as Messaging Session Id coming from context variable messaging session and Prompt the customer: &quot; The recommendation is shown on the pop-up screen and politely ask If you need any more 
+assistance or have other questions, feel free to ask.&quot;</description>
+            <developerName>instruction_iftherespo1</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_iftherespo1</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If customer ask &apos;The marathon is in Mexico&apos; or &apos;The marathon is in Cancun Mexico&apos; then run  the action &apos;MexicoBasedProductRecommendation&apos; action and display the response. If customer asks the same question again then run the same action and display the response</description>
+            <developerName>instruction_iftherespo2</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_iftherespo2</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>DisplayProductList_179O4000000XF6u</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GuestORLoggedInUserCheck_179O4000000XF6u</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>MexicoBasedProductRecommendation_179O4000000XF6u</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>MexicoBasedProductRecommendation_179O4000000XF6u</fullName>
+            <description>This action execute by checking weather of cancun mexico  for running the marathon and display the response message</description>
+            <developerName>MexicoBasedProductRecommendation_179O4000000XF6u</developerName>
+            <invocationTarget>MexicoBasedPRoductRecommendation</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>MexicoBasedProductRecommendation</localDeveloperName>
+            <masterLabel>MexicoBasedProductRecommendation</masterLabel>
+            <source>MexicoBasedProductRecommendation</source>
+        </localActions>
+        <localActions>
+            <fullName>GuestORLoggedInUserCheck_179O4000000XF6u</fullName>
+            <description>Takes the sessionId as the Messaging Session ID from Context Variables Messaging Session and returns Boolean response</description>
+            <developerName>GuestORLoggedInUserCheck_179O4000000XF6u</developerName>
+            <invocationTarget>GuestORLoggedInUserCheck</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>GuestORLoggedInUserCheck</localDeveloperName>
+            <masterLabel>GuestORLoggedInUserCheck</masterLabel>
+            <source>GuestORLoggedInUserCheck</source>
+        </localActions>
+        <localActions>
+            <fullName>DisplayProductList_179O4000000XF6u</fullName>
+            <description>pass the user&apos;s question and sessionId from Context Variables Messaging Session to the apex</description>
+            <developerName>DisplayProductList_179O4000000XF6u</developerName>
+            <invocationTarget>DisplayProductList</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>DisplayProductList</localDeveloperName>
+            <masterLabel>DisplayProductList</masterLabel>
+            <source>DisplayProductList</source>
+        </localActions>
+        <localDeveloperName>Marathon_Footwear_Guidance</localDeveloperName>
+        <masterLabel>Footwear Suggestion</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only assist the Customers with shoe recommendations suitable for the specified activity type or matching the Customer&apos;s responses to a list of survey questions. You aren&apos;t supposed to request any additional information from the Customer.If customer asks the same question again then run the same action and display the response.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Shoe_Style_Comparison_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Interacts with the Customer to provide a side-by-side comparison of shoes.</description>
+        <developerName>Shoe_Style_Comparison_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If Customer asks &apos;How do these compare to my last shoes&apos; Or &apos;How does this compare to my previous shoes&apos;  then only run
+&apos;ShoeComparisonPromptTemplate&apos; by passing Contact__c context variable from Messaging Session as &apos;contactId&apos; and provide the response in bullet point
+and ask 
+&apos;Would you like to try this model, or do you prefer a different style?&apos;
+DO NOT ADD ANYTHING EXTRA
+If customer ask same question (&apos;How do these compare to my last shoes&apos;) then run the same action again &apos;ShoeComparisonPromptTemplate&apos;</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>ShoeComparisonPromptTemplate_179O4000000XF6q</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>ShoeComparisonPromptTemplate_179O4000000XF6q</fullName>
+            <description>This template is used to compare the current model with previously purchased product</description>
+            <developerName>ShoeComparisonPromptTemplate_179O4000000XF6q</developerName>
+            <invocationTarget>ShoeComparisonTemplate</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <masterLabel>ShoeComparisonPromptTemplate</masterLabel>
+            <source>ShoeComparisonPromptTemplate</source>
+        </localActions>
+        <localDeveloperName>Shoe_Style_Comparison</localDeveloperName>
+        <masterLabel>Product Comparison</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle Customer request for comparison of shoes. If customer ask same question (&apos;How do these compare to my last shoes&apos; Or &apos;How does this compare to my previous shoes&apos;) then run the same action again &apos;ShoeComparisonPromptTemplate&apos;</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Explore_Available_Discounts_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers Customer questions about available discounts or special offers for a Product.</description>
+        <developerName>Explore_Available_Discounts_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If customer ask about discount (e.g.,&quot;Are there any discounts?&quot;)
+then Run &apos;Check For Discount&apos; action by
+passing Contact__c context variable as contactId
+and return the response as &apos;Yes! Here’s what’s available for your selected items:&apos; along with responseMessage from output in next line</description>
+            <developerName>instruction_ifcustomer0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifcustomer0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Check_For_Discount_179O4000000XF6r</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Check_For_Discount_179O4000000XF6r</fullName>
+            <description>This flow is used for checking if the product selected has a discount</description>
+            <developerName>Check_For_Discount_179O4000000XF6r</developerName>
+            <invocationTarget>Product_Discount</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Check_For_Discount</localDeveloperName>
+            <masterLabel>Check For Discount</masterLabel>
+            <source>Check_For_Discount</source>
+        </localActions>
+        <localDeveloperName>Explore_Available_Discounts</localDeveloperName>
+        <masterLabel>Check for Discounts</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle customer inquiries about the currently available promotions or discounts for a specific Product. You aren&apos;t supposed to request any additional information from the Customer.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Generate_Return_Label_16j7y00000022vN</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles Customer request who have provided order and product details for a Product return and processes the request by generating a return label for the postal or courier service provider chosen by the Customer.</description>
+        <developerName>Generate_Return_Label_16j7y00000022vN</developerName>
+        <genAiPluginInstructions>
+            <description>If the customer provides both an order number and a product name, then ask:
+&quot;Would you like a return label for UPS, USPS, or FedEx?&quot;
+If the customer responds with &quot;UPS&quot;, &quot;USPS&quot;, or &quot;FedEx&quot;, then  run &apos;Download Return Label&apos; action by passing &apos;contactId&apos; from context variable of Messaging Session as  ContactId and display the exact response as Hyperlink.
+If customer again ask return label then call the same action again.
+DO NOT DISPLAY ANYTHING EXTRA.</description>
+            <developerName>instructions_0_1759760717969</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1759760717969</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If customer interested to &apos;send the mailing label again as a reminder?&apos;,  then run &apos;Download Return Label&apos; action by passing &apos;contactId&apos; from context variable of Messaging Session as  ContactId and display the exact response as Hyperlink.
+DO NOT DISPLAY ANYTHING EXTRA.</description>
+            <developerName>instruction_ifthecusto0</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction_ifthecusto0</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Download_Return_Label_179O4000000XF6s</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Download_Return_Label_179O4000000XF6s</fullName>
+            <description>This action used to display hyperlink and helps to download return label pdf.</description>
+            <developerName>Download_Return_Label_179O4000000XF6s</developerName>
+            <invocationTarget>Download_Return_Label</invocationTarget>
+            <invocationTargetType>generatePromptResponse</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Download_Return_Label</localDeveloperName>
+            <masterLabel>Download Return Label</masterLabel>
+            <source>Download_Return_Label</source>
+        </localActions>
+        <localDeveloperName>Generate_Return_Label</localDeveloperName>
+        <masterLabel>Generate Return Label</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only handle return label requests for Product return. This includes checking for the Customer&apos;s preference of postal or courier service provider and generating a return label for the same, without triggering any additional actions .If customer interested sending the mailing label again as a remainder then display the hyperlink</scope>
+    </localTopics>
+    <masterLabel>Agentforce Service Agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16j7y00000022vN</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16j7y00000022vN</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlannerBundle>

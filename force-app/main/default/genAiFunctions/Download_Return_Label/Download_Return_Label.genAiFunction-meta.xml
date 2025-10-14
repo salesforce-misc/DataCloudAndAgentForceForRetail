@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This action used to display hyperlink and helps to download return label pdf.</description>
+    <developerName>Download_Return_Label</developerName>
+    <invocationTarget>Download_Return_Label</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Download_Return_Label</localDeveloperName>
+    <masterLabel>Download Return Label</masterLabel>
+</GenAiFunction>

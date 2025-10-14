@@ -1,0 +1,15 @@
+{
+  "required" : [ "ProductName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ProductName" : {
+      "title" : "ProductName",
+      "description" : "From the text get the Product Name and pass it as input",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}
