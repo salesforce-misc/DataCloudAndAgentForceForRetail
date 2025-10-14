@@ -1,0 +1,37 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "authenticationURL" : {
+      "title" : "authenticationURL",
+      "description" : "This is the website URL to authenticate the user. Use this URL to open the authentication page.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "contact" : {
+      "title" : "contact",
+      "description" : "The contact that was returned in the search for records.",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Contact"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "status" : {
+      "title" : "status",
+      "description" : "This is the status of the action. If the status equals \"Authentication Required\" the authenticationURL parameter contains the website to let the user authenticate successfully. If the status equals \"Success\" the action is successful and contactRecord contains the Contact details.\nIn all other status cases the action is unsuccessful.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

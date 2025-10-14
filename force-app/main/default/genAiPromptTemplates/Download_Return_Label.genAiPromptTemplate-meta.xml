@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</activeVersionIdentifier>
+    <developerName>Download_Return_Label</developerName>
+    <masterLabel>Download Return Label</masterLabel>
+    <templateVersions>
+        <content> &lt;a href=&apos;/apex/ReturnLabelPage?contactId={!$Input:ContactId}&apos; target =&apos;_blank&apos;&gt;Download/Print Return Label&lt;/a&gt;
+
+Prompt Instruction:
+1. Always display the result in hyperlink format.
+</content>
+        <inputs>
+            <apiName>ContactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>ContactId</masterLabel>
+            <referenceName>Input:ContactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content> &lt;a href=&apos;https://epicorgfarm-a4--retailorg2--c.sandbox.vf.force.com/apex/ReturnLabelPage?contactId={!$Input:ContactId}&apos; target =&apos;_blank&apos;&gt;Download/Print Return Label&lt;/a&gt;
+
+Prompt Instruction:
+1. Always display the result in hyperlink format.
+</content>
+        <inputs>
+            <apiName>ContactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>ContactId</masterLabel>
+            <referenceName>Input:ContactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

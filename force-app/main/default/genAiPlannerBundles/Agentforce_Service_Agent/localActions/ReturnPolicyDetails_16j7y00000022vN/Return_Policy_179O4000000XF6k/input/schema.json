@@ -1,0 +1,22 @@
+{
+  "required" : [ "Input:Question" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Question" : {
+      "title" : "Question",
+      "description" : "user query about return policy",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

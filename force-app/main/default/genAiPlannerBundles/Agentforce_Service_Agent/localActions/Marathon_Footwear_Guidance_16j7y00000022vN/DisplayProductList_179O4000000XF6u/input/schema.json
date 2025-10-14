@@ -1,0 +1,22 @@
+{
+  "required" : [ "Question", "SessionId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Question" : {
+      "title" : "Question",
+      "description" : "Pass the User's Question as an input the apex",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "SessionId" : {
+      "title" : "SessionId",
+      "description" : "Pass the Messaging Session ID from Context Variables Messaging Session to the apex",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

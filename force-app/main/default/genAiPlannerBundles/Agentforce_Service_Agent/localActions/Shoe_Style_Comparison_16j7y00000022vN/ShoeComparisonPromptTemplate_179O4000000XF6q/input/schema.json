@@ -1,0 +1,22 @@
+{
+  "required" : [ "Input:contactId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:contactId" : {
+      "title" : "contactId",
+      "description" : "context variable from messaging session",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}
