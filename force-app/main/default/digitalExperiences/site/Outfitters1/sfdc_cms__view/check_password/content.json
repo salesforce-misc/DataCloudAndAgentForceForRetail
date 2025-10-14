@@ -22,14 +22,19 @@
           "children" : [ {
             "children" : [ {
               "attributes" : {
-                "alignment" : "center",
-                "dxpStyle" : { },
-                "imageInfo" : "",
-                "imageInfoMobile" : "",
-                "logoWidth" : 250
+                "backgroundColor" : "",
+                "isLinkable" : false,
+                "linkAssistiveText" : "",
+                "paddingHorizontal" : "none",
+                "paddingVertical" : "none",
+                "text" : "OUTFITTERS",
+                "textAlign" : "center",
+                "textDecoration" : "{\"bold\":true}",
+                "textDisplayInfo" : "{\"textStyle\":\"heading-xlarge\",\"headingTag\":\"h1\",\"enableOverride\":false}"
               },
-              "definition" : "dxp_content_layout:siteLogo",
-              "id" : "654d0dee-5995-441f-b260-176dcbcb12fb",
+              "customCssClasses" : "heading-text-block",
+              "definition" : "dxp_base:textBlock",
+              "id" : "1467a228-4b72-4c61-b6a5-5d51b28ef677",
               "type" : "component"
             }, {
               "attributes" : {

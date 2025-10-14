@@ -41,7 +41,6 @@
                 "titleLabel" : "Forgot your password?",
                 "usernameLabel" : "Username"
               },
-              "customCssClasses" : "",
               "definition" : "community_login:forgotPassword",
               "id" : "cce9562e-f21f-43ab-9b40-e932626903d4",
               "type" : "component"

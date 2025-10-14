@@ -9,7 +9,6 @@
             "backgroundImageConfig" : "",
             "backgroundImageOverlay" : "rgba(0,0,0,0)",
             "componentSpacerSize" : "",
-            "dxpStyle" : { },
             "layoutDirectionDesktop" : "row",
             "layoutDirectionMobile" : "column",
             "layoutDirectionTablet" : "column",
@@ -22,7 +21,6 @@
           "children" : [ {
             "children" : [ {
               "attributes" : {
-                "dxpStyle" : { },
                 "flowArguments" : "[{\"label\":\"sessionKey\",\"dataType\":\"String\",\"supportsRecordId\":false,\"inputType\":\"text\",\"name\":\"sessionKey\",\"type\":\"String\",\"value\":\"{!sessionKey}\"}]",
                 "flowName" : "{\"flowName\":\"Authenticate_Agentforce_Service_Agent\",\"flowLabel\":\"Authenticate Agentforce Service Agent\"}"
               },
@@ -48,7 +46,6 @@
           "attributes" : {
             "customHeadTags" : "",
             "description" : "",
-            "dxpStyle" : { },
             "pageTitle" : "AgentAuthenticator",
             "recordId" : "{!recordId}"
           },

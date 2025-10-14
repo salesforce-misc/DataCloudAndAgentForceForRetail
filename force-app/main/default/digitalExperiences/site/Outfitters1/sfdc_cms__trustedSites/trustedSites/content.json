@@ -4,11 +4,11 @@
   "contentBody" : {
     "trustedSites" : [ {
       "isActive" : true,
-      "source" : "https://epicorgfarm-8b.my.site.com",
-      "sourceName" : "TrustedSite1"
+      "source" : "https://epicorgfarm-a4--retailorg2.sandbox.my.site.com",
+      "sourceName" : "Sandbox"
     }, {
       "isActive" : true,
-      "source" : "https://epicorgfarm-8b.my.site.com/ESWESAWebDeployment1755779142801/assets/js/bootstrap.min.js",
+      "source" : "https://epicorgfarm-a4--retailorg2.sandbox.my.site.com/ESWTestWebDeployment1743493833380/assets/js/bootstrap.min.js",
       "sourceName" : "TrustedCookie"
     }, {
       "isActive" : true,
@@ -18,6 +18,10 @@
       "isActive" : true,
       "source" : "https://cdn.c360a.salesforce.com",
       "sourceName" : "Data Cloud"
+    }, {
+      "isActive" : true,
+      "source" : "https://epicorgfarm-a4.my.site.com",
+      "sourceName" : "TestSf"
     } ]
   },
   "urlName" : "trustedsites"

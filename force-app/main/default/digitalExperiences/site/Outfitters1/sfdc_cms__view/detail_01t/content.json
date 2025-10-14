@@ -73,6 +73,11 @@
               "definition" : "commerce_builder:productMediaGallery",
               "id" : "930bc971-b635-4ba5-9d08-d94917d136d3",
               "type" : "component"
+            }, {
+              "attributes" : { },
+              "definition" : "c:shoeComparisonFlyout",
+              "id" : "10af6136-ace5-4407-a52b-d699b2690310",
+              "type" : "component"
             } ],
             "id" : "cb248e3c-e9cf-4a43-ab01-434b39f01b09",
             "name" : "col1",
@@ -751,22 +756,6 @@
               } ],
               "definition" : "commerce_builder:productSet",
               "id" : "9c9c489d-7c9a-4280-8457-30e04cc28c07",
-              "type" : "component"
-            }, {
-              "attributes" : { },
-              "definition" : "c:shoeComparisonFlyout",
-              "id" : "d0ddf3ee-021f-4d52-905e-458891e2b70a",
-              "type" : "component"
-            }, {
-              "attributes" : {
-                "deploymentName" : "ESA_Web_Deployment",
-                "hideChatButtonOnLoad" : "Default",
-                "isExpSiteAuthMode" : false,
-                "scrtUrl" : "https://epicorgfarm-8b.my.salesforce-scrt.com",
-                "siteEndpoint" : "https://epicorgfarm-8b.my.site.com/ESWESAWebDeployment1755779142801"
-              },
-              "definition" : "experience_messaging:embeddedMessaging",
-              "id" : "4d23479b-244f-40f1-bbbf-8e9cff1aead0",
               "type" : "component"
             } ],
             "id" : "a62d4709-e1db-47e9-be92-a1b4b9fd9409",

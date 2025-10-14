@@ -105,36 +105,19 @@
               "id" : "c70d6e09-9c6d-40fd-85d4-0f6aeaa54c4c",
               "type" : "component"
             }, {
-              "attributes" : {
-                "dxpStyle" : { }
-              },
+              "attributes" : { },
               "definition" : "c:weatherShoeRecommendation",
               "id" : "bc622650-771d-4d5d-a2b8-3e93242439aa",
               "type" : "component"
             }, {
-              "attributes" : {
-                "dxpStyle" : { }
-              },
+              "attributes" : { },
               "definition" : "c:returnLabel",
               "id" : "411b6f8d-58f9-43ab-91f4-fb7a3c506a45",
               "type" : "component"
             }, {
-              "attributes" : {
-                "dxpStyle" : { }
-              },
+              "attributes" : { },
               "definition" : "c:shoeComparisonFlyout",
               "id" : "54adefcc-4e5a-4f81-b8a3-efad8ea3d02d",
-              "type" : "component"
-            }, {
-              "attributes" : {
-                "deploymentName" : "ESA_Web_Deployment",
-                "hideChatButtonOnLoad" : "Default",
-                "isExpSiteAuthMode" : false,
-                "scrtUrl" : "https://epicorgfarm-8b.my.salesforce-scrt.com",
-                "siteEndpoint" : "https://epicorgfarm-8b.my.site.com/ESWESAWebDeployment1755779142801"
-              },
-              "definition" : "experience_messaging:embeddedMessaging",
-              "id" : "66b1f7a3-b5d6-4bc6-8390-d50f477eee76",
               "type" : "component"
             }, {
               "attributes" : {
@@ -153,6 +136,7 @@
                 "contentPadding" : "none",
                 "contentPosition" : "center left",
                 "contentWidth" : 33,
+                "dxp:dataProviders" : "",
                 "dxpStyle" : { },
                 "height" : 600,
                 "imageFit" : "cover",
@@ -298,7 +282,6 @@
                     "promotionTextColor" : "#0d825d",
                     "secondaryPriceFontSize" : "small",
                     "secondaryPriceTextColor" : "#707275",
-                    "secondaryPriceTextStyle" : "{\"strike\":true}",
                     "showButtonOnDesktop" : false,
                     "showButtonOnMobile" : false,
                     "showProductImage" : true,
@@ -360,7 +343,8 @@
                 "definition" : "sfdc_cms__commerceEinsteinRecommendationsDataProvider",
                 "sfdcExpressionKey" : "Recommendation",
                 "attributes" : {
-                  "recommendationSettings" : "{\"anchor\": \"noContext\", \"recommender\": \"PersonalizedForShopper\"}"
+                  "recommendationSettings" : "{\"anchor\": \"noContext\", \"recommender\": \"PersonalizedForShopper\"}",
+                  "recordId" : "{!Route.recordId}"
                 }
               } ]
             } ],
@@ -710,7 +694,6 @@
                     "promotionTextColor" : "#0d825d",
                     "secondaryPriceFontSize" : "small",
                     "secondaryPriceTextColor" : "#707275",
-                    "secondaryPriceTextStyle" : "{\"strike\":true}",
                     "showButtonOnDesktop" : false,
                     "showButtonOnMobile" : false,
                     "showProductImage" : true,
