@@ -77,6 +77,11 @@
         <field>MessagingSession.AuthRequestTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Order.Bill_To_Contact_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>MessagingSession.AuthSessionId__c</field>
