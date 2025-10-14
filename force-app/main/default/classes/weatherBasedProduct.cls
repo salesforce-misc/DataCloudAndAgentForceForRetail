@@ -27,12 +27,17 @@ public class weatherBasedProduct {
     system.debug('After All Products Query');
     system.debug('All Products:' + allProducts);
     for (ssot__Product__dlm product : allProducts) {
-        for (String keyword : keywords) {
-            if (product.ssot__Description__c.toLowerCase().contains(keyword)) {
-                filteredProducts.add(product);
-                break;
+        System.debug('## ssot__Description = '+product.ssot__Description__c);
+        if(product.ssot__Description__c != NULL && product.ssot__Description__c != ''){
+            for (String keyword : keywords) {                
+                System.debug('## keyword = '+keyword);
+                if (product.ssot__Description__c.toLowerCase().contains(keyword)) {
+                    filteredProducts.add(product);
+                    break;
+                }
             }
         }
+        
     }
     system.debug('Filtered Products' + filteredProducts);
     if (filteredProducts.isEmpty()) {
@@ -40,12 +45,12 @@ public class weatherBasedProduct {
     }
     
     Integer maxProducts = Math.min(3, filteredProducts.size()); // Limit to 3 products
-    
+    System.debug('## maxProducts = '+maxProducts);
     List<ssot__Product__dlm> selectedProducts = new List<ssot__Product__dlm>();
     for (Integer i = 0; i < maxProducts; i++) {
         selectedProducts.add(filteredProducts[i]);
     }
-    
+    System.debug('## selectedProducts = '+selectedProducts);
     return selectedProducts;
 }
          

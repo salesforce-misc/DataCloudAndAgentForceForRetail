@@ -1,90 +1,96 @@
 @isTest
 public class DisplayProductListTest {
-       //test data creation
-@TestSetup
-    public static void setupTestData(){
-   User thisUser = [
-            SELECT Id 
-            FROM User 
-            WHERE Id = :UserInfo.getUserId()
-        ];
-        
-        System.runAs ( thisUser ) {
-            
-            MessagingChannel objMsgChannel = new MessagingChannel();
-            objMsgChannel.MasterLabel = 'TestChannel';
-            objMsgChannel.DeveloperName = 'TestChannel';
-            objMsgChannel.IsActive = true;
-            objMsgChannel.MessageType = 'Text'; 
-            objMsgChannel.MessagingPlatformKey = 'TestChannel';
-            insert objMsgChannel;
-            
-            MessagingEndUser objMsgUser = new MessagingEndUser();
-            objMsgUser.Name = 'Messaging User';
-            objMsgUser.MessagingChannelId = objMsgChannel.Id;
-            objMsgUser.MessageType = 'EmbeddedMessaging';
-            objMsgUser.MessagingPlatformKey = 'TestChannel';
-            insert objMsgUser;
-            
-            //Contact testContact= new Contact(LastName='TestContact');
-            //insert testContact;
-            
-            //Messaging session with out Contact
-            MessagingSession objSession = new MessagingSession();
-            objSession.MessagingEndUserId = objMsgUser.Id;
-            objSession.MessagingChannelId = objMsgChannel.Id;
-            objSession.Status = 'New';
-            insert objSession;
-            //messaging sesssion For guest user
-            //MessagingSession objSession1 = new MessagingSession();
-            //objSession1.MessagingEndUserId = objMsgUser.Id;
-            //objSession1.MessagingChannelId = objMsgChannel.Id;
-            //objSession1.Status = 'New';
-            //objSession1.Contact__c= testContact.Id;
-            //insert objSession1;
-                        
-        }               
-        
+
+    @TestSetup
+    static void setupTestData() {
+        User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+
+        System.runAs(thisUser) {
+            // Messaging Channel
+            MessagingChannel channel = new MessagingChannel(
+                MasterLabel = 'TestChannel',
+                DeveloperName = 'TestChannel',
+                IsActive = true,
+                MessageType = 'Text',
+                MessagingPlatformKey = 'TestChannel'
+            );
+            insert channel;
+
+            // Messaging End User
+            MessagingEndUser endUser = new MessagingEndUser(
+                Name = 'Messaging User',
+                MessagingChannelId = channel.Id,
+                MessageType = 'EmbeddedMessaging',
+                MessagingPlatformKey = 'TestChannel'
+            );
+            insert endUser;
+
+            // Guest Messaging Session (no Contact)
+            MessagingSession guestSession = new MessagingSession(
+                MessagingEndUserId = endUser.Id,
+                MessagingChannelId = channel.Id,
+                Status = 'New'
+            );
+            insert guestSession;
+
+            // Messaging session for logged-in user will be created in test method
+        }
     }
-    @isTest
-    static void testGetInputQuestion_WithContact() {
-        //Contact test data creation
-        Contact Con= new Contact();
-        Con.FirstName='test';
-        Con.LastName ='123';
-        insert Con;
-        //messaging session test data creation
-        MessagingSession LoggedInsession= [SELECT Id FROM MessagingSession LIMIT 1];
 
+    @IsTest
+    static void testGetInputQuestion_LoggedInUser() {
+        // Create a Contact
+        Contact con = new Contact(FirstName='Test', LastName='User');
+        insert con;
 
-        // Prepare the test request
-        DisplayProductList.Request testRequest = new DisplayProductList.Request();
-        testRequest.Question = ' I’m running a marathon next month, can you suggest suitable shoes?';
-        testRequest.SessionId= LoggedInsession.Id;
-        
-        List<DisplayProductList.Request> requests = new List<DisplayProductList.Request>{testRequest};
-        // Invoke the method
+        // Assign Contact to MessagingSession
+        MessagingSession session = [SELECT Id FROM MessagingSession LIMIT 1];
+        session.Contact__c = con.Id;
+        update session;
+
+        // Prepare request
+        DisplayProductList.Request request = new DisplayProductList.Request();
+        request.Question = 'I’m running a marathon next month, can you suggest suitable shoes?';
+        request.SessionId = session.Id;
+
+        List<DisplayProductList.Request> requests = new List<DisplayProductList.Request>{request};
+
         Test.startTest();
         List<DisplayProductList.Response> responses = DisplayProductList.getInputQuestion(requests);
         Test.stopTest();
+
+        System.assertEquals(1, responses.size(), 'One response should be returned for logged-in user');
+        // Cannot assert product content because DLM query returns empty in tests
     }
-    @isTest
-    static void testGetInputQuestion_NoContact() {
-       Contact testContact= new Contact(LastName='TestContact');
-       insert testContact; 
-       MessagingSession Guestsession = [SELECT Id FROM MessagingSession LIMIT 1];
-       Guestsession.Contact__c=testContact.id;
-		upsert Guestsession;
-        
-        DisplayProductList.Request testRequest = new DisplayProductList.Request();
-        testRequest.Question = 'I’m running a marathon next month, can you suggest suitable shoes?';
-        testRequest.SessionId= Guestsession.Id;
-        List<DisplayProductList.Request> requests = new List<DisplayProductList.Request>{testRequest};
-       
-            // Invoke the method
-        
+
+    @IsTest
+    static void testGetInputQuestion_GuestUser() {
+        // Get guest messaging session (Contact__c == NULL)
+        MessagingSession guestSession = [SELECT Id FROM MessagingSession WHERE Contact__c = NULL LIMIT 1];
+
+        // Prepare request
+        DisplayProductList.Request req = new DisplayProductList.Request();
+        req.Question = 'I want to run a marathon';
+        req.SessionId = guestSession.Id;
+
+        List<DisplayProductList.Request> requests = new List<DisplayProductList.Request>{ req };
+
         Test.startTest();
         List<DisplayProductList.Response> responses = DisplayProductList.getInputQuestion(requests);
         Test.stopTest();
+
+        System.assertEquals(1, responses.size(), 'One response should be returned for guest user');
+        System.assertEquals('Guest User', responses[0].Prompt, 'Guest user response should match');
+    }
+
+    @IsTest
+    static void testRequestAndResponseClasses() {
+        // Cover Request and Response class instantiation
+        DisplayProductList.Request dummyReq = new DisplayProductList.Request();
+        dummyReq.Question = 'test';
+        dummyReq.SessionId = 'dummy';
+
+        DisplayProductList.Response dummyRes = new DisplayProductList.Response();
+        dummyRes.Prompt = 'test prompt';
     }
 }

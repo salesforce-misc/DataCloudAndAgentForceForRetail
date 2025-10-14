@@ -30,7 +30,7 @@ public class DisplayProductList {
         else if(!messagingSessionList.isEmpty() && messagingSessionList[0].Contact__c != NULL && user_Question.containsIgnoreCase('marathon')){
             System.debug('## Coming inside for logged in user');
             String searchKey = 'marathon';
-            List<ssot__Product__dlm>  productList = [Select ssot__Name__c,ssot__Description__c from ssot__Product__dlm Where  ssot__ProductType__c = 'Base' and ssot__Description__c LIKE '%marathon%' and IsActive__c = 'true']; 
+            List<ssot__Product__dlm>  productList = [Select ssot__Id__c,ssot__Name__c,ssot__Description__c from ssot__Product__dlm Where  ssot__ProductType__c = 'Base' and ssot__Description__c LIKE '%marathon%' and IsActive__c = 'true']; 
             System.debug('## productList = '+productList);
             String agentResponse = 'Absolutely! Here are some top-rated running shoes designed for endurance and comfort. These options provide great support for long-distance running.\n';
             if(!productList.isEmpty()){
@@ -40,7 +40,10 @@ public class DisplayProductList {
                     if(dotIndex > 0){
                         shotDes = shotDes.substring(0,dotIndex + 1);
                     }
-                    agentResponse += '\nName: '+ product.ssot__Name__c + '\nDescription: ' + shotDes + '\n';
+                    //agentResponse += '\nName: '+ product.ssot__Name__c + '\nDescription: ' + shotDes + '\n';
+                    String productURL = '/outfitters/product/'+product.ssot__Id__c;
+                    String productName = '<a href=\'' + productURL + '\'>' + product.ssot__Name__c + '</a>';
+                    agentResponse += '\nName: '+ productName + '\nDescription: ' + shotDes + '\n';
                 }
             }
             System.debug('## agentResponse = '+agentResponse);

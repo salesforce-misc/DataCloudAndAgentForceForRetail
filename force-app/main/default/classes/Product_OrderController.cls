@@ -15,8 +15,14 @@ public with sharing class Product_OrderController {
     @AuraEnabled(cacheable=true)
     public static String getProductDetail(String ProductId){
        system.debug('the product chosen'+ProductId);
-        List<ssot__ProductAttribute__dlm> ProdAttributes = [Select ssot__ProductId__c, ssot__Name__c,Weight__c,Category__c,Durability__c,
+        List<ssot__ProductAttribute__dlm> ProdAttributes = new List<ssot__ProductAttribute__dlm>();
+        ProdAttributes = [Select ssot__ProductId__c, ssot__Name__c,Weight__c,Category__c,Durability__c,
                Stars__c, Ventilation__c FROM ssot__ProductAttribute__dlm WHERE ssot__ProductId__c =: ProductId LIMIT 1];
+        if(ProdAttributes.isEmpty()){
+            ProdAttributes = [Select ssot__ProductId__c,ssot__VariantParentId__c, ssot__Name__c,Weight__c,Category__c,Durability__c,
+                              Stars__c, Ventilation__c FROM ssot__ProductAttribute__dlm WHERE ssot__VariantParentId__c =: ProductId LIMIT 1];
+        }
+        
         List<ssot__Product__dlm> Prods= [SELECT ssot__Name__c FROM ssot__Product__dlm WHERE ssot__Id__c =: ProductId LIMIT 1];
         
         List<ssot__PriceBook__dlm> Pricebook = [SELECT ssot__Id__c,ssot__Name__c FROM ssot__PriceBook__dlm WHERE ssot__Name__c='Outfitters Price Book' ORDER BY ssot__Name__c ASC];
@@ -59,21 +65,23 @@ public with sharing class Product_OrderController {
         /*List<Order> salesorders = [SELECT Id,BillToContactId,EffectiveDate FROM Order 
                                             				WHERE BillToContactId = : ContactId 
                                                           ORDER BY EffectiveDate DESC LIMIT 1];*/
-        List<ssot__SalesOrder__dlm> salesorders = [SELECT ssot__Id__c,ssot__SoldToCustomerId__c,ssot__OrderStartDate__c FROM ssot__SalesOrder__dlm 
-                                                            WHERE ssot__SoldToCustomerId__c=:ContactId 
-                                                            ORDER BY ssot__OrderStartDate__c DESC LIMIT 1];
+        List<Order> salesorders = [SELECT Id,BillToContactId from Order where BillToContactId =:ContactId
+                                   Order By CreatedDate DESC Limit 1 ];
                                                                                                                                                                                                                                                                         // ORDER BY ssot__OrderStartDate__c DESC LIMIT 1 ]; 
-        String OrderId = salesorders[0].ssot__Id__c;
+        String OrderId = salesorders[0].Id;
        
          System.debug('orderid'+OrderId);
         
-        List<ssot__SalesOrderProduct__dlm> salesProduct = [SELECT ssot__ProductId__c,ssot__SalesOrderId__c FROM ssot__SalesOrderProduct__dlm 
-                                                     WHERE ssot__SalesOrderId__c =: OrderId LIMIT 1]; 
-        String SalesProductId= salesProduct[0].ssot__ProductId__c;
+        List<OrderItem> salesProduct = [SELECT id, Product2Id,OrderId FROM OrderItem  WHERE OrderId =: OrderId LIMIT 1]; 
+        String SalesProductId= salesProduct[0].Product2Id;
         System.debug('ProductId'+SalesProductId);
         
         List<ssot__ProductAttribute__dlm> ProdAttributes = [SELECT ssot__ProductId__c,ssot__Name__c,Weight__c,Category__c,Durability__c,Stars__c, Ventilation__c FROM ssot__ProductAttribute__dlm
                                                         WHERE ssot__ProductId__c=: SalesProductId LIMIT 1];
+         if(ProdAttributes.isEmpty()){
+            ProdAttributes = [Select ssot__ProductId__c,ssot__VariantParentId__c, ssot__Name__c,Weight__c,Category__c,Durability__c,
+                              Stars__c, Ventilation__c FROM ssot__ProductAttribute__dlm WHERE ssot__VariantParentId__c =: SalesProductId LIMIT 1];
+        }
         System.debug('ProdAttributes'+ProdAttributes);
         List<ssot__Product__dlm> Prods= [SELECT ssot__Id__c,ssot__Name__c FROM ssot__Product__dlm WHERE ssot__Id__c =: SalesProductId LIMIT 1];
         String ProductId= Prods[0].ssot__Id__c;
