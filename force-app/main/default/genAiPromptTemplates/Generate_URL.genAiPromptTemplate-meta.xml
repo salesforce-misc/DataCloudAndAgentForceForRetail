@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_6</activeVersionIdentifier>
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_7</activeVersionIdentifier>
     <developerName>Generate_URL</developerName>
     <masterLabel>Generate URL</masterLabel>
     <templateVersions>
@@ -130,6 +130,27 @@ Response: Retail Dashboard[https://epicorgfarm-a4--retailorg2.sandbox.lightning.
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
         <status>Published</status>
         <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>User Input Query: Show Retail Dashboard URL
+Response: Retail Dashboard[https://epicorgfarm-a4--retailorg2.sandbox.lightning.force.com/lightning/n/Product_Details1]
+
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_7</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__searchAnswersType</type>
     <visibility>Global</visibility>

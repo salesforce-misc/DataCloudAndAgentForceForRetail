@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</activeVersionIdentifier>
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_3</activeVersionIdentifier>
     <developerName>SalesPerformance_URL</developerName>
     <masterLabel>SalesPerformance URL</masterLabel>
     <templateVersions>
@@ -44,6 +44,27 @@ Response: Sales Performance Dashboard[https://epicorgfarm-a4--retailorg2.sandbox
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
         <status>Published</status>
         <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>
+User Input Query: Show Sales Performance Dashboard URL
+Response: Sales Performance Dashboard[https://epicorgfarm-a4--retailorg2.sandbox.lightning.force.com/lightning/n/Sales_Performance]
+</content>
+        <inputs>
+            <apiName>query</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:query</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>chunks</apiName>
+            <definition>primitive://String</definition>
+            <referenceName>Input:chunks</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_3</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__searchAnswersType</type>
     <visibility>Global</visibility>

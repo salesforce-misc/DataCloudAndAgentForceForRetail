@@ -9,10 +9,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ReturnLabelEventPublisher</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SFMCCalloutService</apexClass>
         <enabled>false</enabled>
     </classAccesses>

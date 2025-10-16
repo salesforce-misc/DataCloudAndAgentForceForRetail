@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_1</activeVersionIdentifier>
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_3</activeVersionIdentifier>
     <developerName>Up_Sell_Products</developerName>
     <masterLabel>Up Sell Products</masterLabel>
     <templateVersions>
@@ -31,6 +31,64 @@ Available Products List (Name + Description + Price):{!$Flow:Get_All_Tent_Produc
             <referenceName>Flow:Get_All_Tent_Products</referenceName>
         </templateDataProviders>
         <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+Given the product name: [{!$Input:Product_Name}], generate 1–3 relevant upsell product recommendations that complement or enhance the original product. Each recommendation should be contextually relevant, useful, and include a short explanation of why it’s a good match. The tone should be friendly and customer-focused.
+
+Prompt Body
+You are a product recommendation assistant. Based on the customer’s interest in the following product, choose 1-4 relevant upsell products with their price from the list below. Your recommendations should be a substitute of the original product with improved usecase, experience, or value. Explain clearly and concisely why each recommended product is a good match. Use a helpful, conversational tone.
+Interested Product Details :{!$Flow:AgentForce_GetIntrestedProductDesription.Prompt}
+Available Products List (Name + Description + Price):{!$Flow:Get_All_Tent_Products.Prompt}
+
+</content>
+        <inputs>
+            <apiName>Product_Name</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Product Name</masterLabel>
+            <referenceName>Input:Product_Name</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://AgentForce_GetIntrestedProductDesription</definition>
+            <referenceName>Flow:AgentForce_GetIntrestedProductDesription</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_All_Tent_Products</definition>
+            <referenceName>Flow:Get_All_Tent_Products</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+Given the product name: [{!$Input:Product_Name}], generate 1–3 relevant upsell product recommendations that complement or enhance the original product. Each recommendation should be contextually relevant, useful, and include a short explanation of why it’s a good match. The tone should be friendly and customer-focused.
+
+Prompt Body
+You are a product recommendation assistant. Based on the customer’s interest in the following product, choose 1-4 relevant upsell products with their price from the list below. Your recommendations should be a substitute of the original product with improved usecase, experience, or value. Explain clearly and concisely why each recommended product is a good match. Use a helpful, conversational tone.
+Interested Product Details :{!$Flow:AgentForce_GetIntrestedProductDesription.Prompt}
+Available Products List (Name + Description + Price):{!$Flow:Get_All_Tent_Products.Prompt}
+
+</content>
+        <inputs>
+            <apiName>Product_Name</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Product Name</masterLabel>
+            <referenceName>Input:Product_Name</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://AgentForce_GetIntrestedProductDesription</definition>
+            <referenceName>Flow:AgentForce_GetIntrestedProductDesription</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>flow://Get_All_Tent_Products</definition>
+            <referenceName>Flow:Get_All_Tent_Products</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_3</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

@@ -1,10 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_7</activeVersionIdentifier>
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_11</activeVersionIdentifier>
     <description>This template is used to compare the current model with previously purchased product</description>
     <developerName>ShoeComparisonTemplate</developerName>
     <masterLabel>ShoeComparisonTemplate</masterLabel>
-    
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details_For_Template_Version2.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details_For_Template_Version2</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details_For_Template_Version2</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: 
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details_For_Template_Version2.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details_For_Template_Version2</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details_For_Template_Version2</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_6</versionIdentifier>
+    </templateVersions>
     <templateVersions>
         <content>Objective: 
 Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
@@ -28,6 +221,132 @@ Here’s how [currently viewed product Name] compares to your previous [previous
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
         <status>Published</status>
         <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details_For_Template_Version2.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details_For_Template_Version2</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details_For_Template_Version2</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4_32k</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: {!$Flow:Get_Comparison_Product_Details.Prompt}
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Get_Comparison_Product_Details</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Get_Comparison_Product_Details</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective: 
+Compare the last purchased product with the currently viewed product and provide three key differences in bullet points. Focus on relevant attributes such as size, durability, and ventilation (or any other important attributes).
+Product Details: 
+Prompt Body: 
+You are an intelligent AI assistant specializing in the product comparisons. Your task is to analyze the user&apos;s previously purchased product and compare it with the currently viewed product. Identify the three most significant differences and present them in clear,concise bullet points.
+contactId:{!$Input:contactId}(Retrieve users PastHistory product)
+
+
+
+Focus on key attribute such as size,durability,breathability,material,comfort etc and ensure that the responses includes exactly three bullet points summarizing the differences and always display the differences and start with below like
+Here’s how [currently viewed product Name] compares to your previous [previously purchased product Name]
+</content>
+        <inputs>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_11</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

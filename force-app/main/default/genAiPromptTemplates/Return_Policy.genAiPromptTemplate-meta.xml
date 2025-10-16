@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_12</activeVersionIdentifier>
+    <activeVersionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_13</activeVersionIdentifier>
     <developerName>Return_Policy</developerName>
     <masterLabel>Return Policy</masterLabel>
     <templateVersions>
@@ -80,7 +80,7 @@ Your tone should be friendly as if you were speaking directly to the customer.
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTIENSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -126,7 +126,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -176,7 +176,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -228,7 +228,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -278,7 +278,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -330,7 +330,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -382,7 +382,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -435,7 +435,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question}
@@ -488,7 +488,7 @@ Do Not Ask Anything Extra
 Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
 
 Customer Question:{!$Input:Question}
-Please use the below information to help you answer the question EINSTEINSEARCH
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
 
 Instruction:
 Return the response based on {!$Input:Question} 
@@ -535,6 +535,59 @@ Do Not Ask Anything Extra
             <referenceName>EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9</referenceName>
         </templateDataProviders>
         <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_12</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Objective:
+Customer Wants to know the information about shoe Customer is interested in, your job is to pick out the question and display the information.
+
+Customer Question:{!$Input:Question}
+Please use the below information to help you answer the question {!$EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9.results}
+
+Instruction:
+Return the response based on {!$Input:Question} 
+Return: (bullet point)
+
+Exchange:(bullet point)
+
+Refund: (bullet point)
+Provide information in 2 lines
+
+Your tone should be friendly as if you were speaking directly to the customer.
+Do Not Ask Anything Extra
+
+</content>
+        <inputs>
+            <apiName>Question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:Question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getEinsteinRetrieverResults/Default_Return_FAQ_Retriever_1Cx_tC90deed5b9</definition>
+            <parameters>
+                <definition>primitive://Integer</definition>
+                <isRequired>false</isRequired>
+                <parameterName>resultCount</parameterName>
+                <valueExpression>1</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://List&lt;String&gt;</definition>
+                <isRequired>false</isRequired>
+                <parameterName>outputFieldNames</parameterName>
+                <valueExpression>[&quot;Chunk&quot;]</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:Question}</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:Default_Return_FAQ_Retriever_1Cx_tC90deed5b9</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>4b79laOPLYTAHGXdbn0Oi0n3zT1lwHeTrnBdGDLnjt4=_13</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>
