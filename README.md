@@ -582,13 +582,13 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 1. Log in to marketing cloud
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Login to Org | - Open the browser and enter the url as https://mc.exacttarget.com/ and enter the username and password and verify the org.<br/> -Land on Home page| |
+| Login to Org | - Open the browser and enter the url as https://mc.exacttarget.com/ and enter the username and password and verify the org.<br/> -Land on Home page| ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudlogin.png?raw=true) |
 
 
 ### 2. Create Data Extension
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Create Data Extension | -Click on Audience Builder>>Click on Contact Builder>> Click on Data Extension<br/> - Click on Create button<br/> - Enter name as "RetailSubscribers" ,External Key as unique (eg:0808),Check the checkbox of Is Sendable? and Is Testable and click on Next <br/> - Turn of Data Retention Setting and click on Next<br/>- Create Attribute as 1. Select Primary key checkbox and enter name as Email, Length as 254, type as Email Address , Select Require checkbox<br/> 2. Name as Name , type as Text, length as 50, Select Require checkbox <br/> 3.Select Primary key checkbox and enter name as SubscriberKey, Length as 254, type as Email Address , Select Require checkbox and also make sure Send Relationship selected as Email and relates to selected as SubscriberKey and click on complete button, PFA screenshot ||
+| Create Data Extension | -Click on Audience Builder>>Click on Contact Builder>> Click on Data Extension<br/> - Click on Create button<br/> - Enter name as "RetailSubscribers" ,External Key as unique (eg:0808),Check the checkbox of Is Sendable? and Is Testable and click on Next <br/> - Turn of Data Retention Setting and click on Next<br/>- Create Attribute as 1. Select Primary key checkbox and enter name as Email, Length as 254, type as Email Address , Select Require checkbox<br/> 2. Name as Name , type as Text, length as 50, Select Require checkbox <br/> 3.Select Primary key checkbox and enter name as SubscriberKey, Length as 254, type as Email Address , Select Require checkbox and also make sure Send Relationship selected as Email and relates to selected as SubscriberKey and click on complete button, PFA screenshot |![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/Audiencebuilder.png?raw=true)|
 
 ### 3. Create Email Template
 | Step  | Action and Details  |  Images |
