@@ -593,7 +593,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 3. Create Email Template
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Create a Email template| - Click on Content Builder>>Click on Content builder<br/>-Click on Create button, click on Email Template,Under this select from existing template and select blank page template<br/> Create below email template by referring screenshot 1. Initial Subscribe mail (store under content location)<br/> 2,Your Order For Product has been successfully placed(Store under retail folder)<br/>3.Recalled product return reminder(Store under retail folder)  ||
+| Create a Email template| - Click on Content Builder>>Click on Content builder<br/>-Click on Create button, click on Email Template,Under this select from existing template and select blank page template<br/> Create below email template by referring screenshot 1. Initial Subscribe mail (store under content location) |![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/contentbuilder.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/initialsubscriberemail1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/initialsubscriberemail2.png?raw=true)|
 
 ### 4. Create Journey Builder
 | Step  | Action and Details  |  Images |
