@@ -578,7 +578,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ## 8. Configure Marketing Cloud Setup
 </summary>
 
-**Important Note:** If you have a marketing cloud org then perform below steps,if you don't have then created and perform below steps.
+**Important Note:** If you already have a Marketing Cloud org, perform the steps below. If not, create one first and then proceed with the steps.
 ### 1. Log In To Marketing Cloud
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
@@ -608,7 +608,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 4. Update Values In  Custom Metarecord In Retail Org.
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-|Update value in metarecord|-Login with retail org<br/> -click on setup>>enter custom metadata and search and click on it<br/>-Click on SFMC API Events and open it<br/>-click on Manage SFMC API Events>> click on Retail Journey API record and click on edit button<br/>-Enter below value <br/>-1.AccountId as MID of marketing cloud <br/>2. AuthenticationBaseURI as Authentication Base URI , Clientid as client id , Clientsecret as client secret key you have copied to somewhere, restbaseUrl as REST base URI,  from newly created install package in marketing cloud<br/> -eventKey as event defination key from journey builder recently you have created<br/>-Save the record||
+|Update value in metarecord|-Login with retail org<br/> -click on setup>>enter custom metadata and search and click on it<br/>-Click on SFMC API Events and open it<br/>-click on Manage SFMC API Events>> click on Retail Journey API record and click on edit button<br/>-Enter below value <br/>-1.AccountId as MID of marketing cloud <br/>2. AuthenticationBaseURI as Authentication Base URI , Clientid as client id , Clientsecret as client secret key you have copied to somewhere, restbaseUrl as REST base URI,  from newly created install package in marketing cloud<br/> -eventKey as event defination key from journey builder recently you have created<br/>-Save the record| ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec2.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec3.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec4.png?raw=true)|
 </details>
 
 <details><summary>
