@@ -599,6 +599,16 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Create Journey Builder| -Click on Journey Builder >> Under this also click on Journey Builder<br/> -Click on Create Journey and select Multi Step Journey and click on create button and select email<br/> -Edit the name as RetailSubscriberEntry and drag and drop API Event under start as entry source , and click on it <br/> -Once it get opened click on create event and activity name as RetailSubscriberEntry and select data extension as RetailSubscribers,click on summary and click on Done button<br/>-Select Email from Message and place next to API Event and click on it and Select Message and under this select Initial Subscribe mail email template and click on Done <br/>-Select Wait by duration from flow control and place it after email, and click on it and select 1 minute and click on Done<br/> -PFA screenshot ||
+
+### 4. Create Install Package in Marketing Cloud
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Install Package | -Go to Setup>>Apps>> Install Packages>>Click on New button<br/> -Enter name and click on save <br/>-Once it gets open then click on Add Component and select API Integeration and click on Next<br/>-Select Server to Server and click on Next<br/>- Refer screenshot for providing access of read/write to component and click on save <br/>-Note down client secret key somewhere.||
+
+### 4. Update Values in metarecord.
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+|Update value in metarecord|-Login with retail org<br/> -click on setup>>enter custom metadata and search and click on it<br/>-Click on SFMC API Events and open it<br/>-click on Manage SFMC API Events>> click on Retail Journey API record and click on edit button<br/>-Enter below value <br/>-1.AccountId as MID of marketing cloud <br/>2. AuthenticationBaseURI as Authentication Base URI , Clientid as client id , Clientsecret as client secret key you have copied to somewhere, restbaseUrl as REST base URI,  from newly created install package in marketing cloud<br/> -eventKey as event defination key from journey builder recently you have created<br/>-Save the record||
 </details>
 
 <details><summary>
