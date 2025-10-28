@@ -603,7 +603,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 4. Create Install Package In Marketing Cloud
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Install Package | -Go to Setup>>Apps>> Install Packages>>Click on New button<br/> -Enter name and click on save <br/>-Once it gets open then click on Add Component and select API Integeration and click on Next<br/>-Select Server to Server and click on Next<br/>- Refer screenshot for providing access of read/write to component and click on save <br/>-Note down client secret key somewhere.||
+| Install Package | -Go to Setup>>Apps>> Install Packages>>Click on New button<br/> -Enter name and click on save <br/>-Once it gets open then click on Add Component and select API Integeration and click on Next<br/>-Select Server to Server and click on Next<br/>- Refer screenshot for providing access of read/write to component and click on save <br/>-Note down client secret key somewhere.| ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg2.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg3.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg4.png?raw=true)|
 
 ### 4. Update Values In  Custom Metarecord In Retail Org.
 | Step  | Action and Details  |  Images |
