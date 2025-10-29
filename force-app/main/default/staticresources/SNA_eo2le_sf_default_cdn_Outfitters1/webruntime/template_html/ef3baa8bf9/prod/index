@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang={language}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1" />
+        <meta
+            name="lwr-revised"
+            content="236.0" />
+
+        <style>
+            /* required to give the component width/height and make it visible to test framework */
+            :root {
+                --lwc-borderWidthThin: 1px;
+            }
+            webruntime-app {
+                display: block;
+            }
+        </style>
+        <script>
+            /**
+             * Helper to launch SLDS modal for off-framework prompts
+             */
+            function launchModal({ id, titleLabel, contentLabel, buttonLabel, callback }) {
+                const modalTemplate = `<div id="${id}">
+                <section
+                role="alertdialog"
+                tabindex="-1"
+                aria-labelledby="prompt-heading-id"
+                aria-describedby="prompt-message-wrapper"
+                class="slds-modal slds-fade-in-open slds-modal_prompt"
+                aria-modal="true"
+                style="color: rgb(62, 62, 60)"
+                >
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header slds-theme_info slds-theme_alert-texture">
+                            <h2 class="slds-text-heading_medium">${titleLabel}</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium">
+                            <p id="prompt-message-id">${contentLabel}</p>
+                        </div>
+                        <footer class="slds-modal__footer slds-theme_default">
+                            <button class="slds-button slds-button_neutral js-button">${buttonLabel}</button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>`;
+                const div = document.createElement('div');
+                // eslint-disable-next-line @lwc/lwc/no-inner-html
+                div.innerHTML = modalTemplate;
+                div.querySelector('.js-button').addEventListener('click', callback);
+                if (!document.body) {
+                    document.body = document.createElement('body');
+                }
+                document.body.appendChild(div.querySelector(`#${id}`));
+            }
+
+            /**
+             * Handler for incompatible browsers
+             */
+            window.onload = () => {
+                if (!window.isBrowserSupportedByWebruntime) {
+                    const WEBRUNTIME_UNSUPPORTED_BROWSER_MODAL_ID = 'webruntime-browser-not-supported-message';
+                    launchModal({
+                        id: WEBRUNTIME_UNSUPPORTED_BROWSER_MODAL_ID,
+                        titleLabel: `Your browser isn't supported`,
+                        contentLabel: `Your browser doesn’t support some features on this site. For the best experience, update your browser to the latest version, or switch to another browser.`,
+                        buttonLabel: `Got It`,
+                        callback: () => {
+                            // eslint-disable-next-line @lwc/lwc/no-document-query
+                            const modal = document.querySelector(`#${WEBRUNTIME_UNSUPPORTED_BROWSER_MODAL_ID}`);
+                            document.body.removeChild(modal);
+                        },
+                    });
+                }
+            };
+
+            /**
+             * Handler for failed-to-load-resource client-errors
+             */
+            window.document.addEventListener('client-error', (error) => {
+                if (error.detail.type === 'FAILED_TO_LOAD_RESOURCE') {
+                    launchModal({
+                        id: 'webruntime-client-error-failed-to-load-resource',
+                        titleLabel: `Oops!`,
+                        contentLabel: `Something went wrong. Please try refreshing the app`,
+                        buttonLabel: `Refresh`,
+                        callback: () => {
+                            const url = new URL(window.location);
+                            url.searchParams.set('lwr.cachebust', new Date().getTime());
+                            window.location = url.href;
+                        },
+                    });
+                } else if (error.detail.type === 'TOO_MANY_REQUESTS') {
+                    window.document.cookie = 'TooManyRequests=true;max-age=30;';
+                    window.location.reload();
+                }
+            });
+        </script>
+        {webruntimeInit} {headmarkup}
+    </head>
+    <body id="main">
+        <webruntime-app></webruntime-app>
+    </body>
+</html>

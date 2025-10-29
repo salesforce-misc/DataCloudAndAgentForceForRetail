@@ -11,11 +11,11 @@
 <td style="width: 47%; vertical-align: top; border-right: 1px solid black; padding-right: 10px;">
 <p style="font-weight: bold;">FROM:</p>
 <p>{!contact.Name}</p>
-<p>{!account.ShippingStreet}</p>
-<p>{!account.ShippingCity}, {!account.ShippingState}, {!account.ShippingPostalCode}</p>
+<p>{!contact.MailingStreet}</p>
+<p>{!contact.MailingCity}, {!contact.MailingState}, {!contact.MailingPostalCode}</p>
 <p>Phone: {!contact.Phone}</p>
 
-</td> 
+</td>
 
 <!-- TO Section -->
 <td style="width: 47%; vertical-align: top; padding-left: 10px;">

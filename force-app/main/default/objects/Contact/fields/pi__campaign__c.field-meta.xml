@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pi__campaign__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The Account Engagement Campaign represents the first marketing touch with a prospect. It may be a campaign associated with your web site, landing page, paid search initiative, or any other marketing effort. Prospects may only be associated with one Account Engagement campaign. This value can later be changed manually or via an Automation Rule.</description>
+    <externalId>false</externalId>
+    <label>Account Engagement Campaign</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

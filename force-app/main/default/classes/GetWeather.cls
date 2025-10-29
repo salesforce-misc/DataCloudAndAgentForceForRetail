@@ -32,13 +32,13 @@ public with sharing class GetWeather {
               '-'+  
               weather.maxTemperatureC +
             '°C )';
-           	WeatherBasedShoeFlyout__e eventMessage = new WeatherBasedShoeFlyout__e();
+            /*WeatherBasedShoeFlyout__e eventMessage = new WeatherBasedShoeFlyout__e();
             eventMessage.isVisible__c = True;
             eventMessage.WeatherCondition__c = response.dayCondition;
             system.debug('WEATHER CONDITION DEBUG'+eventMessage.WeatherCondition__c);
-        	Database.SaveResult sr = EventBus.publish(eventMessage);
+            Database.SaveResult sr = EventBus.publish(eventMessage);
         
-        // Add logger to check if the event is published successfully
+        
         if (sr.isSuccess()) {
             System.debug('Event published successfully: ' + sr.getId());
         } else {
@@ -46,22 +46,14 @@ public with sharing class GetWeather {
                 System.debug('Failed to publish event: ' + error.getStatusCode() + ' - ' + error.getMessage());
             }
             
-        }
-		//Invoke a Auto-launched Flow
+        }*/
         
-        //Call the Flow
-        // Flow.Interview myFlow = new Flow.Interview.GenerateProductRecommendationBasedOnWeather(new Map<String,Object>
-        //                                                                                      {'weatherCondition' => response.dayCondition});
-        // myFlow.start();
-        //Get the Flow Output
-        // String promptResponse = (String)myFlow.getVariableValue('promptResponse');
-        // System.debug('Prompt Response'+promptResponse);
         return new List<WeatherResponse>{ response };
     }
 
     public class WeatherRequest {
         @InvocableVariable(
-            required=true
+            required=false
             description='Date for which we want to check the temperature. The variable needs to be an Apex Date type with format yyyy-MM-dd.'
         )
         public Date dateToCheck;
@@ -85,6 +77,9 @@ public with sharing class GetWeather {
         //  @InvocableVariable(
         //     description='Description of Day Condition at Mexico location for the provided date'
         // )
+        @InvocableVariable(
+            description='Maximum temperature in Celsius at Mexico location for the provided date'
+        )
         public String dayCondition;
       
     }

@@ -22,7 +22,7 @@
         <name>Output</name>
         <label>Output</label>
         <locationX>50</locationX>
-        <locationY>1214</locationY>
+        <locationY>1322</locationY>
         <assignmentItems>
             <assignToReference>outputResponse</assignToReference>
             <operator>Assign</operator>
@@ -47,11 +47,27 @@
             <targetReference>Get_Product_Name</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>SKU_Number</name>
+        <label>SKU Number</label>
+        <locationX>182</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>MembershipNumber</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Product_Name.ssot__ProductSKU__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Return_Product</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Copy_1_of_Is_Return_Product_Empty</name>
         <label>Copy 1 of Is Return Product Empty?</label>
         <locationX>182</locationX>
-        <locationY>1106</locationY>
+        <locationY>1214</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Copy_1_of_Check_Return_Product</name>
@@ -93,7 +109,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Return_Product</targetReference>
+                <targetReference>SKU_Number</targetReference>
             </connector>
             <label>Check For Null?</label>
         </rules>
@@ -227,12 +243,19 @@
         <name>Get_Return_Product</name>
         <label>Get Return Product</label>
         <locationX>182</locationX>
-        <locationY>998</locationY>
+        <locationY>1106</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Copy_1_of_Is_Return_Product_Empty</targetReference>
         </connector>
-        <filterLogic>(1 OR 2 OR 3)</filterLogic>
+        <filterLogic>(1 AND( 2 OR 3 OR 4))</filterLogic>
+        <filters>
+            <field>ssot__ProductId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Product_Name.ssot__ProductSKU__c</elementReference>
+            </value>
+        </filters>
         <filters>
             <field>ssot__Description__c</field>
             <operator>EqualTo</operator>
@@ -265,7 +288,7 @@
             <targetReference>Get_Membership_Number</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Get_Real_Time_Product_Id</name>
         <label>Get Real-Time Product Id</label>

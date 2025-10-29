@@ -409,6 +409,31 @@
         <fields>Status</fields>
         <relatedList>WorkOrders</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>TotalAmountWithTax</fields>
+        <fields>Balance</fields>
+        <fields>InvoiceDate</fields>
+        <fields>Status</fields>
+        <relatedList>Invoices</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>EffectiveDate</fields>
+        <fields>Status</fields>
+        <fields>Amount</fields>
+        <fields>PaymentMethod</fields>
+        <fields>Balance</fields>
+        <relatedList>Payments</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>TotalAmountWithTax</fields>
+        <fields>Balance</fields>
+        <fields>CreditDate</fields>
+        <fields>Status</fields>
+        <relatedList>CreditMemos</relatedList>
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

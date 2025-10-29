@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDO_Cust360_ChurnRisk__c</fullName>
+    <description>What: used in the Customer 360 Multiple Object Highlight component.</description>
+    <externalId>false</externalId>
+    <label>Risk of Churn</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

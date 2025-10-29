@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Marketing Cloud Unsubscribe</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>alert(&quot;{!$Label.et4ae5__deprecateContactJSComponents}&quot;);</url>
+</WebLink>

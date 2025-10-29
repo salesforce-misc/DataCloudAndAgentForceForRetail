@@ -1,5 +1,4 @@
 {
-  "required" : [ "dateToCheck" ],
   "unevaluatedProperties" : false,
   "properties" : {
     "dateToCheck" : {

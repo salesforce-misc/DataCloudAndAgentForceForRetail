@@ -12,6 +12,6 @@ public with sharing class GetAccounts {
                                       WHERE Id = :accountId 
                                       LIMIT 1];
     
-            return accountDetails; 
+            return accountDetails;
         }
     }

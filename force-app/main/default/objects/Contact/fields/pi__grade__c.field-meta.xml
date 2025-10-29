@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pi__grade__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The Account Engagement grade is based on how well a prospect fits your organization&apos;s ideal customer profile. Explicit factors such as company size, industry, job title and more help determine this value. A combination of grade (explicit) and score (implicit) can be used to very effectively optimize the sales team&apos;s time. Grade, like score, is calculated within the Account Engagement system and cannot be edited in Salesforce.com.</description>
+    <externalId>false</externalId>
+    <label>Account Engagement Grade</label>
+    <length>10</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

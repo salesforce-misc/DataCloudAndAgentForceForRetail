@@ -6,9 +6,13 @@ public with sharing class SFMCCalloutService {
         	String Name = request[0].Name;                   
             String Emailadress =request[0].EmailAddress;         
 			Response res = new Response();
-            List<Response> responses = new List<Response>();         	         
+            List<Response> responses = new List<Response>(); 
+            SFMC_API_EVENT__mdt ups = SFMC_API_EVENT__mdt.getInstance('RetailJourneyAPI');
+        	         
         if(Name!=null && Emailadress!=null){
-            callSFMCEvent(Name,Emailadress);       	
+            if(ups != NULL && ups.ClientId__c != NULL && ups.ClientSecret__c != NULL && ups.eventKey__c != NULL){
+                callSFMCEvent(Name,Emailadress);
+            }                   	
             res.setMessage = 'success';
            	responses.add(res);            
         } 

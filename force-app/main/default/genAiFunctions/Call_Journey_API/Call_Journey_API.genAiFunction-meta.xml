@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>This action will call the apex method Call Journey API by passing the name and Email address by the user and return the response with success or error.</description>
+    <developerName>Call_Journey_API</developerName>
     <invocationTarget>SFMCCalloutService</invocationTarget>
     <invocationTargetType>apex</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>

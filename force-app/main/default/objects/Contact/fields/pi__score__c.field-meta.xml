@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pi__score__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The Account Engagement score is based on implicit buying signals a lead demonstrates through his or her activities and responses to your marketing efforts. The higher the score, the more active the lead has been. A combination of score (implicit buying signals) and grade (explicit factors) helps you prioritize your prospects. Score, like grade, is calculated within the Account Engagement system and cannot be edited in Salesforce.com.</description>
+    <externalId>false</externalId>
+    <label>Account Engagement Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

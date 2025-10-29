@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pi__conversion_object_type__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The type of object which converted an anonymous visitor into a named prospect (form, form handler, landing page, or video form).</description>
+    <externalId>false</externalId>
+    <label>Conversion Object Type</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

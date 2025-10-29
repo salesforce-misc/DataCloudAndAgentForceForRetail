@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDO_PA_Inclusive_TDD_TTY__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>What: Inclusivity for Impaired hearing</description>
+    <inlineHelpText>Does this individual have impaired hearing?</inlineHelpText>
+    <label>TDD / TTY Required</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

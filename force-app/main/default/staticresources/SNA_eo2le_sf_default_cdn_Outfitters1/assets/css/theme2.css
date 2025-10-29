@@ -231,6 +231,12 @@ commerce-dropdown lightning-button-menu::part(button):hover {
     text-decoration: var(--com-c-dropdown-button-text-decoration, none);
 }
 
+commerce-dropdown button.slds-button:focus-visible {
+    /* Follows the Theme's Tertiary Button Focus State color */
+    outline: 2px solid var(--dxp-s-tertiary-button-text-color-focus, var(--dxp-g-brand-1, var(--dxp-g-root-contrast)));
+    outline-offset: 2px;
+}
+
 commerce-subscription-card commerce-dropdown button.slds-button,
 commerce-subscription-card commerce-dropdown button.slds-button:active,
 commerce-subscription-card commerce-dropdown button.slds-button:focus,

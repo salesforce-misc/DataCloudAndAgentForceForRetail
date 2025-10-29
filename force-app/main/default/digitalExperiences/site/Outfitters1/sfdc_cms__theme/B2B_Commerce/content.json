@@ -1,0 +1,25 @@
+{
+  "type" : "sfdc_cms__theme",
+  "title" : "B2B Commerce",
+  "contentBody" : {
+    "activeBrandingSetId" : "B2B_Commerce",
+    "definitionName" : "b2b-commerce",
+    "layouts" : [ {
+      "layoutId" : "externalLayout",
+      "layoutType" : "External"
+    }, {
+      "layoutId" : "checkoutLayout",
+      "layoutType" : "Checkout"
+    }, {
+      "layoutId" : "snaThemeLayout",
+      "layoutType" : "ServiceNotAvailable"
+    }, {
+      "layoutId" : "commerceLayout",
+      "layoutType" : "Inner"
+    }, {
+      "layoutId" : "myAccountLayout",
+      "layoutType" : "MyAccount"
+    } ]
+  },
+  "urlName" : "b2b-commerce"
+}

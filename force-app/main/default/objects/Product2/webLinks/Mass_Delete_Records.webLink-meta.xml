@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mass_Delete_Records</fullName>
+    <availability>online</availability>
+    <description>Mass delete records</description>
+    <displayType>massActionButton</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Mass Delete</masterLabel>
+    <openType>replace</openType>
+    <page>Mass_Delete_Product2</page>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+</WebLink>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>This instruction is used to get the recall customer details with their product details</description>
+    <developerName>GetRecallContactFromSegment</developerName>
     <invocationTarget>ActivationAudienceResult</invocationTarget>
     <invocationTargetType>apex</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>

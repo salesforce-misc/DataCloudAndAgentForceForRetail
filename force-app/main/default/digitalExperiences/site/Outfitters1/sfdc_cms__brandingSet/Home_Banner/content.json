@@ -3,7 +3,7 @@
   "title" : "Home Banner",
   "contentBody" : {
     "brandingSetType" : "SCOPED",
-    "definitionName" : "b2c-lite-storefront:home-banner",
+    "definitionName" : "b2b-storefront:b2b-home-banner",
     "values" : {
       "BackgroundColor" : "#FFF",
       "BodySmallTextColor" : "var(--dxp-g-root-contrast)",

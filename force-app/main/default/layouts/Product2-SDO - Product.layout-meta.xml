@@ -20,6 +20,18 @@
                 <behavior>Edit</behavior>
                 <field>Recall_flag__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Product_Link__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Total_Quantity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ProductClass</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -34,6 +46,14 @@
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Type</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ManagedContentName__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -46,6 +66,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RT_Description__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -126,7 +150,20 @@
         <relatedList>RelatedStandardPriceList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>Name</fields>
+        <fields>ReturnOrder</fields>
+        <fields>DestinationLocation</fields>
+        <fields>SourceLocation</fields>
+        <fields>CreatedBy</fields>
+        <relatedList>ReturnOrderLineItems</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedPricebookEntryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>ProductCategory</fields>
+        <fields>IsPrimaryCategory</fields>
+        <relatedList>RelatedProductCategories</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
@@ -147,7 +184,22 @@
         <relatedList>RelatedAssetList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>Name</fields>
+        <fields>AttributeDefinition</fields>
+        <fields>AttributeDataType</fields>
+        <fields>AttributeCategory</fields>
+        <fields>AttributePicklist</fields>
+        <fields>Status</fields>
+        <relatedList>ProductClassificationAttributes</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedFileList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Policy</fields>
+        <fields>PolicyCreatedBy</fields>
+        <fields>IsPolicyActive</fields>
+        <relatedList>CommerceEntitlementPolicies</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -155,7 +207,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hNS00000RgdMS</masterLabel>
+        <masterLabel>00h7y00000EOVRl</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

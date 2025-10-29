@@ -53,22 +53,24 @@
         <parameterDataType>String</parameterDataType>
     </customParameters>
     <embeddedConfig>
+        <allowedFileTypes>xml,xls,xlsx,csv,docx,doc,txt,pdf,png,jpg,bmp,tiff,gif</allowedFileTypes>
         <anonymousUserJwtExpirationTime>360</anonymousUserJwtExpirationTime>
         <authMode>UnAuth</authMode>
         <isAttachmentUploadEnabled>true</isAttachmentUploadEnabled>
         <isEstimatedWaitTimeEnabled>false</isEstimatedWaitTimeEnabled>
         <isFallbackMessageEnabled>false</isFallbackMessageEnabled>
         <isSaveTranscriptEnabled>true</isSaveTranscriptEnabled>
+        <maxFileSize>5</maxFileSize>
     </embeddedConfig>
     <masterLabel>ESA Channel</masterLabel>
     <messagingChannelType>EmbeddedMessaging</messagingChannelType>
     <messagingKeywords>
         <keyword>cancel</keyword>
-        <keyword>stopall</keyword>
-        <keyword>stop</keyword>
-        <keyword>unsubscribe</keyword>
         <keyword>end</keyword>
         <keyword>quit</keyword>
+        <keyword>stop</keyword>
+        <keyword>stopall</keyword>
+        <keyword>unsubscribe</keyword>
         <keywordType>OptOut</keywordType>
         <language>en_US</language>
     </messagingKeywords>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pi__created_date__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The Account Engagement created date represents the date and time at which the Prospect record was created in Account Engagement. This will often differ from your Salesforce.com created date.</description>
+    <label>Account Engagement Created Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

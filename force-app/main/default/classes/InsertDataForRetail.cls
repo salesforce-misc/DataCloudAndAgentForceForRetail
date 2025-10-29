@@ -141,7 +141,7 @@ global without sharing class InsertDataForRetail {
            //Id Locationid= [Select id from Location LIMIT 1].id;
 
 	List<ProductItem> ProductItems = new List<ProductItem>();
-            system.debug('PrdMap:'+ProductMap.get('Men Chilkat Nylon Boots').Id); 
+             
 	ProductItem prditm1 = new ProductItem(Product2Id = ProductMap.get('Men Chilkat Nylon Boots').Id, fulfilment_status_stock__c = '', LocationId = Locationid, QuantityOnHand = 1);
 ProductItems.add(prditm1);
 	ProductItem prditm2 = new ProductItem(Product2Id = ProductMap.get('Men Safien Mid Gtx Hiking Shoes').Id, fulfilment_status_stock__c = 'Fulfilled', LocationId =Locationid, QuantityOnHand = 98);

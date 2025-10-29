@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-
+    <!--<actionCalls>
+        <name>Propensity_To_Churn_Predict</name>
+        <label>Propensity To Churn Predict</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Propensity_To_Churn_Prediction_CM_12l_tC932d3b24f</actionName>
+        <actionType>cdpMlPrediction</actionType>
+        <connector>
+            <targetReference>Contact_Present</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>param_Age__c</name>
+            <value>
+                <elementReference>$Record.Age__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Recency_Of_Purchase__c</name>
+            <value>
+                <elementReference>$Record.Recency_Of_Purchase__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Number_of_Product_Return__c</name>
+            <value>
+                <elementReference>$Record.Number_of_Product_Return__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Number_of_Complaint__c</name>
+            <value>
+                <elementReference>$Record.Number_of_Complaint__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Net_Promoter_Score_NPS__c</name>
+            <value>
+                <elementReference>$Record.Net_Promoter_Score_NPS__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Customer_Lifetime_Value_CLV__c</name>
+            <value>
+                <elementReference>$Record.Customer_Lifetime_Value_CLV__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Payment_Method__c</name>
+            <value>
+                <elementReference>$Record.Payment_Method__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Customer_Satisfaction_CSAT__c</name>
+            <value>
+                <elementReference>$Record.Customer_Satisfaction_CSAT__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_ssot__Gender__c</name>
+            <value>
+                <elementReference>$Record.ssot__Gender__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Average_Order__c</name>
+            <value>
+                <elementReference>$Record.Average_Order__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Income_Level__c</name>
+            <value>
+                <elementReference>$Record.Income_Level__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>param_Engagement_Frequency__c</name>
+            <value>
+                <elementReference>$Record.Engagement_Frequency__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Propensity_To_Churn_Prediction_CM_12l_tC932d3b24f</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>-->
     <apiVersion>64.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
@@ -62,7 +148,9 @@
         </filters>
         <inputAssignments>
             <field>Propensity_To_Churn__c</field>
-           
+           <!-- <value>
+                <elementReference>Propensity_To_Churn_Predict.prediction</elementReference>
+            </value>-->
         </inputAssignments>
         <object>Contact</object>
     </recordUpdates>

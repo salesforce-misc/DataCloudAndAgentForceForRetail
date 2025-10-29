@@ -15,6 +15,10 @@
         <value xsi:type="xsd:string">00DO400000BbtC9</value>
     </values>
     <values>
+        <field>Recall_Product_Table_Name__c</field>
+        <value xsi:type="xsd:string">AAL_DataCloud_85UO40000017gLJMAY__dlm</value>
+    </values>
+    <values>
         <field>SiteURL__c</field>
         <value xsi:type="xsd:string">https://epicorgfarm-a4--retailorg2.sandbox.my.site.com/outfitters</value>
     </values>

@@ -1,5 +1,0 @@
-{
-  "apiName" : "OrderSummaryList",
-  "type" : "sfdc_cms__route",
-  "path" : "routes"
-}

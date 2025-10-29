@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>pass the user&apos;s question and sessionId from Context Variables Messaging Session to the apex</description>
+    <developerName>DisplayProductList</developerName>
     <invocationTarget>DisplayProductList</invocationTarget>
     <invocationTargetType>apex</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>

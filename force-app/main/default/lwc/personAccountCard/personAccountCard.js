@@ -7,7 +7,7 @@ export default class PersonAccountCard extends LightningElement {
     @api recordId;
     message = '';
     accountId = '';
-    
+
 
     @wire(getAccountDetails, { accountId: '$recordId' })
     account;
@@ -21,6 +21,10 @@ export default class PersonAccountCard extends LightningElement {
             console.log('Data received from Apex:', data);
             this.accountId = data;
             this.setMessage();
+        }else if(data == null || data == ''){
+            console.log('Data received from Apex:', data);
+            this.accountId = '';
+            this.setMessage();
         } else if (error) {
             console.error('Error:', error);
         }
@@ -30,9 +34,9 @@ export default class PersonAccountCard extends LightningElement {
     setMessage() {
         console.log('Setting message based on accountId:', this.accountId);
         if (this.accountId) {
-            this.message = 'Customer has recall product';
+            this.message = 'Get Customers with Recalled Products';
         } else {
-            this.message = 'Customer doesnt have recall product';
+            this.message = 'Customer doesnt have Recalled Products';
         }
         console.log('Message is now:', this.message);
     }

@@ -92,6 +92,7 @@ public class ObjectAndFieldLevelPermissionRetail {
             System.debug('Permissions already exist or failed: ' + ex.getMessage());
         }
         
+        
         try {
             List<String> fieldsToUpdateforProduct = new List<String>{'ManagedContentName__c','RT_Description__c','Total_Quantity__c','Recall_flag__c','Product_Catalog__c'};   
                 ObjectAndFieldLevelPermissionRetail.insertFieldLevelPermsssion('Data Cloud Salesforce Connector','Product2',fieldsToUpdateforProduct);

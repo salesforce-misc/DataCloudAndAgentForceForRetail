@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pi__first_touch_url__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The value of the referrer for the first tracked request made by a Prospect.</description>
+    <label>Account Engagement First Referrer</label>
+    <length>65000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

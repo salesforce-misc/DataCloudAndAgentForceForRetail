@@ -5,7 +5,7 @@
     <assignments>
         <name>Membership_Number_Details</name>
         <label>Membership Number Details</label>
-        <locationX>314</locationX>
+        <locationX>226</locationX>
         <locationY>242</locationY>
         <assignmentItems>
             <assignToReference>Membership_Number</assignToReference>
@@ -21,7 +21,7 @@
     <assignments>
         <name>Open_Order_Message</name>
         <label>Open Order Message</label>
-        <locationX>314</locationX>
+        <locationX>138</locationX>
         <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>OpenOrder</assignToReference>
@@ -31,13 +31,13 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_3</targetReference>
+            <targetReference>Open_Order_Details</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Past_30_days_Message</name>
         <label>Past 30 days Message</label>
-        <locationX>842</locationX>
+        <locationX>490</locationX>
         <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>PastOrderOutput</assignToReference>
@@ -47,7 +47,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>loop4</targetReference>
+            <targetReference>Loop_Past_30days</targetReference>
         </connector>
     </assignments>
     <constants>
@@ -81,7 +81,7 @@
     <decisions>
         <name>Open_Order_Found</name>
         <label>Open Order Found</label>
-        <locationX>314</locationX>
+        <locationX>226</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>Get_past_30_days_order</targetReference>
@@ -117,51 +117,22 @@
     <formulas>
         <name>OpenOrderDetail</name>
         <dataType>String</dataType>
-        <expression>&quot;Your recent order details are as follows: Order #&quot;&amp;{!Open_Order_Details.ssot__OrderNumber__c} &amp;&quot;-:&quot;&amp;{!Open_Order_Details.ssot__SalesOrderStatusId__c}&amp;&quot;-&quot;&amp;TEXT({!Open_Order_Details.ssot__OrderStartDate__c})&amp;&quot;-&quot;&amp;
-{!Loop_3.ProductName__c}</expression>
+        <expression>&quot; Order #&quot;&amp;{!Open_Order_Details.ssot__OrderNumber__c} &amp;&quot;-:&quot;&amp;{!Open_Order_Details.ssot__SalesOrderStatusId__c}&amp;&quot;-&quot;&amp;TEXT({!Open_Order_Details.ssot__OrderStartDate__c})&amp;&quot;-&quot;&amp;{!Get_Product_Name_For_Draft.ssot__Name__c}</expression>
     </formulas>
     <formulas>
         <name>PastOrderFormula</name>
         <dataType>String</dataType>
-        <expression>&quot;We couldn’t find any open orders at the moment. However, here are the details of your previous orders:&quot;&amp;{!Loop_Past_30days.ssot__OrderNumber__c} &amp; &quot; - &quot; &amp;
+        <expression>{!Loop_Past_30days.ssot__OrderNumber__c} &amp; &quot; - &quot; &amp;
 {!Loop_Past_30days.ssot__SalesOrderStatusId__c}&amp; &quot; - &quot; &amp;
 TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
-{!loop4.ProductName__c}</expression>
+{!Get_Product_Name.ssot__Name__c}</expression>
     </formulas>
     <interviewLabel>Fetch Recent Order {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Fetch Recent Order</label>
     <loops>
-        <name>loop4</name>
-        <label>loop4</label>
-        <locationX>754</locationX>
-        <locationY>890</locationY>
-        <collectionReference>Get_Ordered_Product_Details_For_Open</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Past_30_days_Message</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Loop_Past_30days</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
-        <name>Loop_3</name>
-        <label>Loop 3</label>
-        <locationX>226</locationX>
-        <locationY>782</locationY>
-        <collectionReference>Get_Ordered_Product_Details_For_Open</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Open_Order_Message</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Open_Order_Details</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
         <name>Loop_Past_30days</name>
         <label>Loop Past 30days</label>
-        <locationX>578</locationX>
+        <locationX>402</locationX>
         <locationY>674</locationY>
         <collectionReference>Get_past_30_days_order</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -202,7 +173,7 @@ TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
     <recordLookups>
         <name>Get_Membership_Number</name>
         <label>Get Membership Number</label>
-        <locationX>314</locationX>
+        <locationX>226</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -223,7 +194,7 @@ TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
     <recordLookups>
         <name>Get_Order</name>
         <label>Get Order</label>
-        <locationX>314</locationX>
+        <locationX>226</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -260,11 +231,11 @@ TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
     <recordLookups>
         <name>Get_Ordered_Product_Details</name>
         <label>Get Ordered Product Details</label>
-        <locationX>754</locationX>
+        <locationX>490</locationX>
         <locationY>782</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>loop4</targetReference>
+            <targetReference>Get_Product_Name</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -274,18 +245,18 @@ TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
                 <elementReference>Loop_Past_30days.ssot__Id__c</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ssot__SalesOrderProduct__dlm</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Ordered_Product_Details_For_Open</name>
         <label>Get Ordered Product Details For Open</label>
-        <locationX>226</locationX>
+        <locationX>138</locationX>
         <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Loop_3</targetReference>
+            <targetReference>Get_Product_Name_For_Draft</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -295,14 +266,14 @@ TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
                 <elementReference>Open_Order_Details.ssot__Id__c</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ssot__SalesOrderProduct__dlm</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_past_30_days_order</name>
         <label>Get past 30 days order</label>
-        <locationX>578</locationX>
+        <locationX>402</locationX>
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -350,8 +321,50 @@ TEXT({!Loop_Past_30days.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
         <sortOrder>Desc</sortOrder>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Product_Name</name>
+        <label>Get Product Name</label>
+        <locationX>490</locationX>
+        <locationY>890</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Past_30_days_Message</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ssot__Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Ordered_Product_Details.ssot__ProductId__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ssot__Product__dlm</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Product_Name_For_Draft</name>
+        <label>Get Product Name For Draft</label>
+        <locationX>138</locationX>
+        <locationY>782</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Open_Order_Message</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ssot__Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Ordered_Product_Details_For_Open.ssot__ProductId__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ssot__Product__dlm</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
-        <locationX>188</locationX>
+        <locationX>100</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Membership_Number</targetReference>

@@ -4,8 +4,9 @@
     <allowMembersToFlag>false</allowMembersToFlag>
     <changePasswordTemplate>unfiled$public/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
     <communityRoles/>
+    <description>Outfitters</description>
     <disableReputationRecordConversations>true</disableReputationRecordConversations>
-    <emailSenderAddress>epic.orgfarm@salesforce.com</emailSenderAddress>
+    <emailSenderAddress>gdevadoss@salesforce.com</emailSenderAddress>
     <emailSenderName>Outfitters</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>
@@ -34,10 +35,29 @@
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <headlessForgotPasswordTemplate>unfiled$public/CommunityHeadlessForgotPasswordTemplate</headlessForgotPasswordTemplate>
     <headlessRegistrationTemplate>unfiled$public/CommunityHeadlessRegistrationTemplate</headlessRegistrationTemplate>
+    <networkAuthApiSettings>
+        <doesForgotPasswordRequireAuth>false</doesForgotPasswordRequireAuth>
+        <doesPasswordLoginRequireAuth>false</doesPasswordLoginRequireAuth>
+        <doesPwdlessLoginRequireAuth>false</doesPwdlessLoginRequireAuth>
+        <doesRegistrationRequireAuth>false</doesRegistrationRequireAuth>
+        <isFirstPartyAppsAllowed>false</isFirstPartyAppsAllowed>
+        <isForgotPwdAllowed>false</isForgotPwdAllowed>
+        <isForgotPwdEmailTemplateAllowlistingEnabled>false</isForgotPwdEmailTemplateAllowlistingEnabled>
+        <isHeadlessUserRegistrationAllowed>false</isHeadlessUserRegistrationAllowed>
+        <isPwdlessLoginAllowed>false</isPwdlessLoginAllowed>
+        <isRecaptchaRequiredForgotPwd>false</isRecaptchaRequiredForgotPwd>
+        <isRecaptchaRequiredPwdlessLogin>false</isRecaptchaRequiredPwdlessLogin>
+        <isRecaptchaRequiredRgstr>false</isRecaptchaRequiredRgstr>
+        <isUniversalClientRgstrAllowed>true</isUniversalClientRgstrAllowed>
+        <isUserDisambiguationAllowedForgotPwd>false</isUserDisambiguationAllowedForgotPwd>
+        <isUserDisambiguationAllowedUsernamePwd>false</isUserDisambiguationAllowedUsernamePwd>
+        <maxPasswordResetAttempts>3</maxPasswordResetAttempts>
+        <recaptchaScoreThreshold>0.0</recaptchaScoreThreshold>
+    </networkAuthApiSettings>
     <networkMemberGroups>
         <profile>admin</profile>
-        <profile>outfitters customer profile</profile>
         <profile>outfitters shopper profile</profile>
+        <profile>outfitters customer profile</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
@@ -47,9 +67,8 @@
         <selfRegProfilePageOverrideSetting>Designer</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
     <picassoSite>Outfitters1</picassoSite>
-    <selfRegProfile>outfitters customer profile</selfRegProfile>
     <selfRegistration>true</selfRegistration>
-    <sendWelcomeEmail>false</sendWelcomeEmail>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
     <site>Outfitters</site>
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
     <status>Live</status>

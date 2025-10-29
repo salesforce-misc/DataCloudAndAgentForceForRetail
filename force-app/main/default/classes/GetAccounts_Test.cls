@@ -6,7 +6,7 @@ public class GetAccounts_Test {
         Account testAccount = new Account(
             Name = 'Test Account',
             ShippingCity = 'Test City',
-            ShippingState = 'Test State', 
+            ShippingState = 'Test State',
             ShippingPostalCode = '123456',
             ShippingStreet = '123 Test Street',
             PhotoURL__c = 'http://example.com/photo.png'

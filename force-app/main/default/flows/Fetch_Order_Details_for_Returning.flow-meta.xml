@@ -62,8 +62,8 @@
         </value>
     </constants>
     <decisions>
-        <name>Order_For_Return</name>
-        <label>Order For Return?</label>
+        <name>No_Open_Order</name>
+        <label>No Open Order?</label>
         <locationX>182</locationX>
         <locationY>458</locationY>
         <defaultConnector>
@@ -71,7 +71,7 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>If_Return_Order</name>
+            <name>If_Open_Order</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Order_For_Return</leftValueReference>
@@ -83,7 +83,7 @@
             <connector>
                 <targetReference>For_each_Order</targetReference>
             </connector>
-            <label>If Return Order</label>
+            <label>If Open Order</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -160,9 +160,9 @@ TEXT({!For_each_Order.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Order_For_Return</targetReference>
+            <targetReference>No_Open_Order</targetReference>
         </connector>
-        <filterLogic>((1 OR 2) AND ( 3 OR 4)AND 5)</filterLogic>
+        <filterLogic>((1 OR 2) AND ( 3 OR 4))</filterLogic>
         <filters>
             <field>ssot__SalesOrderStatusId__c</field>
             <operator>EqualTo</operator>
@@ -189,13 +189,6 @@ TEXT({!For_each_Order.ssot__OrderStartDate__c})&amp; &quot;-&quot;&amp;
             <operator>EqualTo</operator>
             <value>
                 <elementReference>membershipNumber</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>ssot__OrderStartDate__c</field>
-            <operator>GreaterThanOrEqualTo</operator>
-            <value>
-                <elementReference>Past7days</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>

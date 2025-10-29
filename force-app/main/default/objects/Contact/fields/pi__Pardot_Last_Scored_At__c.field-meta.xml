@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>pi__Pardot_Last_Scored_At__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Used for Account Engagement Scoring Categories. Indicates the last time a Scoring Category score was updated for this contact.
+
+            Scoring Categories are used for multi-product engagement scoring in Account Engagement and are available to customers using Account Engagement Pro Edition and Account Engagement Ultimate Edition. Please visit this page for more information on this feature and how to set up Salesforce to view these scores: http://help.pardot.com/customer/portal/articles/2396977-scoring-categories-overview</description>
+    <label>Account Engagement Last Scored At</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

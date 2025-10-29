@@ -6,7 +6,7 @@ public without sharing class ClsRetailSelfRegTest {
        
             // Insert the product if it does not exist
            Product2 prdt = new Product2(
-                Name = 'UltraRunBreeze 3000',
+                Name = 'UltraRunBreeze',
                 IsActive = TRUE,
                 Description = 'Test UltraRunBreez sports shoes'
             );

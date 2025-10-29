@@ -146,7 +146,16 @@
                 <identifier>RecordcookieId_pcField</identifier>
             </fieldInstance>
         </itemInstances>
-        
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.PhotoURL__pc</fieldItem>
+                <identifier>RecordPhotoURL_pcField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-4279ee91-6352-4443-a134-043bceb4078d</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -835,7 +844,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Churm ML Data</value>
+                    <value>Churn Data</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection6</identifier>
@@ -853,7 +862,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Purchase ML Data</value>
+                    <value>Purchase Data</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection3</identifier>

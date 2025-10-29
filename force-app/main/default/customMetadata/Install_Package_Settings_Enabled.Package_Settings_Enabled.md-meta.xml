@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>Is_Data_ML_Created__c</field>
-        <value xsi:type="xsd:boolean">false</value>
+        <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
         <field>Is_Order_and_OrderItem__c</field>
@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>Is_Sample_Data_Enable__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Outfitters_Settings_Enable__c</field>

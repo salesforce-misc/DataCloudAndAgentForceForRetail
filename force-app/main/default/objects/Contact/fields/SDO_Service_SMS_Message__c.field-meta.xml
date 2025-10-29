@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDO_Service_SMS_Message__c</fullName>
+    <description>What: The content of the SMS message to send out. This will be triggered by a process builder, and should be updated via quick action only. Used in the Service - Contact - Send Ad-hoc SMS Flow. Who: Service Team</description>
+    <label>SMS Message</label>
+    <length>800</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

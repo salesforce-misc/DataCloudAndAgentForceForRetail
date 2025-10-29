@@ -3,7 +3,7 @@
   "title" : "Footer",
   "contentBody" : {
     "brandingSetType" : "SCOPED",
-    "definitionName" : "b2c-lite-storefront:footer",
+    "definitionName" : "b2b-storefront:b2b-footer",
     "values" : {
       "BackgroundColor" : "#F7F9FA",
       "BodySmallTextColor" : "var(--dxp-g-root-contrast)",

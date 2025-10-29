@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SDO_Sales_Default</fullName>
+    <fields>Name</fields>
+    <fields>AccountId</fields>
+    <fields>Title</fields>
+    <fields>Phone</fields>
+    <fields>Email</fields>
+    <fields>SDO_PA_Preferred_Contact_Channel__c</fields>
+    <label>SDO_Sales_Default</label>
+</CompactLayout>

@@ -1,6 +1,6 @@
 :host {
     /* Custom CSS variables for reusing style in this component and child components */
-    --primary-color: #00373e; 
+    --primary-color: #00373e;
 
     /* Text styling hooks */
     --slds-g-color-neutral-base-10: var(--primary-color);
