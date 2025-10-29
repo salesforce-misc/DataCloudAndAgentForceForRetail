@@ -575,7 +575,45 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 
 <details><summary>
 
-## 8. Configure Tableau Next Dashboard
+## 8. Configure Marketing Cloud Setup
+</summary>
+
+**Important Note:** If you already have a Marketing Cloud org, perform the steps below. If not, create one first and then proceed with the steps.
+### 1. Log In To Marketing Cloud
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Login to Org | - Open the browser and enter the url as https://mc.exacttarget.com/ and enter the username and password and verify the org.<br/> -Land on Home page| ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudlogin.png?raw=true) |
+
+
+### 2. Create Data Extension In Marketing Cloud
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Create Data Extension | -Click on Audience Builder>>Click on Contact Builder>> Click on Data Extension<br/> - Click on Create button<br/> - Enter name as "RetailSubscribers" ,External Key as unique (eg:0808),Check the checkbox of Is Sendable? and Is Testable and click on Next <br/> - Turn of Data Retention Setting and click on Next<br/>- Create Attribute as 1. Select Primary key checkbox and enter name as Email, Length as 254, type as Email Address , Select Require checkbox<br/> 2. Name as Name , type as Text, length as 50, Select Require checkbox <br/> 3.Select Primary key checkbox and enter name as SubscriberKey, Length as 254, type as Email Address , Select Require checkbox and also make sure Send Relationship selected as Email and relates to selected as SubscriberKey and click on complete button, PFA screenshot |![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/Audiencebuilder.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/DataExtension1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/DataExtension2.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/Data%20Extension.png?raw=true)|
+
+### 3. Create Email Template In Marketing Cloud
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Create a Email template| - Click on Content Builder>>Click on Content builder<br/>-Click on Create button, click on Email Template,Under this select from existing template and select blank page template<br/> Create below email template by referring screenshot 1. Initial Subscribe mail (store under content location) |![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/contentbuilder.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/initialsubscriberemail1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/initialsubscriberemail2.png?raw=true)|
+
+### 4. Create a Journey Builder Using Journey Builder In Marketing Cloud
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Create Journey Builder| -Click on Journey Builder >> Under this also click on Journey Builder<br/> -Click on Create Journey and select Multi Step Journey and click on create button and select email<br/> -Edit the name as RetailSubscriberEntry and drag and drop API Event under start as entry source , and click on it <br/> -Once it get opened click on create event and activity name as RetailSubscriberEntry and select data extension as RetailSubscribers,click on summary and click on Done button<br/>-Select Email from Message and place next to API Event and click on it and Select Message and under this select Initial Subscribe mail email template and click on Done <br/>-Select Wait by duration from flow control and place it after email, and click on it and select 1 minute and click on Done<br/> -PFA screenshot |![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/JourneyBuilderPath.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/Journey%20Builder1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/Journey%20Builder2.png?raw=true)|
+
+### 4. Create Install Package In Marketing Cloud
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Install Package | -Go to Setup>>Apps>> Install Packages>>Click on New button<br/> -Enter name and click on save <br/>-Once it gets open then click on Add Component and select API Integeration and click on Next<br/>-Select Server to Server and click on Next<br/>- Refer screenshot for providing access of read/write to component and click on save <br/>-Note down client secret key somewhere.| ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg2.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg3.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/marketingcloudInstallPkg4.png?raw=true)|
+
+### 4. Update Custom Metadata Record Values In The Retail Org.
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+|Update value in metarecord|-Login with retail org<br/> -click on setup>>enter custom metadata and search and click on Custom Metadata Types<br/>-Click on SFMC API Events and open it<br/>-click on Manage SFMC API Events>> click on Retail Journey API record and click on edit button<br/>-Enter below value <br/>-1.AccountId as MID of marketing cloud <br/>2. AuthenticationBaseURI as Authentication Base URI , Clientid as client id , Clientsecret as client secret key you have copied to somewhere, restbaseUrl as REST base URI,  from newly created install package in marketing cloud<br/> -eventKey as event defination key from journey builder recently you have created<br/>-Save the record| ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec1.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec2.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec3.png?raw=true) ![](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/MarketingCloudImages/MetadataRec4.png?raw=true)|
+</details>
+
+<details><summary>
+  
+## 9. Configure Tableau Next Dashboard
 </summary>
 
 ### 1. Enable Tabaleau Next  (5 min)
