@@ -542,6 +542,11 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Update Recall Flag| -Go to Product Catalog Management. </br>- Select Products from the dropdown. </br>- Select any one of the product(Ultrarunbreeze, Duramo Speed Shoes, Men Chiklats nylon shoes). </br>- Navigate to Details tab and Select the Recall Flag checkbox. </br>- Save the Details.||
+
+### 8. Activate the Flow (3 min)
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+| Activate Size Recommondation from Return Flow | -Go to Setup and In the Quick Find box, type Flows. </br>- Locate the Flow (Size Recommondation from Return Flow)you want to activate in the list. </br>- In the top right of Flow Builder, click Activate. ||
 </details>
 
 <details><summary>
