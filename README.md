@@ -546,7 +546,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 ### 10. Activate the Flow (3 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Activate Size Recommondation from Return Flow | -Go to Setup and In the Quick Find box, type Flows. </br>- Locate the Flow (Size Recommondation from Return Flow)you want to activate in the list. </br>- In the top right of Flow Builder, click Activate. ||
+| Activate Size Recommondation from Return Flow | -Go to Setup and In the Quick Find box, type Flows. </br>- Locate the Flow (Size Recommondation from Return Flow)you want to activate in the list. </br>- In the top right of Flow Builder, click Activate. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/Size%20Recommonded%20Flow.jpg)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/Size%20Recommonded%20Flow%20Active.jpg)|
 </details>
 
 <details><summary>
