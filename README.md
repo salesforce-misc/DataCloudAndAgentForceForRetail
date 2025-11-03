@@ -533,17 +533,17 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | ----- | ----- | ----- |
 |Named Credentials|-Search for Named Credentials </br>-In Named Credentials search for **‘GuestCometDNew1’** </br>-click on edit</br>-Update the URL to current org domain URL (Go to setup>>search>>MyDomain ) </br>-Save the Named Credentials and you will Get authenticated.</br>-If you get an Error Wait for 10 minutes and Save the Named Credentials again. </br></br>-Follow the same steps for named Credentials **DataCloud**|  ![Named Credentials1](https://git.soma.salesforce.com/gdevadoss/DataCloudAutomotiveDemo/blob/master/Finish%20Configuration%20Image/Named%20Credentials1.png)![Named Credentials2](https://git.soma.salesforce.com/gdevadoss/DataCloudAutomotiveDemo/blob/master/Finish%20Configuration%20Image/Named%20Credentials2.png)![Named Credentials3](https://git.soma.salesforce.com/gdevadoss/DataCloudAutomotiveDemo/blob/master/Finish%20Configuration%20Image/Named%20Credentials3.png)|
 
-### 7. Update Account with Membersip Number (5 min)
+### 8. Update Account with Membersip Number (5 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 |Update MembershipNumber| - Click on DataCloud App. </br>- Go to Data Explorer Tab. </br>- Select Data Model Object and search for **Return_Order**. </br>- Under CustomerAccount Field select and copy any one of the value. </br>- Go to Account. </br>- Select **Duncan Macintosh** >> Under details tab Edit the Membership Number. </br>- Paste the Membership Number that we copied from CustomerAccount Previously. </br>- Save the Account.||
 
-### 8. Update Product Recall Flag (5 min)
+### 9. Update Product Recall Flag (5 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Update Recall Flag| -Go to Product Catalog Management. </br>- Select Products from the dropdown. </br>- Select any one of the product(Ultrarunbreeze, Duramo Speed Shoes, Men Chiklats nylon shoes). </br>- Navigate to Details tab and Select the Recall Flag checkbox. </br>- Save the Details.||
 
-### 8. Activate the Flow (3 min)
+### 10. Activate the Flow (3 min)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Activate Size Recommondation from Return Flow | -Go to Setup and In the Quick Find box, type Flows. </br>- Locate the Flow (Size Recommondation from Return Flow)you want to activate in the list. </br>- In the top right of Flow Builder, click Activate. ||
