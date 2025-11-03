@@ -43,7 +43,7 @@
     <formulas>
         <name>OfferMessage</name>
         <dataType>String</dataType>
-        <expression>{!Get_Promotion.ssot__Name__c}&amp;&quot;-&quot;&amp;{!Get_Promotion.ssot__Description__c}</expression>
+        <expression>{!Get_Promotion.Name}&amp;&quot;-&quot;&amp;{!Get_Promotion.Description}</expression>
     </formulas>
     <interviewLabel>Promotion {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Check Product Discount</label>
@@ -133,14 +133,14 @@
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>ssot__Id__c</field>
+            <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Promotion_Product.ssot__PromotionId__c</elementReference>
+                <elementReference>Get_Promotion_Product.PromotionId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>ssot__PromotionOffer__dlm</object>
+        <object>Promotion</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -154,14 +154,14 @@
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>ssot__ProductId__c</field>
+            <field>ProductId</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_ProductName.Id</elementReference>
+                <elementReference>Get_Real_Time_Product_Id.outputReply</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>ssot__PromotionProduct__dlm</object>
+        <object>PromotionProduct</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>

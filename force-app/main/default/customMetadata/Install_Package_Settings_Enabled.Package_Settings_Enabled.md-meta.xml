@@ -16,11 +16,11 @@
     </values>
     <values>
         <field>Is_Commerce_Data_Created__c</field>
-        <value xsi:type="xsd:boolean">false</value>
+        <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
         <field>Is_Data_ML_Created__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Is_Order_and_OrderItem__c</field>

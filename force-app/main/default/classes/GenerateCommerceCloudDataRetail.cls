@@ -216,13 +216,13 @@ public with sharing class GenerateCommerceCloudDataRetail {
                 
               for (Id prdId : ProdcutPriceEntryMap.KeySet()) {
                   system.debug('inside first prodcut loop');
-                           if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD3' && ProductMap.ContainsKey(prdId) && stdPriceBook.Id != null ) {
+                           if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD3' && ProdcutPriceEntryMap.ContainsKey(prdId) && stdPriceBook.Id != null ) {
                                PricebookEntry pricebookEntry = new PricebookEntry(Pricebook2Id = stdPriceBook.Id,Product2Id =ProdcutPriceEntryMap.get(prdId).Id ,UnitPrice = 340,IsActive = true);
                                  pricebookEntries.add(pricebookEntry);
                                     system.debug('Inside if first pricebook loop');                                                                                                                                                                              
                    	  		 }
                  			 system.debug('productName---->'+prdId);
-                			 if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD31' && ProductMap.ContainsKey(prdId) && stdPriceBook.Id != null ) {
+                			 if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD31' && ProdcutPriceEntryMap.ContainsKey(prdId) && stdPriceBook.Id != null ) {
                                PricebookEntry pricebookEntry = new PricebookEntry(Pricebook2Id = stdPriceBook.Id,Product2Id = ProdcutPriceEntryMap.get(prdId).Id,UnitPrice = 200,IsActive = true);
                                  pricebookEntries.add(pricebookEntry);
                                     system.debug('Inside if second pricebook loop');                                                                                                                                                                              
@@ -449,13 +449,13 @@ public with sharing class GenerateCommerceCloudDataRetail {
             
             for (Id prdId : ProdcutPriceEntryMap.KeySet()) {
                   system.debug('inside retail pricebook entry loop');
-                           if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD3' && ProductMap.ContainsKey(prdId) && RetailPriceBook.Id != null ) {
+                           if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD3' && ProdcutPriceEntryMap.ContainsKey(prdId) && RetailPriceBook.Id != null ) {
                                PricebookEntry pricebookEntry = new PricebookEntry(Pricebook2Id = RetailPriceBook.Id,Product2Id =ProdcutPriceEntryMap.get(prdId).Id ,UnitPrice = 340,IsActive = true);
                                  retailPBEntryList.add(pricebookEntry);
                                     system.debug('Inside if first pricebook loop');                                                                                                                                                                              
                    	  		 }
                  			 system.debug('productName---->'+prdId);
-                			 if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD31' && ProductMap.ContainsKey(prdId) && RetailPriceBook.Id != null ) {
+                			 if(ProdcutPriceEntryMap.get(prdId).StockKeepingUnit == 'R1050400AD31' && ProdcutPriceEntryMap.ContainsKey(prdId) && RetailPriceBook.Id != null ) {
                                PricebookEntry pricebookEntry = new PricebookEntry(Pricebook2Id = RetailPriceBook.Id,Product2Id = ProdcutPriceEntryMap.get(prdId).Id,UnitPrice = 200,IsActive = true);
                                  retailPBEntryList.add(pricebookEntry);
                                     system.debug('Inside if second pricebook loop');                                                                                                                                                                              

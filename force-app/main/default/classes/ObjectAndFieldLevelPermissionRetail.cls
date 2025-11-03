@@ -464,8 +464,8 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
                     userRecord.IsPortalEnabled = true;
                     UPDATE userRecord;
                 }
-                List<PermissionSet> pSet = [SELECT Id FROM PermissionSet WHERE Name ='Commerce_Shopper' LIMIT 1]; //Check
-                
+                //List<PermissionSet> pSet = [SELECT Id FROM PermissionSet WHERE Name ='Commerce_Shopper' LIMIT 1]; //Check
+                List<PermissionSetGroup> pSet = [SELECT Id, DeveloperName, Status FROM PermissionSetGroup WHERE DeveloperName = 'Commerce_Shopper' LIMIT 1];
                 //List<PermissionSet> pSet = [SELECT Id FROM PermissionSet WHERE Name ='SDO_Community_Customer_Community_Plus_Permissions' LIMIT 1];//Need to check
                 System.debug('Retail perm set'+pSet);
                 // Create the Permission Set Assignment
@@ -473,7 +473,7 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
                     System.debug('Retail perm set 333'+pSet);
                     PermissionSetAssignment permSetAssign = new PermissionSetAssignment(
                         AssigneeId = usr.Id,
-                        PermissionSetId = pSet[0].Id
+                        PermissionSetGroupId = pSet[0].Id
                     );
                     // Insert the Permission Set Assignment
                     insert permSetAssign;
@@ -502,9 +502,9 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
     public static void assignCommunityUserToBuyerGroup(){
         List<BuyerGroup> buyerGroups = [SELECT Id, Name FROM BuyerGroup WHERE Name IN ('Outfitters Authenticated users', 'Outfitters Buyer Group')]; //Outfitters Authenticated users / Outfitters Buyer Group
         system.debug('buyerGroups'+buyerGroups);
-        List<Contact> con = [SELECT Id,AccountId,Email FROM Contact WHERE Email ='dmacintosh@yopmail.com'];
+        List<Contact> con = [SELECT Id,AccountId,Email FROM Contact WHERE Email ='msmith@yopmail.com' Limit 1]; //dmacintosh@yopmail.com
         system.debug('con'+con[0].AccountId);
-        if(!con.isEmpty() && buyerGroups != null){
+        if(!con.isEmpty() && buyerGroups != null){ 
             /*BuyerGroupMember buyerGroupMember = new BuyerGroupMember(BuyerId = con[0].AccountId,BuyerGroupId= buyerGroupId);
 insert buyerGroupMember;
 } */
