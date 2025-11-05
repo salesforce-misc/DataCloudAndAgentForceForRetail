@@ -130,7 +130,7 @@ The Data Kit is installed as a part of the Package installation. Follow the step
   Complete this step only if you have setup a connection and the file notification process in AWS
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
-  | Create Return_FAQ DLO Creation | - Click on Data Lake Object Click on New </br>- Click on Create from Data Kits, Click on Next </br>- Select Return FAQ. </br>-Foe Connection Select “hosporgfarm’.</br>- Click on Next. </br>- Make Sure that API Name doesnot append with 1, if you see 1 appended then remove it.</br>- Click on Next.</br>- Click on Save.|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake2.png)|
+  | Create Return_FAQ DLO Creation | - Click on Data Lake Object Click on New </br>- Click on Create from Data Kits, Click on Next </br>- Select Return FAQ. </br>-For Connection Select “hosporgfarm’.</br>- Click on Next. </br>- Make Sure that API Name doesnot append with 1, if you see 1 appended then remove it.</br>- Click on Next.</br>- Click on Save.|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake2.png)|
 
    ### 1e. Create Party Identification Collection Data Lake (5 minutes)(CHECK)
   | Step | Action and Details | Images |
