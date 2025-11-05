@@ -248,14 +248,7 @@
         <connector>
             <targetReference>Copy_1_of_Is_Return_Product_Empty</targetReference>
         </connector>
-        <filterLogic>(1 AND( 2 OR 3 OR 4))</filterLogic>
-        <filters>
-            <field>ssot__ProductId__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Product_Name.ssot__ProductSKU__c</elementReference>
-            </value>
-        </filters>
+        <filterLogic>( 1 OR 2 OR 3)</filterLogic>
         <filters>
             <field>ssot__Description__c</field>
             <operator>EqualTo</operator>
@@ -288,7 +281,7 @@
             <targetReference>Get_Membership_Number</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Get_Real_Time_Product_Id</name>
         <label>Get Real-Time Product Id</label>

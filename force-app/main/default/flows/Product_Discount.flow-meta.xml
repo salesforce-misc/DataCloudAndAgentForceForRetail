@@ -157,7 +157,7 @@
             <field>ProductId</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Real_Time_Product_Id.outputReply</elementReference>
+                <elementReference>Get_ProductName.Id</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
