@@ -481,15 +481,15 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 | Get the Code Snippet Values | - Click on Setup </br>- In Quick Find , search Embedded Service Deployment. </br>- Click on ESA Web Deployment. </br>- Scroll down and Click on Install Code Snippet. </br>- **Copy the Chat Code Snippet in a Notepad**. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/CustomMetadata/CustomMeatadata1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/CustomMetadata/CustomMeatadata2.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/CustomMetadata/CustomMeatadata3.png)
 | Update the Custom Metadata  | - Click on Setup </br>- In Quick Find , search Custom Metadata. </br>- Click on Manage Records for SurveyConfigFlyout Metadata. </br>- Click on of  Edit SurveyConfigFlyout. </br>- From the above code snippet that we have copied in Notepad Update the Bootstrap Link,ESA Deployment Link,Srct Url. </br>- In Quick find Search For Company information , there you can find the OrgId. </br>- In Quick Find search for All Site and Copy the URL of Outfitters Site and update the Site Url of Custom Metadata. </br>- In the Quick Find Search for CORS and copy the VisualForce Page URL and update it in returnLabelVFPageUrl. </br>- To Update the value of **Recall Product Table Name**:</br>- Go to Data Model</br>- Search Activation </br>- Copy the API name of Activation Audience latest - Data Cloud Target and paste it under Recall Product Table Name </br>- Save the CustomMetadata. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/CustomMetadata/CustomMeatadata4.png) ![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/CustomMetadata/CustomMeatadata5.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/CustomMetadata/CustomMeatadata6.png)|
 
-#### 4.Update Prompt Template(5 minutes)
+#### 3a.Update Prompt Template(5 minutes)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 |Update Prompt Template URL | - Click on Setup </br>- In the Quick Find Search for CORS and copy the VisualForce Page URL and note it down in notepad. </br>- In Quick Find Search for Prompt Template. </br>- Search and Select **Download Return Label** Prompt and Paste the Visualforcepage Domain URL </br>- Save as New Version. </br>-Click on Activate. |![image](https://github.com/user-attachments/assets/95efd64a-9709-445a-a62e-414b6e482b84)
 
 
-### 3. Prepare Agentforce
+#### 3b. Prepare Agentforce
 
-#### 3a. Add Agent User into Agentforce Service Agent and Activate (5 minutes)
+##### . Add Agent User into Agentforce Service Agent and Activate (5 minutes)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Add Agent User into Agentforce Service Agent & Activate |- Click on setup, search for Agent</br>- Click on Agentforce Agents (under Einstein --> Einstein Generative AI --> Agentforce Studio)</br>- In the Agent list, click on 'Agentforce Service Agent'</br>- In the Details tab, click on the pencil icon against **"Agent User"**, select 'Agent User' </br>- Check the check box **'Keep a record of conversations with Enhanced Event Logs to review agent behavior.'** </br>- Click on Save then click on Open Builder </br>- Click Activate  |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/AgentforceServiceAgent.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/AgentforceServiceAgent1.png)|
