@@ -428,7 +428,8 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 #### 2a. Activate Messaging Setting (5 minutes)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
-| Activate Messaging Setting | - Navigate to Setup go to messaging setting</br>-  Click on ESA Channel \-\> Click on ‘Activate’</br>- Click on Checkbox then click on Accept  | ![image](https://github.com/user-attachments/assets/76464f8a-76eb-4226-9805-010e439d7a4d)![image](https://github.com/user-attachments/assets/68e08609-1b76-442d-8396-29465b8ce0e7)|
+|Turn on Messaging Setting| -- Navigate to Setup go to messaging setting. </br>- Toggle on the messaging.||
+| Activate ESA Channel| - Navigate to Setup go to messaging setting</br>-  Click on ESA Channel \-\> Click on ‘Activate’</br>- Click on Checkbox then click on Accept  | ![image](https://github.com/user-attachments/assets/76464f8a-76eb-4226-9805-010e439d7a4d)![image](https://github.com/user-attachments/assets/68e08609-1b76-442d-8396-29465b8ce0e7)|
 
 #### 2b. Configure Digital Experience (20 minutes)
 | Step  | Action and Details  |  Images |
