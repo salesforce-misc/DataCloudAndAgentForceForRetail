@@ -489,7 +489,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 
 #### 3b. Prepare Agentforce
 
-##### . Add Agent User into Agentforce Service Agent and Activate (5 minutes)
+##### Add Agent User into Agentforce Service Agent and Activate (5 minutes)
 | Step  | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Add Agent User into Agentforce Service Agent & Activate |- Click on setup, search for Agent</br>- Click on Agentforce Agents (under Einstein --> Einstein Generative AI --> Agentforce Studio)</br>- In the Agent list, click on 'Agentforce Service Agent'</br>- In the Details tab, click on the pencil icon against **"Agent User"**, select 'Agent User' </br>- Check the check box **'Keep a record of conversations with Enhanced Event Logs to review agent behavior.'** </br>- Click on Save then click on Open Builder </br>- Click Activate  |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/AgentforceServiceAgent.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Finish%20Configuration/AgentforceServiceAgent1.png)|
