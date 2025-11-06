@@ -89,10 +89,7 @@
         <enabled>true</enabled>
     </classAccesses>
    
-    <classAccesses>
-        <apexClass>weatherService</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>GetWeather</apexClass>
         <enabled>false</enabled>
