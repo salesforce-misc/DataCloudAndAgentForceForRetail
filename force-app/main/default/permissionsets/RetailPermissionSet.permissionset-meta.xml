@@ -88,7 +88,10 @@
         <apexClass>GuestORLoggedInUserCheck</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-   
+    <classAccesses>
+        <apexClass>SFMCCalloutService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     
     <classAccesses>
         <apexClass>GetWeather</apexClass>
