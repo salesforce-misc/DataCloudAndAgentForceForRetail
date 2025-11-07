@@ -321,7 +321,7 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
                 map<string,string> mapOfPSwithAgentUser = new map<string,string>();
                 
                 User agentUser = [SELECT Id FROM User WHERE FirstName='Agent' AND LastName ='User' LIMIT 1];
-                List<PermissionSet> permSet = [SELECT Id,Name FROM PermissionSet Where Name IN ('AgentforceServiceAgentUser', 'Outfitters_Service_Agent', 'CopilotSalesforceUser','GenieUserEnhancedSecurity')];//3
+                List<PermissionSet> permSet = [SELECT Id,Name FROM PermissionSet Where Name IN ('AgentforceServiceAgentUser', 'Outfitters_Service_Agent', 'CopilotSalesforceUser','GenieUserEnhancedSecurity','RetailPermissionSet')];//3
                 List<PermissionSetLicense> pslicense= [SELECT DeveloperName,Id,MasterLabel FROM PermissionSetLicense Where MasterLabel ='Agentforce Service Agent User' LIMIT 1];
                 List<PermissionSetAssignment> listOfPSA = [SELECT Id,AssigneeId,PermissionSetId FROM PermissionSetAssignment WHERE AssigneeId=:agentUser.Id and PermissionSetId IN:permSet];
                 if(listOfPSA.size()>0){
@@ -437,33 +437,44 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
             List<Contact> contactRecord = [SELECT Id, FirstName, Name, LastName, Email FROM Contact WHERE Name = 'Mark Smith' AND Email='msmith@yopmail.com' LIMIT 1];
             List<UserLicense> ul=[SELECT Id, Status, MasterLabel, Name FROM UserLicense Where Name='Customer Community Plus' LIMIT 1];
             List<Profile> profList = [SELECT Id, UserLicenseId FROM Profile Where Name = 'Outfitters Profile' LIMIT 1];
-            
             if (!contactRecord.isEmpty() && !profList.isEmpty()) {
-                String emailAddress = contactRecord[0].Email;
-                System.debug('community user email ->'+emailAddress);
-                String userName = emailAddress +'.'+'customerUser'+System.now().format('ddMMyyyyHHmmss').substring(8,14);
+                List<User> usr = new List<User>();
+                usr = [Select Id,Name from User WHERE ContactId = :contactRecord[0].Id LIMIT 1];
+                if(usr.isEmpty()){
+                    String emailAddress = contactRecord[0].Email;
+                    System.debug('community user email ->'+emailAddress);
+                    String userName = emailAddress +'.'+'customerUser'+System.now().format('ddMMyyyyHHmmss').substring(8,14);
+                    
+                    User usrs = new user();
+                    usrs.FirstName = 'Mark';
+                    usrs.LastName='smith';
+                    usrs.Email = emailAddress;
+                    usrs.Alias = 'msmith';
+                    usrs.Username = userName;
+                    usrs.LocaleSidKey = 'en_US';
+                    usrs.TimeZoneSidKey = 'GMT';
+                    usrs.ProfileID = profList[0].Id;
+                    usrs.LanguageLocaleKey = 'en_US';
+                    usrs.EmailEncodingKey = 'UTF-8';
+                    usrs.ContactId = contactRecord[0].Id;
+                    //usr.IsPortalEnabled = true;
+                    usr.add(usrs);
+                    if(!usr.isEmpty()){
+                        insert usr;
+                        System.debug(usr + 'usr');
+                        if(!usr.isEmpty()){
+                            usr[0].IsPortalEnabled = true;
+                            UPDATE usr;
+                        }
+                    }                    
+                }
                 
-                User usr = new user();
-                usr.FirstName = 'Mark';
-                usr.LastName='smith';
-                usr.Email = emailAddress;
-                usr.Alias = 'msmith';
-                usr.Username = userName;
-                usr.LocaleSidKey = 'en_US';
-                usr.TimeZoneSidKey = 'GMT';
-                usr.ProfileID = profList[0].Id;
-                usr.LanguageLocaleKey = 'en_US';
-                usr.EmailEncodingKey = 'UTF-8';
-                usr.ContactId = contactRecord[0].Id;
-                //usr.IsPortalEnabled = true;
-                insert usr;
-                System.debug(usr + 'usr');
                 
-                User userRecord = [SELECT Id, IsPortalEnabled, ProfileId FROM User WHERE ContactId = :contactRecord[0].Id LIMIT 1]; 
+                /*User userRecord = [SELECT Id, IsPortalEnabled, ProfileId FROM User WHERE ContactId = :contactRecord[0].Id LIMIT 1]; 
                 If(userRecord != NULL){
                     userRecord.IsPortalEnabled = true;
                     UPDATE userRecord;
-                }
+                }*/
                 //List<PermissionSet> pSet = [SELECT Id FROM PermissionSet WHERE Name ='Commerce_Shopper' LIMIT 1]; //Check
                 List<PermissionSetGroup> pSet = [SELECT Id, DeveloperName, Status FROM PermissionSetGroup WHERE DeveloperName = 'Commerce_Shopper' LIMIT 1];
                 //List<PermissionSet> pSet = [SELECT Id FROM PermissionSet WHERE Name ='SDO_Community_Customer_Community_Plus_Permissions' LIMIT 1];//Need to check
@@ -472,7 +483,7 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
                 if(!pSet.isEmpty()){
                     System.debug('Retail perm set 333'+pSet);
                     PermissionSetAssignment permSetAssign = new PermissionSetAssignment(
-                        AssigneeId = usr.Id,
+                        AssigneeId = usr[0].Id,
                         PermissionSetGroupId = pSet[0].Id
                     );
                     // Insert the Permission Set Assignment
@@ -483,7 +494,7 @@ System.debug('Error assigning permission for ' + objectName + ': ' + e.getMessag
                 if(!permSet.isEmpty()){
                     // Create the Permission Set Assignment
                     PermissionSetAssignment permSetAssign = new PermissionSetAssignment(
-                        AssigneeId = usr.Id,
+                        AssigneeId = usr[0].Id,
                         PermissionSetId = permSet[0].Id
                     );
                     // Insert the Permission Set Assignment

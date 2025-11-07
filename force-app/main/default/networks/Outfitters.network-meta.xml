@@ -6,7 +6,7 @@
     <communityRoles/>
     <description>Outfitters</description>
     <disableReputationRecordConversations>true</disableReputationRecordConversations>
-    <emailSenderAddress>epic.orgfarm@salesforce.com.invalid</emailSenderAddress>
+    <emailSenderAddress>gdevadoss@salesforce.com</emailSenderAddress>
     <emailSenderName>Outfitters</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>
