@@ -3,26 +3,10 @@
     <apiVersion>63.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
-        <name>MembershipValue</name>
-        <label>MembershipValue</label>
-        <locationX>380</locationX>
-        <locationY>242</locationY>
-        <assignmentItems>
-            <assignToReference>memberNumber</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Membership_Number.ssot__IdentificationNumber__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Get_Return_Order</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Output</name>
         <label>Output</label>
         <locationX>50</locationX>
-        <locationY>1322</locationY>
+        <locationY>1214</locationY>
         <assignmentItems>
             <assignToReference>outputResponse</assignToReference>
             <operator>Assign</operator>
@@ -35,7 +19,7 @@
         <name>Product_Name</name>
         <label>ProductName</label>
         <locationX>380</locationX>
-        <locationY>674</locationY>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>productName</assignToReference>
             <operator>Assign</operator>
@@ -51,7 +35,7 @@
         <name>SKU_Number</name>
         <label>SKU Number</label>
         <locationX>182</locationX>
-        <locationY>998</locationY>
+        <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>MembershipNumber</assignToReference>
             <operator>Assign</operator>
@@ -67,7 +51,7 @@
         <name>Copy_1_of_Is_Return_Product_Empty</name>
         <label>Copy 1 of Is Return Product Empty?</label>
         <locationX>182</locationX>
-        <locationY>1214</locationY>
+        <locationY>1106</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Copy_1_of_Check_Return_Product</name>
@@ -89,11 +73,11 @@
         <name>Is_Description_and_SKU_Empty</name>
         <label>Is Description and SKU Empty?</label>
         <locationX>380</locationX>
-        <locationY>890</locationY>
+        <locationY>782</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Check_For_Null</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Product_Name.ssot__Description__c</leftValueReference>
                 <operator>IsBlank</operator>
@@ -148,7 +132,7 @@
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>MembershipValue</targetReference>
+            <targetReference>Get_Return_Order</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -166,7 +150,7 @@
         <name>Get_Product</name>
         <label>Get Product</label>
         <locationX>380</locationX>
-        <locationY>566</locationY>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Product_Name</targetReference>
@@ -187,7 +171,7 @@
         <name>Get_Product_Name</name>
         <label>Get Product Name</label>
         <locationX>380</locationX>
-        <locationY>782</locationY>
+        <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Is_Description_and_SKU_Empty</targetReference>
@@ -215,7 +199,7 @@
         <name>Get_Return_Order</name>
         <label>Get Return Order</label>
         <locationX>380</locationX>
-        <locationY>350</locationY>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Real_Time_Product_Id</targetReference>
@@ -225,7 +209,7 @@
             <field>ssot__CustomerAccountId__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>memberNumber</elementReference>
+                <elementReference>Get_Membership_Number.ssot__IdentificationNumber__c</elementReference>
             </value>
         </filters>
         <filters>
@@ -243,12 +227,12 @@
         <name>Get_Return_Product</name>
         <label>Get Return Product</label>
         <locationX>182</locationX>
-        <locationY>1106</locationY>
+        <locationY>998</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Copy_1_of_Is_Return_Product_Empty</targetReference>
         </connector>
-        <filterLogic>( 1 OR 2 OR 3)</filterLogic>
+        <filterLogic>(1 OR 2 OR 3)</filterLogic>
         <filters>
             <field>ssot__Description__c</field>
             <operator>EqualTo</operator>
@@ -286,7 +270,7 @@
         <name>Get_Real_Time_Product_Id</name>
         <label>Get Real-Time Product Id</label>
         <locationX>380</locationX>
-        <locationY>458</locationY>
+        <locationY>350</locationY>
         <connector>
             <targetReference>Get_Product</targetReference>
         </connector>
@@ -316,13 +300,6 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>memberNumber</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>
