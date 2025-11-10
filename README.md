@@ -303,6 +303,7 @@ $${\color{red} 6.\space Add CMS Product Images}$$
 | Step | Action and Details  |  Images |
 | ----- | ----- | ----- |
 | Enable Guest access | - Click on App Launcher, Search Commerce and Select Commerce Application. </br>- On the left hand side Click on Store. </br>- Go to Buyer Access Tab. </br>- Scroll down to Guest Access Section. </br>- Click on Enable button.|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Commerce%20Cloud%20Config%20Images/GuestAccessCommerce.png)|
+|Assign Guest Profile with Buyer Access| - Click on App Launcher, Search Commerce and Select Commerce Application. </br>- On the left hand side Click on Store.</br>- Go to Buyer Access Tab.</br>- Scroll down to Guest Access Section. </br>- Click on **Outfitters Guest Buyer Profile** link. </br>- Go to Related Tab. </br>- Click on the assign button of Buyer Group Section. </br>- Select **Outfitters Authenticated Users** Buyer Group.</br>- Click on Assign|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Commerce%20Cloud%20Config%20Images/GuestAccessCommerce.png)|
 
 
 ### 6. Setup Data in Snowflake (15 minutes) $${\color{blue} Snowflake \space Optional: \space Please \space note \space that \space some \space functionality \space in \space the \space C360 \space will \space no\space longer \space function\space as \space expected \space if \space not \space installed. }$$
