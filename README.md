@@ -245,8 +245,8 @@ $${\color{red} 6.\space Add CMS Product Images}$$
 ### 7. Publish Website Design (15 minutes)
   | Step  | Action and Details  |  Images |
   | ----- | ----- | ----- |
-  | Publish Website Design    |- Click on App Launcher.</br>- Select commerce application. </br>- Go to store\>\> select Outfitters \>\>Scroll down to Website Design\>\> select **product, category** from dropdown \>\> click on Publish button (this step maybe not be needed if you are commerce console)</br>- Go back to Outfitters Store\>\>Click on Home\>\> click on preview the site and see product is getting displayed|![image
-  | Update Search Index |- From Commerce App Go to Setting >> Search.  </br>- Under Search Index Tab >> Click on Update Button on the top Right corner. </br>- Select Full Update. </br>- Wait until the update completes to see the product in ExperienceSite. |![image]()| 
+  | Publish Website Design    |- Click on App Launcher.</br>- Select commerce application. </br>- Go to store\>\> select Outfitters \>\>Scroll down to Website Design\>\> select **product, category** from dropdown \>\> click on Publish button (this step maybe not be needed if you are commerce console)</br>- Go back to Outfitters Store\>\>Click on Home\>\> click on preview the site and see product is getting displayed|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Commerce%20Cloud%20Config%20Images/WebsiteDesign.png)||
+  | Update Search Index |- From Commerce App Go to Setting >> Search.  </br>- Under Search Index Tab >> Click on Update Button on the top Right corner. </br>- Select Full Update. </br>- Wait until the update completes to see the product in ExperienceSite. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Commerce%20Cloud%20Config%20Images/searchupdate1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Commerce%20Cloud%20Config%20Images/searchupdate2.png)| 
   
 ### 8. Enable Self Registration (5 minutes)
   | Step  | Action and Details  |  Images |
