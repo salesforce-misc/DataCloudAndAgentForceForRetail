@@ -104,7 +104,7 @@ The Outfitters app showcases how with **Data Cloud** we have a true Customer 360
   
   ## 3. Data Cloud Configuration
 </summary>
-8 step process
+11 step process
 
 ### 1. Setup Data Streams 
 The Data Kit is installed as a part of the Package installation. Follow the steps below to create data streams.
@@ -132,7 +132,7 @@ The Data Kit is installed as a part of the Package installation. Follow the step
   | ----- | ----- | ----- |
   | Create Return_FAQ DLO Creation | - Click on Data Lake Object Click on New </br>- Click on Create from Data Kits, Click on Next </br>- Select Return FAQ. </br>-For Connection Select “hosporgfarm’.</br>- Click on Next. </br>- Make Sure that API Name doesnot append with 1, if you see 1 appended then remove it.</br>- Click on Next.</br>- Click on Save.|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake2.png)|
 
-   ### 1e. Create Party Identification Collection Data Lake (5 minutes)(CHECK)
+   ### 1d. Create Party Identification Collection Data Lake (5 minutes)(CHECK)
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
   | Create Party Identification Collection DLO Creation  | - Click on Data Lake Objects Tab </br>- Click on New</br>- Click on “Create from Data Kits”, Click on Next  and select “RetailDataKit” package </br>- Select Party Identification Collection.</br>- Click on Next </br> - Click on Save. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/PartyIdentificationDLO.png)|
@@ -174,22 +174,22 @@ The Data Kit is installed as a part of the Package installation. Follow the step
 | Create Data Cloud Field Enrichment of ‘Engagement Score’ |-> Go to Object Manager.</br>- Search for Contact.</br>- Click on Contact</br>- Click on Data cloud Copy Field.</br>-  Click on New.</br>- Select data space as ‘default’</br>- Select Data Cloud Object as ‘Engagement_Score__cio’</br>- Click on Next</br>- Select Field As ‘Engagement_Score’</br> - Click on Next </br>- Give Label as ‘Engagement Score default’</br>- Click on Finish </br>- On Contact Select EngagementScore__c </br>- Save and Start Sync.|![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Data%20Cloud%20Configuration%20Images/Engagement%20Score1.png)![image](https://git.soma.salesforce.com/gdevadoss/DataCloudRetailDemo/blob/master/Data%20Cloud%20Configuration%20Images/Engagement%20Score2.png)|
 |Create Variation Attribute Set |- Go to App launcher>> Search for Commerce>> Open it </br>- Select the "Outfitters" store </br>- From the left navigation bar, choose "Settings", then "Product", and finally "Variation Attribute Set". </br>- Click on New. </br>- Provide Name as **Shoe Variations**. </br>- From the available Fields select **Stars,Weight,Ventilation,Category,Durability** and move it to Selected Fields. </br>- Click on Save. </br>- Click on New to create another variation set attribute. </br>- Give name as **Tent Sleeping Bags**.</br>- But only add the "Size" attribute from available to selected fields . |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/VariationAttributeSet1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/VariationAttributeSet2.png) |
 
-### 8a. Create Activation Targets
+### 8. Create Activation Targets
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Data Cloud Activation Target | Go to Data Cloud app </br> - Click on Activation Target </br> - Click on New </br> - Select ‘Data Cloud’ under targets. </br> - Click on Next. </br> -In Activation Target name provide ‘Data Cloud Target’ </br> - Under dataspace, select as ‘default’ </br> - Click on Save|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ActivationTarget.png) |
 
-### 8b. Create Segment from Data Kit
+### 9. Create Segment from Data Kit
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Segment | Go to Data Cloud app </br> - Click on the Segment tab  </br> - Click New </br> - Select "Installed from Data Kit” </br> - Choose "RetailDataKit" </br> - Click on Next </br> -  Select Segment as Individual and provide Segment name as Get Customers. </br> - Select Standard Publish </br> - Select Publish Schedule to 4 hrs and select the start and end date. </br> - Click on Save. </br> - Click on Publish now button. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/SegmentCreation1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/SegmentCreation2.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/SegmentCreation3.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/SegmentCreation4.png) |
 
-### 8c. Create Activations 
+### 10. Create Activations 
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Activations | By default, space is default </br> - Need to select the Get Customer segment and activation target as data cloud  </br> - Click on continue </br> - Select Email.</br> -Click on Continue </br> - Click on Add attributes  </br> - Scroll to Related Attributes. </br>- Select SalesOrder , then Drag and drop **SoldToCustomer** and **OrderNumber**. </br>- Select SalesOrderProduct >> Product by scrolling a bit up.</br>- Drag and Drop **ProductId,ProductName** and **Recall**</br> - Click on Save. </br>- For SalesOrder Under SortBy select **SoldToCustomer** Descending. </br>- Under Product select Sortby **ProductName** Ascending. </br>- Click on Next.</br>- Give Name as **Get Recalled Customers**.</br> Select RefreshType as **FullRefresh**.|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/Activation1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/Activation2.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/Activation3.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/Activation4.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/Activation5.png)|
 
-### 9. Create Search Fields
+### 11. Create Search Fields
 | Step | Action and Details | Images |
 | ----- | ----- | ----- |
 | Create Search Fields | Go to App launcher>> Search for Commerce>> Open it </br> - Select the "Outfitters" store  </br> - From the left navigation bar, choose "Settings",then "Search", and finally "Searchable Fields".  </br> - Click on Manage Searcheable Fields </br> - Add **Weight,Ventilation,Stars,Durability,Category** - Standard Fields that are required. |![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/searchableFields.png)|
@@ -202,7 +202,7 @@ The Data Kit is installed as a part of the Package installation. Follow the step
   ## 4. Commerce Cloud Configuration
 </summary>
 
-8 step process
+10 step process
 
 ### 1. Verify Organization Wide Address (5 minutes)
   | Step  | Action and Details  |  Images |
