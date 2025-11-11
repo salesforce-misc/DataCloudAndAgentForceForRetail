@@ -406,7 +406,7 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 
  ## 6. Finish Configuration
 </summary>
-8 step process
+10 step process
 
 ### 1. Prepare Data Cloud
 
