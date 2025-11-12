@@ -132,6 +132,10 @@ The Data Kit is installed as a part of the Package installation. Follow the step
   | ----- | ----- | ----- |
   | Create Return_FAQ DLO Creation | - Click on Data Lake Object Click on New </br>- Click on Create from Data Kits, Click on Next </br>- Select Return FAQ. </br>-For Connection Select “hosporgfarm’.</br>- Click on Next. </br>- Make Sure that API Name doesnot append with 1, if you see 1 appended then remove it.</br>- Click on Next.</br>- Click on Save.|![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake1.png)![image](https://github.com/salesforce-misc/DataCloudAndAgentForceForRetail/blob/main/Data%20Cloud%20Configuration%20Images/ReturnDataLake2.png)|
 
+|Create a Retriver if not present|**Note:** If Default Retriver is not present then create a retriver by following below steps. <br/> - Click on App Launcher>>Click on Data Cloud>>Click on Einstein Studio tab<br/>-Click on Retriver>>Click on New Retriver button>>Select Individual Retriver<br/>-Click on Data Cloud>>Select Data Space as default,Select Return_FAQ DMO, Select Return_FAQ as Search Index>> Click on Next<br/>-Click on All Documents and click on Next<br/>-For Field Name, Select Related Attribute and select Return FAQ.chunk and select internal organization from Attribute and field label auto populated<br/>-Click on Add Field and add the field from related attribute of Return FAQ.chunk from screenshot and click on Next and click on save<br/> Once its saved then click on Activate button<br/> ||
+
+|Rebuild the search index|-Click on App Launcher>>Click on Data Cloud>>Click on Search Index tab<br/>-Click on Return FAQ <br/>- Click on Rebuild button and wait untill it gets into ready status.||
+
    ### 1d. Create Party Identification Collection Data Lake (5 minutes)(CHECK)
   | Step | Action and Details | Images |
   | ----- | ----- | ----- |
