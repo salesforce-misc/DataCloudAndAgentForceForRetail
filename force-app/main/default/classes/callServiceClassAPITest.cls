@@ -19,7 +19,7 @@ public class callServiceClassAPITest {
             String sessionId = GetCustomersFromSegment.getSessionIdFromVFPage();
             System.assertEquals('MY_SESSION_ID', sessionId);
 
-            String accountId = GetCustomersFromSegment.getContactSegmentStatus(acc.Id);
+            String accountId = GetCustomersFromSegment.getContactSegmentStatus(con.Id);
 	        String id = GetCustomersFromSegment.getContactSegmentStatus('0037y00000wOOhXAAW');
 			system.debug('Id'+id);
         	system.debug('AccountID'+accountId);
