@@ -33,5 +33,5 @@
     <values>
         <field>returnLabelVFPageUrl__c</field>
         <value xsi:type="xsd:string">https://epicorgfarm-a4--retailorg2--c.sandbox.vf.force.com</value>
-    </values>
+    </values> 
 </CustomMetadata>
