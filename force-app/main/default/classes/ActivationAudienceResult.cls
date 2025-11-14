@@ -3,59 +3,57 @@ public with sharing class ActivationAudienceResult {
     @InvocableMethod(label='Get Activation Audience Result')
     public static List<Response> getAAQueryData(List<Request> requests){
         Map<String, String> recalledProductsMap = new Map<String, String>();
+        List<Response> responses = new List<Response>();
+
 		Request input = requests[0];
         String conid = input.contactId;        
         String accessToken=getAccessToken();
         System.debug('## accessToken = '+accessToken);
-         String endpoint = String.format(
+        if(accessToken != NULL && conid != NULL){
+            String endpoint = String.format(
                     'callout:DataCloud/services/data/{0}/ssot/queryv2',
                     new String[]{ API_VERSION}
                 );
-        System.debug('## endpoint = '+endpoint);
-        HttpRequest req = new HttpRequest();
-        req.setEndpoint(endpoint);
-        req.setMethod('POST');
-        req.setHeader('Content-Type', 'application/JSON');
-        SurveyFlyoutConfig__mdt lFConfig = [SELECT Recall_Product_Table_Name__c FROM SurveyFlyoutConfig__mdt LIMIT 1];
-       	System.debug('## lFConfig = '+lFConfig);
-        req.setBody('{"sql":"SELECT Activation_Record__c,Activated_Entity_Id__c FROM ' + lFConfig.Recall_Product_Table_Name__c + ' WHERE Activated_Entity_Id__c=\''+conid +'\' ORDER By Activation_Publish_Timestamp__c DESC"}');
-		req.setHeader('Authorization', accessToken);
-        Http http = new Http();
-        HttpResponse res = http.send(req);
-        System.debug('## res = '+res);
-        System.debug('## res StatusCode = '+res.getStatusCode());
-        System.debug('res body = '+res.getBody());
-        if (res.getStatusCode() == 201) {
-            String rawBody = res.getBody();
-            System.debug('## rawBody = '+rawBody);
-            //recalledProductsMap = parseAndBuildProductMap(rawBody,'0037y00000wOOjKAAW');
-            recalledProductsMap = parseAndBuildProductMap(rawBody,conid);
-        }
-        List<Response> responses = new List<Response>();
-        if (!recalledProductsMap.isEmpty()) {
-            // Get the first product name from the map (assuming only one product is found)
-            String productName = recalledProductsMap.values().iterator().next(); // Assuming one product
-            if (String.isNotEmpty(productName)) {
-               // String message = Response.generateMessage(productName);
-                String message = new Response('productId', productName, '').generateMessage(productName);
-                responses.add(new Response('productId', productName, message));
-            }
-                // Create the response with the message
-                //responses.add(new Response('productId', productName,message));
-            }
-            return responses;
-        }
+            System.debug('## endpoint = '+endpoint);
 
-        
-        
-        // if(!recalledProductsMap.isEmpty() && recalledProductsMap != null){
-        //     for(String key : recalledProductsMap.keySet()){
-        //         responses.add(new Response(key,recalledProductsMap.get(key)));
-        //     }
-        // }          
-        // System.debug('## responses = '+responses);
-        // return responses;
-    //}
+            Set<String> setOfIndividualIds = getIndividualIds(accessToken, endpoint, conid);
+            if(setOfIndividualIds != NULL){
+                HttpRequest req = new HttpRequest();
+                req.setEndpoint(endpoint);
+                req.setMethod('POST');
+                req.setHeader('Content-Type', 'application/JSON');
+                SurveyFlyoutConfig__mdt lFConfig = [SELECT Recall_Product_Table_Name__c FROM SurveyFlyoutConfig__mdt LIMIT 1];
+                System.debug('## lFConfig = '+lFConfig);
+                req.setBody('{"sql":"SELECT Activation_Record__c,Activated_Entity_Id__c FROM ' + lFConfig.Recall_Product_Table_Name__c + ' WHERE Activated_Entity_Id__c IN (\'' + String.join(new List<String>(setOfIndividualIds), '\',\'') + '\') ORDER By Activation_Publish_Timestamp__c DESC Limit 1"}');
+                req.setHeader('Authorization', accessToken);
+                Http http = new Http();
+                HttpResponse res = http.send(req);
+                System.debug('## res = '+res);
+                System.debug('## res StatusCode = '+res.getStatusCode());
+                System.debug('res body = '+res.getBody());
+                if (res.getStatusCode() == 201) {
+                    String rawBody = res.getBody();
+                    System.debug('## rawBody = '+rawBody);
+                    //recalledProductsMap = parseAndBuildProductMap(rawBody,'0037y00000wOOjKAAW');
+                    recalledProductsMap = parseAndBuildProductMap(rawBody,conid);
+                }
+                
+                if (!recalledProductsMap.isEmpty()) {
+                    // Get the first product name from the map (assuming only one product is found)
+                    String productName = recalledProductsMap.values().iterator().next(); // Assuming one product
+                    if (String.isNotEmpty(productName)) {
+                    // String message = Response.generateMessage(productName);
+                        String message = new Response('productId', productName, '').generateMessage(productName);
+                        responses.add(new Response('productId', productName, message));
+                    }
+                }
+            }
+        }  
+        System.debug('## responses = '+responses);    
+        return responses;
+    }
+
+    
     
     public static String getAccessToken() {
         String accessToken;
@@ -85,6 +83,47 @@ public with sharing class ActivationAudienceResult {
             System.debug('Error fetching access token: ' + e.getMessage());
             return null;
         }
+    }
+
+    public static Set<String> getIndividualIds(String accessToken, String endpoint, String contactId){
+        Set<String> indIds = new Set<String>();
+        if(accessToken != NULL && contactId != NULL){
+            HttpRequest req = new HttpRequest();
+            req.setEndpoint(endpoint);
+            req.setMethod('POST');
+            req.setHeader('Content-Type', 'application/JSON');
+            req.setBody('{"sql":"SELECT UnifiedRecordId__c FROM UnifiedLinkssotIndividualReal__dlm JOIN ssot__Individual__dlm ON UnifiedLinkssotIndividualReal__dlm.SourceRecordId__c = ssot__Individual__dlm.ssot__Id__c Where ssot__Id__c = \''+contactId +'\'"}');
+            req.setHeader('Authorization', accessToken);
+            Http http = new Http();
+            try{
+                HttpResponse res = http.send(req);
+                System.debug('## res = '+res);
+                System.debug('## res StatusCode = '+res.getStatusCode());
+                System.debug('res body = '+res.getBody());
+                if (res.getStatusCode() == 201) {   
+                    String rawBody = res.getBody();
+                    System.debug('## rawBody = '+rawBody);
+                    if(rawBody.contains('data')){
+                        Map<String, Object> fullResponse = (Map<String, Object>) JSON.deserializeUntyped(res.getBody());
+                        List<Object> data = (List<Object>) fullResponse.get('data');
+                        System.debug('## data = '+data);        
+                        for (Object rowObj : data) {
+                            System.debug('## rowObj = '+rowObj);
+                            List<Object> row = (List<Object>) rowObj;
+                            System.debug('## row = '+row);
+                            if (!row.isEmpty() && row[0] != null) {
+                                indIds.add((String)row[0]);
+                            }
+                        }
+                        System.debug('## indIds = '+indIds);
+                    } 
+                    
+                }
+            }catch (Exception e) {
+                System.debug('Error fetching access token: ' + e.getMessage());
+            }
+        }
+        return indIds;
     }
     
     public static Map<String, String> parseAndBuildProductMap(String rawBody, String contactId) {
