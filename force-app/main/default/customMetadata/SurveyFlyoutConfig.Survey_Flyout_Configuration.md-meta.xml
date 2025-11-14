@@ -19,6 +19,10 @@
         <value xsi:type="xsd:string">AAL_DataCloud_85UO40000017gLJMAY__dlm</value>
     </values>
     <values>
+        <field>Segment_Name__c</field>
+        <value xsi:type="xsd:string">Recall_Segment_Version_1</value>
+    </values>
+    <values>
         <field>SiteURL__c</field>
         <value xsi:type="xsd:string">https://epicorgfarm-a4--retailorg2.sandbox.my.site.com/outfitters</value>
     </values>
