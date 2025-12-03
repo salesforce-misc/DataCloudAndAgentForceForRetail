@@ -1,4 +1,4 @@
-**Outfitters**</br> 
+<img width="515" height="337" alt="image" src="https://github.com/user-attachments/assets/cd45e203-8736-4f2f-b668-0b3bd188ee39" /><img width="566" height="406" alt="image" src="https://github.com/user-attachments/assets/b944c428-90fa-4a0e-b548-b1660f588177" />**Outfitters**</br> 
 =======================
 Welcome to Outfitters, a sample retail application. Outfitters is a fictional resort that uses Agentforce, the power of Data Cloud, and the Salesforce Platform to deliver highly personalized guest experiences. Explore ways to bring agents into business workflows, including new smart By capabilities, Search Property, content generation.
 
@@ -673,8 +673,34 @@ grant select on tables in <<database_name>>.<<schema>> to role sysadmin
 
 </details>
 <details><summary>
+
+## 10. Configure Tableau Agent
+</summary>
+
+### 1. Enable Connector and Semantic Authoring AI
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+|Enable Connector and Semantic Authoring AI|Note: Because this is beta feature that's why we need to enable from Data Cloud Setup <br/> -Go to Data Cloud Setup<br/>- Click on Features and Click on Enable button Connector and Semantic Authroing AI||
+### 2. Enable Concierge and Data Pro Setting In Tableu Next
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+|-Enable Concierge setting|-Go to App Launcher>>Enter Tableau Next and click on it<br/>-Click on Administration>>Click on Settings>>Enable the toggle for Conierge:Analtyics Q&A and Data Pro - Semantic Model Curation <br/> -Cross verify this two feature enabled under Setup>>Tableau Next Features||
+### 3. Create Tableau Agent
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+|Create Tableau Agent|-Go to Setup>>Enter Agentforce in quick find box and click on Agentforce Agents<br/>-Click on New Agent>>Select Analytics and Visulization template and click on Next<br/>-Make sure Data Analysis and Data Pro- Preparation and Modeling topics pre added , if not then click on Add button and click on Next<br/>-Edit Agent Name and Description and add details for role and company, Select check box for Keep a record of conversations with enhanced event logs to review agent behavior and click on Next<br/>-Select Languages and click on Create Button<br/>||
+### 4. Add Permission Set To Tableau Agent
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+|-Add Permission Set to Agent|-Go to Setup>>Enter Agentforce in quick find box and click on Agentforce Agents>>Open Tableau Agent(newly created agent) <br/>-Click on Agent Access and click Permission Sets with Agents Access >> Click on Add button and Select the permission set from the screenshot(If permission Set is not present then create a dummy permission set )<br/>-Click Profiles with Agent Access and click on Add button and select System Administrator profile. ||
+### 5. Add Topic Into Tableau Agent
+| Step  | Action and Details  |  Images |
+| ----- | ----- | ----- |
+|Add Topic into Agent|-Go to Setup>>Enter Agentforce in quick find box and click on Agentforce Agents>>Open Tableau Agent(newly created agent)>>click on open in builder button <br/>-Click on Add from Asset Library and Select Dashboard Display and click on Finish<br/>-Click the topic and go to topic action and click on New and select Add from Asset Library and select Display Tableau Dashboard Url agent action and click on Finish<br/>-Click on Activate button and click on Ignore and Activate||
+</details>
+<details><summary>
   
-  ## Behind the Scenes - how is the agent powered?
+## Behind the Scenes - how is the agent powered?
 </summary>
 Curious to see the all the possible utterances  and how they are powered by the Agent. Here is a list of all the possible coversations, the corresponding topics and the components that power them. </br></br>
 There are two contacts populated with all the relevant information to drive these conversations - Mark Smith. You can login to experience cloud as either of these contacts to have these full agent conversations.
@@ -694,5 +720,14 @@ $${\color{blue} Using \space the \space Agent \space to \space search \space for
    | 9.  | I am also interested in Homestead Domey 3 Tent | The system checks the ProductItem DMO to verify the availability of the product. If the product is unavailable, it suggests similar product options to the user. | Check Product Stock | a. Flow </br>- Check Product Availability </br></br> b.Apex </br>-GuestORLoggedInUserCheck. </br></br> c.Prompt Action </br>-Up Sell Products |
    | 10. | Where is my Order | Looks at the Sales_Order DMO based on the Contact ID of the user using the agent. | Order Enquiry | a. Flow </br>- Fetch_Recent_Order |
    | 11. | I would like to process a return | The system queries the Sales_Order DMO using the user's Contact ID to check the delivery status of the order. Based on the delivery status, it will prompt the user to generate a return label if applicable. | Return Request Assistance</br>Generate Return Label</br>| a. Flow </br>- Fetch Order Details for Returning. </br></br>b. Apex </br>-ReturnLabelEvent. </br></br>c.Platform Event</br>-returnLabelEvent__e|
+
+  | Sl. No. | Utterance | Behind the Scene For Tableau Agent | Topic | Components |
+   | ----- | ----- | ----- | ----- | ----- |
+    | 1. | Show Retail Dashboard | From the Home page of Data Cloud, Click on Agent and make sure Analytics and Visulization Select and ask the question it provide and Retail Dashboard URL and on click on it it will navigate to Dashboard page | Dashboard Display| a.Display Tableau Dashboard Url(Prompt Template)|
+    | 2. | List the top performing product by  order quantity | Once you will be land on dashboard page refresh the page and click on overview butto and click on the agent and ask the question it will get the details from standard topic  | Data Analysis<br/> Data Pro- Semantic Model Curation| Standard Topics: Data Analysis<br/> Data Pro- Semantic Model Curation|
+    | 3. | List the least performing product by  order quantity | Once you will be land on dashboard page refresh the page and click on overview butto and click on the agent and ask the question it will get the details from standard topic  | Data Analysis<br/> Data Pro- Semantic Model Curation| Standard Topics: Data Analysis<br/> Data Pro- Semantic Model Curation|
+  
+    
+
 
 </details>
