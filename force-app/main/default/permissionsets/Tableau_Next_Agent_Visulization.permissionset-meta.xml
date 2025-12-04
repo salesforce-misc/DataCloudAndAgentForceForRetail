@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    
+    <agentAccesses>
+        <agentName>Analytics_and_Visualization</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
+    <agentAccesses>
+        <agentName>Analytics_and_Visualizations</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Tableau Next Agent Visulization</label>
 </PermissionSet>

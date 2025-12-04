@@ -1,0 +1,14 @@
+{
+  "required" : [ "Input:Question" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Question" : {
+      "title" : "Question",
+      "description" : "Customer Query",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>geL6H6xEbIgUQEj/UqUfOAiIByHWFST20mDNJCUJ108=_2</activeVersionIdentifier>
+    <developerName>Display_Tableau_Dashboard_Url</developerName>
+    <masterLabel>Display Tableau Dashboard Url</masterLabel>
+    <templateVersions>
+        <content>Prompt{!$Input:Question} Objective : You are an AI expert to resolve user query regarding sales performance dashboard . return rate dashboard then display the url in hyperlink format.
+
+User input: {!$Input:Question}
+
+Prompt Instruction:
+1. If {!$Input:Question} contains return rate or Return Rate words then display below result in hyperlink format
+Result: &lt;a href=&apos;/lightning/n/Product_Details1&apos;&gt; Return Rate Dashboard &lt;/a&gt;
+2. If {!$Input:Question} contains sales performance or Sales Performance  words then display below result in hyperlink format
+Result: &lt;a href=&apos;/lightning/n/Sales_Performance&apos;&gt; Sales Performance Dashboard &lt;/a&gt;
+3. Result always display in hyperlink format.
+4. Do not display anything extra.
+</content>
+        <inputs>
+            <apiName>Question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:Question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>geL6H6xEbIgUQEj/UqUfOAiIByHWFST20mDNJCUJ108=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Prompt{!$Input:Question} Objective : You are an AI expert to resolve user query regarding sales performance dashboard . return rate dashboard then display the url in hyperlink format.
+
+User input: {!$Input:Question}
+
+Prompt Instruction:
+1. If {!$Input:Question} contains return rate or Return Rate words then display below result in hyperlink format
+Result: &lt;a href=&apos;https://epicorgfarm-8b.lightning.force.com/lightning/n/Product_Details1&apos;&gt; Return Rate Dashboard &lt;/a&gt;
+2. If {!$Input:Question} contains sales performance or Sales Performance  words then display below result in hyperlink format
+Result: &lt;a href=&apos;https://epicorgfarm-8b.lightning.force.com/lightning/n/Sales_Performance&apos;&gt; Sales Performance Dashboard &lt;/a&gt;
+3. Result always display in hyperlink format.
+4. Do not display anything extra.
+</content>
+        <inputs>
+            <apiName>Question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:Question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>geL6H6xEbIgUQEj/UqUfOAiIByHWFST20mDNJCUJ108=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

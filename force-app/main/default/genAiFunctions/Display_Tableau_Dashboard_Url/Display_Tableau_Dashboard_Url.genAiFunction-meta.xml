@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>When customer asks about generate or show dashboard url, then this action need to perform and display the url of sales performance dashboard and retail dashboard in the form of hyperlink and it should be clickable.</description>
+    <developerName>Display_Tableau_Dashboard_Url</developerName>
+    <invocationTarget>Display_Tableau_Dashboard_Url</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <localDeveloperName>Display_Tableau_Dashboard_Url</localDeveloperName>
+    <masterLabel>Display Tableau Dashboard Url</masterLabel>
+</GenAiFunction>
